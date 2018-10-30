@@ -149,8 +149,8 @@ func Template() http.Handler {
 			return
 		}
 
-		lp := path.Join("templates", "layout.html")
-		fp := path.Join("templates", r.URL.Path+".html")
+		lp := path.Join("deploy/html_menu_1/templates", "layout.html")
+		fp := path.Join("deploy/html_menu_1/templates", r.URL.Path)
 
 		info, err := os.Stat(fp)
 		if err != nil {
@@ -259,12 +259,12 @@ func main() {
         http.Handle("/sass/", http.StripPrefix("/sass/", http.FileServer(http.Dir("deploy/html_menu_1/sass"))))
         http.Handle("/video/", http.StripPrefix("/video/", http.FileServer(http.Dir("deploy/html_menu_1/video"))))
         http.Handle("/layerslider/", http.StripPrefix("/layerslider/", http.FileServer(http.Dir("deploy/html_menu_1/layerslider"))))
-        http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("deploy/html_menu_1"))))
+        // http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("deploy/html_menu_1"))))
 
 	// Templates
 	http.Handle("/courses/", http.StripPrefix("/courses/", CourseTemplate()))
 	http.Handle("/blog/", http.StripPrefix("/blog/", BlogTemplate()))
-//	http.Handle("/", http.StripPrefix("/", Template()))
+	http.Handle("/", http.StripPrefix("/", Template()))
 
 	// Stripe Chckout
 	http.Handle("/checkout", Checkout())
