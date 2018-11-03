@@ -5,13 +5,23 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+        "unicode"
+        "bytes"
 	"net/http"
 	"os"
+        "time"
 	"path"
+        "io/ioutil"
+        "strconv"
+        "github.com/ghodss/yaml"
+//        "gopkg.in/yaml.v2"
+//        "github.com/gorilla/mux"
 
 	stripe "github.com/stripe/stripe-go"
 	"github.com/stripe/stripe-go/charge"
 )
+
+
 
 type CheckoutToken struct {
 	Token      stripe.Token `json:"token"`
@@ -246,7 +256,168 @@ func CourseTemplate() http.Handler {
 	})
 }
 
+
+// ----------------COURSE STRUCT------------------------------- 
+
+type Include struct {
+  Item          string          `json:"item"`
+  Description   string          `json:"description"`
+}
+
+type PriceTag struct {
+  Name          string          `json:"name"`
+  price         int             `json:"price"`
+  Available     bool            `json:"available"`
+  Description   string          `json:"description"`
+  Includes      []Include       `json:"includes"`
+}
+
+type Book struct {
+  PriceTags   []PriceTag           `json:"price-tags"`
+}
+
+type Selfpaced struct {
+  PriceTags   []PriceTag           `json:"price-tags"`
+}
+
+type Public struct {
+  PriceTags   []PriceTag           `json:"price-tags"`
+}
+
+type Private struct {
+  PriceTags   []PriceTag           `json:"price-tags"`
+}
+
+type ExtendLmsAccess struct {
+  PriceTags   []PriceTag           `json:"price-tags"`
+}
+
+type Price struct {
+   Book             Book            `json:"book"`
+   Selfpaced        Selfpaced       `json:"self-paced"`
+   Public           Public          `json:"public"`
+   Private          Private         `json:"private"`
+   ExtendLmsAccess  ExtendLmsAccess `json:"extend-lms-access"`
+}
+
+type Slide struct {
+   GUID  string                  `rethinkdb:"guid" json:"guid"`
+   Title string                  `rethinkdb:"title" json:"title"`
+}
+
+type Subchapter struct {
+  Title  string                  `rethinkdb:"title" json:"title"`
+  Slides []Slide                 `rethinkdb:"slides" json:"slides"`
+}
+
+type Chapter struct {
+  Title       string             `rethinkdb:"title" json:"title"`
+  SubChapters []Subchapter       `rethinkdb:"subchapters" json:"subchapters"` // TODO sync with codepen json
+}
+
+type Duration struct {
+  Hours       int               `json:"hours"`
+  Days        int               `json:"days"`
+}
+
+type Testimonials struct {
+  Quotes        []string        `json:"quotes"`
+}
+
+type Lab struct {
+  Title string `rethinkdb:"title" json:"title"`
+  File  string `rethinkdb:"file" json:"file"`
+}
+
+
+type Course struct {
+  Id            string          `rethinkdb:"id" json:"id"`
+  Filename      string          `rethinkdb:"filename" json:"filename"`
+  WebURL        string          `rethinkdb:"weburl" json:"weburl"`
+  Name          string          `rethinkdb:"name" json:"name"`
+  HasSlides     bool            `rethinkdb:"has-slides" json:"has-slides"`
+  HasLabs       bool            `rethinkdb:"has-labs" json:"has-labs"`
+  HasVideos     bool            `rethinkdb:"has-videos" json:"has-videos"`
+  Private       bool            `rethinkdb:"private" json:"private"`
+  Chapters      []Chapter       `rethinkdb:"chapters" json:"chapters"` // TODO update to single-slide-mode
+  Labs          []Lab           `rethinkdb:"labs" json:"labs"`         // TODO Write
+  Expires       time.Time       `rethinkdb:"-" json:"-"`
+  Purchased     bool            `rethinkdb:"-" json:"-"`
+  Price         Price           `rethinkdb:"-" json:"price"`
+  Duration      Duration        `json:"duration"`
+  Testimonials  Testimonials    `json:"testimonials"`
+  VideoLink     string          `json:"videolink"`
+  Overview      string          `json:"overview"`
+}
+
+
+
+
+
+//----------------------------------------------------------------
+//Allow painless Ingesting of YAML
+//----------------------------------------------------------------
+func ToJSON(data []byte) ([]byte, error) {
+    if hasJSONPrefix(data) {
+        return data, nil
+    }
+    return yaml.YAMLToJSON(data)
+}
+
+var jsonPrefix = []byte("{")
+
+// hasJSONPrefix returns true if the provided buffer starts with "{".
+func hasJSONPrefix(buf []byte) bool {
+    return hasPrefix(buf, jsonPrefix)
+}
+
+// Return true if the first non-whitespace bytes in buf is prefix.
+func hasPrefix(buf []byte, prefix []byte) bool {
+    trim := bytes.TrimLeftFunc(buf, unicode.IsSpace)
+    return bytes.HasPrefix(trim, prefix)
+}
+//----------------------------------------------------------------
+
+
+
 func main() {
+
+//      router := mux.NewRouter().StrictSlash(true)
+
+        yammy, err := ioutil.ReadFile("course.yaml")
+        if err != nil {
+           log.Printf("yammy.Get err   #%v ", err)
+        }
+        fmt.Println("-------------------------------------------")
+        fmt.Println("Successfully Opened:  course.yaml")
+
+        // convert yammy into JSON
+        jsonFile, err := ToJSON(yammy)
+        
+        
+        // initialize course type now that it is converted to JSON
+        var course Course 
+        
+        // unmarshal byteArray using the JSON tags 
+        json.Unmarshal(jsonFile, &course)
+
+        // Any zero output is bad and indicates a YAML error.        
+            fmt.Println("-------------------------------------------")
+            fmt.Println("              Course: " + course.Id)
+            fmt.Println("            Duration: " + strconv.Itoa(course.Duration.Hours))
+            fmt.Printf("      Book Price Tags %d\n", len(course.Price.Book.PriceTags))
+            fmt.Printf("    Public Price Tags %d\n", len(course.Price.Public.PriceTags))
+            fmt.Printf("   Private Price Tags %d\n", len(course.Price.Private.PriceTags))
+            fmt.Printf("Self Paced Price Tags %d\n", len(course.Price.Selfpaced.PriceTags))
+            fmt.Printf("Extend LMS Price Tags %d\n", len(course.Price.ExtendLmsAccess.PriceTags))
+            fmt.Printf("         Testimonials %d\n", len(course.Testimonials.Quotes))
+            fmt.Printf("             Chapters %d\n", len(course.Chapters))
+            fmt.Printf("                 Labs %d\n", len(course.Labs))
+
+
+
+
+
 	// All the static folders
 	http.Handle("/downloads/", http.StripPrefix("/downloads/", http.FileServer(http.Dir("downloads"))))
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("deploy/html_menu_1/img"))))
