@@ -149,7 +149,7 @@ func errorHandler(status int) http.Handler {
 func Template() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "" {
-			http.ServeFile(w, r, "deploy/html_menu_1/templates/index.html")
+			http.ServeFile(w, r, "deploy/html_menu_1/index.html")
 			return
 		} else if r.URL.Path == "deploy/html_menu_1/robots.txt" {
 			http.ServeFile(w, r, "robots.txt")
