@@ -140,17 +140,21 @@ func errorHandler(status int) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(status)
 		if status == http.StatusNotFound {
-			r.URL.Path = "404"
+			r.URL.Path = "404.html"
 			Template().ServeHTTP(w, r)
 		}
 	})
 }
 
 func Template() http.Handler {
+
+
+
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "" {
-			http.ServeFile(w, r, "deploy/html_menu_1/index.html")
-			return
+                        r.URL.Path = "index.html" 
+//			http.ServeFile(w, r, "deploy/html_menu_1/index.html")
+//			return
 		} else if r.URL.Path == "deploy/html_menu_1/robots.txt" {
 			http.ServeFile(w, r, "robots.txt")
 			return
@@ -159,25 +163,34 @@ func Template() http.Handler {
 			return
 		}
 
+                // create the full pathnames of the files to be merged
 		lp := path.Join("deploy/html_menu_1/templates", "layout.html")
 		fp := path.Join("deploy/html_menu_1/templates", r.URL.Path)
 
+                // check if file fp points to actually exits, 404 if file not there 
+                // os.Stat returns TWO values, Info and an error code, hence <info, err := > below
 		info, err := os.Stat(fp)
 		if err != nil {
 			if os.IsNotExist(err) {
-				log.Printf("404: %s", r.URL.Path)
+				log.Printf("404 - This file does NOT exist: %s", r.URL.Path)
 				errorHandler(http.StatusNotFound).ServeHTTP(w, r)
 				return
 			}
 		}
+                //if fp is a directory, send 404
 		if info.IsDir() {
-			http.NotFound(w, r)
+                        fmt.Println("404 - The file request is pointing to a directory! ")
+			errorHandler(http.StatusNotFound).ServeHTTP(w, r)
 			return
 		}
+
+                // OK files exsist, begin the merging, remove {{ jinja-like stuff }}
+                // template.ParseFiles returns TWO values, the combined template, and error code
 		tmpl, err := template.ParseFiles(lp, fp)
 		if err != nil {
 			log.Printf("Template Error: %s", err)
 		}
+                // merge tmpl with {{ define layout }} TO  {{ end }} and write response 
 		err = tmpl.ExecuteTemplate(w, "layout", nil)
 		if err != nil {
 			log.Printf("Template Error: %s", err)
@@ -421,6 +434,7 @@ func main() {
 	// All the static folders
 	http.Handle("/downloads/", http.StripPrefix("/downloads/", http.FileServer(http.Dir("downloads"))))
 	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("deploy/html_menu_1/img"))))
+	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("deploy/html_menu_1/images"))))
 	http.Handle("/fonts/", http.StripPrefix("/fonts/", http.FileServer(http.Dir("deploy/html_menu_1/fonts"))))
 	http.Handle("/icons/", http.StripPrefix("/icons/", http.FileServer(http.Dir("deploy/html_menu_1/icons"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("deploy/html_menu_1/css"))))
