@@ -184,8 +184,8 @@ func Template() http.Handler {
 			return
 		}
 
-                // OK files exsist, begin the merging, remove {{ jinja-like stuff }}
-                // template.ParseFiles returns TWO values, the combined template, and error code
+                // ParseFiles gathers all the defines ad ignores the rest  reads is all the {{ jinja-like stuff }}
+                // template.ParseFiles returns TWO values, the combined jinja stuff, and error code
 		tmpl, err := template.ParseFiles(lp, fp)
 		if err != nil {
 			log.Printf("Template Error: %s", err)
@@ -426,8 +426,6 @@ func main() {
             fmt.Printf("         Testimonials %d\n", len(course.Testimonials.Quotes))
             fmt.Printf("             Chapters %d\n", len(course.Chapters))
             fmt.Printf("                 Labs %d\n", len(course.Labs))
-
-
 
 
 
