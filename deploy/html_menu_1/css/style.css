@@ -490,9 +490,9 @@ header.header.sticky {
   -webkit-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: #303030;
-  background: -webkit-linear-gradient(left, #303030, #404040);
-  background: linear-gradient(to right, #303030, #404040);
+  background: #121921;
+  background: -webkit-linear-gradient(left, #121921, #121921);
+  background: linear-gradient(to right, #121921, #121921);
   padding: 15px 20px;
 }
 @media (max-width: 991px) {
@@ -614,7 +614,7 @@ ul#top_menu li a.btn_1:hover {
   }
 }
 #hero_in.general {
-  border-bottom: 5px solid #CC0000;
+  border-bottom: 0px solid #CC0000;
 }
 #hero_in.general:before {
   background: url(/images/hero33.png) center center no-repeat;
