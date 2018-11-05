@@ -270,6 +270,8 @@ func CourseTemplate() http.Handler {
 }
 
 
+
+
 // ----------------COURSE STRUCT------------------------------- 
 
 type Include struct {
@@ -278,7 +280,7 @@ type Include struct {
 }
 
 type PriceTag struct {
-  Name          string          `json:"name"`
+  Id            string          `json:"id"`
   price         int             `json:"price"`
   Available     bool            `json:"available"`
   Description   string          `json:"description"`
@@ -306,11 +308,11 @@ type ExtendLmsAccess struct {
 }
 
 type Price struct {
-   Book             Book            `json:"book"`
-   Selfpaced        Selfpaced       `json:"self-paced"`
-   Public           Public          `json:"public"`
-   Private          Private         `json:"private"`
-   ExtendLmsAccess  ExtendLmsAccess `json:"extend-lms-access"`
+  Book             Book            `json:"book"`
+  Selfpaced        Selfpaced       `json:"self-paced"`
+  Public           Public          `json:"public"`
+  Private          Private         `json:"private"`
+  ExtendLmsAccess  ExtendLmsAccess `json:"extend-lms-access"`
 }
 
 type Slide struct {
