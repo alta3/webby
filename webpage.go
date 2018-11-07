@@ -4,10 +4,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"html/template"
+        "path/filepath"
 	"log"
         "unicode"
         "bytes"
+        "errors"
 	"net/http"
+        "strings"
 	"os"
         "time"
 	"path"
@@ -153,8 +156,6 @@ func Template() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "" {
                         r.URL.Path = "index.html" 
-//			http.ServeFile(w, r, "deploy/html_menu_1/index.html")
-//			return
 		} else if r.URL.Path == "deploy/html_menu_1/robots.txt" {
 			http.ServeFile(w, r, "robots.txt")
 			return
@@ -365,6 +366,119 @@ type Course struct {
   Overview      string          `json:"overview"`
 }
 
+type Courses struct {
+  cc           []Course
+}
+
+
+type CourseCatalog interface {
+  Select(id string)       []Course
+  Load()                  []Course
+  Search(ss string)       []Course
+}
+
+
+func Load() []Course {
+      // Create a OS compliant path: microsoft "\" or linux "/"
+      dirname := path.Join("deploy", "html_menu_1", "courses")
+      d, err := os.Open(dirname)
+      if err != nil {
+          log.Printf("No courses directory! %s" , err)
+          os.Exit(1)
+      }
+      // If n > 0, Readdirnames(n) returns at most n names
+      // If n < 0, Readdirnames(n) returns ALL names
+      n := -1 
+      // reads < n > files in directory < d >
+      filenames, err := d.Readdirnames(n)
+      if err != nil {
+          log.Printf("No files in course directory! %s\n" , err)
+          os.Exit(1)
+      }
+      c := make([]Course,10) 
+      var jsonCatalogFile []Course
+      fmt.Println("--------------------------------------------------")
+      fmt.Printf(" Reading files in this directory: %s\n", dirname)
+      i := 0
+      for _, filename := range filenames {
+          thisfile := path.Join(dirname, filename)
+          _ , err := os.Stat(thisfile)
+          if err != nil {
+              if os.IsNotExist(err) {
+                  log.Printf("file is missing!: %s\n ", filename)
+              }
+          } 
+          if filepath.Ext(thisfile) == ".yaml" {
+              yammy, err := ioutil.ReadFile(thisfile)
+              if err != nil {
+                 log.Printf("yammy.Get err: %s\n", err)
+              }
+              fmt.Printf("%d Sucessfully read: %s\n" , i,thisfile) 
+        
+           // unmarshal byteArray using the JSON tags 
+              jsonFile, err := ToJSON(yammy)
+              json.Unmarshal(jsonFile, &c[i])
+              jsonCatalogFile = append(jsonCatalogFile, c[i])
+                fmt.Println("\nAny zero output is bad and indicates a YAML error.")        
+                fmt.Println("--------------------------------------------------")
+                fmt.Println("              Course: "       + c[i].Id)
+                fmt.Println("              Course: "       + jsonCatalogFile[i].Id)
+                fmt.Println("            Duration: " + strconv.Itoa(jsonCatalogFile[i].Duration.Hours))
+                fmt.Printf("      Book Price Tags %d\n", len(jsonCatalogFile[i].Price.Book.PriceTags))
+                fmt.Printf("    Public Price Tags %d\n", len(jsonCatalogFile[i].Price.Public.PriceTags))
+                fmt.Printf("   Private Price Tags %d\n", len(jsonCatalogFile[i].Price.Private.PriceTags))
+                fmt.Printf("Self Paced Price Tags %d\n", len(jsonCatalogFile[i].Price.Selfpaced.PriceTags))
+                fmt.Printf("Extend LMS Price Tags %d\n", len(jsonCatalogFile[i].Price.ExtendLmsAccess.PriceTags))
+                fmt.Printf("         Testimonials %d\n", len(jsonCatalogFile[i].Testimonials.Quotes))
+                fmt.Printf("             Chapters %d\n", len(jsonCatalogFile[i].Chapters))
+                fmt.Printf("                 Labs %d\n", len(jsonCatalogFile[i].Labs))
+              i++
+              yammy = nil
+              jsonFile = nil
+          }
+      }
+      d.Close()
+      fmt.Println("YAMMY  Course: " + jsonCatalogFile[0].Id)
+      return jsonCatalogFile 
+}
+
+
+
+func (cs Courses)  Select(id string) (Courses, error) {
+     log.Printf("WORKING: Looking for %s\n", id)
+     var c Courses      
+     for _, ThisCourse := range cs.cc  {
+          if ThisCourse.Id == id  {
+              c.cc = append(c.cc, ThisCourse)
+              fmt.Printf("FOUND %d Record, returning: %s\n" , len(c.cc), c.cc[0].Id)
+              return c, nil 
+          }
+      } 
+     return c, errors.New(fmt.Sprintf("Course ID \"%s\" does NOT exist\n", id ))
+} 
+
+func (cs Courses)  Search(ls string) (Courses, error) {
+     ls = strings.ToLower(ls)
+     fmt.Println("--------------------------------------------------")
+     log.Printf("WORKING: Searching for %s\n", ls)
+     var c Courses 
+     i := 0
+     hits := 0
+     totalhits := 0
+     for _, ThisCourse := range cs.cc {
+        hits = strings.Count( strings.ToLower(fmt.Sprintf("%v", cs.cc[i])), ls )
+        totalhits = totalhits + hits
+        if  hits > 0 {
+            c.cc = append(c.cc, ThisCourse)
+            fmt.Printf("%s Course has %d hits\n", ThisCourse.Id, hits )
+        }
+        i++
+      } 
+     if  totalhits == 0 {
+       return c, errors.New(fmt.Sprintf("No course contains any information regarding \"%s\"" , ls ))
+     }
+    return c, nil
+} 
 
 
 
@@ -397,39 +511,25 @@ func hasPrefix(buf []byte, prefix []byte) bool {
 
 func main() {
 
-//      router := mux.NewRouter().StrictSlash(true)
+////      router := mux.NewRouter().StrictSlash(true)
 
-        yammy, err := ioutil.ReadFile("course.yaml")
-        if err != nil {
-           log.Printf("yammy.Get err   #%v ", err)
-        }
-        fmt.Println("-------------------------------------------")
-        fmt.Println("Successfully Opened:  course.yaml")
+        cc := Load()
+        fmt.Println("--------------------------------------------------")
+        fmt.Println("Course Loaded into MAIN: " + cc[0].Id)
 
-        // convert yammy into JSON
-        jsonFile, err := ToJSON(yammy)
+        var cs Courses
+        cs.cc = cc
+        _, err := cs.Select("5g")
+           if err != nil {
+             log.Printf("SORRY: %s\n ", err)
+           }
+           
+        _, err = cs.Search("PyThon")
+           if err != nil {
+             log.Printf("SORRY: %s\n ", err)
+           }
         
         
-        // initialize course type now that it is converted to JSON
-        var course Course 
-        
-        // unmarshal byteArray using the JSON tags 
-        json.Unmarshal(jsonFile, &course)
-
-        // Any zero output is bad and indicates a YAML error.        
-            fmt.Println("-------------------------------------------")
-            fmt.Println("              Course: " + course.Id)
-            fmt.Println("            Duration: " + strconv.Itoa(course.Duration.Hours))
-            fmt.Printf("      Book Price Tags %d\n", len(course.Price.Book.PriceTags))
-            fmt.Printf("    Public Price Tags %d\n", len(course.Price.Public.PriceTags))
-            fmt.Printf("   Private Price Tags %d\n", len(course.Price.Private.PriceTags))
-            fmt.Printf("Self Paced Price Tags %d\n", len(course.Price.Selfpaced.PriceTags))
-            fmt.Printf("Extend LMS Price Tags %d\n", len(course.Price.ExtendLmsAccess.PriceTags))
-            fmt.Printf("         Testimonials %d\n", len(course.Testimonials.Quotes))
-            fmt.Printf("             Chapters %d\n", len(course.Chapters))
-            fmt.Printf("                 Labs %d\n", len(course.Labs))
-
-
 
 	// All the static folders
 	http.Handle("/downloads/", http.StripPrefix("/downloads/", http.FileServer(http.Dir("downloads"))))
