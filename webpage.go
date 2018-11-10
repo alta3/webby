@@ -235,41 +235,6 @@ func BlogTemplate() http.Handler {
 	})
 }
 
-func CourseTemplate() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path == "" {
-			r.URL.Path = "courses"
-			Template().ServeHTTP(w, r)
-			return
-		}
-		lp := path.Join("templates", "layout.html")
-		cp := path.Join("courses", "course_layout.html")
-		fp := path.Join("courses", r.URL.Path+".html")
-		info, err := os.Stat(fp)
-		if err != nil {
-			if os.IsNotExist(err) {
-				log.Printf("404: %s", r.URL.Path)
-				errorHandler(http.StatusNotFound).ServeHTTP(w, r)
-				return
-			}
-		}
-		if info.IsDir() {
-			http.NotFound(w, r)
-			return
-		}
-
-		tmpl, err := template.ParseFiles(lp, cp, fp)
-		if err != nil {
-			log.Printf("Template Error: %s", err)
-		}
-		err = tmpl.ExecuteTemplate(w, "layout", nil)
-		if err != nil {
-			log.Printf("Template Error: %s", err)
-		}
-		return
-	})
-}
-
 
 
 
@@ -371,12 +336,19 @@ type Courses struct {
 }
 
 
+
+// TODO convert types to Courses not an array of course
+//                       ^
 type CourseCatalog interface {
   Select(id string)       []Course
   Load()                  []Course
   Search(ss string)       []Course
 }
 
+
+
+// TODO needs to be converted to func Load() Courses not array of Course
+//                                           ^   
 
 func Load() []Course {
       // Create a OS compliant path: microsoft "\" or linux "/"
@@ -421,7 +393,6 @@ func Load() []Course {
               jsonCatalogFile = append(jsonCatalogFile, c[i])
                 fmt.Println("\nAny zero output is bad and indicates a YAML error.")        
                 fmt.Println("--------------------------------------------------")
-                fmt.Println("              Course: "       + c[i].Id)
                 fmt.Println("              Course: "       + jsonCatalogFile[i].Id)
                 fmt.Println("            Duration: " + strconv.Itoa(jsonCatalogFile[i].Duration.Hours))
                 fmt.Printf("      Book Price Tags %d\n", len(jsonCatalogFile[i].Price.Book.PriceTags))
@@ -443,7 +414,9 @@ func Load() []Course {
 }
 
 
-
+// This is the way I wanted the Courses method to look
+//          |                             |
+//          V                             V
 func (cs Courses)  Select(id string) (Courses, error) {
      log.Printf("WORKING: Looking for %s\n", id)
      var c Courses      
@@ -457,10 +430,14 @@ func (cs Courses)  Select(id string) (Courses, error) {
      return c, errors.New(fmt.Sprintf("Course ID \"%s\" does NOT exist\n", id ))
 } 
 
+// This is the way I wanted the Courses method to look
+//          |                             |
+//          V                             V
+
 func (cs Courses)  Search(ls string) (Courses, error) {
      ls = strings.ToLower(ls)
      fmt.Println("--------------------------------------------------")
-     log.Printf("WORKING: Searching for %s\n", ls)
+     log.Printf("SEARCH FUNC REPORTING: Searching for %s\n", ls)
      var c Courses 
      i := 0
      hits := 0
@@ -507,6 +484,62 @@ func hasPrefix(buf []byte, prefix []byte) bool {
 }
 //----------------------------------------------------------------
 
+// ========JUST WORKING ON THIS RIGHT NOW===========================================
+//                          V
+
+
+// I just started working on this, making the /courses/courses-list.html page render search results
+// NEXT, make a page show course-detail.  Hopefully I will have both HTML pages set up before returning
+// to this go code.
+
+func  (cs Courses) CourseTemplate() http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "" {
+			r.URL.Path = "courses"
+			Template().ServeHTTP(w, r)
+			return
+		}
+
+                var err error
+
+                searchstring := r.FormValue("search")
+                fmt.Printf("SEARCH STRING RIGHT HERE %s:\n",searchstring)                
+                _, err = cs.Search(searchstring)
+                    if err != nil {
+                      log.Printf("SORRY: %s\n ", err)
+                    }
+                // TODO, STOP THINKING TEMPLATES so much as the next comment implies
+                // TODO hp, mp, cp, fp (header, menu, center, footer template parts)
+		lp := path.Join("deploy/html_menu_1/templates", "layout.html")
+		fp := path.Join("deploy/html_menu_1/courses", r.URL.Path)
+		info, err := os.Stat(fp)
+		if err != nil {
+			if os.IsNotExist(err) {
+				log.Printf("404: %s", r.URL.Path)
+				errorHandler(http.StatusNotFound).ServeHTTP(w, r)
+				return
+			}
+		}
+		if info.IsDir() {
+			http.NotFound(w, r)
+			return
+		}
+
+		tmpl, err := template.ParseFiles(lp,  fp)
+		if err != nil {
+			log.Printf("Template Error: %s", err)
+		}
+		err = tmpl.ExecuteTemplate(w, "layout", nil)
+		if err != nil {
+			log.Printf("Template Error: %s", err)
+		}
+		return
+	})
+}
+
+//     END OF WHAT I AM WORKING ON NOW 
+// ===============================================================================
+
 
 
 func main() {
@@ -519,15 +552,15 @@ func main() {
 
         var cs Courses
         cs.cc = cc
-        _, err := cs.Select("5g")
-           if err != nil {
-             log.Printf("SORRY: %s\n ", err)
-           }
+//        _, err := cs.Select("5g")
+//           if err != nil {
+//             log.Printf("SORRY: %s\n ", err)
+ //          }
            
-        _, err = cs.Search("PyThon")
-           if err != nil {
-             log.Printf("SORRY: %s\n ", err)
-           }
+//        _, err = cs.Search("has-book")
+//           if err != nil {
+//             log.Printf("SORRY: %s\n ", err)
+ //          }
         
         
 
@@ -547,7 +580,7 @@ func main() {
         // http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("deploy/html_menu_1"))))
 
 	// Templates
-	http.Handle("/courses/", http.StripPrefix("/courses/", CourseTemplate()))
+	http.Handle("/courses/", http.StripPrefix("/courses/", cs.CourseTemplate()))
 	http.Handle("/blog/", http.StripPrefix("/blog/", BlogTemplate()))
 	http.Handle("/", http.StripPrefix("/", Template()))
 
