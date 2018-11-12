@@ -1949,7 +1949,7 @@ a.box_feat h3 {
 /*-------- 2.2 Courses list --------*/
 .filters_listing {
   padding: 10px 0 5px 0;
-  background: #AF2027;
+  background: #d6d6d6;
   z-index: 999999 !important;
   position: relative;
 }
