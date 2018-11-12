@@ -15,7 +15,7 @@ video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscree
 weburl: https://alta3.com/courses/5g
 has-labs: false
 has-videos: true
-has-book: true
+has-slides: true
 filename: courses/5g.json
 price:
   public:

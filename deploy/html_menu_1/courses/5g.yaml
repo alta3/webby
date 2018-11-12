@@ -17,20 +17,20 @@ filename: courses/5g.json
 price:
   public:
     price-tags:
-     -  id: priceinfo-public-single-student 
-         description: Face to face training for 1 student
-         price: 800000
-         available: yes
-         includes: 
-         - item : has-video-true
-           description: Includes video
-         - item : has-book-true
-           description: Includes on-line book
-         - item : has-labs-false
-           description: Does not include labs
+      - name: priceinfo-public-single-student 
+        description: Face to face training for 1 student
+        price: 800000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
   private:
     price-tags:
-      - id: priceinfo-private-base8
+      - name: priceinfo-private-base8
         description: face to face training for up to 8 students
         price: 850000
         available: yes
@@ -41,7 +41,7 @@ price:
           description: Includes on-line book
         - item : has-labs-false
           description: Does not include labs
-      - id: priceinfo-private-plus1-to-base8
+      - name: priceinfo-private-plus1-to-base8
         description: Add one additional student base8 
         price: 50000
         available: yes
@@ -50,7 +50,7 @@ price:
            description: Includes same features as base 8
   self-paced:
     price-tags:
-      - id: priceinfo-selfpaced-singlestudent 
+      - name: priceinfo-selfpaced-singlestudent 
         description: Self Paced Training
         price: 250000
         available: yes
@@ -61,7 +61,7 @@ price:
           description: Includes on-line book
         - item : has-labs-false
           description: Does not include labs
-      - id: priceinfo-selfpaced-sixpack
+      - name: priceinfo-selfpaced-sixpack
         description: Package price for six self=paced students
         price: 500000
         available: yes
@@ -74,17 +74,17 @@ price:
           description: Does not include labs
   extend-lms-access:
     price-tags:
-      - id: priceinfo-extendaccess-lab-one-month
+      - name: priceinfo-extendaccess-lab-one-month
         description: Extend your lab access for one month
         price: 5000
         available: no
-      - id: priceinfo-extendaccess-lab-one-year
+      - name: priceinfo-extendaccess-lab-one-year
         description: Extend your lab access for one month
         price: 50000
         available: no
   book:
     price-tags:
-      - id: priceinfo-book-paper 
+      - name: priceinfo-book-paper 
         description: Paper Student Manual 
         price-desc: 
         price: 850000
@@ -96,7 +96,7 @@ price:
           description: Includes on-line book
         - item : has-labs-false
           description: Does not include labs
-      - id: priceinfo-book-online 
+      - name: priceinfo-book-online 
         description: Paper Student Manual 
         price-desc: 
         price: 450000

@@ -17,17 +17,17 @@ filename: courses/5g.json
 price:
   public:
     price-tags:
-     -  id: priceinfo-public-single-student 
-         description: Face to face training for 1 student
-         price: 800000
-         available: yes
-         includes: 
-         - item : has-video-true
-           description: Includes video
-         - item : has-book-true
-           description: Includes on-line book
-         - item : has-labs-false
-           description: Does not include labs
+      - id: priceinfo-public-single-student 
+        description: Face to face training for 1 student
+        price: 800000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
   private:
     price-tags:
       - id: priceinfo-private-base8
