@@ -115,7 +115,7 @@
          <div class="container margin_120_95">
              <div class="row">
                  <div class="col-lg-5 col-md-12 p-r-5">
-                     <p><img src="/img/logo.png" width="149" height="42" data-retina="true" alt=""></p>
+                     <p><img src="/images/Alta3-logo_large.png" width="150" height="50" data-retina="true" alt=""></p>
                      <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. Nihil facilisi indoctum an vix, ut delectus expetendis vis.</p>
                      <div class="follow_us">
                          <ul>
@@ -177,10 +177,151 @@
      <!-- page -->
      
      <!-- COMMON SCRIPTS -->
+
+
+
+<script>
+function myFunction() {
+    var t = document.createTextNode("Kubernetes");
+    var c = document.createTextNode("Self Paced");
+    var c2 = document.createTextNode("Live via the web");
+    var sp = document.createTextNode("$100");
+    var rating = document.createTextNode("745");
+    var lp = document.createTextNode("$500");
+    var time = document.createTextNode(" 35h")
+    var ups = document.createTextNode(" (745)")
+    var t2 = document.createTextNode("Details")
+    var details = "course-detail.html?select=5g"
+    var courseicon = "/images/courseicons/k8s.png"
+
+    getdetails = document.createElement("a");
+    getdetails.setAttribute("href","course-detail.html");
+    getdetails.appendChild(t2);
+
+    li3 = document.createElement("li");
+    li3.appendChild(getdetails);
+
+    clock = document.createElement("i");
+    clock.className = "icon_clock_alt";
+
+    likes = document.createElement("i");
+    likes.className = "icon_like";
+
+    li1 = document.createElement("li");
+    li1.appendChild(clock);
+    li1.appendChild(time);
+ 
+    li2 = document.createElement("li");
+    li2.appendChild(likes);
+    li2.appendChild(ups);
+
+    newcourse16 = document.createElement("i");
+    newcourse16.className = "icon_star voted";
+
+    timelikes = document.createElement("ul");
+    timelikes.appendChild(li1);
+    timelikes.appendChild(li2);
+    timelikes.appendChild(li3);
+
+    var star2 = newcourse16.cloneNode(true);
+    var star3 = newcourse16.cloneNode(true);
+    var star4 = newcourse16.cloneNode(true);
+    var star5 = newcourse16.cloneNode(true);
+
+    newcourse15 = document.createElement("div");
+    newcourse15.className = "rating";
+    newcourse15.appendChild(newcourse16);
+    newcourse15.appendChild(star2);
+    newcourse15.appendChild(star3);
+    newcourse15.appendChild(star4);
+    newcourse15.appendChild(star5);
+    newcourse15.appendChild(rating);
+
+    newcourse14 = document.createElement("div");
+    newcourse14.className = "price";
+    newcourse14.appendChild(lp);
+
+    newcourse13 = document.createElement("div");
+    newcourse13.className = "price";
+    newcourse13.appendChild(sp);
+
+    newcourse12 = document.createElement("small");
+    newcourse12.className = "coursecategory";
+    newcourse12.appendChild(c);
+
+    weblive = document.createElement("small");
+    weblive.className = "coursecategory";
+    weblive.appendChild(c2);
+
+    newcourse11 = document.createElement("h3");
+    newcourse11.className = "coursetitle";
+    newcourse11.appendChild(t);
+
+    newcourse10 = document.createElement("a");
+    newcourse10.setAttribute("href","#0");
+    newcourse10.className = "wish_bt";
+
+    newcourse9 = document.createElement("div");
+    newcourse9.className = "wrapper";
+    newcourse9.appendChild(newcourse10);
+    newcourse9.appendChild(newcourse11);
+    newcourse9.appendChild(newcourse12);
+    newcourse9.appendChild(newcourse13);
+    newcourse9.appendChild(weblive);
+    newcourse9.appendChild(newcourse14);
+    newcourse9.appendChild(newcourse15);
+
+// Course ICON
+    newrapper = document.createElement("div");
+    newrapper.className = "wrapper";
+    newrapper.appendChild(newcourse15);
+    newrapper.appendChild(timelikes);
+
+    newcourse8 = document.createElement("div");
+    newcourse8.className = "col-lg-10";
+    newcourse8.appendChild(newcourse9);
+    newcourse8.appendChild(newrapper);
+
+    newcourse7 = document.createElement("img");
+    newcourse7.src = courseicon
+    newcourse7.className = "img-fluid";
+
+    newcourse6 = document.createElement("a");
+    newcourse6.setAttribute("href",details);
+    newcourse6.appendChild(newcourse7);
+
+    newcourse5 = document.createElement("div");
+    newcourse5.className = "block-horizontal";
+
+    newcourse4 = document.createElement("figure");
+    newcourse4.className = "block-reveal";
+    newcourse4.appendChild(newcourse5);
+    newcourse4.appendChild(newcourse6);
+
+    newcourse3 = document.createElement("div");
+    newcourse3.className = "col-lg-2";
+    newcourse3.appendChild(newcourse4);
+
+    newcourse2 = document.createElement("div");
+    newcourse2.className = "row no-gutters";
+    newcourse2.appendChild(newcourse3);
+    newcourse2.appendChild(newcourse8);
+
+
+    newcourse = document.createElement("div");
+    newcourse.className = "box_list wow";
+    newcourse.appendChild(newcourse2);
+    
+    document.getElementById("mycourselist").appendChild(newcourse);
+}
+</script>
+
+
     <script src="/js/jquery-2.2.4.min.js"></script>
     <script src="/js/common_scripts.js"></script>
     <script src="/js/main.js"></script>
-     <script src="/assets/validate.js"></script>
+    <script src="/assets/validate.js"></script>
+    <script src="/js/courselist.js"></script>
      
 </body>
 </html>
