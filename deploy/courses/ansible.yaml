@@ -1,14 +1,15 @@
 ---
 id: ansible 
 name: Ansible Essentials
+category: Programming
 duration:
   hours: 32
   days: 50
 testimonials:
-  - quotes: Excellant Course!
-    stars: 5
-  - quotes: Zach was almost amazing
-    stars: 5
+- quote: Excellant Course
+  stars: 5
+- quote: Zach was almost amazing
+  stars: 5
 video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
 weburl: https://alta3.com/courses/ansible
 has-labs: false
@@ -108,7 +109,7 @@ price:
         - item : has-book-true
           description: Includes on-line book
         - item : has-labs-false
-overview: Sean, add Ansible stuff from web page
+overview: Ansible is growing in popularity for good reason, it is both easy to understand, far simpler than Python, and extremely powerful. While Python can be used to do just about anything, Ansible is used to bring structure and consistency to system deployments, implementations, and changes. Students tempted to write a complex Python script to do some networking automation task will discover that problem is already solved by an Ansible module. Lots of unnecessary Python scripts can be eliminated by using Ansible whenever possible. Ansible can be used by both network and server administrators alike. 
 chapters:
 - guid: e390d9e2-8c76-4130-8178-7dacb66460a4
   title: Ansible Introduction

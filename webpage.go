@@ -304,7 +304,7 @@ type Duration struct {
   Days        int               `json:"days"`
 }
 
-type Testimonials struct {
+type Testimonial struct {
   Quote         string          `json:"quote"`
   Stars         int             `json:"stars"`
 }
@@ -330,9 +330,10 @@ type Course struct {
   Purchased     bool            `rethinkdb:"-" json:"-"`
   Price         Price           `rethinkdb:"-" json:"price"`
   Duration      Duration        `json:"duration"`
-  Testimonials  []Testimonials    `json:"testimonials"`
+  Testimonials  []Testimonial   `json:"testimonials"`
   VideoLink     string          `json:"videolink"`
   Overview      string          `json:"overview"`
+  Category      string          `json:"category"`
 }
 
 type Courses struct {
@@ -408,7 +409,7 @@ func Load() Courses {
                 fmt.Printf("   Private Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Private.PriceTags))
                 fmt.Printf("Self Paced Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Selfpaced.PriceTags))
                 fmt.Printf("Extend LMS Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.ExtendLmsAccess.PriceTags))
-                fmt.Printf("         Testimonials %d\n", len(jsonCatalogFile.Cc[i].Testimonials.Quotes))
+                fmt.Printf("         Testimonials %d\n", len(jsonCatalogFile.Cc[i].Testimonials))
                 fmt.Printf("             Chapters %d\n", len(jsonCatalogFile.Cc[i].Chapters))
                 fmt.Printf("                 Labs %d\n", len(jsonCatalogFile.Cc[i].Labs))
               i++
@@ -530,7 +531,42 @@ func  (cs Courses) CourseTemplate() http.Handler {
 	})
 }
 // New SEAN function, Given a search string, returns course ID ONLY for matching courses 
-func 
+func (cs Courses ) getmenu() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+
+type PriceTag struct {
+  Id           string          `json:"id"`
+  Name         string          `json:"Name"`
+  Category     string          `json:"Category"`
+}
+
+
+    //Retreive variable from GET URL
+    ss := r.FormValue("search")
+    fmt.Printf("func searchstring searching for: %s\n",ss)                
+    // Create a new composite Course type. Interestingly, by adding existing subordinate
+    // types to the cloned struct, items will OMIT them from the marshalling.
+    // see: https://mycodesmells.com/post/working-with-embedded-structs
+    c := []PublicCourse{} 
+    var js []byte
+    var err error
+    //Iterate over all courses, looking for the search string (ss)
+    //If a match is found, add the course to c.Cc[i]
+    for _, ThisCourse := range cs.Cc {
+       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Category)
+    }
+    //If no courses match, SEND THEM ALL! 
+    js, err = json.Marshal(c)
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
 
 
 // Given a search string, returns course data for all matching courses, without the course outline data.
@@ -621,6 +657,8 @@ func main() {
         // JSON RESTful Interfaces
         http.Handle("/search/", http.StripPrefix("/search/", cs.getsearch()))
 
+        // Get Menu 
+        http.Handle("/menu/", http.StripPrefix("/menu/", cs.getmenu()))
 
 	// Stripe Chckout
 	http.Handle("/checkout", Checkout())
