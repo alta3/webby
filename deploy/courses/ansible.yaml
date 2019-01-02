@@ -9,11 +9,11 @@ testimonials:
    -  All excellant
    -  amazing
 video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: https://alta3.com/courses/5g
+weburl: https://alta3.com/courses/ansible
 has-labs: false
 has-videos: true
 has-slides: true
-filename: courses/5g.json
+filename: courses/ansible.json
 price:
   public:
     price-tags:
