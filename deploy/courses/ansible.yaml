@@ -107,480 +107,494 @@ price:
         - item : has-book-true
           description: Includes on-line book
         - item : has-labs-false
-overview: 5G is the next-generation of mobile networks beyond the 4G LTE mobile networks existing today. The vision of 5G is becoming clearer and most experts say 5G will feature network speeds that are blazingly fast at 20 Gbps or higher and have low latency at mere milliseconds. The entire 5G approach takes advantage of containers, virtualization, SDN and NFV. Students will cover the design motivation and underlying technology of 5G service-based architecture as well as new vocabulary terms you must learn. We will cover enough about 5G radio to understand the differences between 4G and 5G. And finally, take a look at the 5G core in action. Sample message flows of typical 5G processes are covered message by message. The goal is to more clearly see how the 5G accomplishes its goals by observing how it actually works.
+overview: Sean, add Ansible stuff from web page
 chapters:
-- title: 5G Introduction
+- guid: e390d9e2-8c76-4130-8178-7dacb66460a4
+  title: Ansible Introduction
   subchapters:
-  - slides:
-    - title: 4G to 5G (1 of 19)
-      guid: c495af4b-3935-4c94-88e8-12d9cdef9d00
+  - title: Definitions
+    questions: []
+    slides:
+    - guid: f7d360ac-381f-46c7-87a1-87f2647e2275
+      title: Welcome to Ansible
+      index: 4
+    - guid: 61b29ac5-74fa-45ef-8f32-8114bc4ffc2d
+      title: Ansible module
+      index: 5
+    - guid: ba767585-de6c-4f78-a314-e4775c45f984
+      title: A task
+      index: 6
+    - guid: 45f69a60-7272-492d-9e56-4bbea423b169
+      title: Ansible vars
       index: 7
-    - title: 4G to 5G (2 of 19)
-      guid: defed2d7-2924-432a-88c5-278a695fa627
+    - guid: c88899f1-d575-4beb-9077-b3138645da50
+      title: Ansible tasks
       index: 8
-    - title: 4G to 5G (3 of 19)
-      guid: 50e58ac9-15f1-474f-99c0-2cfad61640f8
+    - guid: 47cb699c-6792-4af9-aab8-4ea95144b283
+      title: hosts aka "Inventory"
       index: 9
-    - title: 4G to 5G (4 of 19)
-      guid: 823b7bec-80db-41c1-a1df-69045d05430d
+    - guid: 12f8aa7f-8f28-4060-a310-2119aa582153
+      title: A play
       index: 10
-    - title: 4G to 5G (5 of 19)
-      guid: 94440f8c-fa91-462a-bad9-606f28f935dc
+    - guid: 350e1a46-d538-4e4d-83a2-d01151e4e1dc
+      title: handlers
       index: 11
-    - title: 4G to 5G (6 of 19)
-      guid: 5fa4e21b-2fe6-4e79-a89c-ee0f94683731
+    - guid: d115f9d3-14a8-4051-bb53-0f20407080e2
+      title: The Ansible playbook
       index: 12
-    - title: 4G to 5G (7 of 19)
-      guid: 3173fbce-1eba-4961-926e-5a4a824ac987
+    - guid: 117602b6-ab01-4655-a767-612880157c3c
+      title: passwordless sudo and RSA access
       index: 13
-    - title: 4G to 5G (8 of 19)
-      guid: 8a89dc7c-ce62-40e6-97c9-86104328b36d
+    - guid: f811ef35-7806-4880-a111-572c997bf55a
+      title: Public Key Encryption as Privacy
       index: 14
-    - title: 4G to 5G (9 of 19)
-      guid: 09a56b51-db4f-4255-88ef-d0a614d481e0
+    - guid: d50eec29-faec-43a9-b66c-487cee5ea230
+      title: Public Key Encryption as Authentication
       index: 15
-    - title: 4G to 5G (10 of 19)
-      guid: 64af118b-6d0d-412f-9d52-2c9b96fa146d
+    - guid: 22b0ba1b-cd89-405a-9fd7-f3a7a308589d
+      title: Your lab environment.
       index: 16
-    - title: 4G to 5G (11 of 19)
-      guid: 89018a72-44dd-4102-8e56-239eb3d38afa
-      index: 17
-    - title: 4G to 5G (12 of 19)
-      guid: 58658bab-0304-4c7d-8835-e501a563d854
+- guid: bc8189ec-4c71-4b5c-be17-c63298e03a63
+  title: Installation
+  subchapters:
+  - title: Control machine
+    questions: []
+    slides:
+    - guid: 2df8ab58-d866-4f87-b159-780313d35364
+      title: Configuration requirements on the control machine
       index: 18
-    - title: 4G to 5G (13 of 19)
-      guid: d60ed27f-7b7a-4785-acf4-16d3bf63a350
+  - title: Host Machine
+    questions: []
+    slides:
+    - guid: 5009b8ca-94a4-4cb2-8ec9-8e8cb91f0c76
+      title: Python requirements on the host
       index: 19
-    - title: 4G to 5G (14 of 19)
-      guid: 70d4bab6-050a-4c73-a83c-237dd2c509b6
+    - guid: f9aedb7c-9f83-4a75-9c15-5e097e9104e9
+      title: Using ansible raw to install Python
       index: 20
-    - title: 4G to 5G (15 of 19)
-      guid: cebb6c98-5e14-4794-8a77-26009ee7b384
-      index: 21
-    - title: 4G to 5G (16 of 19)
-      guid: acab57d2-4697-4fe6-8b3f-1ba57bec3ecf
+- guid: 84f7fb3d-b0e3-4472-b097-5c3809f667f3
+  title: Ansible Static Inventory
+  subchapters:
+  - title: Hosts and Groups
+    questions: []
+    slides:
+    - guid: 0b41ef2d-7dcb-492e-8dd0-e020d87bce61
+      title: Defining Hosts and Groups
       index: 22
-    - title: 4G to 5G (17 of 19)
-      guid: 024c414e-e576-4158-a9d6-0c5fcb59c109
+    - guid: ad515bad-8af2-4ab9-a5d3-d98e1fedddbe
+      title: Host and Group variables
       index: 23
-    - title: 4G to 5G (18 of 19)
-      guid: b01c8f5b-20f4-4a0d-b329-a69531bb8bc0
+    - guid: 4ac4ea25-c35d-4d66-8db6-8c5b593f0109
+      title: Groups of Groups
       index: 24
-    - title: 4G to 5G (19 of 19)
-      guid: 35fab2da-813c-4878-8b2e-338243ee2caf
+    - guid: 9f285a4a-9dde-4018-8e61-f4e6129ddf5a
+      title: Default Groups
       index: 25
-    title: 4G to 5G
+- guid: fa7f6c2c-d845-4ccf-a62a-882e8b42d500
+  title: Ansible Ad hoc commands
+  subchapters:
+  - title: Using Ad hoc commands
     questions: []
-  - slides:
-    - title: Introducing 5G Features
-      guid: e0c0abc2-0879-4268-a540-04fb6d70ddcd
-      index: 26
-    - title: What a 5G "Service" is not
-      guid: eaa32a1d-9cae-47c2-b377-ce11e7b935d4
+    slides:
+    - guid: 1130fb8f-d4a7-41a9-b417-996b6302d10d
+      title: Ad hoc command syntax
       index: 27
-    - title: Introducing the 5G Network Architecture
-      guid: f2ea6326-6cba-4393-bc2f-7ea33fb81b31
+    - guid: 494b2d23-9ffe-40bf-98f9-0ea774915e0f
+      title: Parallel Shell commands
       index: 28
-    - title: Comparing 5G to 4G
-      guid: 543288d2-4261-4949-bb2d-58fc1d98d7be
+    - guid: 7281ec2a-43ef-43df-b618-9da97bb6f4df
+      title: Managing packages
       index: 29
-    title: 5G Overview
-    questions: []
-  guid: 0355233e-82c6-4eb6-a442-b58667cc6743
-- title: Session and Service Continuity
-  subchapters:
-  - slides:
-    - title: Session and Service Continuity (SSC) mode 1 and 2
-      guid: 6a3886cc-37f1-42c0-b2ce-431b4e9a88fa
+    - guid: 37d42c0a-153d-48c2-a0fa-811e6baa3001
+      title: Managing users and groups
+      index: 30
+    - guid: 559bc169-fb7b-4d45-bc23-261c01f6530d
+      title: Gathering facts
       index: 31
-    - title: Session and Service Continuity (SSC) mode 3
-      guid: 8c589cfa-8d8c-44ff-ac59-d34c464fa706
+    - guid: a7df68c7-1b61-46af-ba46-15890c794e4c
+      title: ad hoc cheat sheet
       index: 32
-    title: Modes
-    questions: []
-  guid: 3a8b588f-ee52-4523-a3b2-2106f5fe1910
-- title: Message Queuing
+- guid: 6e3838d1-4757-4e20-9a39-5eff53ee7df6
+  title: Ansible config file and directory structure
   subchapters:
-  - slides:
-    - title: Message Queuing (MQ) in a Nutshell
-      guid: 26fa67d5-9c35-4d64-b933-ce98e5c29c22
+  - title: Getting started
+    questions: []
+    slides:
+    - guid: 3580cdd4-bd49-4382-815d-3ed4c8cd4853
+      title: ansible.cfg (1 of 2)
       index: 34
-    - title: Defining 3GPP Exposure
-      guid: d544f52d-344a-40cd-aaee-68f2de5f3296
+    - guid: 286e282b-3ada-488a-8c64-143750d3b1ea
+      title: ansible.cfg (2 of 2)
       index: 35
-    - title: Subscribe and Publish Message Flow
-      guid: d3c41e96-9a3a-4bea-ad7b-7a64b0b966a5
+    - guid: 6cf959e0-c404-4cd9-b4b1-d95c129a477a
+      title: Ansible Inventory
       index: 36
-    - title: Embedding JSON in HTTP Messages
-      guid: f6c235b8-e135-4618-bdd5-cebdcac7f2b2
+    - guid: c4cde630-c5f5-4e58-a5f5-83acb2042094
+      title: roles
       index: 37
-    title: Overview
-    questions: []
-  guid: 7d3fa81a-f586-4460-9d2a-c87be720654d
-- title: The 5G Slice
+- guid: e4f3bef1-1687-4063-8865-3f123428d57a
+  title: YAML
   subchapters:
-  - slides:
-    - title: User Plane Function
-      guid: 529f2055-8275-4120-a9b9-20c31e018014
+  - title: YAML Essentials
+    questions: []
+    slides:
+    - guid: d886f901-96ac-4a3d-ac9a-3383cd3dcede
+      title: YAML Gotchas
       index: 39
-    - title: Why PFCP rather than OF (OpenFlow)
-      guid: 39e48d8d-c663-420c-8e16-f7531d5670a5
+    - guid: 2d87b244-6c87-4f66-becb-4c1184ff5935
+      title: YAML Dictionary
       index: 40
-    - title: N4 Interface -  Packet Forwarding Control Plane Protocol (PFCP)
-      guid: 17b2df4e-7869-47cf-9de2-4e1634abbbd8
+    - guid: 258cf364-cf14-4061-b281-b55d38ea21e7
+      title: YAML list
       index: 41
-    - title: Service Function Chaining (SFC) Architecture RFC 7665
-      guid: ff7daf16-40c9-4943-84c4-04cc91ff8743
+    - guid: 28107eaf-8797-439c-9283-3a1e5caba548
+      title: YAML list of dictionaries
       index: 42
-    title: SDN
-    questions: []
-  - slides:
-    - title: Network Slicing
-      guid: 69742226-00db-4871-80aa-a25d1c824040
+    - guid: 18b7da3d-ce0b-456a-81db-f0ac529a750c
+      title: YAML Alternate format
       index: 43
-    - title: Tunneling
-      guid: c25ab553-7444-4072-8b90-e02da764c7af
-      index: 44
-    - title: The GTP Tunnel
-      guid: 77cd5680-545e-4d29-bb92-c945df7b2cb2
+- guid: e09e3e04-d33e-42f1-be3d-b1231a76397e
+  title: Writing a Simple Playbook
+  subchapters:
+  - title: Best Practices
+    questions: []
+    slides:
+    - guid: 43672eaa-7186-42a9-baab-9459ebe7a167
+      title: Elements of a well written playbook
       index: 45
-    - title: PDU Session Types
-      guid: 341d42fc-16a5-4d95-a234-ca3d069e532c
+    - guid: 106b0c3e-8b50-4005-8679-1f4965dd4976
+      title: A well-written Ansible play
       index: 46
-    title: PDU Session
-    questions: []
-  guid: 16d06c47-ad93-4797-99e7-838e3b7b3a3e
-- title: 5G Infrastructure
-  subchapters:
-  - slides:
-    - title: 5G Changes to the Access Layer
-      guid: 13273fc7-13ef-4ba7-a7fa-e5edd63a9d5e
+    - guid: 7cbeb22b-4479-4886-89ad-eaebee77aba0
+      title: Using include files for tasks
+      index: 47
+    - guid: 57d7c9c2-e735-41a3-a4b4-8d54ece20cad
+      title: A well-written ansible variable file
       index: 48
-    - title: 5G Network Location of elements 1 of 5
-      guid: c09c322d-6e90-4db0-be3f-bb2250e2726a
+    - guid: 8e6a9a33-32ff-458e-8428-4fd25670ccb1
+      title: A well-written ansible inventory file
       index: 49
-    - title: 5G Network Location of elements 2 of 5
-      guid: c047ad51-8ae8-46c6-8971-9a97b59735e2
-      index: 50
-    - title: 5G Network Location of elements 3 of 5
-      guid: 5d81534b-671e-431d-aec7-9d659bcd505f
+- guid: 2dd63886-cbe2-4a1d-9920-79a2625dbd16
+  title: Key Modules you need to know
+  subchapters:
+  - title: Ansible Modules
+    questions: []
+    slides:
+    - guid: 764d6b07-5342-409c-afb2-47ade8bdadfe
+      title: Understanding modules documentation
       index: 51
-    - title: 5G E2E Latency Requirements
-      guid: d4a375fb-f233-41f5-ac15-77634868a8e9
+    - guid: 84e9a163-5752-4f3e-846a-4ce78c5517d3
+      title: Copy
       index: 52
-    - title: 5G Network Location of elements 4 of 5
-      guid: 31f32797-fabc-42cd-9559-dff4739499ee
+    - guid: eb463476-5635-4024-ba04-4b0108c9f1f7
+      title: apt / yum / pip
       index: 53
-    - title: 5G Network Location of elements 5 of 5
-      guid: a903fb77-3ad7-481d-8d56-50461b0895ba
+    - guid: 5966af82-844c-46e7-b03e-b3aa2ff1de26
+      title: command / shell
       index: 54
-    title: Overview
-    questions: []
-  guid: 188f7e53-ef26-4912-82d8-61df470dd2e2
-- title: Registration and Tracking Areas
-  subchapters:
-  - slides:
-    - title: Registration and Tracking Areas
-      guid: d48c2def-38ae-4f64-aa03-fa285e7cebcd
+    - guid: ba971ee9-bb56-4d2c-ac0b-832fb7b20627
+      title: git
+      index: 55
+    - guid: 47126232-13c8-4ca1-a742-8877b31ddf61
+      title: get_url
       index: 56
-    - title: Registration and Tracking Area Rules
-      guid: 2803793b-72d8-4dc5-80a1-093fc6361455
+    - guid: 20239313-ec25-4a3e-b55d-f96e73405c06
+      title: debug
       index: 57
-    - title: UE Moves to a new Tracking Area
-      guid: 7bafb2eb-9994-4e90-aae6-e92b225b6566
+    - guid: f5580520-3c72-4b65-8177-024a2e50a38e
+      title: Manage L3 interfaces on network devices
       index: 58
-    - title: Network Slice within a Tracking Area
-      guid: 6a5a4846-14a8-403a-b528-0397215730e4
+    - guid: 028d34dd-2b04-4c08-a370-6b8857fd4fe6
+      title: Manage Layer-2 interface on network devices
       index: 59
-    - title: Vertical and Horizonal Slices
-      guid: ec76d425-8039-478d-94a2-e212a4445cfc
+    - guid: 961e2447-9b1e-4bd0-888e-536d47ea196d
+      title: Manage VLANs on network devices
       index: 60
-    title: Overview
-    questions: []
-  guid: 445d9b63-2a8a-448d-991f-2a3fc9eb9dd4
-- title: 5G Cloud Based Services
-  subchapters:
-  - slides:
-    - title: Service operation naming
-      guid: 7bd0eaf4-4c8d-48c9-a12b-4d94deb19194
+    - guid: 7a7d9c18-a776-4aa8-932d-01222f9cc0b4
+      title: OpenVswitch NFV
+      index: 61
+    - guid: 3641c5e8-ded4-4b43-8cff-2b213212b81b
+      title: Manage Interface on network devices
       index: 62
-    - title: Container-based Design of SBA (1 of 2)
-      guid: e66f88a7-ddf4-4ffb-910c-9ed231da7c75
-      index: 63
-    - title: Container-based Design of SBA (2 of 2)
-      guid: e980da87-7692-49a3-b39b-c9856d37ff3b
+- guid: 0e9fdcfe-d978-481a-8f82-783681129a44
+  title: Ansible templates
+  subchapters:
+  - title: jinja2
+    questions: []
+    slides:
+    - guid: b33ae677-9f81-4f68-95cd-1b4b41dd7d2e
+      title: What is Jinja2?
       index: 64
-    - title: HTTP Reverse Proxy
-      guid: 1e144624-637d-4e3a-8922-887371aaf79f
+    - guid: 32495e18-5a6c-49b6-968e-1e6014d185f2
+      title: jinja variables
       index: 65
-    - title: HTTP/2
-      guid: 61a3129d-115d-41d4-89c4-e6d265c2827d
+    - guid: 4bc5fb80-9d53-4014-b192-f1dc78048ecb
+      title: jinja filters
       index: 66
-    - title: JSON
-      guid: 14b7c7cc-0c94-483a-b391-32f7372be83e
+    - guid: b2939625-76ae-47c3-9bb6-a54d6c2dc49f
+      title: jinja tests
       index: 67
-    - title: JSON Algorithm
-      guid: 2dac0349-5563-4b02-8c30-c78326f6029a
+  - title: Ansible template module
+    questions: []
+    slides:
+    - guid: c000a49a-4fcf-453e-9e24-3682acc7da44
+      title: How to use ansible template
       index: 68
-    title: Overview
-    questions: []
-  guid: 4c52e7dd-4d40-49bc-bf2a-ac484a64791f
-- title: 5G Services
+    - guid: 8ecc507f-9a47-402e-8af9-0b195ea161b7
+      title: Review of the ansible template documentation
+      index: 69
+- guid: 933c7368-43ea-4dac-ae8d-9e9f1e3ff264
+  title: Conditional and Looping Tasks
   subchapters:
-  - slides:
-    - title: Namf
-      guid: 2a957593-1a3c-4047-b35a-c4b247299b1b
-      index: 70
-    - title: UE Context in AMF (1 of 2) TS 23-502 Table 5.2.2.2.2-1
-      guid: 22c3b9b6-691a-4cba-8cfe-f864c57d6470
+  - title: Using Variables to Add Intelligence to your playbook
+    questions: []
+    slides:
+    - guid: feb15edb-f280-49e5-b9b0-a7aac0a889d0
+      title: Variables and
       index: 71
-    - title: UE Context in AMF (2 of 2) TS 23-502 Table 5.2.2.2.2-1
-      guid: b1971191-c7a6-4906-9df3-cff63912ab7c
+    - guid: 71548403-8874-4100-9180-e36cf5850350
+      title: Using Complex Variables in Loops
       index: 72
-    - title: NSSF
-      guid: 9217cce7-0a64-4469-9e6c-faba116f6685
+    - guid: 1bc59cab-38fc-4925-817a-e7e1300fde79
+      title: Variables and Templates
       index: 73
-    - title: NEF (1 of 2)
-      guid: e9d7de9c-3274-43ca-9b80-40cef13ff707
+    - guid: f2874c58-ae7d-4139-8453-f0f30a088689
+      title: Using variables in conditions
       index: 74
-    - title: NEF (2 of 2)
-      guid: 802da065-4d03-4d12-bf55-2d6ffa4f93b9
+    - guid: 562b4ae8-8cec-4be5-8abd-87042473ffd2
+      title: Blocks
       index: 75
-    - title: NRF
-      guid: e0a9f88f-86d3-43f6-ba06-b63f87265385
+    - guid: 3576c2c2-466a-4b65-90a4-2f3d5302dc36
+      title: Prompts
       index: 76
-    - title: UDR
-      guid: c0a7b505-76f7-46fc-87d7-ae647cbd1fe0
+  - title: Best practices to set variable values
+    questions: []
+    slides:
+    - guid: 1a88b210-fb3e-4f03-8b82-cfe4f32b2a7f
+      title: Getting variables from the system
       index: 77
-    - title: Front End and UDC
-      guid: 774869b5-cd9d-400e-9819-d8cfad1659a4
+    - guid: f82b3d73-deda-45be-bf6a-f6e477ce59d6
+      title: Setting variables in playbooks
       index: 78
-    - title: UDM
-      guid: 6c870cb5-3692-4048-a22c-ab63d7ac58cf
+    - guid: e1225dc3-0770-4ab7-877d-500ae1527368
+      title: registered variables
       index: 79
-    - title: UDM Subscriber Data Management Data Types
-      guid: 6fcff2f5-61ba-4a20-9c09-812cba00418e
+    - guid: 392dce12-c83d-4952-ac02-0cce35adbc25
+      title: Getting variables from the command line
       index: 80
-    - title: AUSF Services
-      guid: 01851e54-b3cf-4010-889d-29e238dfff43
+    - guid: ca504593-59c9-46fb-ade2-ac46a9657a6c
+      title: Where is the best source to derive variables values?
       index: 81
-    - title: PCF Services
-      guid: 9b6d12fc-f0c5-4ca3-ab7a-956e24e705b7
-      index: 82
-    - title: SMF Services
-      guid: 4bb99046-e168-4d5b-9444-398ebdc6cc46
+- guid: a4cba23b-d4fc-4ce3-9131-a74909939453
+  title: Dynamic Inventory Management
+  subchapters:
+  - title: Options
+    questions: []
+    slides:
+    - guid: 1d8366ec-b1fa-4933-9220-0cd19eb05d4d
+      title: What is Dynamic Inventory?
       index: 83
-    title: Network Functions
-    questions: []
-  guid: 9a2adad5-f93b-47f8-a114-2fe66e115910
-- title: 5G Stacks
-  subchapters:
-  - slides:
-    - title: Transport NAS and SMS over HTTP
-      guid: 5e6b7fd3-8a2f-4e53-a4e0-8232f8ee8351
+    - guid: baee27a4-5877-41f6-8d30-9a041089230f
+      title: A review of static Inventory Practices
+      index: 84
+    - guid: 6a0c93b9-ab1d-42fd-a72f-ed0d530f60fe
+      title: Using JSON as an Inventory Source
       index: 85
-    - title: PDU Session
-      guid: 314a3e74-ea01-49f7-86b2-c772491c5cfb
+    - guid: 1be5e089-3006-4b01-8e23-f19384420a70
+      title: AWS EC2 Example
       index: 86
-    - title: N2 Interface
-      guid: ac59f310-cf3b-4bd0-bf06-9e91dad1b24c
+    - guid: e9c488cf-1b8f-499e-ae33-d942015a3492
+      title: OpenStack Example
       index: 87
-    - title: NG Application Protocol (NGAP) TS 38.413
-      guid: 9cff0565-bb13-4db8-a326-6afd238b4636
-      index: 88
-    - title: Session Management Function
-      guid: c1a1f586-a238-4554-8655-7e3d0b7fdf39
+- guid: c2ccf7a0-1fae-4077-b03a-f19052d6221f
+  title: OpenStack Configuration
+  subchapters:
+  - title: Preparing for Ansible OpenStack configuration
+    questions: []
+    slides:
+    - guid: 73651ea5-6abd-4ada-af08-00eb673cd4fd
+      title: Enough OpenStack to Survive
       index: 89
-    - title: N11 Interface
-      guid: 2e5acb15-3904-4c73-a66f-0a4ed1c9a231
+    - guid: a6c66900-05aa-4865-b1e8-155a5d942003
+      title: Understanding the OpenStack client
       index: 90
-    - title: Interworking with the EPC (TS 23.501 - 4.3.1.1)
-      guid: e9ac8c47-744d-41f0-a139-ba9ac0a5696d
-      index: 141
-    title: Overview
-    questions: []
-  guid: 87363741-b687-4df6-8120-9a28e42bc930
-- title: EU and PDU Session States
-  subchapters:
-  - slides:
-    - title: 5GMM main states in the UE
-      guid: bc4b0950-11f7-41a3-b477-87c30a3694eb
+    - guid: ed4ac90d-a956-4b50-9fa2-69e18b053a69
+      title: What is shade?
+      index: 91
+    - guid: ffe781dd-f3b2-432d-aa06-cea69875535c
+      title: clouds.yaml
       index: 92
-    - title: 5GMM main states in the network
-      guid: 4995f877-edad-485d-8f3c-cd7b52f5ee1b
+    - guid: e227f891-e5f0-4213-9865-c98f2ff5dae3
+      title: Installing shade
       index: 93
-    title: Registration
-    questions: []
-  - slides:
-    - title: UE PDU Session States
-      guid: 9055f667-4729-4000-81cf-e58c699f85d8
+    - guid: 94d3a0e0-a930-427c-a961-b2e1e9a96212
+      title: Using shade
       index: 94
-    - title: SMF PDU Session States
-      guid: 2dc43729-6b4f-4e1f-8b89-0339ea939f69
+  - title: OpenStack Ansible modules
+    questions: []
+    slides:
+    - guid: 1c94c427-cc24-4fda-9d1e-7d350bf4aba7
+      title: os_network
       index: 95
-    title: PDU Session
-    questions: []
-  guid: d66c560e-33ac-44ad-8b4d-6c06684e56b3
-- title: New Radio
-  subchapters:
-  - slides:
-    - title: New Radio
-      guid: 30a04b64-544d-40b5-8027-ddc6929a3c0f
+    - guid: a57b86b5-14a0-4327-b732-adcbfde312db
+      title: os_subnet
+      index: 96
+    - guid: cb0df597-48b1-48ae-a72a-455c6e869adf
+      title: os_router
       index: 97
-    - title: Sectors in New Radio
-      guid: 7559c6cb-8184-48e7-92e0-67a028e5279c
+    - guid: 66633a1a-53c2-4500-b41a-fc42da449727
+      title: os_server
       index: 98
-    - title: Beamforming
-      guid: d8f2fde6-4750-415a-b48b-de1227fc996e
+    - guid: 02c6e7d4-a0c7-4086-8ab0-472745a98109
+      title: os_server_action
       index: 99
-    - title: Pilot Signals
-      guid: 795b7025-3dc5-4b55-a322-d2ed4678a6cd
+    - guid: d77ff118-4e17-40e3-a7b4-01d9ccaa042e
+      title: os_security_group
       index: 100
-    - title: Pilot Signals
-      guid: 66cdf325-9e5c-4641-b66a-5874bdfb384d
+    - guid: 00f6a5fb-e7f5-45f2-8436-fa85be25757d
+      title: os_security_group_rule
       index: 101
-    - title: SU-MIMO vs MU-MIMO
-      guid: 95b5a82f-b191-459f-9396-96cba7706c62
-      index: 102
-    - title: Pilot Contamination
-      guid: ac0be10b-aca7-4dd7-8bf3-c81bc344ffdd
+- guid: 889a44e7-625e-4b1d-80b4-b76633d68f0f
+  title: napalm-ansible
+  subchapters:
+  - title: Introduction to napalm
+    questions: []
+    slides:
+    - guid: 47f2003b-2f04-490e-95cb-255bd91e6041
+      title: Network Automation Transactions
       index: 103
-    - title: Pilot Contamination Solutions
-      guid: 719c3b75-c580-4b57-ae08-f972fe018a8a
+    - guid: 40c21e20-c884-4a82-8e17-0f8738c9f730
+      title: What is NAPALM?
       index: 104
-    - title: Densification
-      guid: 81d401f2-c329-48f7-a9d4-3157c6942040
+    - guid: 4a56b95d-5eeb-42aa-933d-a97cb72ff07f
+      title: How NAPALM works
       index: 105
-    - title: 5G UE Radio Access Layers
-      guid: 946dc0b6-4134-462c-8b51-14d3b2718e18
+    - guid: 9999135e-4b67-429a-bb9e-d7e2fa897eb9
+      title: napalm installation
       index: 106
-    - title: Small Cell
-      guid: 9bb9e81a-e860-4bec-aa59-ae8432346cab
+    - guid: abc49183-963d-44e4-8c95-e495ebd0ed31
+      title: Load/Replace configuration
       index: 107
-    - title: Remote Radio Head
-      guid: 1e6e5342-ff61-413c-9b17-6e33fda2cec7
+    - guid: d22810b0-d969-4399-9a2c-58014f360c8f
+      title: Network Driver
       index: 108
-    - title: Base Band Unit
-      guid: 1bbfeb71-dc8a-491b-907d-752b25962d30
+  - title: Managing Network Devices with NAPALM
+    questions: []
+    slides:
+    - guid: d1fbc2f6-6999-4cfd-9958-aad6aef63b75
+      title: Connecting to the Device
       index: 109
-    - title: Common Public Radio Interface
-      guid: 1913d843-bf5f-4edb-a3bc-1e5617c50311
+    - guid: 6e69b483-707b-40b9-b123-5bb331bd4a8f
+      title: Replacing the Configuration
       index: 110
-    - title: Centralized Radio Access Network (C-RAN)
-      guid: 12b7292e-2329-433e-9e69-fa94fa0a873a
+    - guid: c2bb4b87-91dd-43c6-9f16-f5ede458c9a0
+      title: Rollback Changes
       index: 111
-    - title: To CPRI or not to CPRI?
-      guid: 23e25531-4753-44d2-bb86-dc4da067a1c3
+    - guid: c6855a22-a0f4-45db-9019-a7217a771364
+      title: Disconnecting
       index: 112
-    - title: Functional Split
-      guid: 9adb81c6-8cb1-416e-914c-5388a6d01d66
+    - guid: 010113d4-39d4-4abd-90c2-98947490b578
+      title: NAPALM Context Manager
       index: 113
-    - title: AAU, DU, and CU using the Option 2 Functional Split
-      guid: 719a3c41-e42f-42bb-8fe1-da77178e4046
+    - guid: c51c7f24-dd67-4c3f-b60b-1ad00951bdd9
+      title: Extending NAPALM Example
       index: 114
-    - title: Cloud-RAN
-      guid: a94b2e0a-5566-46e4-a31b-0267dc12ff42
+  - title: Ansible NAPALM modules
+    questions: []
+    slides:
+    - guid: a8a11e63-a2c6-49df-b690-21265ccdb664
+      title: What is napalm-ansible?
       index: 115
-    - title: Cloud-RAN
-      guid: 75f06f19-d787-403c-a633-bd2575a0734c
+    - guid: afa6bf3d-6940-400e-be2d-5b9738766c98
+      title: napalm-ansible Installation
       index: 116
-    title: Overview
-    questions: []
-  guid: 5aa2967a-9539-4522-9060-a69492313ffc
-- title: Mult-access Edge Computing
-  subchapters:
-  - slides:
-    - title: 8 Network Function Virtualization Components
-      guid: dc323c4a-56eb-4272-a823-baede4696650
+    - guid: 86223802-7cf2-4b2c-a6be-d5e828d45887
+      title: napalm_ping
+      index: 117
+    - guid: 54789086-36c1-494e-9b62-9f0b65b5109b
+      title: napalm_get_facts
       index: 118
-    - title: Why Two Bridges?
-      guid: cf1e217f-ac66-48e7-968a-68642b3a8669
+    - guid: 58c31dac-0d6b-42d9-9e31-cf35d5071bdc
+      title: napalm_install_config
       index: 119
-    - title: Simple NFV (Network Function Virtualization) Example
-      guid: 7eefba8a-f66a-4861-9ba2-85e9b0343ddb
+    - guid: 539490b8-ca62-42a2-a5e8-b9bf0cfdb6ea
+      title: napalm_validate
       index: 120
-    - title: OVS-based openstack "wiring"
-      guid: 7655238c-5269-4038-853a-2688e8b05981
-      index: 121
-    title: NFV
+- guid: a3d7af38-feec-4683-89a2-fb14a315de69
+  title: networktocode ntc-ansible
+  subchapters:
+  - title: Introduction to ntc-ansible
     questions: []
-  - slides:
-    - title: MEC Reference Architecture in a NFV Environment
-      guid: a6cbefe3-fa44-489a-80f1-4a0b7c4b2a82
+    slides:
+    - guid: b3788e14-382f-4109-8f72-b0dedebd1d25
+      title: What is ntc-ansible
       index: 122
-    - title: Mobile Edge Computing to Multi-access Edge Computing
-      guid: b4705f45-4303-42e0-80d4-08eff065b9d6
+    - guid: 1abcde95-8ea9-4b57-80d7-f768b9c807a2
+      title: TextFSM
       index: 123
-    title: Architecture
-    questions: []
-  guid: cdc6fdb1-29db-439a-8f3d-5df7ac8ab78b
-- title: Priority Paging and QoS
-  subchapters:
-  - slides:
-    - title: Paging Policy Differentiation (PPD)
-      guid: 7cbfe30f-cefb-4c3f-92f0-3097a9602272
+    - guid: 47770d9f-93c3-4542-8c5d-669f60bcd33b
+      title: Installation
+      index: 124
+    - guid: 6a733455-1d76-4d20-8230-ddb4c1990776
+      title: ntc Modules
       index: 125
-    - title: Network Triggered Service Request
-      guid: ec895902-91cb-403d-bc03-d12e861f6693
+    - guid: 9c9b864f-f652-43e6-b36c-bfaab05fed51
+      title: Example
       index: 126
-    - title: QoS Profile
-      guid: 1d71b84e-56ae-4adb-ab9f-65dacad3d77a
-      index: 127
-    - title: QoS Flow Marking
-      guid: 33eace3c-8db7-46a0-a00f-e8ebcdb7ff4b
-      index: 128
-    - title: Service Data Flow (SDF) Filter
-      guid: 43237428-512b-4716-a537-9ea92ce9b8f7
-      index: 129
-    - title: 5QI (QoS Flow ID)
-      guid: 37dce923-2449-4cd5-897d-1f51d92d9f03
-      index: 130
-    - title: enhanced Multi-Level Precedence and Pre-emption service (eMLPP)
-      guid: e38a5a9c-9abc-4715-bcaa-667adb79c5a6
-      index: 131
-    title: Overview
-    questions: []
-  guid: abfa953d-a29e-41d9-b7ab-e175cc6624b2
-- title: 5G Flow Diagrams
+- guid: f3ed092d-5d2c-420d-a17a-3828ba4aecc8
+  title: Roles
   subchapters:
-  - slides:
-    - title: Registration 1 of 3
-      guid: e40f8502-1f9a-4417-b990-e75ddaad79f1
-      index: 133
-    - title: Registration 2 of 3
-      guid: 701f7e59-dc8d-42b0-a70e-0662a2ffe696
+  - title: Options
+    questions: []
+    slides:
+    - guid: 5aede88d-2dcd-4d12-8c57-3ef63d6047e3
+      title: Why we need Ansible Roles
+      index: 128
+    - guid: 07061969-b752-4ad8-a56d-0252fc18f820
+      title: Role Directory Structure
+      index: 129
+    - guid: 02327ee2-e3c7-436d-8e82-4cf0bfdd064b
+      title: Using Roles
+      index: 130
+    - guid: 5dadbaad-a8a2-4fc6-a05b-880e9a16772a
+      title: Role default variables
+      index: 131
+    - guid: 64955d34-f952-411c-9a55-33c6b8835e1f
+      title: Converting a Playbook to a Role
+      index: 132
+- guid: ad30d627-e37e-4f07-8f1d-a65460ddb2ab
+  title: Playbook Best Practices
+  subchapters:
+  - title: Stay Organized!
+    questions: []
+    slides:
+    - guid: 9c26a26d-8744-4275-b5ce-78ad89de6cdc
+      title: Directory Layout
       index: 134
-    - title: Registration 3 of 3
-      guid: 3a5a1a27-9d37-4c8f-9da9-8877be6385e9
+    - guid: 5aae7eb9-df46-48ae-8b06-34177123f0af
+      title: Use Dynamic Inventory With Clouds
       index: 135
-    title: Registration
-    questions: []
-  - slides:
-    - title: PDU Session Establishment (1 of 4)
-      guid: 7ab41cfc-e867-422d-a294-51302da53fcd
+    - guid: bd0cbe4e-1584-4955-97b7-eda5a5dbc94e
+      title: How to Differentiate Staging vs Production
       index: 136
-    - title: PDU Session Establishment (2 of 4)
-      guid: 2ad1d528-5363-465b-802d-9ba976a6f275
+    - guid: fbc92453-4bdd-40c3-a909-c93029a6b3b8
+      title: Group And Host Variables
       index: 137
-    - title: PDU Session Establishment (3 of 4)
-      guid: 41584227-d4fd-48db-8e8f-02e085008078
+    - guid: b1176770-898a-49d2-959c-e296c44534f1
+      title: Top Level Playbooks Are Separated By Server Type
       index: 138
-    - title: PDU Session Establishment (4 of 4)
-      guid: d8cdfcb9-830c-4aef-95f7-c650b5bbfa12
+    - guid: 8646ae68-8d0a-423e-9ab0-ed76a0ed2b92
+      title: If you must use shell, stay idempotent!
       index: 139
-    title: PDU Session
+    - guid: 2f998376-854b-4ae2-ad69-758e32588de7
+      title: 7 More Best Practices
+      index: 140
+- guid: ca175a9b-fa6b-4dcc-8d9b-c5ef90b7b6b4
+  title: Ansible Tower / AWX Essentials
+  subchapters:
+  - title: Introduction to Ansible Tower
     questions: []
-  - slides:
-    - title: QoS Triggered PDU Modification (1 of 3)
-      guid: dd55ce8d-2f9b-4a8a-8593-f15c2243c0d1
+    slides:
+    - guid: 515a0721-f53f-477d-8cc8-788ef383985e
+      title: What is Ansible Tower and AWX
       index: 142
-    - title: QoS Triggered PDU Modification (2 of 3)
-      guid: 457b49fd-891d-49f7-a27f-293abc27bc69
-      index: 143
-    - title: QoS Triggered PDU Modification (3 of 3)
-      guid: 66d5c4af-65a0-4187-8ff3-fd863c96264c
-      index: 144
-    title: PDU Modification
-    questions: []
-  guid: 41e7d2da-d8bd-421a-875a-d5701d21be50
-
