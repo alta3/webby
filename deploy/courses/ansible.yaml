@@ -5,9 +5,10 @@ duration:
   hours: 32
   days: 50
 testimonials:
-  quotes:
-   -  All excellant
-   -  amazing
+  - quotes: Excellant Course!
+    stars: 5
+  - quotes: Zach was almost amazing
+    stars: 5
 video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
 weburl: https://alta3.com/courses/ansible
 has-labs: false

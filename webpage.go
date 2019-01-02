@@ -305,7 +305,8 @@ type Duration struct {
 }
 
 type Testimonials struct {
-  Quotes        []string        `json:"quotes"`
+  Quote         string          `json:"quote"`
+  Stars         int             `json:"stars"`
 }
 
 type Lab struct {
@@ -329,7 +330,7 @@ type Course struct {
   Purchased     bool            `rethinkdb:"-" json:"-"`
   Price         Price           `rethinkdb:"-" json:"price"`
   Duration      Duration        `json:"duration"`
-  Testimonials  Testimonials    `json:"testimonials"`
+  Testimonials  []Testimonials    `json:"testimonials"`
   VideoLink     string          `json:"videolink"`
   Overview      string          `json:"overview"`
 }
@@ -502,9 +503,6 @@ func  (cs Courses) CourseTemplate() http.Handler {
 		}
 
                 var err error
-
-                // TODO, STOP THINKING TEMPLATES so much as the next comment implies
-                // TODO hp, mp, cp, fp (header, menu, center, footer template parts)
 		lp := path.Join("deploy/templates", "layout.html")
 		fp := path.Join("deploy/courses", r.URL.Path)
 		info, err := os.Stat(fp)
@@ -531,8 +529,11 @@ func  (cs Courses) CourseTemplate() http.Handler {
 		return
 	})
 }
+// New SEAN function, Given a search string, returns course ID ONLY for matching courses 
+func 
 
 
+// Given a search string, returns course data for all matching courses, without the course outline data.
 func (cs Courses ) getsearch() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
