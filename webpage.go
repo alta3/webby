@@ -530,33 +530,28 @@ func  (cs Courses) CourseTemplate() http.Handler {
 		return
 	})
 }
-// New SEAN function, Given a search string, returns course ID ONLY for matching courses 
+// Returns a Course Id, Category, and Name for building a Course Mega-Menu
 func (cs Courses ) getmenu() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-
-type PriceTag struct {
-  Id           string          `json:"id"`
-  Name         string          `json:"Name"`
-  Category     string          `json:"Category"`
-}
-
-
-    //Retreive variable from GET URL
-    ss := r.FormValue("search")
-    fmt.Printf("func searchstring searching for: %s\n",ss)                
-    // Create a new composite Course type. Interestingly, by adding existing subordinate
-    // types to the cloned struct, items will OMIT them from the marshalling.
-    // see: https://mycodesmells.com/post/working-with-embedded-structs
-    c := []PublicCourse{} 
+    type MenuItems struct {
+      Id           string          `json:"id"`
+      Name         string          `json:"name"`
+      Category     string          `json:"category"`
+    }
+    mi := MenuItems{} 
+    mis := []MenuItems{} 
     var js []byte
     var err error
-    //Iterate over all courses, looking for the search string (ss)
-    //If a match is found, add the course to c.Cc[i]
+    //Iterate over all courses, copy Id, Name, and Category
     for _, ThisCourse := range cs.Cc {
        fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Category)
+       mi.Id=ThisCourse.Id
+       mi.Name=ThisCourse.Name
+       mi.Category=ThisCourse.Category
+       mis = append(mis,mi)
     }
-    //If no courses match, SEND THEM ALL! 
-    js, err = json.Marshal(c)
+    // Marshal the Mega-Menu
+    js, err = json.Marshal(mis)
     if err != nil {
        http.Error(w, err.Error(), http.StatusInternalServerError)
        fmt.Printf("Error %s:\n", err)
