@@ -309,12 +309,12 @@ type Testimonial struct {
   Stars         int             `json:"stars"`
 }
 
-type Tag struct {
-  Programming         string    `json:"programming"`
-  Cloud               string    `json:"cloud"`
-  Automation          string    `json:"automation"`
-  Telecom             string    `json:"telecom"`
-}
+//type Tag struct {
+// Programming         string    `json:"programming"`
+//  Cloud               string    `json:"cloud"`
+//  Automation          string    `json:"automation"`
+//  Telecom             string    `json:"telecom"`
+//}
 
 type Lab struct {
   Title string                  `rethinkdb:"title" json:"title"`
@@ -340,7 +340,7 @@ type Course struct {
   Testimonials  []Testimonial   `json:"testimonials"`
   VideoLink     string          `json:"videolink"`
   Overview      string          `json:"overview"`
-  Tags          []Tag           `json:"tags"`
+  Tags          []string        `json:"tags"`
   Courseicon    string          `json:"courseicon"`
 }
 
@@ -594,7 +594,7 @@ func (cs Courses ) getmenu() http.Handler {
     type MenuItems struct {
       Id           string          `json:"id"`
       Name         string          `json:"name"`
-      Tags         string          `json:"tags"`
+      Tags         []string        `json:"tags"`
     }
     mi := MenuItems{} 
     mis := []MenuItems{} 
