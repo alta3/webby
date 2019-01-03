@@ -309,6 +309,13 @@ type Testimonial struct {
   Stars         int             `json:"stars"`
 }
 
+type Tag struct {
+  Programming         string    `json:"programming"`
+  Cloud               string    `json:"cloud"`
+  Automation          string    `json:"automation"`
+  Telecom             string    `json:"telecom"`
+}
+
 type Lab struct {
   Title string                  `rethinkdb:"title" json:"title"`
   File  string                  `rethinkdb:"file" json:"file"`
@@ -333,7 +340,7 @@ type Course struct {
   Testimonials  []Testimonial   `json:"testimonials"`
   VideoLink     string          `json:"videolink"`
   Overview      string          `json:"overview"`
-  Category      string          `json:"category"`
+  Tags          []Tag           `json:"tags"`
   Courseicon    string          `json:"courseicon"`
 }
 
@@ -411,6 +418,7 @@ func Load() Courses {
                 fmt.Printf("Self Paced Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Selfpaced.PriceTags))
                 fmt.Printf("Extend LMS Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.ExtendLmsAccess.PriceTags))
                 fmt.Printf("         Testimonials %d\n", len(jsonCatalogFile.Cc[i].Testimonials))
+                fmt.Printf("                 Tags %d\n", len(jsonCatalogFile.Cc[i].Tags))
                 fmt.Printf("             Chapters %d\n", len(jsonCatalogFile.Cc[i].Chapters))
                 fmt.Printf("                 Labs %d\n", len(jsonCatalogFile.Cc[i].Labs))
               i++
@@ -536,45 +544,46 @@ func  (cs Courses) CourseTemplate() http.Handler {
 
 
 //Going to return the course Id, Title, Stars, Duration, Description, selfpaced price, and live price, courseicon.
-func (cs Courses ) getpopup() http.Handler {
-    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-    type PopupItems struct {
-      Id           string          `json:"id"`
-      Name         string          `json:"name"`
-      Stars        int             `json:"stars"`
-      Duration     int             `json:"duration"`
-      Overview     string          `json:"overview"`
-      Price        int             `json:"pricee"`
-      Courseicon   string          `json:"courseicon"`
-    }
-    popi := PopupItems{}
-    popis := []PopupItems{}
-    var js []byte
-    var err error
-    //Iterate over all courses, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
-    for _, ThisCourse := range cs.Cc {
-       fmt.Printf("_Course PopUp_  = %s, %s, %s, %s, %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Stars, ThisCourse.Duration, ThisCourse.Overview, ThisCourse.Price, ThisCourse.Courseicon)
-       popi.Id=ThisCourse.Id
-       popi.Name=ThisCourse.Name
-       popi.Stars=ThisCourse.Stars
-       popi.Duration=ThisCourse.Duration
-       popi.Overview=ThisCourse.Overview
-       popi.Price=ThisCourse.Price
-       popi.Courseicon=ThisCourse.Courseicon
-       popis = append(popis,popi)
-    }
-    //If no courses match, SEND THEM ALL! 
-       js, err = json.Marshal(popis)
-    if err != nil {
-       http.Error(w, err.Error(), http.StatusInternalServerError)
-       fmt.Printf("Error %s:\n", err)
-       return
-    }
-    w.Header().Set("Content-Type", "application/json")
-    w.Write(js)
-    return
-    })
-}
+//func (cs Courses ) getpopup() http.Handler {
+//   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+//    type PopupItems struct {
+//      Id           string          `json:"id"`
+//      Name         string          `json:"name"`
+//      Stars        int             `json:"stars"`
+//      Duration     int             `json:"duration"`
+//      Overview     string          `json:"overview"`
+//      Price        int             `json:"pricee"`
+//      Courseicon   string          `json:"courseicon"`
+//    }
+//    popi := PopupItems{}
+//    popis := []PopupItems{}
+//    var js []byte
+//    var err error
+//    //Iterate over all courses, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
+//    for _, ThisCourse := range cs.Cc {
+//       fmt.Println("--------------------------------------------------")
+//       fmt.Printf("_Course PopUp_  = %s, %s, %s, %s, %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Stars, ThisCourse.Duration, ThisCourse.Overview, ThisCourse.Price, ThisCourse.Courseicon)
+//       popi.Id=ThisCourse.Id
+//       popi.Name=ThisCourse.Name
+//       popi.Stars=ThisCourse.Stars
+//       popi.Duration=ThisCourse.Duration
+//       popi.Overview=ThisCourse.Overview
+//       popi.Price=ThisCourse.Price
+//       popi.Courseicon=ThisCourse.Courseicon
+//       popis = append(popis,popi)
+//    }
+//    //If no courses match, SEND THEM ALL! 
+//       js, err = json.Marshal(popis)
+//    if err != nil {
+//       http.Error(w, err.Error(), http.StatusInternalServerError)
+//       fmt.Printf("Error %s:\n", err)
+//       return
+//    }
+//    w.Header().Set("Content-Type", "application/json")
+//    w.Write(js)
+//    return
+//    })
+//}
 
 
 
@@ -585,18 +594,19 @@ func (cs Courses ) getmenu() http.Handler {
     type MenuItems struct {
       Id           string          `json:"id"`
       Name         string          `json:"name"`
-      Category     string          `json:"category"`
+      Tags         string          `json:"tags"`
     }
     mi := MenuItems{} 
     mis := []MenuItems{} 
     var js []byte
     var err error
-    //Iterate over all courses, copy Id, Name, and Category
+    //Iterate over all courses, copy Id, Name, and any Tags
     for _, ThisCourse := range cs.Cc {
-       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Category)
+       fmt.Println("--------------------------------------------------")
+       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Tags)
        mi.Id=ThisCourse.Id
        mi.Name=ThisCourse.Name
-       mi.Category=ThisCourse.Category
+       mi.Tags=ThisCourse.Tags
        mis = append(mis,mi)
     }
     // Marshal the Mega-Menu
