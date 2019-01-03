@@ -309,13 +309,6 @@ type Testimonial struct {
   Stars         int             `json:"stars"`
 }
 
-//type Tag struct {
-// Programming         string    `json:"programming"`
-//  Cloud               string    `json:"cloud"`
-//  Automation          string    `json:"automation"`
-//  Telecom             string    `json:"telecom"`
-//}
-
 type Lab struct {
   Title string                  `rethinkdb:"title" json:"title"`
   File  string                  `rethinkdb:"file" json:"file"`
@@ -341,7 +334,7 @@ type Course struct {
   VideoLink     string          `json:"videolink"`
   Overview      string          `json:"overview"`
   Tags          []string        `json:"tags"`
-  Courseicon    string          `json:"courseicon"`
+  Courseicon    string          `json:"courseicon"`                  // TODO make sure courseicons are under images/courseicons and all available to put in yaml or json file as coursicon: xxxx.png
 }
 
 type Courses struct {
@@ -588,7 +581,7 @@ func  (cs Courses) CourseTemplate() http.Handler {
 
 
 
-// Returns a Course Id, Category, and Name for building a Course Mega-Menu
+// Returns a Course Id, Tag, and Name for building a Course Mega-Menu. Tag is 
 func (cs Courses ) getmenu() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type MenuItems struct {
@@ -713,6 +706,9 @@ func main() {
 
         // Get Menu 
         http.Handle("/menu/", http.StripPrefix("/menu/", cs.getmenu()))
+
+        //Get Popup Course
+        http.Handle("/popup/",http.StripPrefix("/popup/", cs.getpopup()))
 
 	// Stripe Chckout
 	http.Handle("/checkout", Checkout())
