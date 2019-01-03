@@ -10,7 +10,7 @@ category: Cloud
 
 
 
-description: Our OpenStack courses offer both hands on and lecture, allowing students to learn OpenStack architecture and operation. Students will examine both front end and back end OpenStack components, revealing the actual OpenStack function at the component level. In addition to a technical review of the architecture, this course teaches practical skills, as you will perform hands on labs to administer an OpenStack datacenter and set up, network, create and delete virtual machines and services. You will learn important DEVOPs skills that illustrate how to fully administer the software defined infrastructure made possible by OpenStack. Important linux skills necessary to perform effective CLI tasks are also taught. All hands-on labs are written to reinforce each lesson, making the concepts clearly understood. 
+overview: Our OpenStack courses offer both hands on and lecture, allowing students to learn OpenStack architecture and operation. Students will examine both front end and back end OpenStack components, revealing the actual OpenStack function at the component level. In addition to a technical review of the architecture, this course teaches practical skills, as you will perform hands on labs to administer an OpenStack datacenter and set up, network, create and delete virtual machines and services. You will learn important DEVOPs skills that illustrate how to fully administer the software defined infrastructure made possible by OpenStack. Important linux skills necessary to perform effective CLI tasks are also taught. All hands-on labs are written to reinforce each lesson, making the concepts clearly understood. 
 chapters:
 - title: OpenStack Architecture Overview
   subchapters:

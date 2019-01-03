@@ -334,6 +334,7 @@ type Course struct {
   VideoLink     string          `json:"videolink"`
   Overview      string          `json:"overview"`
   Category      string          `json:"category"`
+  Courseicon    string          `json:"courseicon"`
 }
 
 type Courses struct {
@@ -530,6 +531,54 @@ func  (cs Courses) CourseTemplate() http.Handler {
 		return
 	})
 }
+
+
+
+
+//Going to return the course Id, Title, Stars, Duration, Description, selfpaced price, and live price, courseicon.
+func (cs Courses ) getpopup() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    type PopupItems struct {
+      Id           string          `json:"id"`
+      Name         string          `json:"name"`
+      Stars        int             `json:"stars"`
+      Duration     int             `json:"duration"`
+      Overview     string          `json:"overview"`
+      Price        int             `json:"pricee"`
+      Courseicon   string          `json:"courseicon"`
+    }
+    popi := PopupItems{}
+    popis := []PopupItems{}
+    var js []byte
+    var err error
+    //Iterate over all courses, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
+    for _, ThisCourse := range cs.Cc {
+       fmt.Printf("_Course PopUp_  = %s, %s, %s, %s, %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Stars, ThisCourse.Duration, ThisCourse.Overview, ThisCourse.Price, ThisCourse.Courseicon)
+       popi.Id=ThisCourse.Id
+       popi.Name=ThisCourse.Name
+       popi.Stars=ThisCourse.Stars
+       popi.Duration=ThisCourse.Duration
+       popi.Overview=ThisCourse.Overview
+       popi.Price=ThisCourse.Price
+       popi.Courseicon=ThisCourse.Courseicon
+       popis = append(popis,popi)
+    }
+    //If no courses match, SEND THEM ALL! 
+       js, err = json.Marshal(popis)
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
+
+
+
+
 // Returns a Course Id, Category, and Name for building a Course Mega-Menu
 func (cs Courses ) getmenu() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
