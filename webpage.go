@@ -535,7 +535,7 @@ func  (cs Courses) CourseTemplate() http.Handler {
 
 
 
-
+//Not complete yet, still in testing phase. 
 //Going to return the course Id, Title, Stars, Duration, Description, selfpaced price, and live price, courseicon.
 //func (cs Courses ) getpopup() http.Handler {
 //   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -545,7 +545,7 @@ func  (cs Courses) CourseTemplate() http.Handler {
 //      Stars        int             `json:"stars"`
 //      Duration     int             `json:"duration"`
 //      Overview     string          `json:"overview"`
-//      Price        int             `json:"pricee"`
+//      Price        int             `json:"price"`
 //      Courseicon   string          `json:"courseicon"`
 //    }
 //    popi := PopupItems{}
@@ -577,6 +577,47 @@ func  (cs Courses) CourseTemplate() http.Handler {
 //    return
 //    })
 //}
+
+
+
+
+
+
+//Not complete yet, still in testing phase.
+//Going to return blog Id and Title.
+//func (cs Courses ) getblogs() http.Handler {
+//   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+//    type BlogItems struct {
+//      Id           string          `json:"id"`
+//      Name         string          `json:"name"`
+//    }
+//    blogi := BlogItems{}
+//    blogis := []BlogItems{}
+//    var js []byte
+//    var err error
+//    //Iterate over all courses, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
+//    for _, ThisCourse := range cs.Cc {
+//       fmt.Println("--------------------------------------------------")
+//       fmt.Printf("Blog Search Results  = %s, %s\n", ???.Id., ???.Name)
+//       blogi.Id=???.Id
+//       blogi.Name=???.Name
+//       blogis = append(blogis,blogi)
+//    }
+//    //If no courses match, SEND THEM ALL! 
+//       js, err = json.Marshal(blogis)
+//    if err != nil {
+//       http.Error(w, err.Error(), http.StatusInternalServerError)
+//       fmt.Printf("Error %s:\n", err)
+//       return
+//    }
+//    w.Header().Set("Content-Type", "application/json")
+//    w.Write(js)
+//    return
+//    })
+//}
+
+
+
 
 
 
@@ -702,13 +743,19 @@ func main() {
 	http.Handle("/", http.StripPrefix("/", Template()))
 
         // JSON RESTful Interfaces
-        http.Handle("/search/", http.StripPrefix("/search/", cs.getsearch()))
+        http.Handle("/api/v1/search/", http.StripPrefix("/search/", cs.getsearch()))
 
         // Get Menu 
-        http.Handle("/menu/", http.StripPrefix("/menu/", cs.getmenu()))
+        http.Handle("/api/v1/menu/", http.StripPrefix("/menu/", cs.getmenu()))
 
         //Get Popup Course
-        http.Handle("/popup/",http.StripPrefix("/popup/", cs.getpopup()))
+        http.Handle("/api/v1/popup/",http.StripPrefix("/popup/", cs.getpopup()))
+
+        //Get Searh Blog
+        //http.Handle("/api/v1/searchblog/",http.StripPrefix("/searchblog/", cs.getblogs()))
+
+        //Get Blog Details
+        //http.Handle("/api/v1/blogdet/",http.StripPrefix("/blogdet/", cs.getblogd()))
 
 	// Stripe Chckout
 	http.Handle("/checkout", Checkout())
