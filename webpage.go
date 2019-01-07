@@ -533,6 +533,30 @@ func  (cs Courses) CourseTemplate() http.Handler {
 	})
 }
 
+//----------------------------------------------------------------
+//Ingest markdown and convert to html
+//----------------------------------------------------------------
+//func ToJSON(data []byte) ([]byte, error) {
+ //   if hasJSONPrefix(data) {
+//        return data, nil
+//    }
+//    return yaml.YAMLToJSON(data)
+//}
+
+//var jsonPrefix = []byte("{")
+
+//// hasJSONPrefix returns true if the provided buffer starts with "{".
+//func hasJSONPrefix(buf []byte) bool {
+//    return hasPrefix(buf, jsonPrefix)
+//}
+
+// Return true if the first non-whitespace bytes in buf is prefix.
+//func hasPrefix(buf []byte, prefix []byte) bool {
+//    trim := bytes.TrimLeftFunc(buf, unicode.IsSpace)
+//    return bytes.HasPrefix(trim, prefix)
+//}
+////----------------------------------------------------------------
+
 
 
 //Not complete yet, still in testing phase. 
@@ -622,7 +646,7 @@ func  (cs Courses) CourseTemplate() http.Handler {
 
 
 
-// Returns a Course Id, Tag, and Name for building a Course Mega-Menu. Tag is 
+// Returns a Course Id, Tag, Stars, and Name for building a Course Mega-Menu. Tag is 
 func (cs Courses ) getmenu() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type MenuItems struct {
