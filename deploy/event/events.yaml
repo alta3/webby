@@ -1,121 +1,154 @@
 Events:
-  - id: 736
+ 
+id: 736
     Title: SDN and NFV
-    startdate: 20190114 - 20190118
+    startdate: 20190114 
+    enddate: 20190118
     courseid: sdn
     Image: https://alta3.com/static/images/sdn-net.jpg
     Location: Live webinar Instructor Led
 
-  - id: 677
+ 
+id: 677
     Title: Openstack
-    startdate: 20190121 - 20190125
+    startdate: 20190121 
+    enddate: 20190125
     courseid:  
     Image:  https://alta3.com/static/images/openstack-training.png
     Location: Live webinar Instructor Led
     
-  - id: 791
+ 
+id: 791
     Title: Python 1
-    startdate: 20190128 - 20190201
+    startdate: 20190128
+    enddate: 20190201
     courseid: python
     Image: https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.python.org%2Fstatic%2Fopengraph-icon-200x200.png&imgrefurl=https%3A%2F%2Fwww.python.org%2F&docid=Fvb7Gz_c4rwxjM&tbnid=vZKJO2_oBP1evM%3A&vet=10ahUKEwjiq8ja297fAhVSU98KHYf7Cr8QMwhoKB4wHg..i&w=200&h=200&itg=1&bih=738&biw=1516&q=image%20for%20python%20programming&ved=0ahUKEwjiq8ja297fAhVSU98KHYf7Cr8QMwhoKB4wHg&iact=mrc&uact=8
     Location: Live webinar Instructor Led
     
-  - id: 747
+ 
+id: 747
     Title: SIP Essentials
-    startdate: 20190204 - 20190208
+    startdate: 20190204
+    enddate: 20190208
     courseid:  
     Image:  https://alta3.com/static/images/sip-invite.jpg
     Location: Live webinar Instructor Led
     
-  - id: 587
+ 
+id: 587
     Title: Kubernetes
-    startdate: 20190225 - 20190301
+    startdate: 20190225
+    enddate: 20190301
     courseid:  
     Image:  https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjzzKGo3d7fAhUsWN8KHftPAhAQjRx6BAgBEAU&url=https%3A%2F%2Fblogs.vmware.com%2Fcloudnative%2F2018%2F12%2F03%2Fa-very-stable-kubernetes-1-13%2F&psig=AOvVaw1Z5dJmAOhmhZgS-gOtrryU&ust=1547055572149454
     Location: Live webinar Instructor Led
     
-  - id: 627
+ 
+id: 627
     Title: Network Automation with Python
-    startdate: 20190225 - 20190301
+    startdate: 20190225
+    enddate: 20190301
     courseid:  
     Image:  https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwikneq-3t7fAhUhZN8KHX23D7EQjRx6BAgBEAU&url=https%3A%2F%2Fwww.juniper.net%2Fus%2Fen%2Fproducts-services%2Fwhat-is%2Fself-driving-network%2F&psig=AOvVaw27N2sIeUns1Rl5jvfcxP1j&ust=1547055840623862
     Location: Live webinar Instructor Led
     
-  - id: 267
+ 
+id: 267
     Title: Ansible
-    startdate: 20190304 - 20190308
+    startdate: 20190304
+    enddate: 20190308
     courseid:  
     Image:  https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwi92Nzv3t7fAhWvct8KHSWYBY8QjRx6BAgBEAU&url=https%3A%2F%2Fgithub.com%2Fansible&psig=AOvVaw3TMAtH-gaEO3McJwJ6WR54&ust=1547056003604751
     Location: Live webinar Instructor Led
     
-  - id: 543
+ 
+id: 543
     Title: 5G
-    startdate: 20190311 -  20190312
+    startdate: 20190311
+     enddate: 20190312
     courseid:  
     Image:  https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwigkrCa397fAhXtRd8KHZPmBrwQjRx6BAgBEAU&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2F5G&psig=AOvVaw1vpRwN_7pSq6vl-lV2bDGW&ust=1547056087558170
     Location: Live webinar Instructor Led
     
     
-  - id: 747
+ 
+id: 747
     Title: SIP Essentials
-    startdate: 20190401 - 20190405
+    startdate: 20190401
+    enddate: 20190405
     courseid:  
     Image: https://alta3.com/static/images/sip-invite.jpg
     Location: Live webinar Instructor Led
     
-  - id: 736
+ 
+id: 736
     Title: SDN and NFV
-    startdate: 20190408 - 20190412
+    startdate: 20190408
+    enddate: 20190412
     courseid: sdn
     Image: https://alta3.com/static/images/sdn-net.jpg
     Location: Live webinar Instructor Led
+
     
-    
-  - id: 587
+id: 587
     Title: Kubernetes
-    startdate: 20190429 -  20190503
+    startdate: 20190429
+    enddate: 20190503
     courseid:  
     Image:  https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjzzKGo3d7fAhUsWN8KHftPAhAQjRx6BAgBEAU&url=https%3A%2F%2Fblogs.vmware.com%2Fcloudnative%2F2018%2F12%2F03%2Fa-very-stable-kubernetes-1-13%2F&psig=AOvVaw1Z5dJmAOhmhZgS-gOtrryU&ust=1547055572149454
     Location: Live webinar Instructor Led
     
-  - id: 677
+ 
+id: 677
     Title: Openstack
-    startdate: 20190513 - 20190517
+    startdate: 20190513
+    enddate: 20190517
     courseid:  
     Image:  https://alta3.com/static/images/openstack-training.png
     Location: Live webinar Instructor Led
     
-  - id: 627
+ 
+id: 627
     Title: Network Automation with Python
-    startdate: 20190520 - 20190524
+    startdate: 20190520
+    enddate: 20190524
     courseid:  
     Image:  https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwikneq-3t7fAhUhZN8KHX23D7EQjRx6BAgBEAU&url=https%3A%2F%2Fwww.juniper.net%2Fus%2Fen%2Fproducts-services%2Fwhat-is%2Fself-driving-network%2F&psig=AOvVaw27N2sIeUns1Rl5jvfcxP1j&ust=1547055840623862
     Location: Live webinar Instructor Led
     
-  - id: 543
+ 
+id: 543
     Title: 5G
-    startdate: 20190527 - 20190528
+    startdate: 20190527
+    enddate: 20190528
     courseid:  
     Image:  https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwigkrCa397fAhXtRd8KHZPmBrwQjRx6BAgBEAU&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2F5G&psig=AOvVaw1vpRwN_7pSq6vl-lV2bDGW&ust=1547056087558170
     Location: Live webinar Instructor Led
     
-  - id: 747
+ 
+id: 747
     Title: SIP Essentials
-    startdate: 20190603 - 20190607
+    startdate: 20190603
+    enddate: 20190607
     courseid:  
     Image: https://alta3.com/static/images/sip-invite.jpg
     Location: Live webinar Instructor Led
     
-  - id: 7435
+ 
+id: 7435
     Title: RHEL
-    startdate: 20190617 - 20190621
+    startdate: 20190617
+    enddate: 20190621
     courseid:  
     Image: https://zdnet1.cbsistatic.com/hub/i/2014/10/05/770a09d4-4cd2-11e4-b6a0-d4ae52e95e57/fa408747f147810617966044106c7e18/red-hat-logo-0507-v1.png
     Location: Live webinar Instructor Led
     
-  - id: 791
+ 
+id: 791
     Title: Python 1
-    startdate: 20190128 - 20190201
+    startdate: 20190128
+    enddate: 20190201
     courseid: python
     Image: https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.python.org%2Fstatic%2Fopengraph-icon-200x200.png&imgrefurl=https%3A%2F%2Fwww.python.org%2F&docid=Fvb7Gz_c4rwxjM&tbnid=vZKJO2_oBP1evM%3A&vet=10ahUKEwjiq8ja297fAhVSU98KHYf7Cr8QMwhoKB4wHg..i&w=200&h=200&itg=1&bih=738&biw=1516&q=image%20for%20python%20programming&ved=0ahUKEwjiq8ja297fAhVSU98KHYf7Cr8QMwhoKB4wHg&iact=mrc&uact=8
     Location: Live webinar Instructor Led
