@@ -285,7 +285,7 @@ type Price struct {
 }
 
 type Slide struct {
-   GUID  string                  `rethinkdb:"guid" json:"guid"`
+//   GUID  string                  `rethinkdb:"guid" json:"guid"`
    Title string                  `rethinkdb:"title" json:"title"`
 }
 
@@ -334,7 +334,8 @@ type Course struct {
   VideoLink     string          `json:"videolink"`
   Overview      string          `json:"overview"`
   Tags          []string        `json:"tags"`
-  Courseicon    string          `json:"courseicon"`                  // TODO make sure courseicons are under images/courseicons and all available to put in yaml or json file as coursicon: xxxx.png
+  Courseicon    string          `json:"courseicon"`          // TODO courseicons are ll be under images/courseicons
+  Stars         int             `json:"stars"`
 }
 
 type Courses struct {
@@ -487,12 +488,12 @@ func hasPrefix(buf []byte, prefix []byte) bool {
     trim := bytes.TrimLeftFunc(buf, unicode.IsSpace)
     return bytes.HasPrefix(trim, prefix)
 }
-//----------------------------------------------------------------
 
+
+
+//----------------------------------------------------------------
 // ========JUST WORKING ON THIS RIGHT NOW===========================================
 //                          V
-
-
 // I just started working on this, making the /courses/courses-list.html page render search results
 // NEXT, make a page show course-detail.  Hopefully I will have both HTML pages set up before returning
 // to this go code.
@@ -558,49 +559,49 @@ func  (cs Courses) CourseTemplate() http.Handler {
 ////----------------------------------------------------------------
 
 
-
-//Not complete yet, still in testing phase. 
-//Going to return the course Id, Title, Stars, Duration, Description, selfpaced price, and live price, courseicon.
-//func (cs Courses ) getpopup() http.Handler {
-//   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-//    type PopupItems struct {
-//      Id           string          `json:"id"`
-//      Name         string          `json:"name"`
-//      Stars        int             `json:"stars"`
-//      Duration     int             `json:"duration"`
-//      Overview     string          `json:"overview"`
-//      Price        int             `json:"price"`
-//      Courseicon   string          `json:"courseicon"`
-//    }
-//    popi := PopupItems{}
-//    popis := []PopupItems{}
-//    var js []byte
-//    var err error
-//    //Iterate over all courses, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
-//    for _, ThisCourse := range cs.Cc {
-//       fmt.Println("--------------------------------------------------")
-//       fmt.Printf("_Course PopUp_  = %s, %s, %s, %s, %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Stars, ThisCourse.Duration, ThisCourse.Overview, ThisCourse.Price, ThisCourse.Courseicon)
-//       popi.Id=ThisCourse.Id
-//       popi.Name=ThisCourse.Name
-//       popi.Stars=ThisCourse.Stars
-//       popi.Duration=ThisCourse.Duration
+//API - Course SummaryList - returns course Id, Title, Stars, Duration, Description, selfpaced price, and live price, courseicon.Pii
+func (cs Courses ) getsummarylist() http.Handler {
+   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    type PopupItems struct {
+      Id                 string          `json:"id"`
+      Name               string          `json:"name"`
+      Stars              int             `json:"stars"`
+      Duration           int             `json:"duration"`
+      Overview           string          `json:"overview"`
+      SelfpacedPrice     int             `json:"selfpacedprice"`
+      PublicPrice        int             `json:"publicprice"`
+      Courseicon         string          `json:"courseicon"`
+    }
+    popi := PopupItems{}
+    popis := []PopupItems{}
+    var js []byte
+    var err error
+    //Iterate over all courses, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
+    for _, ThisCourse := range cs.Cc {
+       fmt.Println("--------------------------------------------------")
+       fmt.Printf("_Course PopUp_  = %s, %s, %s, %s, %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Testimonials[0].Stars, ThisCourse.Duration, ThisCourse.Overview, ThisCourse.Price, ThisCourse.Courseicon)
+       popi.Id=ThisCourse.Id
+       popi.Name=ThisCourse.Name
+       popi.Stars=ThisCourse.Testimonials[0].Stars
+       popi.Duration=ThisCourse.Duration.Hours
 //       popi.Overview=ThisCourse.Overview
-//       popi.Price=ThisCourse.Price
-//       popi.Courseicon=ThisCourse.Courseicon
-//       popis = append(popis,popi)
-//    }
-//    //If no courses match, SEND THEM ALL! 
-//       js, err = json.Marshal(popis)
-//    if err != nil {
-//       http.Error(w, err.Error(), http.StatusInternalServerError)
-//       fmt.Printf("Error %s:\n", err)
-//       return
-//    }
-//    w.Header().Set("Content-Type", "application/json")
-//    w.Write(js)
-//    return
-//    })
-//}
+       popi.SelfpacedPrice=ThisCourse.Price.Selfpaced.PriceTags[0].price
+       popi.SelfpacedPrice=ThisCourse.Price.Public.PriceTags[0].price
+       popi.Courseicon=ThisCourse.Courseicon
+       popis = append(popis,popi)
+    }
+    //If no courses match, SEND THEM ALL! 
+       js, err = json.Marshal(popis)
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
 
 
 
@@ -641,12 +642,48 @@ func  (cs Courses) CourseTemplate() http.Handler {
 //}
 
 
+//API - Course Summary - Given a valid courseID, returns that course's: Id, Tag, Stars, and Name. 
+func (cs Courses ) getsummary() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    type MenuItems struct {
+      Id           string          `json:"id"`
+      Name         string          `json:"name"`
+      Tags         []string        `json:"tags"`
+    }
+    //Retreive variable from GET URL
+    fmt.Println("--------------------------------------------------")
+    ss := r.FormValue("courseid")
+    fmt.Printf("Menu for:   %s\n",ss)                
+    mi := MenuItems{} 
+    mis := []MenuItems{} 
+    var js []byte
+    var err error
+    //Iterate over all courses, copy Id, Name, and any Tags
+    for _, ThisCourse := range cs.Cc {
+       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Tags)
+       if  ThisCourse.Id == ss {
+           mi.Id=ThisCourse.Id
+           mi.Name=ThisCourse.Name
+           mi.Tags=ThisCourse.Tags
+           mis = append(mis,mi)
+           break
+       }
+    }
+    // Marshal the Mega-Menu
+    js, err = json.Marshal(mis)
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
 
 
-
-
-
-// Returns a Course Id, Tag, Stars, and Name for building a Course Mega-Menu. Tag is 
+//API - MegaMenu - Returns all courses: Id, Tag, Stars, and Name. 
 func (cs Courses ) getmenu() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type MenuItems struct {
@@ -681,7 +718,95 @@ func (cs Courses ) getmenu() http.Handler {
 }
 
 
-// Given a search string, returns course data for all matching courses, without the course outline data.
+// API Search Given a search string, returns ONLY course IDs for all matching courses.
+func (cs Courses ) search() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    //Retreive variable from GET URL
+    ss := r.FormValue("search")
+    fmt.Printf("func searchstring searching for: %s\n",ss)                
+    // Create a new composite Course type. Interestingly, by adding existing subordinate
+    // types to the cloned struct, items will OMIT them from the marshalling.
+    // see: https://mycodesmells.com/post/working-with-embedded-structs
+    // c := []PublicCourse{} 
+    var id  []string
+    var allid []string
+    hits := 0
+    totalhits := 0
+    var js []byte
+    var err error
+    //Iterate over all courses, looking for the search string (ss)
+    //If a match is found, add the course to id[i]
+    for i, ThisCourse := range cs.Cc {
+       hits = strings.Count( strings.ToLower(fmt.Sprintf("%v", cs.Cc[i])), ss )
+       totalhits = totalhits + hits
+       allid = append(id,ThisCourse.Id)
+       if  hits > 0 {
+           // Here is how you graft an existing type into a new "composite" type.
+           id = append(id,ThisCourse.Id)
+           fmt.Printf("%s Course has %d hits\n", ThisCourse.Id, hits )
+       }
+    }
+    //If no courses match, SEND THEM ALL! 
+    if totalhits == 0 {
+       js, err = json.Marshal(allid)
+    } else {
+       js, err = json.Marshal(id)
+    }
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
+
+
+// API Get Course Detail, given a valid courseID, return all course details with GUIDs blanked out.
+func (cs Courses ) getcoursedetail() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    //Retreive variable from GET URL
+    ss := r.FormValue("courseid")
+    fmt.Printf("func searchstring searching for: %s\n",ss)                
+    var c Course 
+    hits := 0
+    totalhits := 0
+    var js []byte
+    var err error
+    //Iterate over all courses, looking for the search string (ss)
+    //If a match is found, add the course to c.Cc[i]
+    for _, ThisCourse := range cs.Cc {
+       totalhits = totalhits + hits
+       if  ThisCourse.Id == ss {
+           c = ThisCourse
+           hits = 1
+           totalhits = 1 
+           fmt.Printf("Found detail for %s Course\n", ThisCourse.Id, hits )
+           break
+       }
+    }
+    //If no courses match, SEND THEM ALL! 
+    if totalhits == 0 {
+       js, err = json.Marshal(hits)
+    } else {
+       js, err = json.Marshal(c)
+    }
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
+
+
+
+// API Search Given a search string, returns course data for all matching courses, without the course outline data.
 func (cs Courses ) getsearch() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
@@ -767,19 +892,13 @@ func main() {
 	http.Handle("/", http.StripPrefix("/", Template()))
 
         // JSON RESTful Interfaces
-        http.Handle("/api/v1/search/", http.StripPrefix("/search/", cs.getsearch()))
-
-        // Get Menu 
-        http.Handle("/api/v1/menu/", http.StripPrefix("/menu/", cs.getmenu()))
-
-        //Get Popup Course
-        http.Handle("/api/v1/popup/",http.StripPrefix("/popup/", cs.getpopup()))
-
-        //Get Searh Blog
-        //http.Handle("/api/v1/searchblog/",http.StripPrefix("/searchblog/", cs.getblogs()))
-
-        //Get Blog Details
-        //http.Handle("/api/v1/blogdet/",http.StripPrefix("/blogdet/", cs.getblogd()))
+        http.Handle("/api/v1/course/search/", http.StripPrefix("/api/v1/course/search/", cs.search()))
+        http.Handle("/api/v1/course/megamenu/", http.StripPrefix("/api/v1/course/megamenu/", cs.getmenu()))
+        http.Handle("/api/v1/course/summary/",http.StripPrefix("/api/v1/course/summary/", cs.getsummary()))
+        http.Handle("/api/v1/course/detail/",http.StripPrefix("/api/v1/course/detail/", cs.getcoursedetail()))
+        //http.Handle("/api/v1/searchblog/",http.StripPrefix("/api/v1/searchblog/", cs.getblogs()))
+        //http.Handle("/api/v1/blogdet/",http.StripPrefix("/api/v1/blogdet/", cs.getblogd()))
+        //http.Handle("/api/v1/event/",http.StripPrefix("/api/v1/event/", cs.getblogd()))
 
 	// Stripe Chckout
 	http.Handle("/checkout", Checkout())

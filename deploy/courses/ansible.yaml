@@ -11,6 +11,9 @@ testimonials:
 - quote: Zach was almost amazing
   stars: 5
 video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
+Tags:
+  - Programming
+  - Automation
 weburl: https://alta3.com/courses/ansible
 has-labs: false
 has-videos: true

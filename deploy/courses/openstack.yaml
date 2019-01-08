@@ -6,6 +6,9 @@ has-labs: true
 has-slides: true
 has-videos: true
 weburl: https://alta3.com/courses/openstack
+tags:
+  -  Cloud
+  -  Automation
 category: Cloud
 
 

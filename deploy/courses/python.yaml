@@ -11,6 +11,8 @@ testimonials:
    -  amazing
 video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
 weburl: https://alta3.com/courses/python1
+tags:
+  -  Programming
 has-labs: false
 has-videos: true
 has-slides: true
