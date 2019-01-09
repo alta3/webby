@@ -608,7 +608,56 @@ func  (cs Courses) CourseTemplate() http.Handler {
 ////----------------------------------------------------------------
 
 
-//API - Course SummaryList - returns course Id, Title, Stars, Duration, Description, selfpaced price, and live price, courseicon.Pii
+//---------------------------------B--L--O--G--S--------------------
+type Blog struct {
+  Id             string         `json:"id"`
+  Title          string         `json:"title"`
+  Date           string         `json:"date"`
+  A3cheers       int            `json:"a3cheers"`
+}
+
+
+type Blogs struct {
+  Blogs         []Blog
+}
+
+
+
+//Not complete yet, still in testing phase.
+//Going to return blog Id and Title.
+func (b Blogs ) getblogs() http.Handler {
+   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    type BlogItem struct {
+      Id           string          `json:"id"`
+      Name         string          `json:"name"`
+    }
+    blogi := BlogItems{}
+    blogis := []BlogItems{}
+    var js []byte
+    var err error
+    //Iterate over all blogs, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
+    for _, ThisBlog := range b.Blogs {
+       fmt.Println("--------------------------------------------------")
+       fmt.Printf("Blog Search Results  = %s, %s\n", ThisBlog.Id., ThisBlog.Name)
+       blogi.Id=ThisBlog.Id
+       blogi.Name=ThisBlog.Name
+       blogis = append(blogis,blogi)
+    }
+    //If no blogs match, SEND THEM ALL! 
+       js, err = json.Marshal(blogis)
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
+
+
+//API - Course SummaryList for all courses - returns course Id, Title, Stars, Duration, Description, selfpaced price, and live price, courseicon.Pii
 func (cs Courses ) getsummarylist() http.Handler {
    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type PopupItems struct {
@@ -653,46 +702,8 @@ func (cs Courses ) getsummarylist() http.Handler {
 }
 
 
-
-
-
-
-//Not complete yet, still in testing phase.
-//Going to return blog Id and Title.
-//func (cs Courses ) getblogs() http.Handler {
-//   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-//    type BlogItems struct {
-//      Id           string          `json:"id"`
-//      Name         string          `json:"name"`
-//    }
-//    blogi := BlogItems{}
-//    blogis := []BlogItems{}
-//    var js []byte
-//    var err error
-//    //Iterate over all courses, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
-//    for _, ThisCourse := range cs.Cc {
-//       fmt.Println("--------------------------------------------------")
-//       fmt.Printf("Blog Search Results  = %s, %s\n", ???.Id., ???.Name)
-//       blogi.Id=???.Id
-//       blogi.Name=???.Name
-//       blogis = append(blogis,blogi)
-//    }
-//    //If no courses match, SEND THEM ALL! 
-//       js, err = json.Marshal(blogis)
-//    if err != nil {
-//       http.Error(w, err.Error(), http.StatusInternalServerError)
-//       fmt.Printf("Error %s:\n", err)
-//       return
-//    }
-//    w.Header().Set("Content-Type", "application/json")
-//    w.Write(js)
-//    return
-//    })
-//}
-
-
-
 //API - Course Summary - Given a valid courseID, returns that course's: Id, Tag, Stars, and Name. 
+//Why do we need this? A search will provide a list of IDs. This API is used to get summary data PER ID.
 func (cs Courses ) getsummary() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type MenuItems struct {
@@ -734,7 +745,7 @@ func (cs Courses ) getsummary() http.Handler {
 
 
 //API - MegaMenu - Returns all courses: Id, Tag, Stars, and Name. 
-func (cs Courses ) getmenu() http.Handler {
+func (cs Courses ) getmegamenu() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type MenuItems struct {
       Id           string          `json:"id"`
@@ -943,11 +954,11 @@ func main() {
 
         // JSON RESTful Interfaces
         http.Handle("/api/v1/course/search/", http.StripPrefix("/api/v1/course/search/", cs.search()))
-        http.Handle("/api/v1/course/megamenu/", http.StripPrefix("/api/v1/course/megamenu/", cs.getmenu()))
+        http.Handle("/api/v1/course/megamenu/", http.StripPrefix("/api/v1/course/megamenu/", cs.getmegamenu()))
         http.Handle("/api/v1/course/summary/",http.StripPrefix("/api/v1/course/summary/", cs.getsummary()))
         http.Handle("/api/v1/course/detail/",http.StripPrefix("/api/v1/course/detail/", cs.getcoursedetail()))
-        //http.Handle("/api/v1/searchblog/",http.StripPrefix("/api/v1/searchblog/", cs.getblogs()))
-        //http.Handle("/api/v1/blogdet/",http.StripPrefix("/api/v1/blogdet/", cs.getblogd()))
+        http.Handle("/api/v1/searchblog/",http.StripPrefix("/api/v1/searchblog/", blogs.getblogs()))
+        //http.Handle("/api/v1/blogdet/",http.StripPrefix("/api/v1/blogdet/", blogs.getblogd()))
         http.Handle("/api/v1/events/",http.StripPrefix("/api/v1/events/", events.getevents()))
 
 	// Stripe Chckout
