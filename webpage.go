@@ -311,7 +311,6 @@ type Courses struct {
 }
 
 
-
 type PublicCourse struct {
   Course
   Chapters      []Chapter       `json:"chapters,omitempty"` // TODO update to single-slide-mode
@@ -319,13 +318,11 @@ type PublicCourse struct {
 } 
 
 
-
 //type CourseCatalog interface {
 //  Select(id string)       []Course
 //  Load()                  []Course
 //  Search(ss string)       []Course
 //}
-
 
 type Event struct {
   Id             string         `json:"id"`
@@ -343,24 +340,25 @@ type Events struct {
 }
 
 
-
 //API GetEvents - Returns all events 
 func (e Events) getevents() http.Handler {
        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
        now := time.Now()
+       fmt.Printf("Time right now: %s\n", now.Format("2006-01-08"))
        var js []byte
        var err error
        var ce  Events  //ce means CurrentEvents
    // Iterate over all events, skipping past events.
-       layout := "2019-01-8"
+       layout := "2006-01-02"
        for _, ThisEvent := range e.Events {
-          fmt.Printf("Event: %s, %s\n",ThisEvent.StartDate, ThisEvent.Title)
+          fmt.Printf(" Event: %s, %s\n",ThisEvent.StartDate, ThisEvent.Title)
           t, _ := time.Parse(layout, ThisEvent.StartDate)
-          fmt.Printf("%s --  %s\n", t, now)
-          if t.Before(now) {
+          if t.After(now) {
               ce.Events = append(ce.Events, ThisEvent)
           } else {
-            fmt.Printf(" OLD EVENT!: %s %s\n", ThisEvent.Title, ThisEvent.StartDate)
+            fmt.Println("----------------OLD EVENT---------------")
+            fmt.Printf("| OLD!!!: %s %s\n", ThisEvent.Title, ThisEvent.StartDate)
+            fmt.Println("----------------OLD EVENT---------------")
             }
        }
        js, err = json.Marshal(ce)
@@ -412,7 +410,7 @@ func LoadEvents() Events {
       json.Unmarshal(jsonFile, &ev)
       fmt.Printf(" Successfully read: %s\n", thisfile) 
 //      fmt.Printf("JSON: %s\n", jsonFile)
-      fmt.Printf("EV: %+v\n", ev )
+//      fmt.Printf("EV: %+v\n", ev )
       fmt.Println("--------------------------------------------------")
       return ev 
 }
