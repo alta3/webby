@@ -12,11 +12,11 @@ import (
 	"net/http"
         "strings"
 	"os"
-        "time"
 	"path"
         "io/ioutil"
         "strconv"
         "github.com/ghodss/yaml"
+        "time"
 //        "gopkg.in/yaml.v2"
 //        "github.com/gorilla/mux"
 
@@ -338,20 +338,30 @@ type Event struct {
 }
 
 
+type Events struct {
+  Events         []Event
+}
+
+
 
 //API GetEvents - Returns all events 
-func (e []Event) getevents() http.Handler {
+func (e Events) getevents() http.Handler {
        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+       now := time.Now()
        var js []byte
        var err error
-       ce := []Event  //ce means CurrentEvents
-       // TODO Iterate over all events and strip out past events.
-       //Time.parse the start date
-       //If the start date is < time.now, do not show that event.
-       for _, ThisEvent := range e {
-          if Time.parse(ThisEvent.StartDate) > time.now {
-              ce = append(ce, ThisEvent)
-          }
+       var ce  Events  //ce means CurrentEvents
+   // Iterate over all events, skipping past events.
+       layout := "2019-01-8"
+       for _, ThisEvent := range e.Events {
+          fmt.Printf("Event: %s, %s\n",ThisEvent.StartDate, ThisEvent.Title)
+          t, _ := time.Parse(layout, ThisEvent.StartDate)
+          fmt.Printf("%s --  %s\n", t, now)
+          if t.Before(now) {
+              ce.Events = append(ce.Events, ThisEvent)
+          } else {
+            fmt.Printf(" OLD EVENT!: %s %s\n", ThisEvent.Title, ThisEvent.StartDate)
+            }
        }
        js, err = json.Marshal(ce)
        if err != nil {
@@ -371,79 +381,44 @@ func (e []Event) getevents() http.Handler {
 //------------------------------------------------------------
 func LoadEvents() Events {
       // Create a OS compliant path: microsoft "\" or linux "/"
-      dirname := path.Join("deploy", "events")
+      dirname := path.Join("deploy", "event")
       d, err := os.Open(dirname)
       if err != nil {
-          log.Printf("No events directory! %s" , err)
+          log.Printf("No events directory! %s, %s" , d, err)
           os.Exit(1)
       }
-      // If n > 0, Readdirnames(n) returns at most n names
-      // If n < 0, Readdirnames(n) returns ALL names
-      n := -1 
-      // reads < n > files in directory < d >
-      filenames, err := d.Readdirnames(n)
+          // If n > 0, Readdirnames(n) returns at most n names
+          // If n < 0, Readdirnames(n) returns ALL names
       if err != nil {
           log.Printf("No files in course directory! %s\n" , err)
           os.Exit(1)
       }
-      c := make([]Events,10) 
-      var jsonCatalogFile Courses
-      fmt.Println("--------------------------------------------------")
-      fmt.Printf(" Reading files in this directory: %s\n", dirname)
-      i := 0
-      for _, filename := range filenames {
-          thisfile := path.Join(dirname, filename)
-          _ , err := os.Stat(thisfile)
-          if err != nil {
-              if os.IsNotExist(err) {
-                  log.Printf("file is missing!: %s\n ", filename)
-              }
-          } 
-          if filepath.Ext(thisfile) == ".yaml" {
-              yammy, err := ioutil.ReadFile(thisfile)
-              if err != nil {
-                 log.Printf("yammy.Get err: %s\n", err)
-              }
-              fmt.Printf("%d Sucessfully read: %s\n" , i,thisfile) 
-           // unmarshal byteArray using the JSON tags 
-              jsonFile, err := ToJSON(yammy)
-              json.Unmarshal(jsonFile, &c[i])
-              jsonCatalogFile.Cc = append(jsonCatalogFile.Cc, c[i])
-                fmt.Println("\nAny zero output is bad and indicates a YAML error.")        
-                fmt.Println("--------------------------------------------------")
-                fmt.Println("              Course: "       + jsonCatalogFile.Cc[i].Id)
-                fmt.Println("            Duration: " + strconv.Itoa(jsonCatalogFile.Cc[i].Duration.Hours))
-                fmt.Printf("      Book Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Book.PriceTags))
-                fmt.Printf("    Public Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Public.PriceTags))
-                fmt.Printf("   Private Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Private.PriceTags))
-                fmt.Printf("Self Paced Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Selfpaced.PriceTags))
-                fmt.Printf("Extend LMS Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.ExtendLmsAccess.PriceTags))
-                fmt.Printf("         Testimonials %d\n", len(jsonCatalogFile.Cc[i].Testimonials))
-                fmt.Printf("                 Tags %d\n", len(jsonCatalogFile.Cc[i].Tags))
-                fmt.Printf("             Chapters %d\n", len(jsonCatalogFile.Cc[i].Chapters))
-                fmt.Printf("                 Labs %d\n", len(jsonCatalogFile.Cc[i].Labs))
-              i++
-              yammy = nil
-              jsonFile = nil
+      var    ev   Events
+      fmt.Println("---------------LOADING EVENTS---------------------")
+      fmt.Printf(" Reading events files in directory: %s\n", dirname)
+      thisfile := path.Join(dirname, "events.yaml")
+      _ , err = os.Stat(thisfile)
+      if err != nil {
+          if os.IsNotExist(err) {
+              log.Printf(" file is missing!: %s\n ", thisfile)
           }
-      }
-      d.Close()
-      fmt.Println("YAMMY  Course: " + jsonCatalogFile.Cc[0].Id)
-      return jsonCatalogFile 
+      } 
+      yammy, err := ioutil.ReadFile(thisfile)
+      if err != nil {
+          log.Printf("yammy.Get err: %s\n", err)
+          }
+     // unmarshal byteArray using the JSON tags 
+      jsonFile, err := ToJSON(yammy)
+      json.Unmarshal(jsonFile, &ev)
+      fmt.Printf(" Successfully read: %s\n", thisfile) 
+//      fmt.Printf("JSON: %s\n", jsonFile)
+      fmt.Printf("EV: %+v\n", ev )
+      fmt.Println("--------------------------------------------------")
+      return ev 
 }
 
+//Load COURSES
 //------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
 func Load() Courses {
       // Create a OS compliant path: microsoft "\" or linux "/"
       dirname := path.Join("deploy", "courses")
@@ -461,7 +436,7 @@ func Load() Courses {
           log.Printf("No files in course directory! %s\n" , err)
           os.Exit(1)
       }
-      c := make([]Course,10) 
+      c := make([]Course,50) 
       var jsonCatalogFile Courses
       fmt.Println("--------------------------------------------------")
       fmt.Printf(" Reading files in this directory: %s\n", dirname)
@@ -503,7 +478,6 @@ func Load() Courses {
           }
       }
       d.Close()
-      fmt.Println("YAMMY  Course: " + jsonCatalogFile.Cc[0].Id)
       return jsonCatalogFile 
 }
 
@@ -935,7 +909,7 @@ func main() {
         cs := Load()
         fmt.Println("--------------------------------------------------")
         fmt.Println("Course Loaded into MAIN: " + cs.Cc[0].Id)
-
+        events := LoadEvents()
        
 //        _, err := cs.Select("5g")
 //           if err != nil {
@@ -976,7 +950,7 @@ func main() {
         http.Handle("/api/v1/course/detail/",http.StripPrefix("/api/v1/course/detail/", cs.getcoursedetail()))
         //http.Handle("/api/v1/searchblog/",http.StripPrefix("/api/v1/searchblog/", cs.getblogs()))
         //http.Handle("/api/v1/blogdet/",http.StripPrefix("/api/v1/blogdet/", cs.getblogd()))
-        //http.Handle("/api/v1/event/",http.StripPrefix("/api/v1/event/", cs.getblogd()))
+        http.Handle("/api/v1/events/",http.StripPrefix("/api/v1/events/", events.getevents()))
 
 	// Stripe Chckout
 	http.Handle("/checkout", Checkout())
