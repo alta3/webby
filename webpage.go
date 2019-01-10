@@ -625,6 +625,7 @@ type Blogs struct {
 
 //Not complete yet, still in testing phase.
 //Going to return blog Id and Title.
+//------------------------------------------------------------
 func (b Blogs ) getblogs() http.Handler {
    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type BlogItem struct {
@@ -655,6 +656,75 @@ func (b Blogs ) getblogs() http.Handler {
     return
     })
 }
+
+//Load BLOGS 
+//Must convert blogs from markdown to html or create blogs as yaml... which one, see line 693
+//------------------------------------------------------------
+func LoadBlogs() Blogs {
+      // Create a OS compliant path: microsoft "\" or linux "/"
+      dirname := path.Join("deploy", "blog")
+      d, err := os.Open(dirname)
+      if err != nil {
+          log.Printf("No blog directory! %s" , err)
+          os.Exit(1)
+      }
+      // If n > 0, Readdirnames(n) returns at most n names
+      // If n < 0, Readdirnames(n) returns ALL names
+      n := -1 
+      // reads < n > files in directory < d >
+      filenames, err := d.Readdirnames(n)
+      if err != nil {
+          log.Printf("No files in blog directory! %s\n" , err)
+          os.Exit(1)
+      }
+      c := make([]Blog,50) 
+      var jsonCatalogFile Blogs
+      fmt.Println("--------------------------------------------------")
+      fmt.Printf(" Reading files in this directory: %s\n", dirname)
+      i := 0
+      for _, filename := range filenames {
+          thisfile := path.Join(dirname, filename)
+          _ , err := os.Stat(thisfile)
+          if err != nil {
+              if os.IsNotExist(err) {
+                  log.Printf("file is missing!: %s\n ", filename)
+              }
+          } 
+          if filepath.Ext(thisfile) == ".yaml" {
+              yammy, err := ioutil.ReadFile(thisfile)
+              if err != nil {
+                 log.Printf("yammy.Get err: %s\n", err)
+              }
+              fmt.Printf("%d Sucessfully read: %s\n" , i,thisfile) 
+           // unmarshal byteArray using the JSON tags 
+              jsonFile, err := ToJSON(yammy)
+              json.Unmarshal(jsonFile, &c[i])
+              jsonCatalogFile.Cc = append(jsonCatalogFile.Cc, c[i])
+                fmt.Println("\nAny zero output is bad and indicates a YAML error.")        
+                fmt.Println("--------------------------------------------------")
+                fmt.Println("              Course: "       + jsonCatalogFile.Cc[i].Id)
+                fmt.Println("            Duration: " + strconv.Itoa(jsonCatalogFile.Cc[i].Duration.Hours))
+                fmt.Printf("      Book Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Book.PriceTags))
+                fmt.Printf("    Public Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Public.PriceTags))
+                fmt.Printf("   Private Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Private.PriceTags))
+                fmt.Printf("Self Paced Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Selfpaced.PriceTags))
+                fmt.Printf("Extend LMS Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.ExtendLmsAccess.PriceTags))
+                fmt.Printf("         Testimonials %d\n", len(jsonCatalogFile.Cc[i].Testimonials))
+                fmt.Printf("                 Tags %d\n", len(jsonCatalogFile.Cc[i].Tags))
+                fmt.Printf("             Chapters %d\n", len(jsonCatalogFile.Cc[i].Chapters))
+                fmt.Printf("                 Labs %d\n", len(jsonCatalogFile.Cc[i].Labs))
+              i++
+              yammy = nil
+              jsonFile = nil
+          }
+      }
+      d.Close()
+      return jsonCatalogFile 
+}
+//------------------------------E--N--D----B--L--O--G--S-------------------
+
+
+
 
 
 //API - Course SummaryList for all courses - returns course Id, Title, Stars, Duration, Description, selfpaced price, and live price, courseicon.Pii
