@@ -1,0 +1,96 @@
+{{ define "body" }}
+<!DOCTYPE html>
+<html lang="en">
+<main>
+		<section id="hero_in" class="courses">
+			<div class="wrapper">
+				<div class="container">
+					<h1 class="fadeInUp"><span></span>Lab Progress</h1>
+				</div>
+			</div>
+		</section>
+<div>
+<div>
+
+<body>
+<div class="table table-bordered table-active" id='here_table' style="text-align: left"></div>
+
+</body>
+<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+<script>
+
+function getData(){
+  $.get("/json/ansible.json", createTable)
+	setTimeout(getData, 30000)
+}
+
+function createTable(jsons_info){
+  console.log(jsons_info)
+  let json_info = JSON.parse(jsons_info)
+	let content = "<table style='width:80%' align='center'>"
+	// content += "<tr><td>student_id</td><td>lab 1</td></tr>"
+	// json_info.num_labs
+	let highestLab = 0
+	for (const key of Object.keys(json_info)) {
+	  for (const labNum of Object.keys(json_info[key]['labs'])){
+	    let numericLabNum = parseInt(labNum)
+	      if (highestLab < numericLabNum) {
+	        highestLab = numericLabNum
+	      };
+	  };
+	};
+
+	content += "<tr><th>Student Name</th><th>Student ID</th>"
+	for (i=0; i<(highestLab+1); i++){
+	  content += `<th>${i}</th>`
+	}
+	content += "</tr>"
+
+	for (const key of Object.keys(json_info)) {
+	    content += `<tr><td>${json_info[key].student_name}</td>`
+
+	    for (i=1; i<highestLab; i++){
+	      let labStarted = false
+	      let labComplete = false
+	      let endTime = ""
+	      let startTime = ""
+	      let now = new Date()
+	      let oneHour = 60*1000 /* make this 60*60*1000 for one hour */
+	      let color = "#ffffff"
+
+	      if (`${i}` in json_info[key]["labs"]){
+	        if ("end_time" in json_info[key]["labs"][`${i}`]){
+	          labComplete = true
+	          endTime = new Date(json_info[key]["labs"][`${i}`]['end_time'])
+	        }
+
+	        if ("start_time" in json_info[key]["labs"][`${i}`]){
+	          labStarted = true
+	          startTime = new Date(json_info[key]["labs"][`${i}`]['start_time'])
+	        }
+	      }
+
+	      if (labComplete && (now - endTime) < oneHour)  {
+	         color = "#0000ff"
+	         }
+	      else if (labComplete){
+	          color = "#11aa11"
+	          }
+	      else if(labStarted){
+	              color ="#ffff00"
+	         }
+	      content += `<td bgcolor="${color}"></td>`
+	    }
+	content += "</tr>"
+	}
+
+	content += "</table>"
+	$('#here_table').html(content);
+	}
+
+	getData();
+	</script>
+	{{ end }}
