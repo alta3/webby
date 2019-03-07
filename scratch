@@ -1,0 +1,6 @@
+FROM scratch
+ADD webserver /
+ADD deploy /deploy/
+CMD ["/webserver"]
+EXPOSE 8888
+

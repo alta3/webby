@@ -139,41 +139,13 @@ func errorHandler(status int) http.Handler {
 func Template() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "" {
-			http.ServeFile(w, r, "deploy/html_menu_1/index.html")
+			http.ServeFile(w, r, "deploy/noVNC-1.0.0/vnc.html")
 			return
-		} else if r.URL.Path == "deploy/html_menu_1/robots.txt" {
-			http.ServeFile(w, r, "robots.txt")
-			return
-		} else if r.URL.Path == "deploy/html_menu_1/sitemap.xml" {
-			http.ServeFile(w, r, "sitemap.xml")
-			return
-		}
-
-		lp := path.Join("templates", "layout.html")
-		fp := path.Join("templates", r.URL.Path+".html")
-
-		info, err := os.Stat(fp)
-		if err != nil {
-			if os.IsNotExist(err) {
-				log.Printf("404: %s", r.URL.Path)
-				errorHandler(http.StatusNotFound).ServeHTTP(w, r)
-				return
-			}
-		}
-		if info.IsDir() {
-			http.NotFound(w, r)
-			return
-		}
-		tmpl, err := template.ParseFiles(lp, fp)
-		if err != nil {
-			log.Printf("Template Error: %s", err)
-		}
-		err = tmpl.ExecuteTemplate(w, "layout", nil)
-		if err != nil {
-			log.Printf("Template Error: %s", err)
-		}
-		return
-	})
+		} else {
+			http.ServeFile(w, r, "deploy/noVNC-1.0.0/")
+	    return
+	}
+})
 }
 
 func BlogTemplate() http.Handler {
@@ -254,12 +226,12 @@ func main() {
 	http.Handle("/icons/", http.StripPrefix("/icons/", http.FileServer(http.Dir("deploy/html_menu_1/icons"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("deploy/html_menu_1/css"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("deploy/html_menu_1/js"))))
-        http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("deploy/html_menu_1/assets"))))
-        http.Handle("/coming_soon/", http.StripPrefix("/coming_soon/", http.FileServer(http.Dir("deploy/html_menu_1/coming_soon"))))
-        http.Handle("/sass/", http.StripPrefix("/sass/", http.FileServer(http.Dir("deploy/html_menu_1/sass"))))
-        http.Handle("/video/", http.StripPrefix("/video/", http.FileServer(http.Dir("deploy/html_menu_1/video"))))
-        http.Handle("/layerslider/", http.StripPrefix("/layerslider/", http.FileServer(http.Dir("deploy/html_menu_1/layerslider"))))
-        http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("deploy/html_menu_1"))))
+  http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("deploy/html_menu_1/assets"))))
+  http.Handle("/coming_soon/", http.StripPrefix("/coming_soon/", http.FileServer(http.Dir("deploy/html_menu_1/coming_soon"))))
+  http.Handle("/sass/", http.StripPrefix("/sass/", http.FileServer(http.Dir("deploy/html_menu_1/sass"))))
+  http.Handle("/video/", http.StripPrefix("/video/", http.FileServer(http.Dir("deploy/html_menu_1/video"))))
+  http.Handle("/layerslider/", http.StripPrefix("/layerslider/", http.FileServer(http.Dir("deploy/html_menu_1/layerslider"))))
+  http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("deploy/noVNC-1.0.0"))))
 
 	// Templates
 	http.Handle("/courses/", http.StripPrefix("/courses/", CourseTemplate()))
