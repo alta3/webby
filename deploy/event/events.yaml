@@ -3,16 +3,16 @@ Events:
 - id: t677
   type: 1
   title: Openstack
-  startdate: '2019-01-21'
-  enddate: '2019-01-25'
+  startdate: '2019-03-21'
+  enddate: '2019-03-25'
   courseid: openstack
   image: openstack-training.png
   location: Live webinar Instructor Led
 - id: t791
   type: 1
   title: Python 1
-  startdate: '2019-01-28'
-  enddate: '2019-02-01'
+  startdate: '2019-03-28'
+  enddate: '2019-03-01'
   courseid: py1
   image: python.jpg
   location: Live webinar Instructor Led
@@ -27,32 +27,32 @@ Events:
 - id: t587
   type: 1
   title: Kubernetes
-  startdate: '2019-02-25'
-  enddate: '2019-03-01'
+  startdate: '2019-04-25'
+  enddate: '2019-05-01'
   courseid: kubernetes
   image: k8s.png
   location: Live webinar Instructor Led
 - id: t627
   type: 1
   title: Network Automation with Python
-  startdate: '2019-02-25'
-  enddate: '2019-03-01'
+  startdate: '2019-04-25'
+  enddate: '2019-05-01'
   courseid: py3
   image: pyna.png
   location: Live webinar Instructor Led
 - id: t267
   type: 1
   title: Ansible
-  startdate: '2019-03-04'
-  enddate: '2019-03-08'
+  startdate: '2019-04-04'
+  enddate: '2019-04-08'
   courseid: ansible
   image: ansible.png
   location: Live webinar Instructor Led
 - id: t543
   type: 1
   title: 5G
-  startdate: '2019-03-11'
-  enddate: '2019-03-12'
+  startdate: '2019-04-11'
+  enddate: '2019-04-12'
   courseid: 5g
   image: 5g.png
   location: Live webinar Instructor Led
@@ -64,94 +64,4 @@ Events:
   courseid: sip
   image: sip-invite.jpg
   location: Live webinar Instructor Led
-- id: t736
-  type: 1
-  title: SDN and NFV
-  startdate: '2019-04-08'
-  enddate: '2019-04-12'
-  courseid: sdn
-  image: sdn-net.jpg
-  location: Live webinar Instructor Led
-- id: t587
-  type: 1
-  title: Kubernetes
-  startdate: '2019-04-29'
-  enddate: '2019-05-03'
-  courseid: kubernetes
-  image: k8s.png
-  location: Live webinar Instructor Led
-- id: t677
-  type: 1
-  title: Openstack
-  startdate: '2019-05-13'
-  enddate: '2019-05-17'
-  courseid: openstack
-  image: openstack-training.png
-  location: Live webinar Instructor Led
-- id: t627
-  type: 1
-  title: Network Automation with Python
-  startdate: '2019-05-20'
-  enddate: '2019-05-24'
-  courseid: py3
-  image: pyna.png
-  location: Live webinar Instructor Led
-- id: t543
-  type: 1
-  title: 5G
-  startdate: '2019-05-27'
-  enddate: '2019-05-28'
-  courseid: 5g
-  image: 5g.png
-  location: Live webinar Instructor Led
-- id: t747
-  type: 1
-  title: SIP Essentials
-  startdate: '2019-06-03'
-  enddate: '2019-06-07'
-  courseid: sip
-  image: sip-invite.jpg
-  location: Live webinar Instructor Led
-- id: t7435
-  type: 1
-  title: RHEL
-  startdate: '2019-06-17'
-  enddate: '2019-06-21'
-  courseid: rhel
-  image: red-hat-logo-0507-v1.png
-  location: Live webinar Instructor Led
-- id: t791
-  type: 1
-  title: Python 1
-  startdate: '2019-01-28'
-  enddate: '2019-02-01'
-  courseid: py1
-  image: python.png
-  location: Live webinar Instructor Led id: t791
-- id: t858
-  type: 2
-  title: Volte and IMS
-  startdate: '2019-01-10’
-  enddate: '2020-02-01'
-  courseid: volte
-  image: https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjEqvHujeHfAhVqhuAKHVU2AfoQjRx6BAgBEAU&url=https%3A%2F%2Fwww.4g.co.uk%2Fwhat-is-volte%2F&psig=AOvVaw2p6forzhNitL3PUvLrc7mF&ust=1547137323901857
-  location: self-paced
-- id: t587
-  type: 3
-  title: Kubernetes
-  startdate: '2019-03-06’
-  enddate: '2020-03-07'
-  courseid: kubernetes
-  image: k8s.png
-  location: free webinar
-- id: t543
-  type: 3
-  title: 5G
-  startdate: '2019-03-20’
-  enddate: '2020-03-20'
-  courseid: 5g
-  image: 5g.png
-  location: free webinar
-
-
 

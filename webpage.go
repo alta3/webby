@@ -318,20 +318,14 @@ type PublicCourse struct {
 } 
 
 
-//type CourseCatalog interface {
-//  Select(id string)       []Course
-//  Load()                  []Course
-//  Search(ss string)       []Course
-//}
-
 type Event struct {
-  Id             string         `json:"id"`
-  Title          string         `json:"title"`
-  StartDate      string         `json:"startdate"`
-  EndDate        string         `json:"enddate"`
-  CourseId       string         `json:"courseid"`
-  Image          string         `json:"image"`
-  Location       string         `json:"location"`
+  Id             string         `yaml:"id"`
+  Title          string         `yaml:"title"`
+  StartDate      string         `yaml:"startdate"`
+  EndDate        string         `yaml:"enddate"`
+  CourseId       string         `yaml:"courseid"`
+  Image          string         `yaml:"image"`
+  Location       string         `yaml:"location"`
 }
 
 
@@ -385,12 +379,6 @@ func LoadEvents() Events {
           log.Printf("No events directory! %s, %s" , d, err)
           os.Exit(1)
       }
-          // If n > 0, Readdirnames(n) returns at most n names
-          // If n < 0, Readdirnames(n) returns ALL names
-      if err != nil {
-          log.Printf("No files in course directory! %s\n" , err)
-          os.Exit(1)
-      }
       var    ev   Events
       fmt.Println("---------------LOADING EVENTS---------------------")
       fmt.Printf(" Reading events files in directory: %s\n", dirname)
@@ -406,11 +394,13 @@ func LoadEvents() Events {
           log.Printf("yammy.Get err: %s\n", err)
           }
      // unmarshal byteArray using the JSON tags 
-      jsonFile, err := ToJSON(yammy)
-      json.Unmarshal(jsonFile, &ev)
-      fmt.Printf(" Successfully read: %s\n", thisfile) 
-//      fmt.Printf("JSON: %s\n", jsonFile)
-//      fmt.Printf("EV: %+v\n", ev )
+	    err = yaml.Unmarshal(yammy, &ev)
+      if err != nil {
+				 log.Printf("Unmarshal: %v", err)
+				  }
+
+			fmt.Printf(" Successfully read: %s\n", thisfile) 
+      fmt.Printf(" Events: %+v\n", ev )
       fmt.Println("--------------------------------------------------")
       return ev 
 }
@@ -608,121 +598,121 @@ func  (cs Courses) CourseTemplate() http.Handler {
 ////----------------------------------------------------------------
 
 
-//---------------------------------B--L--O--G--S--------------------
-type Blog struct {
-  Id             string         `json:"id"`
-  Title          string         `json:"title"`
-  Date           string         `json:"date"`
-  A3cheers       int            `json:"a3cheers"`
-}
-
-
-type Blogs struct {
-  Blogs         []Blog
-}
-
-
-
-//Not complete yet, still in testing phase.
-//Going to return blog Id and Title.
-//------------------------------------------------------------
-func (b Blogs ) getblogs() http.Handler {
-   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-    type BlogItem struct {
-      Id           string          `json:"id"`
-      Name         string          `json:"name"`
-    }
-    blogi := BlogItems{}
-    blogis := []BlogItems{}
-    var js []byte
-    var err error
-    //Iterate over all blogs, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
-    for _, ThisBlog := range b.Blogs {
-       fmt.Println("--------------------------------------------------")
-       fmt.Printf("Blog Search Results  = %s, %s\n", ThisBlog.Id., ThisBlog.Name)
-       blogi.Id=ThisBlog.Id
-       blogi.Name=ThisBlog.Name
-       blogis = append(blogis,blogi)
-    }
-    //If no blogs match, SEND THEM ALL! 
-       js, err = json.Marshal(blogis)
-    if err != nil {
-       http.Error(w, err.Error(), http.StatusInternalServerError)
-       fmt.Printf("Error %s:\n", err)
-       return
-    }
-    w.Header().Set("Content-Type", "application/json")
-    w.Write(js)
-    return
-    })
-}
-
-//Load BLOGS 
-//Must convert blogs from markdown to html or create blogs as yaml... which one, see line 693
-//------------------------------------------------------------
-func LoadBlogs() Blogs {
-      // Create a OS compliant path: microsoft "\" or linux "/"
-      dirname := path.Join("deploy", "blog")
-      d, err := os.Open(dirname)
-      if err != nil {
-          log.Printf("No blog directory! %s" , err)
-          os.Exit(1)
-      }
-      // If n > 0, Readdirnames(n) returns at most n names
-      // If n < 0, Readdirnames(n) returns ALL names
-      n := -1 
-      // reads < n > files in directory < d >
-      filenames, err := d.Readdirnames(n)
-      if err != nil {
-          log.Printf("No files in blog directory! %s\n" , err)
-          os.Exit(1)
-      }
-      c := make([]Blog,50) 
-      var jsonCatalogFile Blogs
-      fmt.Println("--------------------------------------------------")
-      fmt.Printf(" Reading files in this directory: %s\n", dirname)
-      i := 0
-      for _, filename := range filenames {
-          thisfile := path.Join(dirname, filename)
-          _ , err := os.Stat(thisfile)
-          if err != nil {
-              if os.IsNotExist(err) {
-                  log.Printf("file is missing!: %s\n ", filename)
-              }
-          } 
-          if filepath.Ext(thisfile) == ".yaml" {
-              yammy, err := ioutil.ReadFile(thisfile)
-              if err != nil {
-                 log.Printf("yammy.Get err: %s\n", err)
-              }
-              fmt.Printf("%d Sucessfully read: %s\n" , i,thisfile) 
-           // unmarshal byteArray using the JSON tags 
-              jsonFile, err := ToJSON(yammy)
-              json.Unmarshal(jsonFile, &c[i])
-              jsonCatalogFile.Cc = append(jsonCatalogFile.Cc, c[i])
-                fmt.Println("\nAny zero output is bad and indicates a YAML error.")        
-                fmt.Println("--------------------------------------------------")
-                fmt.Println("              Course: "       + jsonCatalogFile.Cc[i].Id)
-                fmt.Println("            Duration: " + strconv.Itoa(jsonCatalogFile.Cc[i].Duration.Hours))
-                fmt.Printf("      Book Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Book.PriceTags))
-                fmt.Printf("    Public Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Public.PriceTags))
-                fmt.Printf("   Private Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Private.PriceTags))
-                fmt.Printf("Self Paced Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Selfpaced.PriceTags))
-                fmt.Printf("Extend LMS Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.ExtendLmsAccess.PriceTags))
-                fmt.Printf("         Testimonials %d\n", len(jsonCatalogFile.Cc[i].Testimonials))
-                fmt.Printf("                 Tags %d\n", len(jsonCatalogFile.Cc[i].Tags))
-                fmt.Printf("             Chapters %d\n", len(jsonCatalogFile.Cc[i].Chapters))
-                fmt.Printf("                 Labs %d\n", len(jsonCatalogFile.Cc[i].Labs))
-              i++
-              yammy = nil
-              jsonFile = nil
-          }
-      }
-      d.Close()
-      return jsonCatalogFile 
-}
-//------------------------------E--N--D----B--L--O--G--S-------------------
-
+////---------------------------------B--L--O--G--S--------------------
+//type Blog struct {
+//  Id             string         `json:"id"`
+//  Title          string         `json:"title"`
+//  Date           string         `json:"date"`
+//  A3cheers       int            `json:"a3cheers"`
+//}
+//
+//
+//type Blogs struct {
+//  Blogs         []Blog
+//}
+//
+//
+//
+////Not complete yet, still in testing phase.
+////Going to return blog Id and Title.
+////------------------------------------------------------------
+//func (b Blogs ) getblogs() http.Handler {
+//   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+//    type BlogItem struct {
+//      Id           string          `json:"id"`
+//      Name         string          `json:"name"`
+//    }
+//    blogi := Blogs{}
+//    blogis := []BlogItems{}
+//    var js []byte
+//    var err error
+//    //Iterate over all blogs, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
+//    for _, ThisBlog := range b.Blogs {
+//       fmt.Println("--------------------------------------------------")
+//       fmt.Printf("Blog Search Results  = %s, %s\n", ThisBlog.Id, ThisBlog.Name)
+//       blogi.Id=ThisBlog.Id
+//       blogi.Name=ThisBlog.Name
+//       blogis = append(blogis,blogi)
+//    }
+//    //If no blogs match, SEND THEM ALL! 
+//       js, err = json.Marshal(blogis)
+//    if err != nil {
+//       http.Error(w, err.Error(), http.StatusInternalServerError)
+//       fmt.Printf("Error %s:\n", err)
+//       return
+//    }
+//    w.Header().Set("Content-Type", "application/json")
+//    w.Write(js)
+//    return
+//    })
+//}
+//
+////Load BLOGS 
+////Must convert blogs from markdown to html or create blogs as yaml... which one, see line 693
+////------------------------------------------------------------
+//func LoadBlogs() Blogs {
+//      // Create a OS compliant path: microsoft "\" or linux "/"
+//      dirname := path.Join("deploy", "blog")
+//      d, err := os.Open(dirname)
+//      if err != nil {
+//          log.Printf("No blog directory! %s" , err)
+//          os.Exit(1)
+//      }
+//      // If n > 0, Readdirnames(n) returns at most n names
+//      // If n < 0, Readdirnames(n) returns ALL names
+//      n := -1 
+//      // reads < n > files in directory < d >
+//      filenames, err := d.Readdirnames(n)
+//      if err != nil {
+//          log.Printf("No files in blog directory! %s\n" , err)
+//          os.Exit(1)
+//      }
+//      c := make([]Blog,50) 
+//      var jsonCatalogFile Blogs
+//      fmt.Println("--------------------------------------------------")
+//      fmt.Printf(" Reading files in this directory: %s\n", dirname)
+//      i := 0
+//      for _, filename := range filenames {
+//          thisfile := path.Join(dirname, filename)
+//          _ , err := os.Stat(thisfile)
+//          if err != nil {
+//              if os.IsNotExist(err) {
+//                  log.Printf("file is missing!: %s\n ", filename)
+//              }
+//          } 
+//          if filepath.Ext(thisfile) == ".yaml" {
+//              yammy, err := ioutil.ReadFile(thisfile)
+//              if err != nil {
+//                 log.Printf("yammy.Get err: %s\n", err)
+//              }
+//              fmt.Printf("%d Sucessfully read: %s\n" , i,thisfile) 
+//           // unmarshal byteArray using the JSON tags 
+//              jsonFile, err := ToJSON(yammy)
+//              json.Unmarshal(jsonFile, &c[i])
+//              jsonCatalogFile.Cc = append(jsonCatalogFile.Cc, c[i])
+//                fmt.Println("\nAny zero output is bad and indicates a YAML error.")        
+//                fmt.Println("--------------------------------------------------")
+//                fmt.Println("              Course: "       + jsonCatalogFile.Cc[i].Id)
+//                fmt.Println("            Duration: " + strconv.Itoa(jsonCatalogFile.Cc[i].Duration.Hours))
+//                fmt.Printf("      Book Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Book.PriceTags))
+//                fmt.Printf("    Public Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Public.PriceTags))
+//                fmt.Printf("   Private Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Private.PriceTags))
+//                fmt.Printf("Self Paced Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Selfpaced.PriceTags))
+//                fmt.Printf("Extend LMS Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.ExtendLmsAccess.PriceTags))
+//                fmt.Printf("         Testimonials %d\n", len(jsonCatalogFile.Cc[i].Testimonials))
+//                fmt.Printf("                 Tags %d\n", len(jsonCatalogFile.Cc[i].Tags))
+//                fmt.Printf("             Chapters %d\n", len(jsonCatalogFile.Cc[i].Chapters))
+//                fmt.Printf("                 Labs %d\n", len(jsonCatalogFile.Cc[i].Labs))
+//              i++
+//              yammy = nil
+//              jsonFile = nil
+//          }
+//      }
+//      d.Close()
+//      return jsonCatalogFile 
+//}
+////------------------------------E--N--D----B--L--O--G--S-------------------
+//
 
 
 
@@ -780,14 +770,20 @@ func (cs Courses ) getsummary() http.Handler {
       Id           string          `json:"id"`
       Name         string          `json:"name"`
       Tags         []string        `json:"tags"`
+			Stars        int             `json:"stars"`
     }
     //Retreive variable from GET URL
     fmt.Println("--------------------------------------------------")
-    ss := r.FormValue("courseid")
-    fmt.Printf("Menu for:   %s\n",ss)                
-    mi := MenuItems{} 
-    mis := []MenuItems{} 
-    var js []byte
+		if r.URL.Path == "" {
+			r.URL.Path = "nocourse"
+			Template().ServeHTTP(w, r)
+			return
+		}
+	  ss := r.URL.Path
+    fmt.Printf("Menu for:   %s\n",ss)
+    mi := MenuItems{}
+    mis := []MenuItems{}
+		var js []byte
     var err error
     //Iterate over all courses, copy Id, Name, and any Tags
     for _, ThisCourse := range cs.Cc {
@@ -796,6 +792,7 @@ func (cs Courses ) getsummary() http.Handler {
            mi.Id=ThisCourse.Id
            mi.Name=ThisCourse.Name
            mi.Tags=ThisCourse.Tags
+					 mi.Stars=47
            mis = append(mis,mi)
            break
        }
@@ -853,8 +850,8 @@ func (cs Courses ) getmegamenu() http.Handler {
 func (cs Courses ) search() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     //Retreive variable from GET URL
-    ss := r.FormValue("search")
-    fmt.Printf("func searchstring searching for: %s\n",ss)                
+    ss := r.URL.Path
+    fmt.Printf("func searchstring searching for: %s\n",ss)
     // Create a new composite Course type. Interestingly, by adding existing subordinate
     // types to the cloned struct, items will OMIT them from the marshalling.
     // see: https://mycodesmells.com/post/working-with-embedded-structs
@@ -899,8 +896,8 @@ func (cs Courses ) search() http.Handler {
 func (cs Courses ) getcoursedetail() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     //Retreive variable from GET URL
-    ss := r.FormValue("courseid")
-    fmt.Printf("func searchstring searching for: %s\n",ss)                
+    ss := r.URL.Path
+    fmt.Printf("func searchstring searching for: %s\n",ss)
     var c Course 
     hits := 0
     totalhits := 0
@@ -989,47 +986,47 @@ func main() {
         fmt.Println("--------------------------------------------------")
         fmt.Println("Course Loaded into MAIN: " + cs.Cc[0].Id)
         events := LoadEvents()
-       
+
 //        _, err := cs.Select("5g")
 //           if err != nil {
 //             log.Printf("SORRY: %s\n ", err)
 //          }
-           
+
 //        _, err = cs.Search("has-book")
 //           if err != nil {
 //             log.Printf("SORRY: %s\n ", err)
 //          }
- 
-        
 
-	// All the static folders
-	http.Handle("/downloads/", http.StripPrefix("/downloads/", http.FileServer(http.Dir("downloads"))))
-	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("deploy/img"))))
-	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("deploy/images"))))
-	http.Handle("/fonts/", http.StripPrefix("/fonts/", http.FileServer(http.Dir("deploy/fonts"))))
-	http.Handle("/icons/", http.StripPrefix("/icons/", http.FileServer(http.Dir("deploy/icons"))))
-	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("deploy/css"))))
-	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("deploy/js"))))
-        http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("deploy/assets"))))
-        http.Handle("/coming_soon/", http.StripPrefix("/coming_soon/", http.FileServer(http.Dir("deploy/coming_soon"))))
-        http.Handle("/sass/", http.StripPrefix("/sass/", http.FileServer(http.Dir("deploy/sass"))))
-        http.Handle("/video/", http.StripPrefix("/video/", http.FileServer(http.Dir("deploy/video"))))
-        http.Handle("/layerslider/", http.StripPrefix("/layerslider/", http.FileServer(http.Dir("deploy/layerslider"))))
-        // http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("deploy"))))
+
+
+// All the static folders
+	http.Handle("/downloads/",   http.StripPrefix("/downloads/",   http.FileServer(http.Dir("downloads"))))
+	http.Handle("/img/",         http.StripPrefix("/img/",         http.FileServer(http.Dir("deploy/img"))))
+	http.Handle("/images/",      http.StripPrefix("/images/",      http.FileServer(http.Dir("deploy/images"))))
+	http.Handle("/fonts/",       http.StripPrefix("/fonts/",       http.FileServer(http.Dir("deploy/fonts"))))
+	http.Handle("/icons/",       http.StripPrefix("/icons/",       http.FileServer(http.Dir("deploy/icons"))))
+	http.Handle("/css/",         http.StripPrefix("/css/",         http.FileServer(http.Dir("deploy/css"))))
+	http.Handle("/js/",          http.StripPrefix("/js/",          http.FileServer(http.Dir("deploy/js"))))
+  http.Handle("/assets/",      http.StripPrefix("/assets/",      http.FileServer(http.Dir("deploy/assets"))))
+  http.Handle("/coming_soon/", http.StripPrefix("/coming_soon/", http.FileServer(http.Dir("deploy/coming_soon"))))
+  http.Handle("/sass/",        http.StripPrefix("/sass/",        http.FileServer(http.Dir("deploy/sass"))))
+  http.Handle("/video/",       http.StripPrefix("/video/",       http.FileServer(http.Dir("deploy/video"))))
+  http.Handle("/layerslider/", http.StripPrefix("/layerslider/", http.FileServer(http.Dir("deploy/layerslider"))))
+//http.Handle("/",             http.StripPrefix("/",             http.FileServer(http.Dir("deploy"))))
 
 	// Templates
 	http.Handle("/courses/", http.StripPrefix("/courses/", cs.CourseTemplate()))
 	http.Handle("/blog/", http.StripPrefix("/blog/", BlogTemplate()))
 	http.Handle("/", http.StripPrefix("/", Template()))
 
-        // JSON RESTful Interfaces
-        http.Handle("/api/v1/course/search/", http.StripPrefix("/api/v1/course/search/", cs.search()))
-        http.Handle("/api/v1/course/megamenu/", http.StripPrefix("/api/v1/course/megamenu/", cs.getmegamenu()))
-        http.Handle("/api/v1/course/summary/",http.StripPrefix("/api/v1/course/summary/", cs.getsummary()))
-        http.Handle("/api/v1/course/detail/",http.StripPrefix("/api/v1/course/detail/", cs.getcoursedetail()))
-        http.Handle("/api/v1/searchblog/",http.StripPrefix("/api/v1/searchblog/", blogs.getblogs()))
-        //http.Handle("/api/v1/blogdet/",http.StripPrefix("/api/v1/blogdet/", blogs.getblogd()))
-        http.Handle("/api/v1/events/",http.StripPrefix("/api/v1/events/", events.getevents()))
+// JSON RESTful Interfaces
+  http.Handle("/api/v1/course/search/",    http.StripPrefix("/api/v1/course/search/",     cs.search()))
+  http.Handle("/api/v1/course/megamenu/",  http.StripPrefix("/api/v1/course/megamenu/",   cs.getmegamenu()))
+  http.Handle("/api/v1/course/summary/id/",http.StripPrefix("/api/v1/course/summary/id/", cs.getsummary()))
+  http.Handle("/api/v1/course/detail/id/", http.StripPrefix("/api/v1/course/detail/id/",  cs.getcoursedetail()))
+// http.Handle("/api/v1/blog/search/,       http.StripPrefix("/api/v1/hblog/search/",      blogs.getblogs()))
+// http.Handle("/api/v1/blogdet/",          http.StripPrefix("/api/v1/blogdet/",           blogs.getblogd()))
+  http.Handle("/api/v1/events/",           http.StripPrefix("/api/v1/events/",            events.getevents()))
 
 	// Stripe Chckout
 	http.Handle("/checkout", Checkout())
@@ -1037,3 +1034,4 @@ func main() {
 	log.Printf("serving...")
 	http.ListenAndServe(":8888", Log(http.DefaultServeMux))
 }
+
