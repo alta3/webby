@@ -1,6 +1,7 @@
 package main
 
 import (
+//  "regexp"
 	"encoding/json"
 	"fmt"
 	"html/template"
@@ -17,6 +18,10 @@ import (
         "strconv"
         "github.com/ghodss/yaml"
         "time"
+  "github.com/gomarkdown/markdown"
+  "github.com/gomarkdown/markdown/parser"
+//  "gopkg.in/russross/blackfriday.v2"
+
 //        "gopkg.in/yaml.v2"
 //        "github.com/gorilla/mux"
 
@@ -472,23 +477,23 @@ func Load() Courses {
 
 func (cs Courses)  Select(id string) (Courses, error) {
      log.Printf("WORKING: Looking for %s\n", id)
-     var c Courses      
-     for _, ThisCourse := range cs.Cc  {
+     var c Courses
+		 for _, ThisCourse := range cs.Cc  {
           if ThisCourse.Id == id  {
               c.Cc = append(c.Cc, ThisCourse)
               fmt.Printf("FOUND %d Record, returning: %s\n" , len(c.Cc), c.Cc[0].Id)
-              return c, nil 
+              return c, nil
           }
-      } 
+      }
      return c, errors.New(fmt.Sprintf("Course ID \"%s\" does NOT exist\n", id ))
-} 
+}
 
 
 func (cs Courses)  Search(ls string) (Courses, error) {
      ls = strings.ToLower(ls)
      fmt.Println("--------------------------------------------------")
      log.Printf("SEARCH FUNC REPORTING: Searching for %s\n", ls)
-     var c Courses 
+     var c Courses
      i := 0
      hits := 0
      totalhits := 0
@@ -500,12 +505,12 @@ func (cs Courses)  Search(ls string) (Courses, error) {
             fmt.Printf("%s Course has %d hits\n", ThisCourse.Id, hits )
         }
         i++
-      } 
+      }
      if  totalhits == 0 {
        return c, errors.New(fmt.Sprintf("No course contains any information regarding \"%s\"" , ls ))
      }
     return c, nil
-} 
+}
 
 
 
@@ -598,123 +603,22 @@ func  (cs Courses) CourseTemplate() http.Handler {
 ////----------------------------------------------------------------
 
 
-////---------------------------------B--L--O--G--S--------------------
-//type Blog struct {
-//  Id             string         `json:"id"`
-//  Title          string         `json:"title"`
-//  Date           string         `json:"date"`
-//  A3cheers       int            `json:"a3cheers"`
-//}
-//
-//
-//type Blogs struct {
-//  Blogs         []Blog
-//}
-//
-//
-//
-////Not complete yet, still in testing phase.
-////Going to return blog Id and Title.
-////------------------------------------------------------------
-//func (b Blogs ) getblogs() http.Handler {
-//   return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-//    type BlogItem struct {
-//      Id           string          `json:"id"`
-//      Name         string          `json:"name"`
-//    }
-//    blogi := Blogs{}
-//    blogis := []BlogItems{}
-//    var js []byte
-//    var err error
-//    //Iterate over all blogs, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
-//    for _, ThisBlog := range b.Blogs {
-//       fmt.Println("--------------------------------------------------")
-//       fmt.Printf("Blog Search Results  = %s, %s\n", ThisBlog.Id, ThisBlog.Name)
-//       blogi.Id=ThisBlog.Id
-//       blogi.Name=ThisBlog.Name
-//       blogis = append(blogis,blogi)
-//    }
-//    //If no blogs match, SEND THEM ALL! 
-//       js, err = json.Marshal(blogis)
-//    if err != nil {
-//       http.Error(w, err.Error(), http.StatusInternalServerError)
-//       fmt.Printf("Error %s:\n", err)
-//       return
-//    }
-//    w.Header().Set("Content-Type", "application/json")
-//    w.Write(js)
-//    return
-//    })
-//}
-//
-////Load BLOGS 
-////Must convert blogs from markdown to html or create blogs as yaml... which one, see line 693
-////------------------------------------------------------------
-//func LoadBlogs() Blogs {
-//      // Create a OS compliant path: microsoft "\" or linux "/"
-//      dirname := path.Join("deploy", "blog")
-//      d, err := os.Open(dirname)
-//      if err != nil {
-//          log.Printf("No blog directory! %s" , err)
-//          os.Exit(1)
-//      }
-//      // If n > 0, Readdirnames(n) returns at most n names
-//      // If n < 0, Readdirnames(n) returns ALL names
-//      n := -1 
-//      // reads < n > files in directory < d >
-//      filenames, err := d.Readdirnames(n)
-//      if err != nil {
-//          log.Printf("No files in blog directory! %s\n" , err)
-//          os.Exit(1)
-//      }
-//      c := make([]Blog,50) 
-//      var jsonCatalogFile Blogs
-//      fmt.Println("--------------------------------------------------")
-//      fmt.Printf(" Reading files in this directory: %s\n", dirname)
-//      i := 0
-//      for _, filename := range filenames {
-//          thisfile := path.Join(dirname, filename)
-//          _ , err := os.Stat(thisfile)
-//          if err != nil {
-//              if os.IsNotExist(err) {
-//                  log.Printf("file is missing!: %s\n ", filename)
-//              }
-//          } 
-//          if filepath.Ext(thisfile) == ".yaml" {
-//              yammy, err := ioutil.ReadFile(thisfile)
-//              if err != nil {
-//                 log.Printf("yammy.Get err: %s\n", err)
-//              }
-//              fmt.Printf("%d Sucessfully read: %s\n" , i,thisfile) 
-//           // unmarshal byteArray using the JSON tags 
-//              jsonFile, err := ToJSON(yammy)
-//              json.Unmarshal(jsonFile, &c[i])
-//              jsonCatalogFile.Cc = append(jsonCatalogFile.Cc, c[i])
-//                fmt.Println("\nAny zero output is bad and indicates a YAML error.")        
-//                fmt.Println("--------------------------------------------------")
-//                fmt.Println("              Course: "       + jsonCatalogFile.Cc[i].Id)
-//                fmt.Println("            Duration: " + strconv.Itoa(jsonCatalogFile.Cc[i].Duration.Hours))
-//                fmt.Printf("      Book Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Book.PriceTags))
-//                fmt.Printf("    Public Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Public.PriceTags))
-//                fmt.Printf("   Private Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Private.PriceTags))
-//                fmt.Printf("Self Paced Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.Selfpaced.PriceTags))
-//                fmt.Printf("Extend LMS Price Tags %d\n", len(jsonCatalogFile.Cc[i].Price.ExtendLmsAccess.PriceTags))
-//                fmt.Printf("         Testimonials %d\n", len(jsonCatalogFile.Cc[i].Testimonials))
-//                fmt.Printf("                 Tags %d\n", len(jsonCatalogFile.Cc[i].Tags))
-//                fmt.Printf("             Chapters %d\n", len(jsonCatalogFile.Cc[i].Chapters))
-//                fmt.Printf("                 Labs %d\n", len(jsonCatalogFile.Cc[i].Labs))
-//              i++
-//              yammy = nil
-//              jsonFile = nil
-//          }
-//      }
-//      d.Close()
-//      return jsonCatalogFile 
-//}
-////------------------------------E--N--D----B--L--O--G--S-------------------
-//
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------
 
 
 //API - Course SummaryList for all courses - returns course Id, Title, Stars, Duration, Description, selfpaced price, and live price, courseicon.Pii
@@ -760,6 +664,14 @@ func (cs Courses ) getsummarylist() http.Handler {
     return
     })
 }
+
+
+//   _____ ____  _    _ _____   _____ ______    _____ _    _ __  __ __  __          _______     __
+//  / ____/ __ \| |  | |  __ \ / ____|  ____|  / ____| |  | |  \/  |  \/  |   /\   |  __ \ \   / /
+// | |   | |  | | |  | | |__) | (___ | |__    | (___ | |  | | \  / | \  / |  /  \  | |__) \ \_/ / 
+// | |   | |  | | |  | |  _  / \___ \|  __|    \___ \| |  | | |\/| | |\/| | / /\ \ |  _  / \   /  
+// | |___| |__| | |__| | | \ \ ____) | |____   ____) | |__| | |  | | |  | |/ ____ \| | \ \  | |   
+//  \_____\____/ \____/|_|  \_\_____/|______| |_____/ \____/|_|  |_|_|  |_/_/    \_\_|  \_\ |_|
 
 
 //API - Course Summary - Given a valid courseID, returns that course's: Id, Tag, Stars, and Name. 
@@ -810,6 +722,12 @@ func (cs Courses ) getsummary() http.Handler {
     })
 }
 
+//  __  __ ______ _____          __  __ ______ _   _ _    _ 
+// |  \/  |  ____/ ____|   /\   |  \/  |  ____| \ | | |  | |
+// | \  / | |__ | |  __   /  \  | \  / | |__  |  \| | |  | |
+// | |\/| |  __|| | |_ | / /\ \ | |\/| |  __| | . ` | |  | |
+// | |  | | |___| |__| |/ ____ \| |  | | |____| |\  | |__| |
+// |_|  |_|______\_____/_/    \_\_|  |_|______|_| \_|\____/
 
 //API - MegaMenu - Returns all courses: Id, Tag, Stars, and Name. 
 func (cs Courses ) getmegamenu() http.Handler {
@@ -845,6 +763,13 @@ func (cs Courses ) getmegamenu() http.Handler {
     })
 }
 
+
+//   _____ ______          _____   _____ _    _    _____ ____  _    _ _____   _____ ______  _____ 
+//  / ____|  ____|   /\   |  __ \ / ____| |  | |  / ____/ __ \| |  | |  __ \ / ____|  ____|/ ____|
+// | (___ | |__     /  \  | |__) | |    | |__| | | |   | |  | | |  | | |__) | (___ | |__  | (___  
+//  \___ \|  __|   / /\ \ |  _  /| |    |  __  | | |   | |  | | |  | |  _  / \___ \|  __|  \___ \ 
+//  ____) | |____ / ____ \| | \ \| |____| |  | | | |___| |__| | |__| | | \ \ ____) | |____ ____) |
+// |_____/|______/_/    \_\_|  \_\\_____|_|  |_|  \_____\____/ \____/|_|  \_\_____/|______|_____/ 
 
 // API Search Given a search string, returns ONLY course IDs for all matching courses.
 func (cs Courses ) search() http.Handler {
@@ -892,13 +817,19 @@ func (cs Courses ) search() http.Handler {
 }
 
 
+//   ____ ___  _   _ ____  ____  _____   ____  _____ _____  _    ___ _     
+//  / ___/ _ \| | | |  _ \/ ___|| ____| |  _ \| ____|_   _|/ \  |_ _| |    
+// | |  | | | | | | | |_) \___ \|  _|   | | | |  _|   | | / _ \  | || |    
+// | |__| |_| | |_| |  _ < ___) | |___  | |_| | |___  | |/ ___ \ | || |___ 
+//  \____\___/ \___/|_| \_\____/|_____| |____/|_____| |_/_/   \_\___|_____|
+
 // API Get Course Detail, given a valid courseID, return all course details with GUIDs blanked out.
 func (cs Courses ) getcoursedetail() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     //Retreive variable from GET URL
     ss := r.URL.Path
     fmt.Printf("func searchstring searching for: %s\n",ss)
-    var c Course 
+    var c Course
     hits := 0
     totalhits := 0
     var js []byte
@@ -910,7 +841,7 @@ func (cs Courses ) getcoursedetail() http.Handler {
        if  ThisCourse.Id == ss {
            c = ThisCourse
            hits = 1
-           totalhits = 1 
+           totalhits = 1
            fmt.Printf("Found detail for %s Course\n", ThisCourse.Id, hits )
            break
        }
@@ -933,39 +864,61 @@ func (cs Courses ) getcoursedetail() http.Handler {
 }
 
 
+//  ____  _      ____   _____  _____ 
+// |  _ \| |    / __ \ / ____|/ ____|
+// | |_) | |   | |  | | |  __| (___  
+// |  _ <| |   | |  | | | |_ |\___ \ 
+// | |_) | |___| |__| | |__| |____) |
+// |____/|______\____/ \_____|_____/ 
 
-// API Search Given a search string, returns course data for all matching courses, without the course outline data.
-func (cs Courses ) getsearch() http.Handler {
+//------------------BLOGS------------------------
+type Blog struct {
+  Id             string         `yaml:"id"`
+  Title          string         `yaml:"title"`
+  Date           string         `yaml:"date"`
+  Weight         string         `yaml:"weight"`
+  Author         string         `yaml:"author"`
+  Content        string         `yaml:"contnet:`
+}
+
+type Blogs []Blog
+
+// blogsearch returns the blog ID of all blogs that match the search string.
+func (b Blogs) blogsearch() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-
-    //Retreive variable from GET URL
-    ss := r.FormValue("search")
-    fmt.Printf("func searchstring searching for: %s\n",ss)                
-    // Create a new composite Course type. Interestingly, by adding existing subordinate
-    // types to the cloned struct, items will OMIT them from the marshalling.
-    // see: https://mycodesmells.com/post/working-with-embedded-structs
-    c := []PublicCourse{} 
+    //Retreive search string value from GET URL Path
+		//Asterisk will return all blogs
+		ss := r.URL.Path
+		if ss == "" {
+			ss = "*"
+		}
+    fmt.Printf("Searching blogs for: '%s'\n",ss)
+    var id  []string
     hits := 0
     totalhits := 0
     var js []byte
     var err error
     //Iterate over all courses, looking for the search string (ss)
-    //If a match is found, add the course to c.Cc[i]
-    for i, ThisCourse := range cs.Cc {
-       hits = strings.Count( strings.ToLower(fmt.Sprintf("%v", cs.Cc[i])), ss )
-       totalhits = totalhits + hits
+    //If a match is found, add the blog Id to id[i]
+    for i, Thisblog := range b {
+			 if ss == "*" {
+					 id = append(id,Thisblog.Id)
+					 fmt.Printf("Appending %s Blog\n", Thisblog.Id)
+	     }  else {
+           hits = strings.Count( strings.ToLower(fmt.Sprintf("%v", b[i])), ss )
+           totalhits = totalhits + hits
+			 }
        if  hits > 0 {
-           // Here is how you graft an existing type into a new "composite" type.
-           pch :=  PublicCourse{Course: ThisCourse} 
-           c = append(c,pch)
-           fmt.Printf("%s Course has %d hits\n", ThisCourse.Id, hits )
+           id = append(id,Thisblog.Id)
+           fmt.Printf("%s Blog has %d hits\n", Thisblog.Id, hits )
        }
     }
-    //If no courses match, SEND THEM ALL! 
+    //If no blog match, SEND Null 
     if totalhits == 0 {
-       js, err = json.Marshal(cs.Cc)
+       js, err = json.Marshal(id)
+			 fmt.Printf("No hits - sending NULL\n")
     } else {
-       js, err = json.Marshal(c)
+       js, err = json.Marshal(id)
     }
     if err != nil {
        http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -978,25 +931,142 @@ func (cs Courses ) getsearch() http.Handler {
     })
 }
 
+
+// Given a valid Blog ID, returns the blog
+func (b Blogs) getblog() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    //Retreive variable from GET URL
+    fmt.Println("--------------------------------------------------")
+		if r.URL.Path == "" {
+			r.URL.Path = "noblog"
+			Template().ServeHTTP(w, r)
+			return
+		}
+	  ss := r.URL.Path
+    fmt.Printf("%s blog requested\n",ss)
+    var blog  Blog
+    var js []byte
+    var err error
+    //Iterate over all courses, looking for the search string (ss)
+    //If a match is found, add the blog Id to id[i]
+    for _, Thisblog := range b {
+			 if strings.ToLower(ss) == strings.ToLower(Thisblog.Id) {
+					 blog = Thisblog
+					 fmt.Printf("Found blog %s\n", Thisblog.Id)
+           break
+	     } 
+    }
+    //If no blog match, SEND Null 
+    if blog.Id  == "" {
+       js, err = json.Marshal("")
+			 fmt.Printf("Blog %s not found\n", ss)
+    } else {
+       js, err = json.Marshal(blog)
+    }
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
+
+
+// ----------------------LOAD BLOGs------------------------------
+// Load all blogs when server boots
+func Loadblogs() Blogs {
+    // Create a OS compliant path: microsoft "\" or linux "/"
+    dirname := path.Join("deploy", "blog")
+    d, err := os.Open(dirname)
+    if err != nil {
+        log.Printf("No blogs directory! %s" , dirname)
+        os.Exit(1)
+    }
+    // If n > 0, Readdirnames(n) returns at most n names
+    // If n < 0, Readdirnames(n) returns ALL names
+    n := -1
+    // reads < n > files in directory < d >
+    filenames, err := d.Readdirnames(n)
+    if err != nil {
+        log.Printf("No files in blogs directory! %s\n" , dirname)
+        os.Exit(1)
+    }
+    var   b          Blog
+    var   allblogs   Blogs
+    fmt.Println("--------------------------------------------------")
+    fmt.Printf(" Reading BLOG files from directory: %s\n", dirname)
+    fmt.Println(" Any zero output is bad and indicates a YAML error.")
+    i := 0
+    for _, filename := range filenames {
+        thisfile := path.Join(dirname, filename)
+        _ , err := os.Stat(thisfile)
+        if err != nil {
+            if os.IsNotExist(err) {
+                log.Printf("file is missing!: %s\n ", filename)
+            }
+        }
+        if filepath.Ext(thisfile) == ".yaml" {
+            yammy, err := ioutil.ReadFile(thisfile)
+            if err != nil {
+               log.Printf("yammy.Get err: %s\n", err)
+            }
+            fmt.Println("--------------------------------------------------")
+            fmt.Printf("#%d  Sucessfully read: %s\n" , i+1,thisfile)
+            parts := string(yammy)
+            //split YAML header from markdown body using "\n---" delimiter
+            z := strings.Split(parts, "\n---")
+            //check if there exactly two parts or skip to next file
+            if len(z) != 2 {
+                fmt.Printf("    ********* FILE PARSE FAIL **************\n    BROKEN FILE: %s, skipping\n",thisfile)
+                fmt.Printf("    SPLIT-COUNT: %d should be 2\n",len(z))
+                fmt.Printf("    Should be easy to fix, check file format\n\n\n")
+            }
+            if len(z) == 2 {
+                fmt.Printf("FIRST SPLIT is the YAML HEADER:\n%s\n2nd SPLIT MARKDOWN: %d characters\n", z[0],len(z[1]))
+                extensions := parser.CommonExtensions | parser.AutoHeadingIDs
+                parser := parser.NewWithExtensions(extensions)
+                md := []byte(z[1])
+                //load html into b.Content
+                html := markdown.ToHTML(md, parser, nil)
+                b.Content = string(html)
+                fmt.Printf("Content:\n--------\n %s\n", b.Content)
+                // unmarshal byteArray using the JSON tags 
+                jsonFile, err := ToJSON(yammy)
+                if err != nil {
+                   log.Printf("jsonFile error: %s\n", err)
+                }
+                json.Unmarshal(jsonFile, &b)
+                allblogs = append(allblogs, b)
+                fmt.Printf("                  ID: %s\n", allblogs[i].Id)
+                fmt.Printf("               Title: %s\n", allblogs[i].Title)
+                fmt.Printf("                Date: %s\n", allblogs[i].Date)
+                fmt.Printf("              Weight: %s\n", allblogs[i].Weight)
+                fmt.Printf("              Author: %s\n", allblogs[i].Author)
+                fmt.Printf("    Content in bytes: %d\n", len(allblogs[i].Content))
+                jsonFile = nil
+            }
+            yammy = nil
+            i++
+       }
+    }
+    d.Close()
+    return allblogs
+}
+
+
+
+
 func main() {
-
 ////      router := mux.NewRouter().StrictSlash(true)
-
-        cs := Load()
-        fmt.Println("--------------------------------------------------")
-        fmt.Println("Course Loaded into MAIN: " + cs.Cc[0].Id)
-        events := LoadEvents()
-
-//        _, err := cs.Select("5g")
-//           if err != nil {
-//             log.Printf("SORRY: %s\n ", err)
-//          }
-
-//        _, err = cs.Search("has-book")
-//           if err != nil {
-//             log.Printf("SORRY: %s\n ", err)
-//          }
-
+  cs := Load()
+  fmt.Println("--------------------------------------------------")
+  fmt.Println("Course Loaded into MAIN: " + cs.Cc[0].Id)
+  events := LoadEvents()
+  blogcontent := Loadblogs()
+  fmt.Println("Blogs Loaded into MAIN: " + blogcontent[0].Id)
 
 
 // All the static folders
@@ -1020,18 +1090,18 @@ func main() {
 	http.Handle("/", http.StripPrefix("/", Template()))
 
 // JSON RESTful Interfaces
-  http.Handle("/api/v1/course/search/",    http.StripPrefix("/api/v1/course/search/",     cs.search()))
-  http.Handle("/api/v1/course/megamenu/",  http.StripPrefix("/api/v1/course/megamenu/",   cs.getmegamenu()))
+  http.Handle("/api/v1/course/search/",    http.StripPrefix("/api/v1/course/search/", cs.search()))
+  http.Handle("/api/v1/course/megamenu/",  http.StripPrefix("/api/v1/course/megamenu/", cs.getmegamenu()))
   http.Handle("/api/v1/course/summary/id/",http.StripPrefix("/api/v1/course/summary/id/", cs.getsummary()))
   http.Handle("/api/v1/course/detail/id/", http.StripPrefix("/api/v1/course/detail/id/",  cs.getcoursedetail()))
-// http.Handle("/api/v1/blog/search/,       http.StripPrefix("/api/v1/hblog/search/",      blogs.getblogs()))
-// http.Handle("/api/v1/blogdet/",          http.StripPrefix("/api/v1/blogdet/",           blogs.getblogd()))
-  http.Handle("/api/v1/events/",           http.StripPrefix("/api/v1/events/",            events.getevents()))
+  http.Handle("/api/v1/blog/search/",      http.StripPrefix("/api/v1/blog/search/", blogcontent.blogsearch()))
+  http.Handle("/api/v1/blog/id/",          http.StripPrefix("/api/v1/blog/id/", blogcontent.getblog()))
+  http.Handle("/api/v1/events/",           http.StripPrefix("/api/v1/events/", events.getevents()))
 
 	// Stripe Chckout
 	http.Handle("/checkout", Checkout())
 
 	log.Printf("serving...")
-	http.ListenAndServe(":8888", Log(http.DefaultServeMux))
+	http.ListenAndServe(":28888", Log(http.DefaultServeMux))
 }
 

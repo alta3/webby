@@ -1,0 +1,48 @@
+---
+id: Law
+Title: Famous Lawyers
+Date: March 22
+Weight: "50"
+Author: Dewey Cheatum and Howe
+---
+![ceph logo](https://i1.wp.com/ceph.com/wp-content/uploads/2016/07/Ceph_Logo_Standard_RGB_120411_fa.png?resize=300%2C138&ssl=1)
+# Ceph Installation Notes
+
+With ceph already running, as follows:
+
+| type |hostname  | IP Addr      |
+|---    |---      | ---          |
+|mon1   |master1  | 10.16.2.121  |
+|mon2   |master2  | 10.16.2.121  |
+|mon3   |master3  | 10.16.2.121  |
+|osd1   |node1    | 10.16.2.131  |
+|osd2   |node2    | 10.16.2.132  |
+|osd3   |node3    | 10.16.2.133  |
+
+### Objective is to install a client machine to monitor above ceph cluster
+
+![Ceph Client](https://github.com/alta3/wiki/blob/master/images/ceph/ceph-client.png)
+
+  >Using a "beachhead" as the client machine, I followed the instructions [HERE](http://docs.ceph.com/docs/cuttlefish/start/quick-start/) The relevent steps are shown below. 
+
+1. Everything you will need to monitor the target cluster is available in target cluster monitors' `/etc/ceph` directory.  Here is the contents of a monitor's /etc/ceph directory. You want the two files tagged `<---- This one`
+
+    ```
+    -r--------  1 ceph ceph  151 Mar 12 21:39 alta3.client.admin.keyring   <--- This one
+    -rw-r--r--  1 ceph ceph  401 Mar 12 21:39 alta3.conf                   <--- This one
+    -rw-r--r--  1 root root   92 Jan  4 15:56 rbdmap                       <--- Not sure why this is RDB map is here (yet)
+    ```
+2. SSH over to montor #2 (any monitor will do)
+
+   `ssh node2`
+
+3. Make a directory to organize the files you will SCP into your beachhead.
+
+    `mkdir ~/ceph`
+
+4. Copy the files you need to your home directory
+
+   `sudo cp /etc/ceph/alta3.*   ~/ceph/.`
+
+
+

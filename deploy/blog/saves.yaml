@@ -1,4 +1,10 @@
-
+---
+id : Done
+Title: Just Blogging  
+Date: March 22
+Weight: "10"
+Author:  Web Logger
+--- 
 
 This could be a great blog when I'm done and clean it up.... I am starting to think I've learned my lesson finally regarding saving documents on my computer. The solution, if done on my own may turn a bit more complicated than I want, but could prove to ensure almost no changes (minimal) are lost. (side note, now that I'm thinking about it, with a little rsync every x seconds or change, plus a tar of that sync on every change for the difference etc)... But anyway, we just had our weekly online meeting, as most of us are remote. We use this to communicate plans for the week, the month, and anything new coming up in the future. It usually lasts about an hour with some stragglers discussing other items afterwards more geared toward finance, infrastructure, instructing, etc. I tend to keep my notes (not even for these meetings) in a notepad.. Windows notepad. What? It's simple and easy to use. I just have to remember to save the file. That rarely happens. I usually look at things and then close them later when I've accomplished a task or let go by the wayside due to importance. Anyway, during this meeting I was actually taking notes. More for myself as I gained ideas of things I wanted to accomplish when I was working from home (due to a knee surgery) and not being 'bothered' as much while being in the office. I probably had about 30 lines or so of a task list. Literally things I wanted to do, plus some indented descriptions and so on.
 
@@ -10,4 +16,4 @@ Well, I still want to run a rhel instance somewhere to see what my default usern
 
 My computer acts a-fool and decides that I clicked something wrong when the FIVE (or more) times it said you need to install this and that, and MS is like 'are you sure'? Blue screen, MS collects info to do nothing with other than to sell and make money..
 
-And that's how I lost my task list in notepad. Version control and autosaves can be so important in certain lines of work and projects. Not all, and that will be noted in my next stdout > .  By the way, I wrote the initial draft of this in notepad :slightly_smiling_face: . . . and That's my story.
+And that's how I losu my task list in notepad. Version control and autosaves can be so important in certain lines of work and projects. Not all, and that will be noted in my next stdout > .  By the way, I wrote the initial draft of this in notepad :slightly_smiling_face: . . . and That's my story.
