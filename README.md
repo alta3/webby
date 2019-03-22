@@ -2,9 +2,9 @@
 
 
 Return a list of all blog.id: 
-`http://ultracoolness.com:56644/api/v1/blog/search/*`   (Just add an asterisk)
-Example:
-http://ultracoolness.com:56644/api/v1/blog/search/*`
+`http://ultracoolness.com:56644/api/v1/blog/search/*`   (Just add an asterisk)  
+Example:  
+http://ultracoolness.com:56644/api/v1/blog/search/*`  
 Returns:  
 
 ```
@@ -12,7 +12,7 @@ Returns:
 ```
 
 Search for a specific blog:  
-http://ultracoolness.com:56644/api/v1/blog/search/<search-string> <-- case insensitive
+http://ultracoolness.com:56644/api/v1/blog/search/<search-string> <-- case insensitive  
 Example:  
 `http://ultracoolness.com:56644/api/v1/blog/search/cat`  
 Returns:
