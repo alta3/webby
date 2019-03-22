@@ -9,16 +9,20 @@ Return a list of all blog.id:
 Example:
 http://ultracoolness.com:56644/api/v1/blog/search/*`
 Returns:  
-`["Law","BulletProofCode","Max"]`  
 
+```
+["Law","BulletProofCode","Max"]  
+```
 
 Search for a specific blog:  
 http://ultracoolness.com:56644/api/v1/blog/search/<search-string> <-- case insensitive
 Example:  
 `http://ultracoolness.com:56644/api/v1/blog/search/cat`  
 Returns:
-`["Max"]`
 
+```
+["Max"]
+```
  
 Return a specific blog detail using blog.id:  
 `http://ultracoolness.com:56644/api/v1/blog/id/<blog.id>` <-- case insensitive  
