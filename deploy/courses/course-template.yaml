@@ -1,16 +1,16 @@
 ---
-id: pyb 
-name: Basic Python
-category: Programming
+id: #id used for the main course structure and name of the file.yaml
+name: #Name of the course that shows up on the website
+category: #Telecom, Programming, Cloud, Networking, Linux 
 duration:
-  hours: 32
-  days: 50
-audience: This course is an appropriate introduction to students of any background looking to get started with Python. System administrators, network engineers, managers, and those with development skills in other programming languages will find the lessons and labs highly relevant to their disciplines. 
+  hours: #number of hours. 
+  days: #number of classroom days
+audience: #Who should attend this course and why
 prereqs: 
- -  Keyboard proficiency
+ #-  This would be for courses (id) of what course should be used, name actually makes the most sense here
 postreqs: 
- -  Recommended Follow up: APIs and API Design with Python (5 days)
- -  Recommended Follow up: Python for Network Automation (5 days)
+ #-  for any courses that are suggested as follow-ups for this course
+ #-   
 testimonials:
   quotes:
    -  All excellant
