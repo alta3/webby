@@ -2,7 +2,12 @@ package main
 
 import (
 //  "regexp"
-	"encoding/json"
+
+
+	"github.com/tdewolff/minify"
+	"github.com/tdewolff/minify/html"
+
+"encoding/json"
 	"fmt"
 	"html/template"
         "path/filepath"
@@ -366,6 +371,8 @@ func (e Events) getevents() http.Handler {
            fmt.Printf("Error %s:\n", err)
            return
        }
+       (w).Header().Set("Access-Control-Allow-Headers","*")
+       (w).Header().Set("Access-Control-Allow-Origin", "*")
        w.Header().Set("Content-Type", "application/json")
        w.Write(js)
        return
@@ -549,7 +556,8 @@ func  (cs Courses) CourseTemplate() http.Handler {
 			Template().ServeHTTP(w, r)
 			return
 		}
-
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
                 var err error
 		lp := path.Join("deploy/templates", "layout.html")
 		fp := path.Join("deploy/courses", r.URL.Path)
@@ -578,50 +586,9 @@ func  (cs Courses) CourseTemplate() http.Handler {
 	})
 }
 
-//----------------------------------------------------------------
-//Ingest markdown and convert to html
-//----------------------------------------------------------------
-//func ToJSON(data []byte) ([]byte, error) {
- //   if hasJSONPrefix(data) {
-//        return data, nil
-//    }
-//    return yaml.YAMLToJSON(data)
-//}
-
-//var jsonPrefix = []byte("{")
-
-//// hasJSONPrefix returns true if the provided buffer starts with "{".
-//func hasJSONPrefix(buf []byte) bool {
-//    return hasPrefix(buf, jsonPrefix)
-//}
-
-// Return true if the first non-whitespace bytes in buf is prefix.
-//func hasPrefix(buf []byte, prefix []byte) bool {
-//    trim := bytes.TrimLeftFunc(buf, unicode.IsSpace)
-//    return bytes.HasPrefix(trim, prefix)
-//}
-////----------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //--------------------------------------------------------------
-
-
-//API - Course SummaryList for all courses - returns course Id, Title, Stars, Duration, Description, selfpaced price, and live price, courseicon.Pii
 func (cs Courses ) getsummarylist() http.Handler {
    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type PopupItems struct {
@@ -634,6 +601,8 @@ func (cs Courses ) getsummarylist() http.Handler {
       PublicPrice        int             `json:"publicprice"`
       Courseicon         string          `json:"courseicon"`
     }
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
     popi := PopupItems{}
     popis := []PopupItems{}
     var js []byte
@@ -684,6 +653,8 @@ func (cs Courses ) getsummary() http.Handler {
       Tags         []string        `json:"tags"`
 			Stars        int             `json:"stars"`
     }
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
     //Retreive variable from GET URL
     fmt.Println("--------------------------------------------------")
 		if r.URL.Path == "" {
@@ -737,6 +708,8 @@ func (cs Courses ) getmegamenu() http.Handler {
       Name         string          `json:"name"`
       Tags         []string        `json:"tags"`
     }
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
     mi := MenuItems{} 
     mis := []MenuItems{} 
     var js []byte
@@ -775,6 +748,8 @@ func (cs Courses ) getmegamenu() http.Handler {
 func (cs Courses ) search() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     //Retreive variable from GET URL
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
     ss := r.URL.Path
     fmt.Printf("func searchstring searching for: %s\n",ss)
     // Create a new composite Course type. Interestingly, by adding existing subordinate
@@ -826,6 +801,8 @@ func (cs Courses ) search() http.Handler {
 // API Get Course Detail, given a valid courseID, return all course details with GUIDs blanked out.
 func (cs Courses ) getcoursedetail() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
     //Retreive variable from GET URL
     ss := r.URL.Path
     fmt.Printf("func searchstring searching for: %s\n",ss)
@@ -888,6 +865,9 @@ func (b Blogs) blogsearch() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     //Retreive search string value from GET URL Path
 		//Asterisk will return all blogs
+   (w).Header().Set("Access-Control-Allow-Methods", "*") 
+   (w).Header().Set("Access-Control-Allow-Origin", "*") 
+   (w).Header().Set("Access-Control-Allow-Headers","*")
 		ss := r.URL.Path
 		if ss == "" {
 			ss = "*"
@@ -925,7 +905,6 @@ func (b Blogs) blogsearch() http.Handler {
        fmt.Printf("Error %s:\n", err)
        return
     }
-    w.Header().Set("Content-Type", "application/json")
     w.Write(js)
     return
     })
@@ -968,6 +947,8 @@ func (b Blogs) getblog() http.Handler {
        fmt.Printf("Error %s:\n", err)
        return
     }
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
     w.Header().Set("Content-Type", "application/json")
     w.Write(js)
     return
@@ -1030,9 +1011,20 @@ func Loadblogs() Blogs {
                 parser := parser.NewWithExtensions(extensions)
                 md := []byte(z[1])
                 //load html into b.Content
-                html := markdown.ToHTML(md, parser, nil)
-                b.Content = string(html)
-                fmt.Printf("Content:\n--------\n %s\n", b.Content)
+                myhtml := markdown.ToHTML(md, parser, nil)
+
+                fmt.Printf("HTML STRING:\n%s\n", html.Minify)
+        //        m := minify.New()
+	      //        m.AddFunc("text/html", html.Minifier)
+		//					  html, err = m.Bytes("text/html", myhtml)
+								if err != nil {
+													panic(err)
+								}
+
+
+
+                b.Content = string(myhtml)
+                //der().Set("Access-Control-Allow-Headers", fmt.Printf("Content:\n--------\n %s\n", b.Content)
                 // unmarshal byteArray using the JSON tags 
                 jsonFile, err := ToJSON(yammy)
                 if err != nil {
@@ -1068,6 +1060,12 @@ func main() {
   blogcontent := Loadblogs()
   fmt.Println("Blogs Loaded into MAIN: " + blogcontent[0].Id)
 
+	m := minify.New()
+	m.AddFunc("text/html", html.Minify)
+
+
+
+
 
 // All the static folders
 	http.Handle("/downloads/",   http.StripPrefix("/downloads/",   http.FileServer(http.Dir("downloads"))))
@@ -1088,7 +1086,6 @@ func main() {
 	http.Handle("/courses/", http.StripPrefix("/courses/", cs.CourseTemplate()))
 	http.Handle("/blog/", http.StripPrefix("/blog/", BlogTemplate()))
 	http.Handle("/", http.StripPrefix("/", Template()))
-
 // JSON RESTful Interfaces
   http.Handle("/api/v1/course/search/",    http.StripPrefix("/api/v1/course/search/", cs.search()))
   http.Handle("/api/v1/course/megamenu/",  http.StripPrefix("/api/v1/course/megamenu/", cs.getmegamenu()))
