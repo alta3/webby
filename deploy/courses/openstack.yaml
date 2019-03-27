@@ -10,9 +10,116 @@ tags:
   -  Cloud
   -  Automation
 category: Cloud
-
-
-
+audience: "Anyone needing detailed understand of cloud computing the OpenStack way." 
+prereqs: 
+  - ""
+postreqs: 
+  - "sdn"
+  - "k8s"
+testimonials:
+   -  quote: "Cloud-o-licious!"
+   -  stars: 5
+videolink: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
+weburl: "https://alta3.com/courses/openstack"
+tags:
+  - cloud 
+has-labs: false
+has-videos: true
+has-slides: true
+filename: courses/py1.json
+price:
+  public:
+    price-tags:
+      - id: priceinfo-public-single-student 
+        description: Face to face training for 1 student
+        price: 800000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+  private:
+    price-tags:
+      - id: priceinfo-private-base8
+        description: face to face training for up to 8 students
+        price: 850000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-private-plus1-to-base8
+        description: Add one additional student base8 
+        price: 50000
+        available: yes
+        includes: 
+         - item : plus1
+           description: Includes same features as base 8
+  self-paced:
+    price-tags:
+      - id: priceinfo-selfpaced-singlestudent 
+        description: Self Paced Training
+        price: 250000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-selfpaced-sixpack
+        description: Package price for six self=paced students
+        price: 500000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+  extend-lms-access:
+    price-tags:
+      - id: priceinfo-extendaccess-lab-one-month
+        description: Extend your lab access for one month
+        price: 5000
+        available: no
+      - id: priceinfo-extendaccess-lab-one-year
+        description: Extend your lab access for one month
+        price: 50000
+        available: no
+  book:
+    price-tags:
+      - id: priceinfo-book-paper 
+        description: Paper Student Manual 
+        price-desc: 
+        price: 850000
+        available: yes
+        includes: 
+        - item: has-video-false
+          description: Does not include video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-book-online 
+        description: Paper Student Manual 
+        price-desc: 
+        price: 450000
+        available: yes
+        includes: 
+        - item : has-video-false
+          description: Does not include video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
 overview: Our OpenStack courses offer both hands on and lecture, allowing students to learn OpenStack architecture and operation. Students will examine both front end and back end OpenStack components, revealing the actual OpenStack function at the component level. In addition to a technical review of the architecture, this course teaches practical skills, as you will perform hands on labs to administer an OpenStack datacenter and set up, network, create and delete virtual machines and services. You will learn important DEVOPs skills that illustrate how to fully administer the software defined infrastructure made possible by OpenStack. Important linux skills necessary to perform effective CLI tasks are also taught. All hands-on labs are written to reinforce each lesson, making the concepts clearly understood. 
 chapters:
 - title: OpenStack Architecture Overview

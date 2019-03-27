@@ -312,8 +312,11 @@ type Course struct {
   VideoLink     string          `json:"videolink"`
   Overview      string          `json:"overview"`
   Tags          []string        `json:"tags"`
-  Courseicon    string          `json:"courseicon"`          // TODO courseicons are ll be under images/courseicons
+  Courseicon    string          `json:"courseicon"`      // TODO courseicons will be under images/courseicons
   Stars         int             `json:"stars"`
+  Audience      string          `json:"audience"`
+  Prereqs       []string        `json:"prereqs"`
+  Postreqs      []string        `json:"postreqs"`
 }
 
 type Courses struct {
@@ -1099,6 +1102,6 @@ func main() {
 	http.Handle("/checkout", Checkout())
 
 	log.Printf("serving...")
-	http.ListenAndServe(":28888", Log(http.DefaultServeMux))
+	http.ListenAndServe(":8888", Log(http.DefaultServeMux))
 }
 

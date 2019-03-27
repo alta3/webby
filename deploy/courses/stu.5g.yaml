@@ -1,18 +1,23 @@
 ---
 id: 5g 
 name: 5G Essentials
-category: Telecom
 duration:
   hours: 32
   days: 50
+audience: "Anyone with strong 4G background that needs an clear understanding of 5G architecture."
+prereqs:
+  - volte
+  - sip
+postreqs:
+  - k8s
+  - sdn
+  - ceph
 testimonials:
-  quotes:
-   -  All excellant
-   -  amazing
-video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
+   - quote: "All excellant"
+     stars: 5
+videolink: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
 tags:
   - Telecom
-  - Mobile 
 weburl: https://alta3.com/courses/5g
 has-labs: false
 has-videos: true

@@ -1,16 +1,21 @@
 ---
-id: python 
+id: pyb 
 name: Basic Python
 category: Programming
 duration:
   hours: 32
   days: 50
+audience: "This course is an appropriate introduction to students of any background looking to get started with Python. System administrators, network engineers, managers, and those with development skills in other programming languages will find the lessons and labs highly relevant to their disciplines." 
+prereqs: 
+  - "Keyboard proficiency"
+postreqs: 
+  - "APIs and API Design with Python (5 days)"
+  - "Python for Network Automation (5 days)"
 testimonials:
-  quotes:
-   -  All excellant
-   -  amazing
-video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: https://alta3.com/courses/python1
+   -  quote: "something cool"
+   -  stars: 5
+videolink: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
+weburl: "https://alta3.com/courses/python1"
 tags:
   -  Programming
 has-labs: false
@@ -111,7 +116,6 @@ price:
           description: Includes on-line book
         - item : has-labs-false
 overview: This class is a study of the Python programming language. Students will learn to build their own environments in which to program, and begin writing their own code. By the end of the first day, you should feel comfortable writing code on your own machine. By the conclusion of the course, students will understand the basics of object-oriented programming, how to use Python to interact with data sets (such as XML and JSON), interact with APIs, track down code snippets and programs on places like GitHub, as well as debug broken code. This course is 50% lecture and 50% hands-on labs. Students need no prior programming experience.
----
 chapters:
 - title: Introduction to Python
   guid: 6b31c414-c3ad-47c6-9c84-a5e59bd67e54
@@ -872,10 +876,3 @@ chapters:
       guid: 47fa6ee2-f69d-46cc-a219-48bbb19e30ed
       title: Polymorphism with a Function – Example Results
     questions: []
-name: Python Basics
-id: py1
-has-labs: true
-has-videos: true
-has-slides: true
-weburl: https://alta3.com/courses/python1
-
