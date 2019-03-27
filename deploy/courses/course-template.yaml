@@ -2,27 +2,27 @@
 id: #id used for the main course structure and name of the file.yaml
 name: #Name of the course that shows up on the website
 category: #Telecom, Programming, Cloud, Networking, Linux 
+tags: #This could be replacing category depending on how we do menus etc category: #Telecom, Programming, Cloud, Networking, Linux 
+  #-  Programming
 duration:
   hours: #number of hours. 
   days: #number of classroom days
 audience: #Who should attend this course and why
-prereqs: 
- #-  This would be for courses (id) of what course should be used, name actually makes the most sense here
-postreqs: 
- #-  for any courses that are suggested as follow-ups for this course
+prereqs: #This would be for courses (id) of what course should be used, name actually makes the most sense here
+ #-  
+postreqs: #for any courses that are suggested as follow-ups for this course
+ #-  
  #-   
-testimonials:
+testimonials: #testimonials from students gathered from surveys
   quotes:
-   -  All excellant
-   -  amazing
-video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: https://alta3.com/courses/python1
-tags:
-  -  Programming
-has-labs: false
-has-videos: true
-has-slides: true
-filename: courses/py1.json
+   #-  All excellant
+   #-  amazing
+  video-link: #EXAMPLE '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
+weburl: #EXAMPLE https://alta3.com/courses/python1
+has-labs: #EXAMPLE false
+has-videos: #EXAMPLE true
+has-slides: #EXAMPLE true
+filename: #EXAMPLE courses/py1.json
 price:
   public:
     price-tags:

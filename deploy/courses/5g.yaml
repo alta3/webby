@@ -1,6 +1,9 @@
 ---
 id: 5g 
 name: 5G Essentials
+category: Telecom
+tags:
+  - Telecom
 duration:
   hours: 32
   days: 50
@@ -16,9 +19,7 @@ testimonials:
    - quote: "All excellant"
      stars: 5
 videolink: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-tags:
-  - Telecom
-weburl: https://alta3.com/courses/5g
+weburl: "https://alta3.com/courses/5g"
 has-labs: false
 has-videos: true
 has-slides: true
