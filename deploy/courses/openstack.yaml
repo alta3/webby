@@ -1,32 +1,29 @@
 ---
 id: openstack
-filename: courses/openstack.json
-name: OpenStack
-has-labs: true
-has-slides: true
-has-videos: true
-weburl: https://alta3.com/courses/openstack
-tags:
-  -  Cloud
-  -  Automation
-category: Cloud
-audience: "Anyone needing detailed understand of cloud computing the OpenStack way." 
+course-title: Certified OpenStack Administrator (COA) Prep Course
+tags: 
+  -  cloud
+stars: 49
+duration:
+  hours: 35 
+  days: 5
+audience: "Anyone needing detailed understand of cloud computing the OpenStack way. Cloud administrators alike, openstack is one of the most popular and best to learn with." 
 prereqs: 
-  - ""
+  -  none
 postreqs: 
-  - "sdn"
-  - "k8s"
+  -  sdn
+  -  k8s
 testimonials:
-   -  quote: "Cloud-o-licious!"
-   -  stars: 5
-videolink: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: "https://alta3.com/courses/openstack"
-tags:
-  - cloud 
-has-labs: false
+  - quote: "Great course!!!! Instructor is very knowledgeable and gave incredible analogies that helped me get a better understanding of the concepts."
+    stars: 5
+  - quote: "Instructor and his approach to Openstack is the best training I have received this year. Great job!"
+    stars: 5
+video-link: "https://www.youtube.com/embed/bDNXreGUMHk?rel=0;autoplay=1"
+web-url: "https://alta3.com/courses/openstack"
+has-labs: true
 has-videos: true
 has-slides: true
-filename: courses/py1.json
+filename: courses/openstack.json
 price:
   public:
     price-tags:

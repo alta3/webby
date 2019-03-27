@@ -297,7 +297,7 @@ type Course struct {
   Id            string          `rethinkdb:"id" json:"id"`
   Filename      string          `rethinkdb:"filename" json:"filename"`
   WebURL        string          `rethinkdb:"weburl" json:"weburl"`
-  Name          string          `rethinkdb:"name" json:"name"`
+  CourseTitle   string          `rethinkdb:"name" json:"course-title"`
   HasSlides     bool            `rethinkdb:"has-slides" json:"has-slides"`
   HasLabs       bool            `rethinkdb:"has-labs" json:"has-labs"`
   HasVideos     bool            `rethinkdb:"has-videos" json:"has-videos"`
@@ -596,7 +596,7 @@ func (cs Courses ) getsummarylist() http.Handler {
    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type PopupItems struct {
       Id                 string          `json:"id"`
-      Name               string          `json:"name"`
+      CourseTitle        string          `json:"course-title"`
       Stars              int             `json:"stars"`
       Duration           int             `json:"duration"`
       Overview           string          `json:"overview"`
@@ -613,9 +613,9 @@ func (cs Courses ) getsummarylist() http.Handler {
     //Iterate over all courses, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
     for _, ThisCourse := range cs.Cc {
        fmt.Println("--------------------------------------------------")
-       fmt.Printf("_Course PopUp_  = %s, %s, %s, %s, %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Testimonials[0].Stars, ThisCourse.Duration, ThisCourse.Overview, ThisCourse.Price, ThisCourse.Courseicon)
+       fmt.Printf("_Course PopUp_  = %s, %s, %s, %s, %s, %s, %s\n", ThisCourse.Id, ThisCourse.CourseTitle, ThisCourse.Testimonials[0].Stars, ThisCourse.Duration, ThisCourse.Overview, ThisCourse.Price, ThisCourse.Courseicon)
        popi.Id=ThisCourse.Id
-       popi.Name=ThisCourse.Name
+       popi.CourseTitle=ThisCourse.CourseTitle
        popi.Stars=ThisCourse.Testimonials[0].Stars
        popi.Duration=ThisCourse.Duration.Hours
 //       popi.Overview=ThisCourse.Overview
@@ -652,7 +652,7 @@ func (cs Courses ) getsummary() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type MenuItems struct {
       Id           string          `json:"id"`
-      Name         string          `json:"name"`
+      CourseTitle  string          `json:"course-title"`
       Tags         []string        `json:"tags"`
 			Stars        int             `json:"stars"`
     }
@@ -673,10 +673,10 @@ func (cs Courses ) getsummary() http.Handler {
     var err error
     //Iterate over all courses, copy Id, Name, and any Tags
     for _, ThisCourse := range cs.Cc {
-       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Tags)
+       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.CourseTitle, ThisCourse.Tags)
        if  ThisCourse.Id == ss {
            mi.Id=ThisCourse.Id
-           mi.Name=ThisCourse.Name
+           mi.CourseTitle=ThisCourse.CourseTitle
            mi.Tags=ThisCourse.Tags
 					 mi.Stars=47
            mis = append(mis,mi)
@@ -708,7 +708,7 @@ func (cs Courses ) getmegamenu() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type MenuItems struct {
       Id           string          `json:"id"`
-      Name         string          `json:"name"`
+      CourseTitle  string          `json:"course-title"`
       Tags         []string        `json:"tags"`
     }
     (w).Header().Set("Access-Control-Allow-Headers","*")
@@ -720,9 +720,9 @@ func (cs Courses ) getmegamenu() http.Handler {
     //Iterate over all courses, copy Id, Name, and any Tags
     for _, ThisCourse := range cs.Cc {
        fmt.Println("--------------------------------------------------")
-       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Tags)
+       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.CourseTitle, ThisCourse.Tags)
        mi.Id=ThisCourse.Id
-       mi.Name=ThisCourse.Name
+       mi.CourseTitle=ThisCourse.CourseTitle
        mi.Tags=ThisCourse.Tags
        mis = append(mis,mi)
     }

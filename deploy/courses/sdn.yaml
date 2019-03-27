@@ -1,28 +1,28 @@
 ---
-id: #id used for the main course structure and name of the file.yaml
-name: #Name of the course that shows up on the website
-category: #Telecom, Programming, Cloud, Networking, Linux 
-tags: #This could be replacing category depending on how we do menus etc category: #Telecom, Programming, Cloud, Networking, Linux 
-  #-  Programming
+id: sdn 
+course-title: Software Defined Networking and Network Function Virtualization
+tags:
+  - networking
+stars: 40
 duration:
-  hours: #number of hours. 
-  days: #number of classroom days
-audience: #Who should attend this course and why
-prereqs: #This would be for courses (id) of what course should be used, name actually makes the most sense here
- #-  
-postreqs: #for any courses that are suggested as follow-ups for this course
- #-  
- #-   
-testimonials: #testimonials from students gathered from surveys
-  quotes:
-   #-  All excellant
-   #-  amazing
-  video-link: #EXAMPLE '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: #EXAMPLE https://alta3.com/courses/python1
-has-labs: #EXAMPLE false
-has-videos: #EXAMPLE true
-has-slides: #EXAMPLE true
-filename: #EXAMPLE courses/py1.json
+  hours: 35
+  days: 5
+audience: "Whomever is looking to learn" 
+prereqs: 
+ -  ipsec 
+postreqs: 
+ -  pyfna  
+testimonials:
+  - quote: "I was extremely impressed with the instructors' knowledge of SDN & NFV topics and their ability to articulate these complex topics."
+    stars: 5
+  - quote: "Stuart was absolutely great! He was a wealth of knowledge and his evident passion made it easy to feel constantly engaged. I will definitely recommend Alta3 to my colleagues and consider them for future training."
+    stars: 5
+video-link: "https://www.youtube.com/embed/zqvH2tQQA7E?rel=0;autoplay=1"
+web-url: "https://alta3.com/courses/sdn"
+has-labs: false
+has-videos: true
+has-slides: true
+filename: courses/sdn.json
 price:
   public:
     price-tags:
