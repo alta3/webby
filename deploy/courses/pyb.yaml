@@ -5,21 +5,12 @@ category: Programming
 duration:
   hours: 32
   days: 50
-<<<<<<< HEAD:deploy/courses/stu.pyb.yaml
 audience: "This course is an appropriate introduction to students of any background looking to get started with Python. System administrators, network engineers, managers, and those with development skills in other programming languages will find the lessons and labs highly relevant to their disciplines." 
 prereqs: 
   - "Keyboard proficiency"
 postreqs: 
   - "APIs and API Design with Python (5 days)"
   - "Python for Network Automation (5 days)"
-=======
-audience: This course is an appropriate introduction to students of any background looking to get started with Python. System administrators, network engineers, managers, and those with development skills in other programming languages will find the lessons and labs highly relevant to their disciplines. 
-prereqs: 
- -  Keyboard proficiency
-postreqs: 
- -  Recommended Follow up: APIs and API Design with Python (5 days)
- -  Recommended Follow up: Python for Network Automation (5 days)
->>>>>>> 9ecaeda036869b77c0c0697a9cdf1ee764b2cac8:deploy/courses/pyb.yaml
 testimonials:
    -  quote: "something cool"
    -  stars: 5

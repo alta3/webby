@@ -13,17 +13,9 @@ postreqs:
   - sdn
   - ceph
 testimonials:
-<<<<<<< HEAD:deploy/courses/stu.5g.yaml
    - quote: "All excellant"
      stars: 5
 videolink: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-=======
-  quotes:
-   -  All excellant
-   -  amazing
-video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-audience: This is a cat
->>>>>>> 9ecaeda036869b77c0c0697a9cdf1ee764b2cac8:deploy/courses/5g.yaml
 tags:
   - Telecom
 weburl: https://alta3.com/courses/5g
