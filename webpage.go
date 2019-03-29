@@ -1053,8 +1053,7 @@ func Loadblogs() Blogs {
 
 
 // Course Menu
-
-
+// Returns a course menu that will be easy for the front end js to implement
 
 type CourseMenu  []MiniMenu    // `json:"coursemenu"`
 
@@ -1064,8 +1063,8 @@ type MiniMenu struct {
 }
 
 type MmItem struct {
-  Id              string         `yaml:"id"`
-  CourseTitle     string         `yaml:"course-title"`
+  Id              string         `json:"id"`
+  CourseTitle     string         `json:"course-title"`
 }
 
 func (cc Courses)  menumaker() CourseMenu  {
@@ -1083,14 +1082,13 @@ func (cc Courses)  menumaker() CourseMenu  {
         // Iterate over all tags within a course
         for _, thistag := range thiscourse.Tags {
              existing = false
-             //Iterate over all minimenutitle to see if this next one is already on the list
-             //Mark it not usable if it is not.
+             //Iterate over all minimenutitle, add new ones to the list
              for _, thismmt := range minimenutitles {
                  if thistag == thismmt {
                     existing = true
                  }
              }
-             //After iterating over all the MiniMenuTitles and none of them match, then add thistag to the list
+             //No matches? Then add thistag to the list
              if existing == false {
              minimenutitles = append (minimenutitles, thistag)
              }
@@ -1104,7 +1102,7 @@ func (cc Courses)  menumaker() CourseMenu  {
                 match = false
                 //Iterate over every course's Tags
                 for _, thistag := range thiscourse.Tags {
-                   //If this course has a matching tag entry, add a minimenu entry
+                   //If this course has a matching tag entry, grab data
                    if mmt == thistag {
                       match = true
                       id = thiscourse.Id
@@ -1113,10 +1111,9 @@ func (cc Courses)  menumaker() CourseMenu  {
                    }
                 }//End of tag iteration so add item if match is true
                 if match == true {
-                  mmitem.Id = id
-                  mmitem.CourseTitle = coursetitle
-                  mmitems = append(mmitems, mmitem)
-     //             break
+                   mmitem.Id = id
+                   mmitem.CourseTitle = coursetitle
+                   mmitems = append(mmitems, mmitem)
                 }
           } //End of Course Itermation
           mm.MiniMenuTitle = mmt
@@ -1124,10 +1121,32 @@ func (cc Courses)  menumaker() CourseMenu  {
           fmt.Printf("mm: %v\n", mm)
           cm = append (cm, mm)
           mmitems = nil
-    //      mm.MmItems = nil
    }//End of minimenu iteration
     return cm
 }
+
+
+//API - MegaMenu - Returns all courses: Id, Tag, Stars, and Name. 
+func (cm CourseMenu ) coursemenu() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
+    var js []byte
+    var err error
+    js, err = json.Marshal(cm)
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
+
+
+
 
 
 // ------------------------------------------------------------
@@ -1170,18 +1189,19 @@ func main() {
 	http.Handle("/blog/", http.StripPrefix("/blog/", BlogTemplate()))
 	http.Handle("/", http.StripPrefix("/", Template()))
 // JSON RESTful Interfaces
-  http.Handle("/api/v1/course/search/",    http.StripPrefix("/api/v1/course/search/", cs.search()))
-  http.Handle("/api/v1/course/megamenu/",  http.StripPrefix("/api/v1/course/megamenu/", cs.getmegamenu()))
-  http.Handle("/api/v1/course/summary/id/",http.StripPrefix("/api/v1/course/summary/id/", cs.getsummary()))
-  http.Handle("/api/v1/course/detail/id/", http.StripPrefix("/api/v1/course/detail/id/",  cs.getcoursedetail()))
-  http.Handle("/api/v1/blog/search/",      http.StripPrefix("/api/v1/blog/search/", blogcontent.blogsearch()))
-  http.Handle("/api/v1/blog/id/",          http.StripPrefix("/api/v1/blog/id/", blogcontent.getblog()))
-  http.Handle("/api/v1/events/",           http.StripPrefix("/api/v1/events/", events.getevents()))
+  http.Handle("/api/v1/course/search/",      http.StripPrefix("/api/v1/course/search/",     cs.search()))
+  http.Handle("/api/v1/course/megamenu/",    http.StripPrefix("/api/v1/course/megamenu/",   cs.getmegamenu()))
+  http.Handle("/api/v1/course/coursemenu/",  http.StripPrefix("/api/v1/course/coursemenu/", cmenu.coursemenu()))
+  http.Handle("/api/v1/course/summary/id/",  http.StripPrefix("/api/v1/course/summary/id/", cs.getsummary()))
+  http.Handle("/api/v1/course/detail/id/",   http.StripPrefix("/api/v1/course/detail/id/",  cs.getcoursedetail()))
+  http.Handle("/api/v1/blog/search/",        http.StripPrefix("/api/v1/blog/search/",       blogcontent.blogsearch()))
+  http.Handle("/api/v1/blog/id/",            http.StripPrefix("/api/v1/blog/id/",           blogcontent.getblog()))
+  http.Handle("/api/v1/events/",             http.StripPrefix("/api/v1/events/",            events.getevents()))
 
 	// Stripe Chckout
 	http.Handle("/checkout", Checkout())
 
 	log.Printf("serving...")
-	http.ListenAndServe(":28888", Log(http.DefaultServeMux))
+	http.ListenAndServe(":8888", Log(http.DefaultServeMux))
 }
 
