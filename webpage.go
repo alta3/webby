@@ -1052,6 +1052,85 @@ func Loadblogs() Blogs {
 }
 
 
+// Course Menu
+
+
+
+type CourseMenu  []MiniMenu    // `json:"coursemenu"`
+
+type MiniMenu struct {
+  MiniMenuTitle  string          `json:"mini-menu"`
+  MmItems        []MmItem        `json:"mm-items"`
+}
+
+type MmItem struct {
+  Id              string         `yaml:"id"`
+  CourseTitle     string         `yaml:"course-title"`
+}
+
+func (cc Courses)  menumaker() CourseMenu  {
+    var minimenutitles  []string
+    var mmitem          MmItem
+    var cm              CourseMenu
+    var existing        bool
+    var match           bool
+    var mm              MiniMenu
+    var mmitems         []MmItem
+    var id              string
+    var coursetitle     string
+    // Iterate over all courses.tags[], and derive a list of unique tags called MiniMenuTitles
+    for _, thiscourse := range cc.Cc {
+        // Iterate over all tags within a course
+        for _, thistag := range thiscourse.Tags {
+             existing = false
+             //Iterate over all minimenutitle to see if this next one is already on the list
+             //Mark it not usable if it is not.
+             for _, thismmt := range minimenutitles {
+                 if thistag == thismmt {
+                    existing = true
+                 }
+             }
+             //After iterating over all the MiniMenuTitles and none of them match, then add thistag to the list
+             if existing == false {
+             minimenutitles = append (minimenutitles, thistag)
+             }
+        }
+    }
+    fmt.Println("Items: %+v\n\n", minimenutitles)
+    // Interate over each MiniMenuTitle 
+    for _, mmt := range  minimenutitles {
+          //Iternate over every course in the catalog
+          for _, thiscourse := range cc.Cc {
+                match = false
+                //Iterate over every course's Tags
+                for _, thistag := range thiscourse.Tags {
+                   //If this course has a matching tag entry, add a minimenu entry
+                   if mmt == thistag {
+                      match = true
+                      id = thiscourse.Id
+                      coursetitle = thiscourse.CourseTitle
+                      break
+                   }
+                }//End of tag iteration so add item if match is true
+                if match == true {
+                  mmitem.Id = id
+                  mmitem.CourseTitle = coursetitle
+                  mmitems = append(mmitems, mmitem)
+     //             break
+                }
+          } //End of Course Itermation
+          mm.MiniMenuTitle = mmt
+          mm.MmItems = mmitems
+          fmt.Printf("mm: %v\n", mm)
+          cm = append (cm, mm)
+          mmitems = nil
+    //      mm.MmItems = nil
+   }//End of minimenu iteration
+    return cm
+}
+
+
+// ------------------------------------------------------------
 
 
 func main() {
@@ -1062,7 +1141,8 @@ func main() {
   events := LoadEvents()
   blogcontent := Loadblogs()
   fmt.Println("Blogs Loaded into MAIN: " + blogcontent[0].Id)
-
+  cmenu :=  cs.menumaker()
+  fmt.Println("Menu: %+v\n", cmenu)
 	m := minify.New()
 	m.AddFunc("text/html", html.Minify)
 
@@ -1102,6 +1182,6 @@ func main() {
 	http.Handle("/checkout", Checkout())
 
 	log.Printf("serving...")
-	http.ListenAndServe(":8888", Log(http.DefaultServeMux))
+	http.ListenAndServe(":28888", Log(http.DefaultServeMux))
 }
 
