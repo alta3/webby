@@ -309,7 +309,7 @@ type Course struct {
   Price         Price           `rethinkdb:"-" json:"price"`
   Duration      Duration        `json:"duration"`
   Testimonials  []Testimonial   `json:"testimonials"`
-  VideoLink     string          `json:"videolink"`
+  VideoLink     string          `json:"video-link"`
   Overview      string          `json:"overview"`
   Tags          []string        `json:"tags"`
   Courseicon    string          `json:"courseicon"`      // TODO courseicons will be under images/courseicons
