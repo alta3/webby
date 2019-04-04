@@ -854,11 +854,14 @@ func (cs Courses ) getcoursedetail() http.Handler {
 //------------------BLOGS------------------------
 type Blog struct {
   Id             string         `yaml:"id"`
-  Title          string         `yaml:"title"`
-  Date           string         `yaml:"date"`
-  Weight         string         `yaml:"weight"`
   Author         string         `yaml:"author"`
-  Content        string         `yaml:"contnet:`
+	Category       string         `yaml:"category"`
+  Date           string         `yaml:"date"`
+  Title          string         `yaml:"title"`
+  Weight         string         `yaml:"weight"`
+	Intro          string         `yaml:"intro"`
+	VideoLink      string         `yaml:"video-link"`
+	HtmlContent    string         `yaml:"html-content"`
 }
 
 type Blogs []Blog
@@ -1024,9 +1027,7 @@ func Loadblogs() Blogs {
 													panic(err)
 								}
 
-
-
-                b.Content = string(myhtml)
+                b.HtmlContent = string(myhtml)
                 //der().Set("Access-Control-Allow-Headers", fmt.Printf("Content:\n--------\n %s\n", b.Content)
                 // unmarshal byteArray using the JSON tags 
                 jsonFile, err := ToJSON(yammy)
@@ -1040,7 +1041,7 @@ func Loadblogs() Blogs {
                 fmt.Printf("                Date: %s\n", allblogs[i].Date)
                 fmt.Printf("              Weight: %s\n", allblogs[i].Weight)
                 fmt.Printf("              Author: %s\n", allblogs[i].Author)
-                fmt.Printf("    Content in bytes: %d\n", len(allblogs[i].Content))
+                fmt.Printf("    Content in bytes: %d\n", len(allblogs[i].HtmlContent))
                 jsonFile = nil
             }
             yammy = nil
@@ -1050,6 +1051,55 @@ func Loadblogs() Blogs {
     d.Close()
     return allblogs
 }
+
+
+// Blog Menu
+// Returns a blog menu that does all the work for the front end developers
+
+type BlogsByCategory struct {
+	BlogCategory     string        `json:"blog-category"`
+	Blogs            []Blog        `json:"blogs"`
+}
+
+type BlogMenus     []BlogsByCategory
+
+type BlogCategory  []string
+
+func (b Blogs)  menumaker() BlogMenus  {
+	  var blogmenus        []BlogsByCategory
+		var blogsbycategory  BlogsByCategory
+    var blogs            Blogs
+	  var categories       []string
+		// Iterate over all blogs, and derive a list of unique categories
+		for _, thisblog := range  b {
+        //Iterate over array of categories
+				for _,  thiscategory := range categories {
+				    if thiscategory != thisblog.Category {
+                categories = append (categories, thiscategory)
+						    }
+			  }
+		}
+    //At this stage, a list of unique categories has been gathered,
+		//so build the blogmenu
+    // Interate over each category 
+		for _, thiscategory := range categories {
+        //Iternate over every blog for that category
+        for _, thisblog := range b {
+                if thisblog.Category == thiscategory {
+							      blogs = append( blogs, thisblog)
+                }
+         }
+				 blogsbycategory.BlogCategory = thiscategory
+				 blogsbycategory.Blogs = blogs
+				 blogs = nil
+				 blogmenus = append(blogmenus,blogsbycategory)
+    }
+		return blogmenus
+}
+
+
+
+
 
 
 // Course Menu
@@ -1126,7 +1176,7 @@ func (cc Courses)  menumaker() CourseMenu  {
 }
 
 
-//API - MegaMenu - Returns all courses: Id, Tag, Stars, and Name. 
+//API - New MegaMenu - Returns a canned megamenu pre-sorted by course type. 
 func (cm CourseMenu ) coursemenu() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     (w).Header().Set("Access-Control-Allow-Headers","*")
@@ -1202,6 +1252,6 @@ func main() {
 	http.Handle("/checkout", Checkout())
 
 	log.Printf("serving...")
-	http.ListenAndServe(":8888", Log(http.DefaultServeMux))
+	http.ListenAndServe(":28888", Log(http.DefaultServeMux))
 }
 
