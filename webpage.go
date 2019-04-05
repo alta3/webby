@@ -4,8 +4,8 @@ import (
 //  "regexp"
 
 
-	"github.com/tdewolff/minify"
-	"github.com/tdewolff/minify/html"
+//	"github.com/tdewolff/minify"
+//	"github.com/tdewolff/minify/html"
 
 "encoding/json"
 	"fmt"
@@ -1018,15 +1018,9 @@ func Loadblogs() Blogs {
                 md := []byte(z[1])
                 //load html into b.Content
                 myhtml := markdown.ToHTML(md, parser, nil)
-
-                fmt.Printf("HTML STRING:\n%s\n", html.Minify)
-        //        m := minify.New()
-	      //        m.AddFunc("text/html", html.Minifier)
-		//					  html, err = m.Bytes("text/html", myhtml)
 								if err != nil {
 													panic(err)
 								}
-
                 b.HtmlContent = string(myhtml)
                 //der().Set("Access-Control-Allow-Headers", fmt.Printf("Content:\n--------\n %s\n", b.Content)
                 // unmarshal byteArray using the JSON tags 
@@ -1065,7 +1059,8 @@ type BlogMenus     []BlogsByCategory
 
 type BlogCategory  []string
 
-func (b Blogs)  menumaker() BlogMenus  {
+func (b Blogs) blogmenumaker() BlogMenus  {
+	  var existing         bool
 	  var blogmenus        []BlogsByCategory
 		var blogsbycategory  BlogsByCategory
     var blogs            Blogs
@@ -1073,20 +1068,26 @@ func (b Blogs)  menumaker() BlogMenus  {
 		// Iterate over all blogs, and derive a list of unique categories
 		for _, thisblog := range  b {
         //Iterate over array of categories
+				existing = false
 				for _,  thiscategory := range categories {
-				    if thiscategory != thisblog.Category {
-                categories = append (categories, thiscategory)
-						    }
+								if thiscategory == thisblog.Category {
+							  existing = true
+					      }
 			  }
-		}
+        if existing == false {
+          categories = append (categories, thisblog.Category)
+		    }
+    }
     //At this stage, a list of unique categories has been gathered,
 		//so build the blogmenu
     // Interate over each category 
 		for _, thiscategory := range categories {
-        //Iternate over every blog for that category
+				fmt.Printf("\"%s\"\n",thiscategory)
+				//Iternate over every blog for that category
         for _, thisblog := range b {
                 if thisblog.Category == thiscategory {
 							      blogs = append( blogs, thisblog)
+										fmt.Printf("  - %s\n", thisblog.Title)
                 }
          }
 				 blogsbycategory.BlogCategory = thiscategory
@@ -1097,6 +1098,25 @@ func (b Blogs)  menumaker() BlogMenus  {
 		return blogmenus
 }
 
+
+//API - New MegaMenu - Returns a canned megamenu pre-sorted by course type. 
+func (bmenu BlogMenus ) blogmenu() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
+    var js []byte
+    var err error
+    js, err = json.Marshal(bmenu)
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
 
 
 
@@ -1212,9 +1232,11 @@ func main() {
   fmt.Println("Blogs Loaded into MAIN: " + blogcontent[0].Id)
   cmenu :=  cs.menumaker()
   fmt.Println("Menu: %+v\n", cmenu)
-	m := minify.New()
-	m.AddFunc("text/html", html.Minify)
-
+  fmt.Printf("BLOGMENU\n")
+  fmt.Println("--------------------------------------------------")
+  bmenu := blogcontent.blogmenumaker()
+  fmt.Println("--------------------------------------------------")
+//	fmt.Printf("blogmenu: %s\n", bmenu[0].BlogCategory)
 
 
 
@@ -1247,11 +1269,12 @@ func main() {
   http.Handle("/api/v1/blog/search/",        http.StripPrefix("/api/v1/blog/search/",       blogcontent.blogsearch()))
   http.Handle("/api/v1/blog/id/",            http.StripPrefix("/api/v1/blog/id/",           blogcontent.getblog()))
   http.Handle("/api/v1/events/",             http.StripPrefix("/api/v1/events/",            events.getevents()))
+  http.Handle("/api/v1/blog/menu/",          http.StripPrefix("/api/v1/blog/menu/",         bmenu.blogmenu()))
 
-	// Stripe Chckout
+// Stripe Chckout
 	http.Handle("/checkout", Checkout())
 
 	log.Printf("serving...")
-	http.ListenAndServe(":28888", Log(http.DefaultServeMux))
+	http.ListenAndServe(":8888", Log(http.DefaultServeMux))
 }
 

@@ -1,9 +1,12 @@
 ---
-id: Law
-Title: Famous Lawyers
-Date: March 22
-Weight: "50"
-Author: Dewey Cheatum and Howe
+id: ceph
+title: Ceph Stuff
+date: March 22
+weight: "50"
+author: Stuart Feeser
+category: Cloud
+video-link: https://youtu.be/h-WfQrTvOMk
+intro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
 ---
 ![ceph logo](https://i1.wp.com/ceph.com/wp-content/uploads/2016/07/Ceph_Logo_Standard_RGB_120411_fa.png?resize=300%2C138&ssl=1)
 # Ceph Installation Notes
