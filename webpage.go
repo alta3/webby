@@ -853,15 +853,15 @@ func (cs Courses ) getcoursedetail() http.Handler {
 
 //------------------BLOGS------------------------
 type Blog struct {
-  Id             string         `yaml:"id"`
-  Author         string         `yaml:"author"`
-	Category       string         `yaml:"category"`
-  Date           string         `yaml:"date"`
-  Title          string         `yaml:"title"`
-  Weight         string         `yaml:"weight"`
-	Intro          string         `yaml:"intro"`
-	VideoLink      string         `yaml:"video-link"`
-	HtmlContent    string         `yaml:"html-content"`
+	Id             string         `yaml:"id"            json:"id"`
+	Author         string         `yaml:"author"        json:"author"`
+	Category       string         `yaml:"category"      json:"category"`
+	Date           string         `yaml:"date"          json:"date"`
+	Title          string         `yaml:"title"         json:"title"`
+	Weight         string         `yaml:"weight"        json:"weight"`
+	Intro          string         `yaml:"intro"         json:"intro"`
+	VideoLink      string         `yaml:"video-link"    json:"video-link"`
+	HtmlContent    string         `yaml:"html-content"  json:"html-content"`
 }
 
 type Blogs []Blog
