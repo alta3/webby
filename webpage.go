@@ -331,95 +331,6 @@ type PublicCourse struct {
 } 
 
 
-type Event struct {
-  Id             string         `yaml:"id"`
-  Title          string         `yaml:"title"`
-  StartDate      string         `yaml:"startdate"`
-  EndDate        string         `yaml:"enddate"`
-  CourseId       string         `yaml:"courseid"`
-  Image          string         `yaml:"image"`
-  Location       string         `yaml:"location"`
-}
-
-
-type Events struct {
-  Events         []Event
-}
-
-
-//API GetEvents - Returns all events 
-func (e Events) getevents() http.Handler {
-       return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-       now := time.Now()
-       fmt.Printf("Time right now: %s\n", now.Format("2006-01-08"))
-       var js []byte
-       var err error
-       var ce  Events  //ce means CurrentEvents
-   // Iterate over all events, skipping past events.
-       layout := "2006-01-02"
-       for _, ThisEvent := range e.Events {
-          fmt.Printf(" Event: %s, %s\n",ThisEvent.StartDate, ThisEvent.Title)
-          t, _ := time.Parse(layout, ThisEvent.StartDate)
-          if t.After(now) {
-              ce.Events = append(ce.Events, ThisEvent)
-          } else {
-            fmt.Println("----------------OLD EVENT---------------")
-            fmt.Printf("| OLD!!!: %s %s\n", ThisEvent.Title, ThisEvent.StartDate)
-            fmt.Println("----------------OLD EVENT---------------")
-            }
-       }
-       js, err = json.Marshal(ce)
-       if err != nil {
-           http.Error(w, err.Error(), http.StatusInternalServerError)
-           fmt.Printf("Error %s:\n", err)
-           return
-       }
-       (w).Header().Set("Access-Control-Allow-Headers","*")
-       (w).Header().Set("Access-Control-Allow-Origin", "*")
-       w.Header().Set("Content-Type", "application/json")
-       w.Write(js)
-       return
-       })
-}
-
-
-
-//Load EVENTS
-//------------------------------------------------------------
-func LoadEvents() Events {
-      // Create a OS compliant path: microsoft "\" or linux "/"
-      dirname := path.Join("deploy", "event")
-      d, err := os.Open(dirname)
-      if err != nil {
-          log.Printf("No events directory! %s, %s" , d, err)
-          os.Exit(1)
-      }
-      var    ev   Events
-      fmt.Println("---------------LOADING EVENTS---------------------")
-      fmt.Printf(" Reading events files in directory: %s\n", dirname)
-      thisfile := path.Join(dirname, "events.yaml")
-      _ , err = os.Stat(thisfile)
-      if err != nil {
-          if os.IsNotExist(err) {
-              log.Printf(" file is missing!: %s\n ", thisfile)
-          }
-      } 
-      yammy, err := ioutil.ReadFile(thisfile)
-      if err != nil {
-          log.Printf("yammy.Get err: %s\n", err)
-          }
-     // unmarshal byteArray using the JSON tags 
-	    err = yaml.Unmarshal(yammy, &ev)
-      if err != nil {
-				 log.Printf("Unmarshal: %v", err)
-				  }
-
-			fmt.Printf(" Successfully read: %s\n", thisfile) 
-      fmt.Printf(" Events: %+v\n", ev )
-      fmt.Println("--------------------------------------------------")
-      return ev 
-}
-
 //Load COURSES
 //------------------------------------------------------------
 func Load() Courses {
@@ -939,7 +850,7 @@ func (b Blogs) getblog() http.Handler {
 					 blog = Thisblog
 					 fmt.Printf("Found blog %s\n", Thisblog.Id)
            break
-	     } 
+	     }
     }
     //If no blog match, SEND Null 
     if blog.Id  == "" {
@@ -1215,6 +1126,95 @@ func (cm CourseMenu ) coursemenu() http.Handler {
     })
 }
 
+type Event struct {
+  Id             string         `yaml:"id"`
+  Title          string         `yaml:"title"`
+  StartDate      string         `yaml:"startdate"`
+  EndDate        string         `yaml:"enddate"`
+  CourseId       string         `yaml:"courseid"`
+  Image          string         `yaml:"image"`
+  Location       string         `yaml:"location"`
+}
+
+
+type Events struct {
+  Events         []Event
+}
+
+
+//API GetEvents - Returns all events 
+func (e Events) getevents() http.Handler {
+       return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+       now := time.Now()
+       fmt.Printf("Time right now: %s\n", now.Format("2006-01-08"))
+       var js []byte
+       var err error
+       var ce  Events  //ce means CurrentEvents
+   // Iterate over all events, skipping past events.
+       layout := "2006-01-02"
+       for _, ThisEvent := range e.Events {
+          fmt.Printf(" Event: %s, %s\n",ThisEvent.StartDate, ThisEvent.Title)
+          t, _ := time.Parse(layout, ThisEvent.StartDate)
+          if t.After(now) {
+              ce.Events = append(ce.Events, ThisEvent)
+          } else {
+            fmt.Println("----------------OLD EVENT---------------")
+            fmt.Printf("| OLD!!!: %s %s\n", ThisEvent.Title, ThisEvent.StartDate)
+            fmt.Println("----------------OLD EVENT---------------")
+            }
+       }
+       js, err = json.Marshal(ce)
+       if err != nil {
+           http.Error(w, err.Error(), http.StatusInternalServerError)
+           fmt.Printf("Error %s:\n", err)
+           return
+       }
+       (w).Header().Set("Access-Control-Allow-Headers","*")
+       (w).Header().Set("Access-Control-Allow-Origin", "*")
+       w.Header().Set("Content-Type", "application/json")
+       w.Write(js)
+       return
+       })
+}
+
+
+
+//Load EVENTS
+//------------------------------------------------------------
+func LoadEvents() Events {
+      // Create a OS compliant path: microsoft "\" or linux "/"
+      dirname := path.Join("deploy", "event")
+      d, err := os.Open(dirname)
+      if err != nil {
+          log.Printf("No events directory! %s, %s" , d, err)
+          os.Exit(1)
+      }
+      var    ev   Events
+      fmt.Println("---------------LOADING EVENTS---------------------")
+      fmt.Printf(" Reading events files in directory: %s\n", dirname)
+      thisfile := path.Join(dirname, "events.yaml")
+      _ , err = os.Stat(thisfile)
+      if err != nil {
+          if os.IsNotExist(err) {
+              log.Printf(" file is missing!: %s\n ", thisfile)
+          }
+      } 
+      yammy, err := ioutil.ReadFile(thisfile)
+      if err != nil {
+          log.Printf("yammy.Get err: %s\n", err)
+          }
+     // unmarshal byteArray using the JSON tags 
+	    err = yaml.Unmarshal(yammy, &ev)
+      if err != nil {
+				 log.Printf("Unmarshal: %v", err)
+				  }
+
+			fmt.Printf(" Successfully read: %s\n", thisfile) 
+      fmt.Printf(" Events: %+v\n", ev )
+      fmt.Println("--------------------------------------------------")
+      return ev 
+}
+
 
 
 
@@ -1269,12 +1269,13 @@ func main() {
   http.Handle("/api/v1/blog/search/",        http.StripPrefix("/api/v1/blog/search/",       blogcontent.blogsearch()))
   http.Handle("/api/v1/blog/id/",            http.StripPrefix("/api/v1/blog/id/",           blogcontent.getblog()))
   http.Handle("/api/v1/events/",             http.StripPrefix("/api/v1/events/",            events.getevents()))
+//  http.Handle("/api/v1/events/menu/",        http.StripPrefix("/api/v1/events/menu",        events.geteventsmenu()))
   http.Handle("/api/v1/blog/menu/",          http.StripPrefix("/api/v1/blog/menu/",         bmenu.blogmenu()))
 
 // Stripe Chckout
 	http.Handle("/checkout", Checkout())
 
 	log.Printf("serving...")
-	http.ListenAndServe(":8888", Log(http.DefaultServeMux))
+	http.ListenAndServe(":28888", Log(http.DefaultServeMux))
 }
 
