@@ -1,27 +1,29 @@
 ---
 id: pyb 
-name: Basic Python
-category: Programming
+course-title: Python Basics
+tags: 
+  -  programming
+stars: 45
 duration:
-  hours: 32
-  days: 50
-audience: "This course is an appropriate introduction to students of any background looking to get started with Python. System administrators, network engineers, managers, and those with development skills in other programming languages will find the lessons and labs highly relevant to their disciplines." 
+  hours: 35 
+  days: 5
+audience:  "This course is an appropriate introduction to students of any background looking to get started with Python. System administrators, network engineers, managers, and those with development skills in other programming languages will find the lessons and labs highly relevant to their disciplines."
 prereqs: 
-  - "Keyboard proficiency"
+  -  none
 postreqs: 
-  - "APIs and API Design with Python (5 days)"
-  - "Python for Network Automation (5 days)"
+  -  aadpy
+  -  pyfna
 testimonials:
-   -  quote: "something cool"
-   -  stars: 5
-videolink: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: "https://alta3.com/courses/python1"
-tags:
-  -  Programming
-has-labs: false
+  - quote: "Instructor is wonderful and very knowledgeable and made the class very enjoyable. Labs worked well and were very interesting." 
+    stars: 5
+  - quote: "One of the best training experiences I've had. Excellent work." 
+    stars: 5
+video-link: "https://www.youtube.com/embed/lWs1MvpMgTQ?rel=0;autoplay=1"
+web-url: "https://alta3.com/courses/pyb"
+has-labs: true
 has-videos: true
 has-slides: true
-filename: courses/py1.json
+filename: courses/pyb.json
 price:
   public:
     price-tags:

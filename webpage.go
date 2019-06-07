@@ -4,8 +4,8 @@ import (
 //  "regexp"
 
 
-	"github.com/tdewolff/minify"
-	"github.com/tdewolff/minify/html"
+//	"github.com/tdewolff/minify"
+//	"github.com/tdewolff/minify/html"
 
 "encoding/json"
 	"fmt"
@@ -297,7 +297,7 @@ type Course struct {
   Id            string          `rethinkdb:"id" json:"id"`
   Filename      string          `rethinkdb:"filename" json:"filename"`
   WebURL        string          `rethinkdb:"weburl" json:"weburl"`
-  Name          string          `rethinkdb:"name" json:"name"`
+  CourseTitle   string          `rethinkdb:"name" json:"course-title"`
   HasSlides     bool            `rethinkdb:"has-slides" json:"has-slides"`
   HasLabs       bool            `rethinkdb:"has-labs" json:"has-labs"`
   HasVideos     bool            `rethinkdb:"has-videos" json:"has-videos"`
@@ -309,7 +309,7 @@ type Course struct {
   Price         Price           `rethinkdb:"-" json:"price"`
   Duration      Duration        `json:"duration"`
   Testimonials  []Testimonial   `json:"testimonials"`
-  VideoLink     string          `json:"videolink"`
+  VideoLink     string          `json:"video-link"`
   Overview      string          `json:"overview"`
   Tags          []string        `json:"tags"`
   Courseicon    string          `json:"courseicon"`      // TODO courseicons will be under images/courseicons
@@ -330,95 +330,6 @@ type PublicCourse struct {
   Labs          []Lab           `json:"labs,omitempty"`    // TODO Write
 } 
 
-
-type Event struct {
-  Id             string         `yaml:"id"`
-  Title          string         `yaml:"title"`
-  StartDate      string         `yaml:"startdate"`
-  EndDate        string         `yaml:"enddate"`
-  CourseId       string         `yaml:"courseid"`
-  Image          string         `yaml:"image"`
-  Location       string         `yaml:"location"`
-}
-
-
-type Events struct {
-  Events         []Event
-}
-
-
-//API GetEvents - Returns all events 
-func (e Events) getevents() http.Handler {
-       return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-       now := time.Now()
-       fmt.Printf("Time right now: %s\n", now.Format("2006-01-08"))
-       var js []byte
-       var err error
-       var ce  Events  //ce means CurrentEvents
-   // Iterate over all events, skipping past events.
-       layout := "2006-01-02"
-       for _, ThisEvent := range e.Events {
-          fmt.Printf(" Event: %s, %s\n",ThisEvent.StartDate, ThisEvent.Title)
-          t, _ := time.Parse(layout, ThisEvent.StartDate)
-          if t.After(now) {
-              ce.Events = append(ce.Events, ThisEvent)
-          } else {
-            fmt.Println("----------------OLD EVENT---------------")
-            fmt.Printf("| OLD!!!: %s %s\n", ThisEvent.Title, ThisEvent.StartDate)
-            fmt.Println("----------------OLD EVENT---------------")
-            }
-       }
-       js, err = json.Marshal(ce)
-       if err != nil {
-           http.Error(w, err.Error(), http.StatusInternalServerError)
-           fmt.Printf("Error %s:\n", err)
-           return
-       }
-       (w).Header().Set("Access-Control-Allow-Headers","*")
-       (w).Header().Set("Access-Control-Allow-Origin", "*")
-       w.Header().Set("Content-Type", "application/json")
-       w.Write(js)
-       return
-       })
-}
-
-
-
-//Load EVENTS
-//------------------------------------------------------------
-func LoadEvents() Events {
-      // Create a OS compliant path: microsoft "\" or linux "/"
-      dirname := path.Join("deploy", "event")
-      d, err := os.Open(dirname)
-      if err != nil {
-          log.Printf("No events directory! %s, %s" , d, err)
-          os.Exit(1)
-      }
-      var    ev   Events
-      fmt.Println("---------------LOADING EVENTS---------------------")
-      fmt.Printf(" Reading events files in directory: %s\n", dirname)
-      thisfile := path.Join(dirname, "events.yaml")
-      _ , err = os.Stat(thisfile)
-      if err != nil {
-          if os.IsNotExist(err) {
-              log.Printf(" file is missing!: %s\n ", thisfile)
-          }
-      } 
-      yammy, err := ioutil.ReadFile(thisfile)
-      if err != nil {
-          log.Printf("yammy.Get err: %s\n", err)
-          }
-     // unmarshal byteArray using the JSON tags 
-	    err = yaml.Unmarshal(yammy, &ev)
-      if err != nil {
-				 log.Printf("Unmarshal: %v", err)
-				  }
-
-			fmt.Printf(" Successfully read: %s\n", thisfile) 
-      fmt.Printf(" Events: %+v\n", ev )
-      fmt.Println("--------------------------------------------------")
-      return ev 
-}
 
 //Load COURSES
 //------------------------------------------------------------
@@ -596,7 +507,7 @@ func (cs Courses ) getsummarylist() http.Handler {
    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type PopupItems struct {
       Id                 string          `json:"id"`
-      Name               string          `json:"name"`
+      CourseTitle        string          `json:"course-title"`
       Stars              int             `json:"stars"`
       Duration           int             `json:"duration"`
       Overview           string          `json:"overview"`
@@ -613,9 +524,9 @@ func (cs Courses ) getsummarylist() http.Handler {
     //Iterate over all courses, Copy Id, Name, Stars, Duration, Overview, Price, and Courseicon
     for _, ThisCourse := range cs.Cc {
        fmt.Println("--------------------------------------------------")
-       fmt.Printf("_Course PopUp_  = %s, %s, %s, %s, %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Testimonials[0].Stars, ThisCourse.Duration, ThisCourse.Overview, ThisCourse.Price, ThisCourse.Courseicon)
+       fmt.Printf("_Course PopUp_  = %s, %s, %s, %s, %s, %s, %s\n", ThisCourse.Id, ThisCourse.CourseTitle, ThisCourse.Testimonials[0].Stars, ThisCourse.Duration, ThisCourse.Overview, ThisCourse.Price, ThisCourse.Courseicon)
        popi.Id=ThisCourse.Id
-       popi.Name=ThisCourse.Name
+       popi.CourseTitle=ThisCourse.CourseTitle
        popi.Stars=ThisCourse.Testimonials[0].Stars
        popi.Duration=ThisCourse.Duration.Hours
 //       popi.Overview=ThisCourse.Overview
@@ -652,7 +563,7 @@ func (cs Courses ) getsummary() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type MenuItems struct {
       Id           string          `json:"id"`
-      Name         string          `json:"name"`
+      CourseTitle  string          `json:"course-title"`
       Tags         []string        `json:"tags"`
 			Stars        int             `json:"stars"`
     }
@@ -673,10 +584,10 @@ func (cs Courses ) getsummary() http.Handler {
     var err error
     //Iterate over all courses, copy Id, Name, and any Tags
     for _, ThisCourse := range cs.Cc {
-       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Tags)
+       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.CourseTitle, ThisCourse.Tags)
        if  ThisCourse.Id == ss {
            mi.Id=ThisCourse.Id
-           mi.Name=ThisCourse.Name
+           mi.CourseTitle=ThisCourse.CourseTitle
            mi.Tags=ThisCourse.Tags
 					 mi.Stars=47
            mis = append(mis,mi)
@@ -708,7 +619,7 @@ func (cs Courses ) getmegamenu() http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     type MenuItems struct {
       Id           string          `json:"id"`
-      Name         string          `json:"name"`
+      CourseTitle  string          `json:"course-title"`
       Tags         []string        `json:"tags"`
     }
     (w).Header().Set("Access-Control-Allow-Headers","*")
@@ -720,9 +631,9 @@ func (cs Courses ) getmegamenu() http.Handler {
     //Iterate over all courses, copy Id, Name, and any Tags
     for _, ThisCourse := range cs.Cc {
        fmt.Println("--------------------------------------------------")
-       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.Name, ThisCourse.Tags)
+       fmt.Printf("Menu Item = %s, %s, %s\n", ThisCourse.Id, ThisCourse.CourseTitle, ThisCourse.Tags)
        mi.Id=ThisCourse.Id
-       mi.Name=ThisCourse.Name
+       mi.CourseTitle=ThisCourse.CourseTitle
        mi.Tags=ThisCourse.Tags
        mis = append(mis,mi)
     }
@@ -853,12 +764,15 @@ func (cs Courses ) getcoursedetail() http.Handler {
 
 //------------------BLOGS------------------------
 type Blog struct {
-  Id             string         `yaml:"id"`
-  Title          string         `yaml:"title"`
-  Date           string         `yaml:"date"`
-  Weight         string         `yaml:"weight"`
-  Author         string         `yaml:"author"`
-  Content        string         `yaml:"contnet:`
+	Id             string         `yaml:"id"            json:"id"`
+	Author         string         `yaml:"author"        json:"author"`
+	Category       string         `yaml:"category"      json:"category"`
+	Date           string         `yaml:"date"          json:"date"`
+	Title          string         `yaml:"title"         json:"title"`
+	Weight         string         `yaml:"weight"        json:"weight"`
+	Intro          string         `yaml:"intro"         json:"intro"`
+	VideoLink      string         `yaml:"video-link"    json:"video-link"`
+	HtmlContent    string         `yaml:"html-content"  json:"html-content"`
 }
 
 type Blogs []Blog
@@ -936,7 +850,7 @@ func (b Blogs) getblog() http.Handler {
 					 blog = Thisblog
 					 fmt.Printf("Found blog %s\n", Thisblog.Id)
            break
-	     } 
+	     }
     }
     //If no blog match, SEND Null 
     if blog.Id  == "" {
@@ -1015,18 +929,10 @@ func Loadblogs() Blogs {
                 md := []byte(z[1])
                 //load html into b.Content
                 myhtml := markdown.ToHTML(md, parser, nil)
-
-                fmt.Printf("HTML STRING:\n%s\n", html.Minify)
-        //        m := minify.New()
-	      //        m.AddFunc("text/html", html.Minifier)
-		//					  html, err = m.Bytes("text/html", myhtml)
 								if err != nil {
 													panic(err)
 								}
-
-
-
-                b.Content = string(myhtml)
+                b.HtmlContent = string(myhtml)
                 //der().Set("Access-Control-Allow-Headers", fmt.Printf("Content:\n--------\n %s\n", b.Content)
                 // unmarshal byteArray using the JSON tags 
                 jsonFile, err := ToJSON(yammy)
@@ -1040,7 +946,7 @@ func Loadblogs() Blogs {
                 fmt.Printf("                Date: %s\n", allblogs[i].Date)
                 fmt.Printf("              Weight: %s\n", allblogs[i].Weight)
                 fmt.Printf("              Author: %s\n", allblogs[i].Author)
-                fmt.Printf("    Content in bytes: %d\n", len(allblogs[i].Content))
+                fmt.Printf("    Content in bytes: %d\n", len(allblogs[i].HtmlContent))
                 jsonFile = nil
             }
             yammy = nil
@@ -1052,6 +958,268 @@ func Loadblogs() Blogs {
 }
 
 
+// Blog Menu
+// Returns a blog menu that does all the work for the front end developers
+
+type BlogsByCategory struct {
+	BlogCategory     string        `json:"blog-category"`
+	Blogs            []Blog        `json:"blogs"`
+}
+
+type BlogMenus     []BlogsByCategory
+
+type BlogCategory  []string
+
+func (b Blogs) blogmenumaker() BlogMenus  {
+	  var existing         bool
+	  var blogmenus        []BlogsByCategory
+		var blogsbycategory  BlogsByCategory
+    var blogs            Blogs
+	  var categories       []string
+		// Iterate over all blogs, and derive a list of unique categories
+		for _, thisblog := range  b {
+        //Iterate over array of categories
+				existing = false
+				for _,  thiscategory := range categories {
+								if thiscategory == thisblog.Category {
+							  existing = true
+					      }
+			  }
+        if existing == false {
+          categories = append (categories, thisblog.Category)
+		    }
+    }
+    //At this stage, a list of unique categories has been gathered,
+		//so build the blogmenu
+    // Interate over each category 
+		for _, thiscategory := range categories {
+				fmt.Printf("\"%s\"\n",thiscategory)
+				//Iternate over every blog for that category
+        for _, thisblog := range b {
+                if thisblog.Category == thiscategory {
+							      blogs = append( blogs, thisblog)
+										fmt.Printf("  - %s\n", thisblog.Title)
+                }
+         }
+				 blogsbycategory.BlogCategory = thiscategory
+				 blogsbycategory.Blogs = blogs
+				 blogs = nil
+				 blogmenus = append(blogmenus,blogsbycategory)
+    }
+		return blogmenus
+}
+
+
+//API - New MegaMenu - Returns a canned megamenu pre-sorted by course type. 
+func (bmenu BlogMenus ) blogmenu() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
+    var js []byte
+    var err error
+    js, err = json.Marshal(bmenu)
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
+
+
+
+
+
+// Course Menu
+// Returns a course menu that will be easy for the front end js to implement
+
+type CourseMenu  []MiniMenu    // `json:"coursemenu"`
+
+type MiniMenu struct {
+  MiniMenuTitle  string          `json:"mini-menu"`
+  MmItems        []MmItem        `json:"mm-items"`
+}
+
+type MmItem struct {
+  Id              string         `json:"id"`
+  CourseTitle     string         `json:"course-title"`
+}
+
+func (cc Courses)  menumaker() CourseMenu  {
+    var minimenutitles  []string
+    var mmitem          MmItem
+    var cm              CourseMenu
+    var existing        bool
+    var match           bool
+    var mm              MiniMenu
+    var mmitems         []MmItem
+    var id              string
+    var coursetitle     string
+    // Iterate over all courses.tags[], and derive a list of unique tags called MiniMenuTitles
+    for _, thiscourse := range cc.Cc {
+        // Iterate over all tags within a course
+        for _, thistag := range thiscourse.Tags {
+             existing = false
+             //Iterate over all minimenutitle, add new ones to the list
+             for _, thismmt := range minimenutitles {
+                 if thistag == thismmt {
+                    existing = true
+                 }
+             }
+             //No matches? Then add thistag to the list
+             if existing == false {
+             minimenutitles = append (minimenutitles, thistag)
+             }
+        }
+    }
+    fmt.Println("Items: %+v\n\n", minimenutitles)
+    // Interate over each MiniMenuTitle 
+    for _, mmt := range  minimenutitles {
+          //Iternate over every course in the catalog
+          for _, thiscourse := range cc.Cc {
+                match = false
+                //Iterate over every course's Tags
+                for _, thistag := range thiscourse.Tags {
+                   //If this course has a matching tag entry, grab data
+                   if mmt == thistag {
+                      match = true
+                      id = thiscourse.Id
+                      coursetitle = thiscourse.CourseTitle
+                      break
+                   }
+                }//End of tag iteration so add item if match is true
+                if match == true {
+                   mmitem.Id = id
+                   mmitem.CourseTitle = coursetitle
+                   mmitems = append(mmitems, mmitem)
+                }
+          } //End of Course Itermation
+          mm.MiniMenuTitle = mmt
+          mm.MmItems = mmitems
+          fmt.Printf("mm: %v\n", mm)
+          cm = append (cm, mm)
+          mmitems = nil
+   }//End of minimenu iteration
+    return cm
+}
+
+
+//API - New MegaMenu - Returns a canned megamenu pre-sorted by course type. 
+func (cm CourseMenu ) coursemenu() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    (w).Header().Set("Access-Control-Allow-Headers","*")
+    (w).Header().Set("Access-Control-Allow-Origin", "*")
+    var js []byte
+    var err error
+    js, err = json.Marshal(cm)
+    if err != nil {
+       http.Error(w, err.Error(), http.StatusInternalServerError)
+       fmt.Printf("Error %s:\n", err)
+       return
+    }
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(js)
+    return
+    })
+}
+
+type Event struct {
+  Id             string         `yaml:"id"`
+  Title          string         `yaml:"title"`
+  StartDate      string         `yaml:"startdate"`
+  EndDate        string         `yaml:"enddate"`
+  CourseId       string         `yaml:"courseid"`
+  Image          string         `yaml:"image"`
+  Location       string         `yaml:"location"`
+}
+
+
+type Events struct {
+  Events         []Event
+}
+
+
+//API GetEvents - Returns all events 
+func (e Events) getevents() http.Handler {
+       return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+       now := time.Now()
+       fmt.Printf("Time right now: %s\n", now.Format("2006-01-08"))
+       var js []byte
+       var err error
+       var ce  Events  //ce means CurrentEvents
+   // Iterate over all events, skipping past events.
+       layout := "2006-01-02"
+       for _, ThisEvent := range e.Events {
+          fmt.Printf(" Event: %s, %s\n",ThisEvent.StartDate, ThisEvent.Title)
+          t, _ := time.Parse(layout, ThisEvent.StartDate)
+          if t.After(now) {
+              ce.Events = append(ce.Events, ThisEvent)
+          } else {
+            fmt.Println("----------------OLD EVENT---------------")
+            fmt.Printf("| OLD!!!: %s %s\n", ThisEvent.Title, ThisEvent.StartDate)
+            fmt.Println("----------------OLD EVENT---------------")
+            }
+       }
+       js, err = json.Marshal(ce)
+       if err != nil {
+           http.Error(w, err.Error(), http.StatusInternalServerError)
+           fmt.Printf("Error %s:\n", err)
+           return
+       }
+       (w).Header().Set("Access-Control-Allow-Headers","*")
+       (w).Header().Set("Access-Control-Allow-Origin", "*")
+       w.Header().Set("Content-Type", "application/json")
+       w.Write(js)
+       return
+       })
+}
+
+
+
+//Load EVENTS
+//------------------------------------------------------------
+func LoadEvents() Events {
+      // Create a OS compliant path: microsoft "\" or linux "/"
+      dirname := path.Join("deploy", "event")
+      d, err := os.Open(dirname)
+      if err != nil {
+          log.Printf("No events directory! %s, %s" , d, err)
+          os.Exit(1)
+      }
+      var    ev   Events
+      fmt.Println("---------------LOADING EVENTS---------------------")
+      fmt.Printf(" Reading events files in directory: %s\n", dirname)
+      thisfile := path.Join(dirname, "events.yaml")
+      _ , err = os.Stat(thisfile)
+      if err != nil {
+          if os.IsNotExist(err) {
+              log.Printf(" file is missing!: %s\n ", thisfile)
+          }
+      } 
+      yammy, err := ioutil.ReadFile(thisfile)
+      if err != nil {
+          log.Printf("yammy.Get err: %s\n", err)
+          }
+     // unmarshal byteArray using the JSON tags 
+	    err = yaml.Unmarshal(yammy, &ev)
+      if err != nil {
+				 log.Printf("Unmarshal: %v", err)
+				  }
+
+			fmt.Printf(" Successfully read: %s\n", thisfile) 
+      fmt.Printf(" Events: %+v\n", ev )
+      fmt.Println("--------------------------------------------------")
+      return ev 
+}
+
+
+
+
+
+// ------------------------------------------------------------
 
 
 func main() {
@@ -1062,10 +1230,13 @@ func main() {
   events := LoadEvents()
   blogcontent := Loadblogs()
   fmt.Println("Blogs Loaded into MAIN: " + blogcontent[0].Id)
-
-	m := minify.New()
-	m.AddFunc("text/html", html.Minify)
-
+  cmenu :=  cs.menumaker()
+  fmt.Println("Menu: %+v\n", cmenu)
+  fmt.Printf("BLOGMENU\n")
+  fmt.Println("--------------------------------------------------")
+  bmenu := blogcontent.blogmenumaker()
+  fmt.Println("--------------------------------------------------")
+//	fmt.Printf("blogmenu: %s\n", bmenu[0].BlogCategory)
 
 
 
@@ -1090,18 +1261,21 @@ func main() {
 	http.Handle("/blog/", http.StripPrefix("/blog/", BlogTemplate()))
 	http.Handle("/", http.StripPrefix("/", Template()))
 // JSON RESTful Interfaces
-  http.Handle("/api/v1/course/search/",    http.StripPrefix("/api/v1/course/search/", cs.search()))
-  http.Handle("/api/v1/course/megamenu/",  http.StripPrefix("/api/v1/course/megamenu/", cs.getmegamenu()))
-  http.Handle("/api/v1/course/summary/id/",http.StripPrefix("/api/v1/course/summary/id/", cs.getsummary()))
-  http.Handle("/api/v1/course/detail/id/", http.StripPrefix("/api/v1/course/detail/id/",  cs.getcoursedetail()))
-  http.Handle("/api/v1/blog/search/",      http.StripPrefix("/api/v1/blog/search/", blogcontent.blogsearch()))
-  http.Handle("/api/v1/blog/id/",          http.StripPrefix("/api/v1/blog/id/", blogcontent.getblog()))
-  http.Handle("/api/v1/events/",           http.StripPrefix("/api/v1/events/", events.getevents()))
+  http.Handle("/api/v1/course/search/",      http.StripPrefix("/api/v1/course/search/",     cs.search()))
+  http.Handle("/api/v1/course/megamenu/",    http.StripPrefix("/api/v1/course/megamenu/",   cs.getmegamenu()))
+  http.Handle("/api/v1/course/coursemenu/",  http.StripPrefix("/api/v1/course/coursemenu/", cmenu.coursemenu()))
+  http.Handle("/api/v1/course/summary/id/",  http.StripPrefix("/api/v1/course/summary/id/", cs.getsummary()))
+  http.Handle("/api/v1/course/detail/id/",   http.StripPrefix("/api/v1/course/detail/id/",  cs.getcoursedetail()))
+  http.Handle("/api/v1/blog/search/",        http.StripPrefix("/api/v1/blog/search/",       blogcontent.blogsearch()))
+  http.Handle("/api/v1/blog/id/",            http.StripPrefix("/api/v1/blog/id/",           blogcontent.getblog()))
+  http.Handle("/api/v1/events/",             http.StripPrefix("/api/v1/events/",            events.getevents()))
+//  http.Handle("/api/v1/events/menu/",        http.StripPrefix("/api/v1/events/menu",        events.geteventsmenu()))
+  http.Handle("/api/v1/blog/menu/",          http.StripPrefix("/api/v1/blog/menu/",         bmenu.blogmenu()))
 
-	// Stripe Chckout
+// Stripe Chckout
 	http.Handle("/checkout", Checkout())
 
 	log.Printf("serving...")
-	http.ListenAndServe(":8888", Log(http.DefaultServeMux))
+	http.ListenAndServe(":28888", Log(http.DefaultServeMux))
 }
 

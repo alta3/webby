@@ -1,14 +1,13 @@
+id: max
+title: The Office Cat 
+date: 2019-01-03
+weight: "50"
+author: Kat Tastrophy
+category: Misc
+video-link: https://youtu.be/h-WfQrTvOMk
+intro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
 ---
-id : Max
-Title: Office Cat
-Date: March 22
-Weight: 90
-Author: Kat Tastrophy
----
-
-The Office Cat
-
-
+<p>
 Max the cat
 the office cat
 he's very fat.
@@ -17,6 +16,7 @@ mostly dog, but really fat
 expects us all his head to pat
 He eats his food out of a vat
 then goes outside to eat a rat
+</p>
 
 Max the cat
 the office cat

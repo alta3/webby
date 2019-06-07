@@ -1,28 +1,30 @@
 ---
-id: #id used for the main course structure and name of the file.yaml
-name: #Name of the course that shows up on the website
-category: #Telecom, Programming, Cloud, Networking, Linux 
-tags: #This could be replacing category depending on how we do menus etc category: #Telecom, Programming, Cloud, Networking, Linux 
-  #-  Programming
+id: sip 
+course-title: SIP Essentials
+tags: 
+  -  telecom
+  -  networking
+stars: 48
 duration:
-  hours: #number of hours. 
-  days: #number of classroom days
-audience: #Who should attend this course and why
-prereqs: #This would be for courses (id) of what course should be used, name actually makes the most sense here
- #-  
-postreqs: #for any courses that are suggested as follow-ups for this course
- #-  
- #-   
-testimonials: #testimonials from students gathered from surveys
-  quotes:
-   #-  All excellant
-   #-  amazing
-  video-link: #EXAMPLE '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: #EXAMPLE https://alta3.com/courses/python1
-has-labs: #EXAMPLE false
-has-videos: #EXAMPLE true
-has-slides: #EXAMPLE true
-filename: #EXAMPLE courses/py1.json
+  hours: 35 
+  days: 5
+audience: "Any telecom personnel working with SIP or SIP trunks. Also for those wanting to know more about the sip protocol, and the important aspects of understanding how the protocol works." 
+prereqs: 
+  -  none
+postreqs: 
+  -  volte
+  -  5g
+testimonials:
+  - quote: "After taking a different Intro. to SIP Course - I was thrilled to attend this class with an instructor who is excited and passionate about teaching and who really understands the materials." 
+    stars: 5
+  - quote: "This course killed 2 birds with one stone - I got to learn SIP and Wireshark at the same time. Great job!" 
+    stars: 5
+video-link: "https://www.youtube.com/embed/RWggp5zHop8?rel=0;autoplay=1"
+web-url: "https://alta3.com/courses/sip"
+has-labs: true
+has-videos: true
+has-slides: true
+filename: courses/sip.json
 price:
   public:
     price-tags:

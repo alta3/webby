@@ -1,67 +1,191 @@
 ---
 Events:
-- id: t677
+- id: pc01
   type: 1
-  title: Openstack
-  startdate: '2019-03-21'
-  enddate: '2019-03-25'
-  courseid: openstack
-  image: openstack-training.png
-  location: Live webinar Instructor Led
-- id: t791
+  title: Python Basics Public Virtual Class
+  startdate: '2019-05-20'
+  enddate: '2019-05-24'
+  courseid: pyb
+  image: 
+  location: Online - LIVE
+
+- id: pc02
   type: 1
-  title: Python 1
-  startdate: '2019-03-28'
-  enddate: '2019-03-01'
-  courseid: py1
-  image: python.jpg
-  location: Live webinar Instructor Led
-- id: t747
-  type: 1
-  title: SIP Essentials
-  startdate: '2019-02-04'
-  enddate: '2019-02-08'
+  title: SIP Essentials Public Virtual Class
+  startdate: '2019-06-03'
+  enddate: '2019-06-07'
   courseid: sip
-  image: sip-invite.jpg
-  location: Live webinar Instructor Led
-- id: t587
-  type: 1
-  title: Kubernetes
-  startdate: '2019-04-25'
-  enddate: '2019-05-01'
-  courseid: kubernetes
-  image: k8s.png
-  location: Live webinar Instructor Led
-- id: t627
-  type: 1
-  title: Network Automation with Python
-  startdate: '2019-04-25'
-  enddate: '2019-05-01'
-  courseid: py3
-  image: pyna.png
-  location: Live webinar Instructor Led
-- id: t267
-  type: 1
-  title: Ansible
-  startdate: '2019-04-04'
-  enddate: '2019-04-08'
-  courseid: ansible
-  image: ansible.png
-  location: Live webinar Instructor Led
-- id: t543
-  type: 1
-  title: 5G
-  startdate: '2019-04-11'
-  enddate: '2019-04-12'
+  image: 
+  location: Online - LIVE
+
+- id: web01
+  type: 2
+  title: 5G Webinar
+  startdate: '2019-06-12'
+  enddate: '2019-06-12'
   courseid: 5g
-  image: 5g.png
-  location: Live webinar Instructor Led
-- id: t747
+  image: 
+  location: Free Webinar
+
+- id: pc03
   type: 1
-  title: SIP Essentials
-  startdate: '2019-04-01'
-  enddate: '2019-04-05'
+  title: RHEL Public Virtual Class
+  startdate: '2019-06-17'
+  enddate: '2019-06-21'
+  courseid: rhel
+  image: 
+  location: Online - LIVE
+
+- id: pc04
+  type: 1
+  title: Python Basics Public Virtual Class
+  startdate: '2019-06-24'
+  enddate: '2019-06-28'
+  courseid: pyb
+  image: 
+  location: Online - LIVE
+
+- id: pc05
+  type: 1
+  title: VoLTE/IMS Public Virtual Class
+  startdate: '2019-07-08'
+  enddate: '2019-07-12'
+  courseid: volte
+  image: 
+  location: Online - LIVE
+
+- id: web02
+  type: 2
+  title: RHEL Free Webinar
+  startdate: '2019-07-10'
+  enddate: '2019-07-10'
+  courseid: rhel
+  image: 
+  location: Free Webinar
+
+- id: pc06
+  type: 1
+  title: Ceph Public Virtual Class
+  startdate: '2019-07-22'
+  enddate: '2019-07-26'
+  courseid: ceph
+  image: 
+  location: Online - LIVE
+
+- id: pc07
+  type: 1
+  title: RHEL Public Virtual Class
+  startdate: '2019-08-05'
+  enddate: '2019-08-09'
+  courseid: rhel
+  image: 
+  location: Online - LIVE
+
+- id: pc08
+  type: 1
+  title: SIP Essentials Public Virtual Class
+  startdate: '2019-08-12'
+  enddate: '2019-08-16'
   courseid: sip
-  image: sip-invite.jpg
-  location: Live webinar Instructor Led
+  image: 
+  location: Online - LIVE
+
+- id: web03
+  type: 2
+  title: Kubernetes Free Webinar
+  startdate: '2019-08-14'
+  enddate: '2019-08-14'
+  courseid: kubernetes
+  image: 
+  location: Free Webinar
+
+- id: pc09
+  type: 1
+  title: Kubernetes Bootcamp 
+  startdate: '2019-08-26'
+  enddate: '2019-08-29'
+  courseid: kubernetes
+  image: 
+  location: Online - LIVE
+
+- id: pc10
+  type: 1
+  title: SDN/NFV
+  startdate: '2019-09-09'
+  enddate: '2019-00-13'
+  courseid: sdn
+  image: 
+  location: Online - LIVE
+
+- id: web04
+  type: 2
+  title: Python Free Webinar
+  startdate: '2019-09-12'
+  enddate: '2019-09-12'
+  courseid: pyb
+  image: 
+  location: Free Webinar
+
+- id: pc11
+  type: 1
+  title: Python for Network Automation
+  startdate: '2019-09-23'
+  enddate: '2019-09-27'
+  courseid: pyfna
+  image: 
+  location: Online - LIVE
+
+- id: pc12
+  type: 1
+  title: SIP Essentials Public Virtual Class
+  startdate: '2019-09-30'
+  enddate: '2019-10-04'
+  courseid: sip
+  image: 
+  location: Online - LIVE
+
+- id: web05
+  type: 2
+  title: Ansible Free Webinar
+  startdate: '2019-10-17'
+  enddate: '2019-10-17'
+  courseid: ansible
+  image: 
+  location: Free Webinar
+
+- id: pc13
+  type: 1
+  title: Ansible Public Virtual Class
+  startdate: '2019-11-04'
+  enddate: '2019-11-08'
+  courseid: ansible
+  image: 
+  location: Online - LIVE
+
+- id: pc14
+  type: 1
+  title: Kubernetes Bootcamp 
+  startdate: '2019-11-18'
+  enddate: '2019-11-22'
+  courseid: kubernetes
+  image: 
+  location: Online - LIVE
+
+- id: web06
+  type: 2
+  title: 5G Free Webinar
+  startdate: '2019-11-14'
+  enddate: '2019-11-14'
+  courseid: 5g
+  image: 
+  location: Free Webinar
+
+- id: pc15
+  type: 1
+  title: SIP Essentials Public Virtual Class
+  startdate: '2019-12-02'
+  enddate: '2019-12-06'
+  courseid: sip
+  image: 
+  location: Online - LIVE
 

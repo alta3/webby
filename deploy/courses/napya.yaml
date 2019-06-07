@@ -1,28 +1,29 @@
 ---
-id: #id used for the main course structure and name of the file.yaml
-name: #Name of the course that shows up on the website
-category: #Telecom, Programming, Cloud, Networking, Linux 
-tags: #This could be replacing category depending on how we do menus etc category: #Telecom, Programming, Cloud, Networking, Linux 
-  #-  Programming
+id: napya 
+course-title: Network Automation with Python and Ansible
+tags: 
+  -  networking
+  -  programming
+stars: 44
 duration:
-  hours: #number of hours. 
-  days: #number of classroom days
-audience: #Who should attend this course and why
-prereqs: #This would be for courses (id) of what course should be used, name actually makes the most sense here
- #-  
-postreqs: #for any courses that are suggested as follow-ups for this course
- #-  
- #-   
-testimonials: #testimonials from students gathered from surveys
-  quotes:
-   #-  All excellant
-   #-  amazing
-  video-link: #EXAMPLE '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: #EXAMPLE https://alta3.com/courses/python1
-has-labs: #EXAMPLE false
-has-videos: #EXAMPLE true
-has-slides: #EXAMPLE true
-filename: #EXAMPLE courses/py1.json
+  hours: 35 
+  days: 5
+audience: "Network Administrators, Ansible devs, Python devs, Admins interested in Automation, and individuals interested in devops, specifically for networking."
+prereqs: 
+  -  pyb
+postreqs: 
+  -  pyfna
+testimonials:
+  - quote: "Neat class. I love the two for one aspect!"
+    stars: 5
+  - quote: "Class was fun, the instructor kept it fresh while staying with the curriculm."
+    stars: 5
+video-link: "none"
+web-url: "https://alta3.com/courses/napya"
+has-labs: true
+has-videos: true
+has-slides: true
+filename: courses/napya.json
 price:
   public:
     price-tags:

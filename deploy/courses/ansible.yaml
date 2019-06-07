@@ -1,20 +1,25 @@
 ---
 id: ansible 
-name: Ansible Essentials
-category: Programming
+course-title: Ansible Essentials
+tags:
+  - programming
+  - automation
+stars: 45
 duration:
-  hours: 32
-  days: 50
+  hours: 35
+  days: 5
+audience: "Whomever is looking to learn program automation and and push changes to multiple servers or network devices more efficiently."
+prereqs: 
+ - "none" 
+postreqs: 
+ - "none"  
 testimonials:
-- quote: Excellant Course
-  stars: 5
-- quote: Zach was almost amazing
-  stars: 5
-video-link: '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-Tags:
-  - Programming
-  - Automation
-weburl: https://alta3.com/courses/ansible
+  - quote: "I thought this was one of the best courses that I have taken in a long while. Well done! Instructor had both knowledge and personality not a common thing."
+    stars: 50
+  - quote: "Instructor is wonderful and very knowledgeable and made the class very enjoyable. Labs worked well and were very interesting."
+    stars: 50
+video-link: "https://www.youtube.com/embed/ZDwkus-0A3I?rel=0;autoplay=1"
+web-url: "https://alta3.com/courses/ansible"
 has-labs: false
 has-videos: true
 has-slides: true

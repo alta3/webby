@@ -1,28 +1,36 @@
 ---
+<<<<<<< HEAD
 id: aadpy #id used for the main course structure and name of the file.yaml
 name: #Name of the course that shows up on the website
 category: #Telecom, Programming, Cloud, Networking, Linux 
 tags: #This could be replacing category depending on how we do menus etc category: #Telecom, Programming, Cloud, Networking, Linux 
   #-  Programming
+=======
+id: aadpy 
+course-title: APIs and API Design with Python
+tags: 
+  -  programming
+stars: 40
+>>>>>>> 76a25e8242acef33b6769586553bc11d3e05e8d6
 duration:
-  hours: #number of hours. 
-  days: #number of classroom days
-audience: #Who should attend this course and why
-prereqs: #This would be for courses (id) of what course should be used, name actually makes the most sense here
- #-  
-postreqs: #for any courses that are suggested as follow-ups for this course
- #-  
- #-   
-testimonials: #testimonials from students gathered from surveys
-  quotes:
-   #-  All excellant
-   #-  amazing
-  video-link: #EXAMPLE '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: #EXAMPLE https://alta3.com/courses/python1
-has-labs: #EXAMPLE false
-has-videos: #EXAMPLE true
-has-slides: #EXAMPLE true
-filename: #EXAMPLE courses/py1.json
+  hours: 35 
+  days: 5
+audience: System administrators, network engineers, and developers will find this course compelling as they build and interact APIs that not only return highly parsable datasets, but also trigger scripted actions. Some previous experience with Python is ideal, although, coding experience in another language is also enough to find success within this course.
+prereqs: 
+  -  pyb 
+postreqs: 
+  -  pyfna
+testimonials:
+  - quote: "The instructor perhaps one of the most knowledgeable trainers on any course I have ever been on. "
+    stars: 5
+  - quote: "Very informative & excelling instructor! Had full command of the subject. This course has a lot of in depth information!" 
+    stars: 5
+video-link: "https://www.youtube.com/embed/UetUm0q0sBE?rel=0;autoplay=1"
+web-url: "https://alta3.com/courses/aadpy"
+has-labs: true
+has-videos: true
+has-slides: true
+filename: courses/aadpy.json
 price:
   public:
     price-tags:
