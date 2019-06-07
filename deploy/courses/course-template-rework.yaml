@@ -1,9 +1,10 @@
 ---
-id: aadpy #id used for the main course structure and name of the file.yaml
-name: #Name of the course that shows up on the website
-category: #Telecom, Programming, Cloud, Networking, Linux 
-tags: #This could be replacing category depending on how we do menus etc category: #Telecom, Programming, Cloud, Networking, Linux 
-  #-  Programming
+id: #id used for the main course structure and name of the file.yaml
+course-title: #Name of the course that shows up on the website (was once called, undescriptively, "name")
+# DEAD is category: #telecom, programming, cloud, networking, linux (only one string)
+tags: #this could be replacing category depending on how we do menus etc category: #telecom, programming, cloud, networking, linux 
+  #-  list of strings
+stars: # if the average is 4.5 then place 45 here
 duration:
   hours: #number of hours. 
   days: #number of classroom days
@@ -14,108 +15,107 @@ postreqs: #for any courses that are suggested as follow-ups for this course
  #-  
  #-   
 testimonials: #testimonials from students gathered from surveys
-  quotes:
+  quote:
    #-  All excellant
+  stars:
    #-  amazing
-  video-link: #EXAMPLE '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: #EXAMPLE https://alta3.com/courses/python1
-has-labs: #EXAMPLE false
-has-videos: #EXAMPLE true
-has-slides: #EXAMPLE true
+video-link: #EXAMPLE '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'  ?rel=0;autoplay=1
+web-url: #EXAMPLE https://alta3.com/courses/python1
+has-labs: #EXAMPLE false -- Does this course HAVE this content? [T/F] -- Course prices may vary depending on what is included.
+has-videos: #EXAMPLE true -- Does this course HAVE this content? [T/F] -- Course prices may vary depending on what is included.
+has-slides: #EXAMPLE true -- Does this course HAVE this content? [T/F] -- Course prices may vary depending on what is included.
 filename: #EXAMPLE courses/py1.json
-price:
-  public:
-    price-tags:
-      - id: priceinfo-public-single-student 
-        description: Face to face training for 1 student
-        price: 800000
-        available: yes
-        includes: 
-        - item : has-video-true
-          description: Includes video
-        - item : has-book-true
-          description: Includes on-line book
-        - item : has-labs-false
-          description: Does not include labs
-  private:
-    price-tags:
-      - id: priceinfo-private-base8
-        description: face to face training for up to 8 students
-        price: 850000
-        available: yes
-        includes: 
-        - item : has-video-true
-          description: Includes video
-        - item : has-book-true
-          description: Includes on-line book
-        - item : has-labs-false
-          description: Does not include labs
-      - id: priceinfo-private-plus1-to-base8
-        description: Add one additional student base8 
-        price: 50000
-        available: yes
-        includes: 
-         - item : plus1
-           description: Includes same features as base 8
-  self-paced:
-    price-tags:
-      - id: priceinfo-selfpaced-singlestudent 
-        description: Self Paced Training
-        price: 250000
-        available: yes
-        includes: 
-        - item : has-video-true
-          description: Includes video
-        - item : has-book-true
-          description: Includes on-line book
-        - item : has-labs-false
-          description: Does not include labs
-      - id: priceinfo-selfpaced-sixpack
-        description: Package price for six self=paced students
-        price: 500000
-        available: yes
-        includes: 
-        - item : has-video-true
-          description: Includes video
-        - item : has-book-true
-          description: Includes on-line book
-        - item : has-labs-false
-          description: Does not include labs
-  extend-lms-access:
-    price-tags:
-      - id: priceinfo-extendaccess-lab-one-month
-        description: Extend your lab access for one month
-        price: 5000
-        available: no
-      - id: priceinfo-extendaccess-lab-one-year
-        description: Extend your lab access for one month
-        price: 50000
-        available: no
-  book:
-    price-tags:
-      - id: priceinfo-book-paper 
-        description: Paper Student Manual 
-        price-desc: 
-        price: 850000
-        available: yes
-        includes: 
-        - item: has-video-false
-          description: Does not include video
-        - item : has-book-true
-          description: Includes on-line book
-        - item : has-labs-false
-          description: Does not include labs
-      - id: priceinfo-book-online 
-        description: Paper Student Manual 
-        price-desc: 
-        price: 450000
-        available: yes
-        includes: 
-        - item : has-video-false
-          description: Does not include video
-        - item : has-book-true
-          description: Includes on-line book
-        - item : has-labs-false
+prices:
+  - id: live-public-course-1
+    description: Face to face training for 1 student
+    price: 800000
+    available: True # should this price be purchaseable
+    published: True # should this price be listed on the public website (default lists)
+    includes: 
+    - item : "video"
+      description: Includes video
+    - item : "slides"
+      description: Includes on-line book
+    - item : "labs"
+      description: Does not include labs
+  - id: live-onsite-course-8
+    description: face to face training for up to 8 students
+    price: 850000
+    available: True # should this price be purchaseable
+    published: True # should this price be listed on the public website (default lists)
+    includes: 
+    - item : "video"
+      description: Includes video
+    - item : "slides"
+      description: Includes on-line book
+    - item : "labs"
+      description: Does not include labs
+  - id: live-onsite-1
+    description: Add one additional student base8 
+    price: 50000
+    available: True
+    published: True # should this price be listed on the public website (default lists)
+    includes: 
+    - item : "video"
+      description: Includes video
+    - item : "slides"
+      description: Includes on-line book
+    - item : "labs"
+      description: Does not include labs
+  - id: self-paced-1
+    description: Self Paced Training
+    price: 250000
+    available: True
+    published: True # should this price be listed on the public website (default lists)
+    includes: 
+    - item : "video"
+      description: Includes video
+    - item : "slides"
+      description: Includes on-line book
+    - item : "labs"
+      description: Does not include labs
+  - id: selfpaced-6
+    description: Package price for six self paced students
+    price: 500000
+    available: True
+    published: True # should this price be listed on the public website (default lists)
+    includes: 
+    - item : "video"
+      description: Includes video
+    - item : "slides"
+      description: Includes on-line book
+    - item : "labs"
+      description: Does not include labs
+  - id: self-paced-extension-1
+    description: Self Paced Training
+    price: 250000
+    available: True
+    published: True # should this price be listed on the public website (default lists)
+    includes: 
+    - item : "video"
+      description: Includes video
+    - item : "slides"
+      description: Includes on-line book
+    - item : "labs"
+      description: Does not include labs
+  - id: physical-book
+    description: Paper Student Manual 
+    price: 850000
+    available: True
+    published: True # should this price be listed on the public website (default lists)
+    includes: 
+    - item : "physical-book"
+      description: Dead Trees
+    - item : "online-book"
+      description: environmentally friendly and always up to date
+  - id: online-book
+    description: Paper Student Manual 
+    price: 450000
+    available: yes
+    includes: 
+    - item : "online-book"
+      description: environmentally friendly and always up to date
+# end of price list
 overview: This class is a study of the Python programming language. Students will learn to build their own environments in which to program, and begin writing their own code. By the end of the first day, you should feel comfortable writing code on your own machine. By the conclusion of the course, students will understand the basics of object-oriented programming, how to use Python to interact with data sets (such as XML and JSON), interact with APIs, track down code snippets and programs on places like GitHub, as well as debug broken code. This course is 50% lecture and 50% hands-on labs. Students need no prior programming experience.
 chapters:
 - title: Introduction to Python

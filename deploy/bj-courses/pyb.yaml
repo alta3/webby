@@ -1,28 +1,29 @@
 ---
-id: aadpy #id used for the main course structure and name of the file.yaml
-name: #Name of the course that shows up on the website
-category: #Telecom, Programming, Cloud, Networking, Linux 
-tags: #This could be replacing category depending on how we do menus etc category: #Telecom, Programming, Cloud, Networking, Linux 
-  #-  Programming
+id: pyb 
+course-title: Python Basics
+tags: 
+  -  programming
+stars: 45
 duration:
-  hours: #number of hours. 
-  days: #number of classroom days
-audience: #Who should attend this course and why
-prereqs: #This would be for courses (id) of what course should be used, name actually makes the most sense here
- #-  
-postreqs: #for any courses that are suggested as follow-ups for this course
- #-  
- #-   
-testimonials: #testimonials from students gathered from surveys
-  quotes:
-   #-  All excellant
-   #-  amazing
-  video-link: #EXAMPLE '"https://www.youtube.com/embed/h-WfQrTvOMk" autoplay;allowfullscreen'
-weburl: #EXAMPLE https://alta3.com/courses/python1
-has-labs: #EXAMPLE false
-has-videos: #EXAMPLE true
-has-slides: #EXAMPLE true
-filename: #EXAMPLE courses/py1.json
+  hours: 35 
+  days: 5
+audience:  "This course is an appropriate introduction to students of any background looking to get started with Python. System administrators, network engineers, managers, and those with development skills in other programming languages will find the lessons and labs highly relevant to their disciplines."
+prereqs: 
+  -  none
+postreqs: 
+  -  aadpy
+  -  pyfna
+testimonials:
+  - quote: "Instructor is wonderful and very knowledgeable and made the class very enjoyable. Labs worked well and were very interesting." 
+    stars: 5
+  - quote: "One of the best training experiences I've had. Excellent work." 
+    stars: 5
+video-link: "https://www.youtube.com/embed/lWs1MvpMgTQ?rel=0;autoplay=1"
+web-url: "https://alta3.com/courses/pyb"
+has-labs: true
+has-videos: true
+has-slides: true
+filename: courses/pyb.json
 price:
   public:
     price-tags:

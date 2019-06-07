@@ -1,5 +1,5 @@
 ---
-id: aadpy #id used for the main course structure and name of the file.yaml
+id: #id used for the main course structure and name of the file.yaml
 name: #Name of the course that shows up on the website
 category: #Telecom, Programming, Cloud, Networking, Linux 
 tags: #This could be replacing category depending on how we do menus etc category: #Telecom, Programming, Cloud, Networking, Linux 
