@@ -1,0 +1,610 @@
+---
+id: ansible 
+course-title: Ansible Essentials
+tags:
+  - programming
+  - automation
+stars: 45
+duration:
+  hours: 35
+  days: 5
+audience: "Whomever is looking to learn program automation and and push changes to multiple servers or network devices more efficiently."
+prereqs: 
+ -  none 
+postreqs: 
+ -  none  
+testimonials:
+  - quote: "I thought this was one of the best courses that I have taken in a long while. Well done! Instructor had both knowledge and personality not a common thing."
+    stars: 5
+  - quote: "Instructor is wonderful and very knowledgeable and made the class very enjoyable. Labs worked well and were very interesting."
+    stars: 5
+video-link: "https://www.youtube.com/embed/ZDwkus-0A3I?rel=0;autoplay=1"
+web-url: "https://alta3.com/courses/ansible"
+has-labs: false
+has-videos: true
+has-slides: true
+filename: courses/ansible.json
+price:
+  public:
+    price-tags:
+      - id: priceinfo-public-single-student 
+        description: Face to face training for 1 student
+        price: 800000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+  private:
+    price-tags:
+      - id: priceinfo-private-base8
+        description: face to face training for up to 8 students
+        price: 850000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-private-plus1-to-base8
+        description: Add one additional student base8 
+        price: 50000
+        available: yes
+        includes: 
+         - item : plus1
+           description: Includes same features as base 8
+  self-paced:
+    price-tags:
+      - id: priceinfo-selfpaced-singlestudent 
+        description: Self Paced Training
+        price: 250000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-selfpaced-sixpack
+        description: Package price for six self=paced students
+        price: 500000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+  extend-lms-access:
+    price-tags:
+      - id: priceinfo-extendaccess-lab-one-month
+        description: Extend your lab access for one month
+        price: 5000
+        available: no
+      - id: priceinfo-extendaccess-lab-one-year
+        description: Extend your lab access for one month
+        price: 50000
+        available: no
+  book:
+    price-tags:
+      - id: priceinfo-book-paper 
+        description: Paper Student Manual 
+        price-desc: 
+        price: 850000
+        available: yes
+        includes: 
+        - item: has-video-false
+          description: Does not include video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-book-online 
+        description: Paper Student Manual 
+        price-desc: 
+        price: 450000
+        available: yes
+        includes: 
+        - item : has-video-false
+          description: Does not include video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+overview: Ansible is growing in popularity for good reason, it is both easy to understand, far simpler than Python, and extremely powerful. While Python can be used to do just about anything, Ansible is used to bring structure and consistency to system deployments, implementations, and changes. Students tempted to write a complex Python script to do some networking automation task will discover that problem is already solved by an Ansible module. Lots of unnecessary Python scripts can be eliminated by using Ansible whenever possible. Ansible can be used by both network and server administrators alike. 
+chapters:
+- guid: e390d9e2-8c76-4130-8178-7dacb66460a4
+  title: Ansible Introduction
+  subchapters:
+  - title: Definitions
+    questions: []
+    slides:
+    - guid: f7d360ac-381f-46c7-87a1-87f2647e2275
+      title: Welcome to Ansible
+      index: 4
+    - guid: 61b29ac5-74fa-45ef-8f32-8114bc4ffc2d
+      title: Ansible module
+      index: 5
+    - guid: ba767585-de6c-4f78-a314-e4775c45f984
+      title: A task
+      index: 6
+    - guid: 45f69a60-7272-492d-9e56-4bbea423b169
+      title: Ansible vars
+      index: 7
+    - guid: c88899f1-d575-4beb-9077-b3138645da50
+      title: Ansible tasks
+      index: 8
+    - guid: 47cb699c-6792-4af9-aab8-4ea95144b283
+      title: hosts aka "Inventory"
+      index: 9
+    - guid: 12f8aa7f-8f28-4060-a310-2119aa582153
+      title: A play
+      index: 10
+    - guid: 350e1a46-d538-4e4d-83a2-d01151e4e1dc
+      title: handlers
+      index: 11
+    - guid: d115f9d3-14a8-4051-bb53-0f20407080e2
+      title: The Ansible playbook
+      index: 12
+    - guid: 117602b6-ab01-4655-a767-612880157c3c
+      title: passwordless sudo and RSA access
+      index: 13
+    - guid: f811ef35-7806-4880-a111-572c997bf55a
+      title: Public Key Encryption as Privacy
+      index: 14
+    - guid: d50eec29-faec-43a9-b66c-487cee5ea230
+      title: Public Key Encryption as Authentication
+      index: 15
+    - guid: 22b0ba1b-cd89-405a-9fd7-f3a7a308589d
+      title: Your lab environment.
+      index: 16
+- guid: bc8189ec-4c71-4b5c-be17-c63298e03a63
+  title: Installation
+  subchapters:
+  - title: Control machine
+    questions: []
+    slides:
+    - guid: 2df8ab58-d866-4f87-b159-780313d35364
+      title: Configuration requirements on the control machine
+      index: 18
+  - title: Host Machine
+    questions: []
+    slides:
+    - guid: 5009b8ca-94a4-4cb2-8ec9-8e8cb91f0c76
+      title: Python requirements on the host
+      index: 19
+    - guid: f9aedb7c-9f83-4a75-9c15-5e097e9104e9
+      title: Using ansible raw to install Python
+      index: 20
+- guid: 84f7fb3d-b0e3-4472-b097-5c3809f667f3
+  title: Ansible Static Inventory
+  subchapters:
+  - title: Hosts and Groups
+    questions: []
+    slides:
+    - guid: 0b41ef2d-7dcb-492e-8dd0-e020d87bce61
+      title: Defining Hosts and Groups
+      index: 22
+    - guid: ad515bad-8af2-4ab9-a5d3-d98e1fedddbe
+      title: Host and Group variables
+      index: 23
+    - guid: 4ac4ea25-c35d-4d66-8db6-8c5b593f0109
+      title: Groups of Groups
+      index: 24
+    - guid: 9f285a4a-9dde-4018-8e61-f4e6129ddf5a
+      title: Default Groups
+      index: 25
+- guid: fa7f6c2c-d845-4ccf-a62a-882e8b42d500
+  title: Ansible Ad hoc commands
+  subchapters:
+  - title: Using Ad hoc commands
+    questions: []
+    slides:
+    - guid: 1130fb8f-d4a7-41a9-b417-996b6302d10d
+      title: Ad hoc command syntax
+      index: 27
+    - guid: 494b2d23-9ffe-40bf-98f9-0ea774915e0f
+      title: Parallel Shell commands
+      index: 28
+    - guid: 7281ec2a-43ef-43df-b618-9da97bb6f4df
+      title: Managing packages
+      index: 29
+    - guid: 37d42c0a-153d-48c2-a0fa-811e6baa3001
+      title: Managing users and groups
+      index: 30
+    - guid: 559bc169-fb7b-4d45-bc23-261c01f6530d
+      title: Gathering facts
+      index: 31
+    - guid: a7df68c7-1b61-46af-ba46-15890c794e4c
+      title: ad hoc cheat sheet
+      index: 32
+- guid: 6e3838d1-4757-4e20-9a39-5eff53ee7df6
+  title: Ansible config file and directory structure
+  subchapters:
+  - title: Getting started
+    questions: []
+    slides:
+    - guid: 3580cdd4-bd49-4382-815d-3ed4c8cd4853
+      title: ansible.cfg (1 of 2)
+      index: 34
+    - guid: 286e282b-3ada-488a-8c64-143750d3b1ea
+      title: ansible.cfg (2 of 2)
+      index: 35
+    - guid: 6cf959e0-c404-4cd9-b4b1-d95c129a477a
+      title: Ansible Inventory
+      index: 36
+    - guid: c4cde630-c5f5-4e58-a5f5-83acb2042094
+      title: roles
+      index: 37
+- guid: e4f3bef1-1687-4063-8865-3f123428d57a
+  title: YAML
+  subchapters:
+  - title: YAML Essentials
+    questions: []
+    slides:
+    - guid: d886f901-96ac-4a3d-ac9a-3383cd3dcede
+      title: YAML Gotchas
+      index: 39
+    - guid: 2d87b244-6c87-4f66-becb-4c1184ff5935
+      title: YAML Dictionary
+      index: 40
+    - guid: 258cf364-cf14-4061-b281-b55d38ea21e7
+      title: YAML list
+      index: 41
+    - guid: 28107eaf-8797-439c-9283-3a1e5caba548
+      title: YAML list of dictionaries
+      index: 42
+    - guid: 18b7da3d-ce0b-456a-81db-f0ac529a750c
+      title: YAML Alternate format
+      index: 43
+- guid: e09e3e04-d33e-42f1-be3d-b1231a76397e
+  title: Writing a Simple Playbook
+  subchapters:
+  - title: Best Practices
+    questions: []
+    slides:
+    - guid: 43672eaa-7186-42a9-baab-9459ebe7a167
+      title: Elements of a well written playbook
+      index: 45
+    - guid: 106b0c3e-8b50-4005-8679-1f4965dd4976
+      title: A well-written Ansible play
+      index: 46
+    - guid: 7cbeb22b-4479-4886-89ad-eaebee77aba0
+      title: Using include files for tasks
+      index: 47
+    - guid: 57d7c9c2-e735-41a3-a4b4-8d54ece20cad
+      title: A well-written ansible variable file
+      index: 48
+    - guid: 8e6a9a33-32ff-458e-8428-4fd25670ccb1
+      title: A well-written ansible inventory file
+      index: 49
+- guid: 2dd63886-cbe2-4a1d-9920-79a2625dbd16
+  title: Key Modules you need to know
+  subchapters:
+  - title: Ansible Modules
+    questions: []
+    slides:
+    - guid: 764d6b07-5342-409c-afb2-47ade8bdadfe
+      title: Understanding modules documentation
+      index: 51
+    - guid: 84e9a163-5752-4f3e-846a-4ce78c5517d3
+      title: Copy
+      index: 52
+    - guid: eb463476-5635-4024-ba04-4b0108c9f1f7
+      title: apt / yum / pip
+      index: 53
+    - guid: 5966af82-844c-46e7-b03e-b3aa2ff1de26
+      title: command / shell
+      index: 54
+    - guid: ba971ee9-bb56-4d2c-ac0b-832fb7b20627
+      title: git
+      index: 55
+    - guid: 47126232-13c8-4ca1-a742-8877b31ddf61
+      title: get_url
+      index: 56
+    - guid: 20239313-ec25-4a3e-b55d-f96e73405c06
+      title: debug
+      index: 57
+    - guid: f5580520-3c72-4b65-8177-024a2e50a38e
+      title: Manage L3 interfaces on network devices
+      index: 58
+    - guid: 028d34dd-2b04-4c08-a370-6b8857fd4fe6
+      title: Manage Layer-2 interface on network devices
+      index: 59
+    - guid: 961e2447-9b1e-4bd0-888e-536d47ea196d
+      title: Manage VLANs on network devices
+      index: 60
+    - guid: 7a7d9c18-a776-4aa8-932d-01222f9cc0b4
+      title: OpenVswitch NFV
+      index: 61
+    - guid: 3641c5e8-ded4-4b43-8cff-2b213212b81b
+      title: Manage Interface on network devices
+      index: 62
+- guid: 0e9fdcfe-d978-481a-8f82-783681129a44
+  title: Ansible templates
+  subchapters:
+  - title: jinja2
+    questions: []
+    slides:
+    - guid: b33ae677-9f81-4f68-95cd-1b4b41dd7d2e
+      title: What is Jinja2?
+      index: 64
+    - guid: 32495e18-5a6c-49b6-968e-1e6014d185f2
+      title: jinja variables
+      index: 65
+    - guid: 4bc5fb80-9d53-4014-b192-f1dc78048ecb
+      title: jinja filters
+      index: 66
+    - guid: b2939625-76ae-47c3-9bb6-a54d6c2dc49f
+      title: jinja tests
+      index: 67
+  - title: Ansible template module
+    questions: []
+    slides:
+    - guid: c000a49a-4fcf-453e-9e24-3682acc7da44
+      title: How to use ansible template
+      index: 68
+    - guid: 8ecc507f-9a47-402e-8af9-0b195ea161b7
+      title: Review of the ansible template documentation
+      index: 69
+- guid: 933c7368-43ea-4dac-ae8d-9e9f1e3ff264
+  title: Conditional and Looping Tasks
+  subchapters:
+  - title: Using Variables to Add Intelligence to your playbook
+    questions: []
+    slides:
+    - guid: feb15edb-f280-49e5-b9b0-a7aac0a889d0
+      title: Variables and
+      index: 71
+    - guid: 71548403-8874-4100-9180-e36cf5850350
+      title: Using Complex Variables in Loops
+      index: 72
+    - guid: 1bc59cab-38fc-4925-817a-e7e1300fde79
+      title: Variables and Templates
+      index: 73
+    - guid: f2874c58-ae7d-4139-8453-f0f30a088689
+      title: Using variables in conditions
+      index: 74
+    - guid: 562b4ae8-8cec-4be5-8abd-87042473ffd2
+      title: Blocks
+      index: 75
+    - guid: 3576c2c2-466a-4b65-90a4-2f3d5302dc36
+      title: Prompts
+      index: 76
+  - title: Best practices to set variable values
+    questions: []
+    slides:
+    - guid: 1a88b210-fb3e-4f03-8b82-cfe4f32b2a7f
+      title: Getting variables from the system
+      index: 77
+    - guid: f82b3d73-deda-45be-bf6a-f6e477ce59d6
+      title: Setting variables in playbooks
+      index: 78
+    - guid: e1225dc3-0770-4ab7-877d-500ae1527368
+      title: registered variables
+      index: 79
+    - guid: 392dce12-c83d-4952-ac02-0cce35adbc25
+      title: Getting variables from the command line
+      index: 80
+    - guid: ca504593-59c9-46fb-ade2-ac46a9657a6c
+      title: Where is the best source to derive variables values?
+      index: 81
+- guid: a4cba23b-d4fc-4ce3-9131-a74909939453
+  title: Dynamic Inventory Management
+  subchapters:
+  - title: Options
+    questions: []
+    slides:
+    - guid: 1d8366ec-b1fa-4933-9220-0cd19eb05d4d
+      title: What is Dynamic Inventory?
+      index: 83
+    - guid: baee27a4-5877-41f6-8d30-9a041089230f
+      title: A review of static Inventory Practices
+      index: 84
+    - guid: 6a0c93b9-ab1d-42fd-a72f-ed0d530f60fe
+      title: Using JSON as an Inventory Source
+      index: 85
+    - guid: 1be5e089-3006-4b01-8e23-f19384420a70
+      title: AWS EC2 Example
+      index: 86
+    - guid: e9c488cf-1b8f-499e-ae33-d942015a3492
+      title: OpenStack Example
+      index: 87
+- guid: c2ccf7a0-1fae-4077-b03a-f19052d6221f
+  title: OpenStack Configuration
+  subchapters:
+  - title: Preparing for Ansible OpenStack configuration
+    questions: []
+    slides:
+    - guid: 73651ea5-6abd-4ada-af08-00eb673cd4fd
+      title: Enough OpenStack to Survive
+      index: 89
+    - guid: a6c66900-05aa-4865-b1e8-155a5d942003
+      title: Understanding the OpenStack client
+      index: 90
+    - guid: ed4ac90d-a956-4b50-9fa2-69e18b053a69
+      title: What is shade?
+      index: 91
+    - guid: ffe781dd-f3b2-432d-aa06-cea69875535c
+      title: clouds.yaml
+      index: 92
+    - guid: e227f891-e5f0-4213-9865-c98f2ff5dae3
+      title: Installing shade
+      index: 93
+    - guid: 94d3a0e0-a930-427c-a961-b2e1e9a96212
+      title: Using shade
+      index: 94
+  - title: OpenStack Ansible modules
+    questions: []
+    slides:
+    - guid: 1c94c427-cc24-4fda-9d1e-7d350bf4aba7
+      title: os_network
+      index: 95
+    - guid: a57b86b5-14a0-4327-b732-adcbfde312db
+      title: os_subnet
+      index: 96
+    - guid: cb0df597-48b1-48ae-a72a-455c6e869adf
+      title: os_router
+      index: 97
+    - guid: 66633a1a-53c2-4500-b41a-fc42da449727
+      title: os_server
+      index: 98
+    - guid: 02c6e7d4-a0c7-4086-8ab0-472745a98109
+      title: os_server_action
+      index: 99
+    - guid: d77ff118-4e17-40e3-a7b4-01d9ccaa042e
+      title: os_security_group
+      index: 100
+    - guid: 00f6a5fb-e7f5-45f2-8436-fa85be25757d
+      title: os_security_group_rule
+      index: 101
+- guid: 889a44e7-625e-4b1d-80b4-b76633d68f0f
+  title: napalm-ansible
+  subchapters:
+  - title: Introduction to napalm
+    questions: []
+    slides:
+    - guid: 47f2003b-2f04-490e-95cb-255bd91e6041
+      title: Network Automation Transactions
+      index: 103
+    - guid: 40c21e20-c884-4a82-8e17-0f8738c9f730
+      title: What is NAPALM?
+      index: 104
+    - guid: 4a56b95d-5eeb-42aa-933d-a97cb72ff07f
+      title: How NAPALM works
+      index: 105
+    - guid: 9999135e-4b67-429a-bb9e-d7e2fa897eb9
+      title: napalm installation
+      index: 106
+    - guid: abc49183-963d-44e4-8c95-e495ebd0ed31
+      title: Load/Replace configuration
+      index: 107
+    - guid: d22810b0-d969-4399-9a2c-58014f360c8f
+      title: Network Driver
+      index: 108
+  - title: Managing Network Devices with NAPALM
+    questions: []
+    slides:
+    - guid: d1fbc2f6-6999-4cfd-9958-aad6aef63b75
+      title: Connecting to the Device
+      index: 109
+    - guid: 6e69b483-707b-40b9-b123-5bb331bd4a8f
+      title: Replacing the Configuration
+      index: 110
+    - guid: c2bb4b87-91dd-43c6-9f16-f5ede458c9a0
+      title: Rollback Changes
+      index: 111
+    - guid: c6855a22-a0f4-45db-9019-a7217a771364
+      title: Disconnecting
+      index: 112
+    - guid: 010113d4-39d4-4abd-90c2-98947490b578
+      title: NAPALM Context Manager
+      index: 113
+    - guid: c51c7f24-dd67-4c3f-b60b-1ad00951bdd9
+      title: Extending NAPALM Example
+      index: 114
+  - title: Ansible NAPALM modules
+    questions: []
+    slides:
+    - guid: a8a11e63-a2c6-49df-b690-21265ccdb664
+      title: What is napalm-ansible?
+      index: 115
+    - guid: afa6bf3d-6940-400e-be2d-5b9738766c98
+      title: napalm-ansible Installation
+      index: 116
+    - guid: 86223802-7cf2-4b2c-a6be-d5e828d45887
+      title: napalm_ping
+      index: 117
+    - guid: 54789086-36c1-494e-9b62-9f0b65b5109b
+      title: napalm_get_facts
+      index: 118
+    - guid: 58c31dac-0d6b-42d9-9e31-cf35d5071bdc
+      title: napalm_install_config
+      index: 119
+    - guid: 539490b8-ca62-42a2-a5e8-b9bf0cfdb6ea
+      title: napalm_validate
+      index: 120
+- guid: a3d7af38-feec-4683-89a2-fb14a315de69
+  title: networktocode ntc-ansible
+  subchapters:
+  - title: Introduction to ntc-ansible
+    questions: []
+    slides:
+    - guid: b3788e14-382f-4109-8f72-b0dedebd1d25
+      title: What is ntc-ansible
+      index: 122
+    - guid: 1abcde95-8ea9-4b57-80d7-f768b9c807a2
+      title: TextFSM
+      index: 123
+    - guid: 47770d9f-93c3-4542-8c5d-669f60bcd33b
+      title: Installation
+      index: 124
+    - guid: 6a733455-1d76-4d20-8230-ddb4c1990776
+      title: ntc Modules
+      index: 125
+    - guid: 9c9b864f-f652-43e6-b36c-bfaab05fed51
+      title: Example
+      index: 126
+- guid: f3ed092d-5d2c-420d-a17a-3828ba4aecc8
+  title: Roles
+  subchapters:
+  - title: Options
+    questions: []
+    slides:
+    - guid: 5aede88d-2dcd-4d12-8c57-3ef63d6047e3
+      title: Why we need Ansible Roles
+      index: 128
+    - guid: 07061969-b752-4ad8-a56d-0252fc18f820
+      title: Role Directory Structure
+      index: 129
+    - guid: 02327ee2-e3c7-436d-8e82-4cf0bfdd064b
+      title: Using Roles
+      index: 130
+    - guid: 5dadbaad-a8a2-4fc6-a05b-880e9a16772a
+      title: Role default variables
+      index: 131
+    - guid: 64955d34-f952-411c-9a55-33c6b8835e1f
+      title: Converting a Playbook to a Role
+      index: 132
+- guid: ad30d627-e37e-4f07-8f1d-a65460ddb2ab
+  title: Playbook Best Practices
+  subchapters:
+  - title: Stay Organized!
+    questions: []
+    slides:
+    - guid: 9c26a26d-8744-4275-b5ce-78ad89de6cdc
+      title: Directory Layout
+      index: 134
+    - guid: 5aae7eb9-df46-48ae-8b06-34177123f0af
+      title: Use Dynamic Inventory With Clouds
+      index: 135
+    - guid: bd0cbe4e-1584-4955-97b7-eda5a5dbc94e
+      title: How to Differentiate Staging vs Production
+      index: 136
+    - guid: fbc92453-4bdd-40c3-a909-c93029a6b3b8
+      title: Group And Host Variables
+      index: 137
+    - guid: b1176770-898a-49d2-959c-e296c44534f1
+      title: Top Level Playbooks Are Separated By Server Type
+      index: 138
+    - guid: 8646ae68-8d0a-423e-9ab0-ed76a0ed2b92
+      title: If you must use shell, stay idempotent!
+      index: 139
+    - guid: 2f998376-854b-4ae2-ad69-758e32588de7
+      title: 7 More Best Practices
+      index: 140
+- guid: ca175a9b-fa6b-4dcc-8d9b-c5ef90b7b6b4
+  title: Ansible Tower / AWX Essentials
+  subchapters:
+  - title: Introduction to Ansible Tower
+    questions: []
+    slides:
+    - guid: 515a0721-f53f-477d-8cc8-788ef383985e
+      title: What is Ansible Tower and AWX
+      index: 142

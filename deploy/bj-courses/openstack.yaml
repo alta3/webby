@@ -1,0 +1,1054 @@
+---
+id: openstack
+course-title: Certified OpenStack Administrator (COA) Prep Course
+tags: 
+  -  cloud
+stars: 49
+duration:
+  hours: 35 
+  days: 5
+audience: "Anyone needing detailed understand of cloud computing the OpenStack way. Cloud administrators alike, openstack is one of the most popular and best to learn with." 
+prereqs: 
+  -  none
+postreqs: 
+  -  sdn
+  -  k8s
+testimonials:
+  - quote: "Great course!!!! Instructor is very knowledgeable and gave incredible analogies that helped me get a better understanding of the concepts."
+    stars: 5
+  - quote: "Instructor and his approach to Openstack is the best training I have received this year. Great job!"
+    stars: 5
+video-link: "https://www.youtube.com/embed/bDNXreGUMHk?rel=0;autoplay=1"
+web-url: "https://alta3.com/courses/openstack"
+has-labs: true
+has-videos: true
+has-slides: true
+filename: courses/openstack.json
+price:
+  public:
+    price-tags:
+      - id: priceinfo-public-single-student 
+        description: Face to face training for 1 student
+        price: 800000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+  private:
+    price-tags:
+      - id: priceinfo-private-base8
+        description: face to face training for up to 8 students
+        price: 850000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-private-plus1-to-base8
+        description: Add one additional student base8 
+        price: 50000
+        available: yes
+        includes: 
+         - item : plus1
+           description: Includes same features as base 8
+  self-paced:
+    price-tags:
+      - id: priceinfo-selfpaced-singlestudent 
+        description: Self Paced Training
+        price: 250000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-selfpaced-sixpack
+        description: Package price for six self=paced students
+        price: 500000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+  extend-lms-access:
+    price-tags:
+      - id: priceinfo-extendaccess-lab-one-month
+        description: Extend your lab access for one month
+        price: 5000
+        available: no
+      - id: priceinfo-extendaccess-lab-one-year
+        description: Extend your lab access for one month
+        price: 50000
+        available: no
+  book:
+    price-tags:
+      - id: priceinfo-book-paper 
+        description: Paper Student Manual 
+        price-desc: 
+        price: 850000
+        available: yes
+        includes: 
+        - item: has-video-false
+          description: Does not include video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-book-online 
+        description: Paper Student Manual 
+        price-desc: 
+        price: 450000
+        available: yes
+        includes: 
+        - item : has-video-false
+          description: Does not include video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+overview: Our OpenStack courses offer both hands on and lecture, allowing students to learn OpenStack architecture and operation. Students will examine both front end and back end OpenStack components, revealing the actual OpenStack function at the component level. In addition to a technical review of the architecture, this course teaches practical skills, as you will perform hands on labs to administer an OpenStack datacenter and set up, network, create and delete virtual machines and services. You will learn important DEVOPs skills that illustrate how to fully administer the software defined infrastructure made possible by OpenStack. Important linux skills necessary to perform effective CLI tasks are also taught. All hands-on labs are written to reinforce each lesson, making the concepts clearly understood. 
+chapters:
+- title: OpenStack Architecture Overview
+  subchapters:
+  - title: Alta3 Proof of Concept Deployment
+    slides:
+    - title: Nodes
+      guid: 5ec5d6d9-b8b6-456f-b8e2-683b84fc046a
+    - title: Controller Node
+      guid: 0955fc17-393a-434a-b412-e1df8b7290a8
+    - title: Network Node (Neutron)
+      guid: 2d10431f-bf07-4abc-ab2b-f32dd0f1667f
+    - title: Compute Nodes (Compute)
+      guid: b141253e-c563-4706-b37a-4f128f3c71b3
+    - title: Storage Node
+      guid: 7ecb7b5d-1574-4948-9f12-ea5a0ed055bc
+    - title: OpenStack Deployment Recommendations
+      guid: cd4bdef9-d076-49d3-8508-d0f029fbead2
+  - title: Big Picture
+    slides:
+    - title: OpenStack Big Picture
+      guid: 319fd1ca-3f56-4f37-9620-336ef83b10f5
+    - title: IaaS (Infrastructure as a Service)
+      guid: 821ed2bf-3597-4b7d-a089-029cf2e7b4b4
+    - title: PaaS (Platform as a Service)
+      guid: fa85d3f7-ac2d-4eca-b4c6-3fa41c1a50b2
+    - title: SaaS (Software as a Service)
+      guid: 113df392-ce41-4cfb-9a5a-e355095938d1
+    - title: OpenStack XaaS
+      guid: a62d8144-5b89-4ffb-a41c-2732ca8e3901
+  - title: OpenStack Foundation
+    slides:
+    - title: OpenStack Foundation, Design Summits, and Releases
+      guid: ac62b6a4-a02a-4dbb-95a0-47ec10f07077
+  - title: Versions
+    slides:
+    - title: OpenStack Versions - https://releases.openstack.org/
+      guid: 0c9b9c99-b07d-4db3-84fb-cc3c2b4baeec
+  guid: 3d808ff0-6536-499a-8246-30ea20421926
+- title: Horizon
+  subchapters:
+  - title: Overview
+    slides:
+    - title: OpenStack Services in Detail
+      guid: 227edc4b-efa6-4599-86db-b7c540a2112d
+    - title: Horizon
+      guid: c632c665-f941-44ce-bfed-cc4f7d1c31e1
+  - title: Dashboard
+    slides:
+    - title: Horizon Dashboard
+      guid: 60cfc618-74b8-48c4-8aa5-c7006b2cca67
+    - title: Overview of Domain, Project (Tenant), and User
+      guid: ae37a259-2c4f-456a-965a-440ee35945fd
+    - title: Admin > System > Hypervisors
+      guid: 0f2c8b49-1d96-4053-8d6e-9a6e5819fc98
+    - title: Project > Compute > Overview
+      guid: 5b7ed256-1b4d-4269-971d-d19a68e674cc
+    - title: Identity > Projects
+      guid: f0f3b5da-5f27-4289-bad5-e4b33a3d013d
+    - title: Instances
+      guid: 62fd22fb-8081-410e-a655-47bd236726ec
+  guid: b8f74d1e-55b9-466c-9211-e0df1ad54082
+- title: Managing Guest VMs
+  subchapters:
+  - title: Python Clients
+    slides:
+    - title: IaaS - Horizon & CLI
+      guid: 6370bcf2-d846-423c-9905-3ed4f011b2d5
+    - title: CLI uses OpenStack python-clients
+      guid: 67053073-3fd0-49a4-baef-4f43d8bd6a48
+    - title: The OpenStack python-openstackclient (OSC)
+      guid: 6e6c8864-60c6-41d7-91c4-ea3bb3da13ee
+    - title: Using the CLI python-openstackclient
+      guid: 60846836-4823-4c11-8939-a7b7702c999d
+    - title: Finding a python-openstackclient command at the Linux CLI
+      guid: 6ec286e7-04b4-4864-b71f-11a3fc329c29
+    - title: Common CLI python-openstackclient commands to know…
+      guid: 6bf5d296-b1b3-49f0-8857-1c4a97011d47
+  - title: Lab Access
+    slides:
+    - title: Labs @ https://alta3.com/labs/
+      guid: 6ca41c42-d6aa-4371-9df5-d5fdd2dda6c0
+    - title: Connecting to your remote desktop lab environment
+      guid: d2eb8d41-7ee8-4c31-9a83-ae324ea5bedc
+    - title: Inside your remote desktop lab environment
+      guid: 2999a2a0-8f83-4ea9-b79c-2f142dc25e5f
+    - title: How to drive your remote desktop
+      guid: 4f1274fd-7bf5-40a1-a492-56c87463f903
+  guid: 85c43388-b643-4f9d-a14f-306cfa793e6b
+- title: Hypervisors
+  subchapters:
+  - title: Overview
+    slides:
+    - title: The Virtual Machine Stack
+      guid: 810dde00-2827-41f3-a6fa-1187a06d253b
+    - title: The Old Way without Virtualization
+      guid: 698a26a5-9ca3-41db-aaa3-19df1da0531c
+    - title: Virtualization
+      guid: 0885ef43-afaa-429a-bb0b-8c0f3483dbb6
+    - title: A Snowflake Computer on Bare Metal"One of a kind, each server built by
+        hand on a specific hardware platform"
+      guid: eecf0489-047e-4b7f-b90a-f75d678015d8
+    - title: A Virtualized System installed on a Bare Metal Hypervisor
+      guid: 98ba206f-e1f6-440d-a469-27ab5373dab5
+    - title: The *Top Half* of the Hypervisor
+      guid: 3a4d31df-c1c0-490f-af67-69f3dcafebd3
+    - title: The "Bottom Half" of the Hypervisor
+      guid: 6a4b8cdf-9c88-4907-993b-535e840188fa
+    - title: Why is the Hypervisor shown as an upper and lower portions?
+      guid: c37944b4-1837-483a-b55e-aa3e11db76de
+  - title: Images
+    slides:
+    - title: '"Imaging" the Operating System'
+      guid: 6b3871f9-d741-48e6-a5b2-d578b32d7b1c
+    - title: Imaging our Machine
+      guid: 0b32dbef-362e-48a4-aaeb-57e2dd367809
+  - title: Migration
+    slides:
+    - title: '"Migrating" the Virtual MachineOnly as Fast as the Network'
+      guid: f389d7b4-7469-4773-a9ef-98bdd2036222
+  - title: Compute
+    slides:
+    - title: '"Compute"   The combined processing power of all the compute nodes (servers)'
+      guid: e893d872-1d85-4ba9-ac5e-be23be871561
+    - title: Compute Space ExampleEach server equipped with a Two Socket Motherboard
+      guid: 4d8bee16-26ce-45ad-b105-d0140143fb6b
+    - title: 'Compute Space ExampleEach Dual CPU Motherboard Equipped with Two 18
+        core processors '
+      guid: 91dc5d12-fb1f-470e-83d2-2dbff03b065b
+    - title: Ephemeral Storage
+      guid: 87b379c5-61e9-4181-9985-1b702643e133
+    - title: Install the Hypervisor
+      guid: 5dde5ba9-9381-47ba-a786-bab7aa98382a
+    - title: The Compute Space
+      guid: 22507c0a-45ea-4e85-889f-3bfd8e7cb5b1
+    - title: Resulting Compute Space with just 2 Intel Xeon E5-2699 v3 CPUs
+      guid: a2a6f1eb-0612-4c8a-ada1-1804628b0339
+    - title: Intel's Most Powerful Processor (July 20, 2015)Benchmarks
+      guid: 136476de-3b96-4b6f-9138-9c72d7bd1e70
+    - title: Compute Space ExampleTen Nodes, two CPUs each, 18 cores per CPU
+      guid: 8f9db63a-b464-4a96-8fc4-d955e0bd8634
+  - title: Compute Cloud
+    slides:
+    - title: A "360-Core" Cloud
+      guid: 04c3d1a3-e2ea-460f-a25c-89bc4f8140d8
+    - title: Clouds not Cloud
+      guid: 83f686a8-b9ec-429c-8a19-fb09300dc880
+    - title: Remember we talked about "Migrating?
+      guid: 3e20a396-285a-4ccf-9059-e12b1cc744bc
+    - title: Migrating
+      guid: fc8e2926-7fee-4b7a-835f-67ed88fd6799
+    - title: Instantiation
+      guid: c7f5c202-1e47-4bf4-a419-b67c37c6978e
+    - title: Oversubscribing 16:1 is the OpenStack Default!
+      guid: a0185f2a-4ed1-48d0-a7e7-95ae3ee78572
+  - title: Virtualization Types
+    slides:
+    - title: Virtualization Techniques
+      guid: c843902f-e801-4231-a477-8e7f444c639b
+    - title: x86 CPU Privilege Level - No virtualization
+      guid: c262dc0e-3108-4b3f-9878-a124a1381a94
+    - title: Popek and Goldberg Virtualization Requirements (1974)
+      guid: 7e4fc50d-1b11-400a-a7bf-71b3ccaa1f9f
+    - title: Binary Translation - VMware 1998 x86 Solution
+      guid: 203ab908-fe7f-4648-ae59-f3ed47d57227
+    - title: Para Virtualization
+      guid: 8fa4364d-0871-4ed3-810d-3c1949771d3d
+    - title: Kernel-Only Instructions (No Virtualization)
+      guid: f8a99205-dd4c-4407-9906-732458d1d83c
+    - title: Hardware Assisted Virtualization
+      guid: b4f53f75-d5ef-4ee0-9db6-58cd12075151
+  guid: f538a146-50c9-4aec-822b-1d8056fa1895
+- title: Keystone
+  subchapters:
+  - title: Overview
+    slides:
+    - title: Keystone
+      guid: 4fccde1b-c06e-4a01-94e4-16fc2aaa9471
+  - title: Tokens
+    slides:
+    - title: Token Types - UUID tokens (old) vs PKI tokens (new)
+      guid: d7eef250-b4ba-420e-a8a1-2854cc36ed5f
+  - title: Permissions
+    slides:
+    - title: Projects, Roles, Users & Groups
+      guid: 09029426-7e8f-4e6c-a775-05ac6f90a351
+    - title: How Domains work with Projects, Roles, Users & Groups
+      guid: c2e41c18-3f5e-4708-9284-632eaa3b073a
+    - title: OpenStack Shell Command Permissions
+      guid: 3cf4e444-aa46-4feb-b209-1f392c84fab8
+    - title: Keystone Authentication Message Flow
+      guid: d2dcbd90-5596-462f-b49c-4a04a5e7d7f2
+    - title: How to use curl with the Keystone Identity API http://developer.openstack.org/api-ref-identity-v2.html
+      guid: c23b38b5-508f-4380-a58c-0893256dcb2c
+    - title: Keystone Access - Token and Service Catalog
+      guid: ad7822d6-5bed-4690-9988-ceb2a6807e13
+  guid: f45e9e41-aba7-4ed7-96c0-1681592a50cb
+- title: Nova
+  subchapters:
+  - title: nova-api
+    slides:
+    - title: Nova API
+      guid: eec51562-263c-4145-949f-29e16fa9d422
+  - title: nova-scheduler
+    slides:
+    - title: Nova Scheduler
+      guid: ad0150b2-743c-4df3-b864-0bac930452e6
+  - title: Nova Architecture
+    slides:
+    - title: Nova Cert
+      guid: ca240805-9870-4147-8067-f9b4a9875c6a
+    - title: Nova Compute
+      guid: 8e73211d-c148-4bba-83b8-44367d9c35c1
+    - title: Nova Hypervisor Support
+      guid: d2c379ae-b7b2-43ae-a080-5e6016a5d384
+    - title: Nova Console
+      guid: aeea16fe-e9d7-4aed-8604-a61b421733df
+    - title: Nova Conductor
+      guid: b217a972-1e8c-4e98-99e4-6fdc55dcc499
+    - title: Nova Compute Interfaceshttp://docs.openstack.org/admin-guide-cloud/common/get_started_conceptual_architecture.html#get-started-conceptual-architecture
+      guid: 74c54eac-b314-4989-b75b-b27c34cb137b
+    - title: Nova Componentshttp://docs.openstack.org/admin-guide-cloud/common/get_started_conceptual_architecture.html#get-started-conceptual-architecture
+      guid: 5e16f3ce-dc85-43a9-9be7-c7ca35178bcc
+    - title: Nova Review
+      guid: a3e96771-529a-4961-9201-7fd05192ba3f
+  - title: Management
+    slides:
+    - title: Flavors - Basics
+      guid: 3ddaf13e-afc9-405f-a6f9-59a6ab8161bd
+    - title: Flavors - Extra Specs (advanced)
+      guid: 906ca0ad-85b7-457c-905a-d87c1e828ba6
+  guid: ac5b9e9d-fd67-47d4-9792-e5db2605ee83
+- title: SDN
+  subchapters:
+  - title: Stack
+    slides:
+    - title: Network Functions Virtualization (NFV)Comparing an Ethernet Switch to
+        vSwitch or "Cloud Switch"
+      guid: afe43317-63b3-4007-a3e3-7173d969761c
+    - title: Network Functions Virtualization (NFV)Comparing a Router to vRouter or
+        "Cloud Router"
+      guid: 6c018d19-4f88-43ec-b1a8-3fe698d75cc2
+  - title: Overview
+    slides:
+    - title: Virtualize the Middleboxes
+      guid: 866bc318-157d-45be-b995-4d522937521d
+    - title: 'Goal: All routers share the same pictureThis is NOT easy'
+      guid: ca1c41a4-b02f-45b5-acf7-bf071c9582c7
+    - title: 'Goal: All routers share the same pictureThis is NOT easy - WHY???'
+      guid: c0cfdfc8-29b8-4782-96c9-7679e7b12bb9
+    - title: 'Goal: "Network Omniscience"This is far easier'
+      guid: 1d06adbc-5734-48e5-abc9-bf78cadf7a06
+    - title: 'Goal: "Networking Becomes Software Defined"This is far easier'
+      guid: 439cf3f3-0e90-472e-a4aa-80f5e4560c23
+    - title: The Current State of NetworkingData Plane Abstraction is Excellent!
+      guid: 8c6043c1-c65e-420a-a64c-b5ef3ed5dac9
+    - title: 'The Current State of NetworkingThe Control Plane Abstraction is nonexistent! '
+      guid: d4df0980-8b5d-4ec8-97a4-59b8b2570b24
+    - title: SDN  Déjà vu?  OpenFlow and H.248 Abstraction Similar?
+      guid: 5ffe49cb-0055-49b1-81d3-9ddf6c3dbdf2
+    - title: If H.248 behaved like SDN (OpenFlow)
+      guid: f458186b-e8ba-46fe-b55f-cb07e960a160
+    - title: Defining Software "Abstraction"
+      guid: c5cf9e6e-bda3-4c93-968b-3ed6113815fa
+    - title: Abstracting the NetworkIn a nutshell, here is what SDN does…
+      guid: 3625cdde-e22d-4c57-a8b3-e13c7474fad8
+    - title: 'SDN in a Nutshell#1 - Abstract the Distribution Layer '
+      guid: 9aea3a1a-7fdd-41c4-adfa-aa691f4fbdbd
+    - title: 'SDN in a Nutshell#2 - Abstract Configuration for Each Device '
+      guid: 8395c21a-1bf4-4bab-899c-a471ca46962b
+    - title: Isolating NetworksSlicing is better than this
+      guid: fc0926c1-d884-422c-bd00-e2e2271b27bc
+    - title: 'Yet Another Abstraction: Network SlicingInstant Overlays and Private
+        networks on a Common Network Backbone'
+      guid: 3064248c-8565-4310-b056-ffdd1818550b
+    - title: SDN ArchitectureDeeper Dive
+      guid: 64e09603-a3b3-49a5-b20d-fa906e0bf2db
+  - title: OpenFlow
+    slides:
+    - title: Merchant Silicon Examplehttps://www.broadcom.com/collateral/pb/56850-PB03-R.pdf
+      guid: 489149f4-22e9-4be7-aeaf-486265b39c14
+    - title: 'Requirement: Non blocking at 10 GbpsCustom Silicon - Merchant Silicon
+        - NFV '
+      guid: 416e6ef7-1286-4270-b034-44bb503df32d
+    - title: OpenFlow
+      guid: e8c35cf6-5f4c-4b52-847b-dbdfeeaa47c0
+    - title: OpenFlow ExampleVoice Packet arrives at Port 1
+      guid: b675ed06-f471-472e-bcc8-cb4b5a4875ab
+    - title: OpenFlow ExampleLogical View
+      guid: 68162ce6-f276-4f3d-88a8-17fe912b10e5
+    - title: 'Forwarding an Audio PacketAction #1 and Action #2 (There will be six
+        actions total in this example) '
+      guid: c7bbe209-f4d9-4509-b2c4-97a6a4d37468
+    - title: Destination MAC Address
+      guid: c2817815-e6cf-4913-b3ee-6e9d2be17188
+    - title: Type Field means "An IP header is next"
+      guid: 77047543-35c6-4703-be9e-677ef1f94237
+    - title: IP Source Address Validity Check192.168.10.33
+      guid: cd2564d3-18ad-4d31-bbc8-d7cb47654ed3
+    - title: IP Destination Address192.168.10.32
+      guid: dd1a8781-62a6-46ea-b395-0a4a5b157f8c
+    - title: IP Destination Address192.168.10.32
+      guid: 19a1a6b3-1521-4b7d-b3a2-1e09ca862223
+    - title: Deep Packet Inspection (DPI) "Crossing the Line"
+      guid: 57acdee8-77af-43e7-a645-6121c8b565f8
+    - title: 'The "Really Bad" Stuff is Always BELOW the LineProblem: An ASIC can
+        NOT cross the line but a Virtual Network Function can!'
+      guid: 6d78d7f8-feb5-4888-95cc-261cb246a71e
+    - title: Fabrics are *Really* Fast Just 10 and 40 Gbps links and …
+      guid: 3a043b5b-9c49-427c-9d9f-f1f7a2f90b1b
+  guid: 42e5575d-ce32-4463-9787-b5f6204ec665
+- title: Data Center Fabric
+  subchapters:
+  - title: Overview
+    slides:
+    - title: Classic Hierarchical Network Design
+      guid: c0ab1536-62f7-43a5-9448-f0ab259889bc
+    - title: Classic Hierarchical Network DesignSpanning Tree Protocol turns off lots
+        of links as a safeguard against looping
+      guid: 517379f3-aaf7-43d1-86fd-925f03a55195
+    - title: TRILLTransparent Interconnection of Lots of Links
+      guid: 82bd3d24-4c5b-47f3-93db-be71d045648d
+    - title: 'Path #1'
+      guid: d3a35cc9-1435-4289-9567-aaa42d95a2de
+    - title: 'Path #2'
+      guid: 0f8651dd-5e66-412e-9005-b5f48e6899dc
+    - title: 'Path #3'
+      guid: a0c084b3-f46f-4023-97a7-bb99da0ef729
+    - title: 'Path #4'
+      guid: 0fb6e1a7-1368-476c-9378-8540c284a01c
+    - title: Interfacing NFV with the Fabric
+      guid: 2ccbf9c1-0f74-469c-a7d0-fe4f9c23a632
+  - title: NFV Integration
+    slides:
+    - title: vSwitch
+      guid: 3e1d0ac5-901d-4bbb-8a85-11215425220a
+    - title: Namespace and the "veth"
+      guid: 7b42b212-33eb-497a-8469-1c5f2865848f
+    - title: Heat Makes Clouds RiseAnsible Configures the Cloud Machine
+      guid: 720e8dc1-1014-4712-9d06-6671ec18e36a
+    - title: vSwitch vs Hardware Switch
+      guid: be12ba87-2cd4-45fb-96b0-106d2d362afe
+    - title: Virtual Router
+      guid: aea36f60-4acb-4ec4-a251-d131101967b4
+  guid: c2a162db-eb49-44eb-8b89-84a032a85c07
+- title: OpenStack Networking
+  subchapters:
+  - title: Neutron
+    slides:
+    - title: OpenStack Networking Overview
+      guid: dee23999-aa9e-4ae5-9286-21a769f7309c
+    - title: Agents and Plugins
+      guid: 89229eff-0535-4c9a-a2bd-13117767dd87
+    - title: 3rd Party Agents
+      guid: 7ecae382-c781-4480-95ee-ac186036043e
+  - title: Architecture
+    slides:
+    - title: VLAN
+      guid: d53d40f3-608f-4558-95e7-7bc71f95c6c7
+    - title: VLAN
+      guid: ae49dbdd-6f8b-48d2-839f-3bf8a0662ada
+    - title: Adopting the OpenStack Bridge Names
+      guid: bf13b82f-c3cc-451f-b9ba-0361e6f9dada
+    - title: VXLAN Packet Headers
+      guid: dcb9d475-f62a-42b7-ad7a-bc578fd39fab
+    - title: VXLAN Flow
+      guid: dbe2e30b-4d4a-4b8f-9685-66930d9da268
+    - title: Reuse VLAN IDs
+      guid: f0d65636-8981-43cd-821f-59a5d5e7efcb
+    - title: Adopting the OpenStack Bridge Name
+      guid: 97a2c6ab-313b-4de0-9ab5-4ab64199b74b
+    - title: GRE Packet Headers
+      guid: 0dcb9b7f-c8cf-457e-8f66-2aedad0828cf
+    - title: GRE
+      guid: d27ac176-4566-492b-bc53-a942cb99663f
+    - title: Nova Networking - Flat Mode (Generation 1)
+      guid: 5520116b-9c3e-4570-ad50-534cc9a6de8c
+    - title: Nova Networking - Flat Mode + DHCP (Generation 2)
+      guid: 21ddd368-b326-4e33-9b63-f446709cc0fd
+    - title: Nova Networking - Multi-Host Mode (Generation 3)
+      guid: a7c9b912-8404-409f-aaad-8b3d5f46b511
+    - title: Neutron Networking (Generation 4)
+      guid: f1ac0077-b631-4182-81f8-2dc637dfdebb
+    - title: Neutron Networking Distributed Virtual Router (Generation 5)
+      guid: 1c94b5ff-70f5-44df-8355-b2274213c0a6
+    - title: Compute Node Network OVS Integration
+      guid: 9b3df963-26de-4dd1-b30c-64dc6c9e0e15
+    - title: Compute Node Network OVS Integration
+      guid: 48d087e3-581b-4ae3-993c-057b50189870
+    - title: Neutron Big Picture with Open vSwitch
+      guid: e7145578-7956-4d62-8e9d-6ef2c0397d86
+  - title: Wiring an OpenStack Node
+    slides:
+    - title: How do I Physically wire an OpenStack Node?
+      guid: e0021a6a-35e5-49b4-ac69-b7c875fe68f2
+    - title: 'Step one: Physical Wiring'
+      guid: 76828bcb-983b-4805-9ad6-5d0085c40e50
+    - title: 'Step Two: Bonding (1 of 2)'
+      guid: d670e762-02d6-4b54-9ced-7696319be996
+    - title: Step 2 Bonding (2 of 2)
+      guid: db632141-0522-4859-8b92-36552bf42e38
+    - title: Step 3 VLAN (1 of 4)
+      guid: 46d4862e-0048-4555-a75d-6ec677ee117e
+    - title: 'Step 3: VLAN (2 of 4)'
+      guid: eb9df653-cf8a-4d5d-8f05-1d93cc25608c
+    - title: 'Step 3: VLAN (3 of 4)'
+      guid: ace96f35-d9fe-4b91-99a8-4623f7392edd
+    - title: 'Step 3: VLAN (4 of 4)'
+      guid: c56b6f76-d432-42da-bbc8-eda59c7a86c7
+    - title: 'Step 4: Network Function Virtualization'
+      guid: 041c29ad-44cb-4a61-901c-d384805e6a7c
+    - title: 'Step 5: Tie it all together in a single diagram'
+      guid: 11ef6edd-fe70-424f-bfea-5ff644f569a2
+  - title: OpenStack Network Function Virtualization
+    slides:
+    - title: Network Function Virtualization
+      guid: 9435ccbd-7d5b-4e62-bde6-d0785079c88d
+    - title: 8 Network Function Virtualization Components
+      guid: dc323c4a-56eb-4272-a823-baede4696650
+    - title: Why Two Bridges?
+      guid: cf1e217f-ac66-48e7-968a-68642b3a8669
+    - title: Simple NFV (Network Function Virtualization) Example
+      guid: 7eefba8a-f66a-4861-9ba2-85e9b0343ddb
+    - title: OVS-based openstack "wiring"
+      guid: 7655238c-5269-4038-853a-2688e8b05981
+  - title: Provider vs Tenant Networks
+    slides:
+    - title: Provider vs. Tenant Networks
+      guid: 2309d932-df65-45a5-b3f8-5e033b805a0f
+    - title: Tenant Networking Exam
+      guid: 28228288-1441-454e-a103-f46562d0f02f
+    - title: Tenant Network Example (1 of 4)
+      guid: 1699c3ed-95f5-40e6-9bd4-00df82e8b52c
+    - title: Tenant Network Example (2 of 4)
+      guid: b7c1a615-d2f3-4faf-b8f4-5fe70b5d49a6
+    - title: Tenant Network Example (3 of 4)
+      guid: 9c7a513b-f34c-456a-acdb-f571f0edceed
+    - title: Tenant Network Example (4 of 4)
+      guid: bb10c969-06dd-413d-aa06-a24da2e85cea
+    - title: Provider Networks
+      guid: d76c4c02-9478-4321-95c6-2240c18f0885
+    - title: NFV Provider Network "wiring"
+      guid: c9e17a32-6245-4f75-a18d-2dae6d574904
+    - title: OVS-based openstack "wiring"
+      guid: 47100c78-e80f-4fc5-ae0e-4b34e08c8eb0
+    - title: Connecting directly to the Provider Network
+      guid: 6a86d9ea-f862-4d0c-93d3-8c031504667e
+  - title: Configuring Neutron
+    slides:
+    - title: Configuring Neutron
+      guid: 3e813531-3852-415b-bd85-cc9b550fa6b6
+    - title: Creating an OpenStack Provider Network from Neutron to NFV
+      guid: ab60a050-f162-40a2-a557-54b56c4cbb36
+    - title: The neutron command structure
+      guid: 6a2eb3c7-4ea1-4eb8-a748-f9309c2967c1
+    - title: 'The ml2_conf.ini file '
+      guid: f06bc863-7650-452d-b486-4ab972c22341
+    - title: openvswitch_agent.ini file
+      guid: 505b565f-b400-4ef3-ac5a-3ae7add5677c
+    - title: Attaching OpenStack to Network Function Virtualization
+      guid: b0c02a90-bfb3-45fb-bf91-2a8c316f42b6
+    - title: Neutron Plugins
+      guid: 4ac3c23d-a8ed-4fcc-be54-c69ff6556efb
+  - title: VMDq and SR-IOV
+    slides:
+    - title: Traditional VM Ethernet Processing
+      guid: 96b200ea-b35e-4c39-b62a-81be1e10adca
+    - title: Intel VMDq (Virtual Machine Device Queues)
+      guid: e568c4bc-1618-4cd3-ae8c-182d659037d7
+    - title: Intel SR-IOV (Single Root IO Virtualization)
+      guid: aa37e8ff-11d2-4540-95ba-62712c4994df
+  guid: 0e6c629f-905d-4747-9b24-56ea8da0336b
+- title: Glance
+  subchapters:
+  - title: Architecture
+    slides:
+    - title: Glance
+      guid: be93fb8c-5cec-4f4d-9662-542a504cabdb
+    - title: Basic Architecture
+      guid: 28dcbb97-d52d-4ac6-8698-c0d7529f964d
+    - title: Glance Command Line
+      guid: c812db1e-cf22-4871-ad7c-acc3ef66f242
+  - title: Image
+    slides:
+    - title: Container Format
+      guid: f17cb97c-2d47-40de-a4e9-888e04109136
+    - title: Disk Format
+      guid: f7fc007f-5496-4136-bd0b-deb3bdad6828
+    - title: Common Image Properties
+      guid: 4230d2d6-2e5e-46cb-98ce-01aaf700f85a
+    - title: Metadata Definition Catalog (Juno tries to herd the cats)
+      guid: 64ac690c-4744-4b88-8e32-cbf0a14828b6
+  guid: c933545b-33d7-49d7-b1f3-76a439183ef2
+- title: Swift
+  subchapters:
+  - title: Overview
+    slides:
+    - title: Swift
+      guid: 2a7cb9b5-25e1-44d3-a4a8-d943dbbf1b34
+    - title: Block vs Object Storage
+      guid: 43625d70-95af-462e-be5a-8002de7e4edf
+    - title: Object Storage Examples
+      guid: cf98b3b3-79db-4cc1-879b-81b1bcb63773
+    - title: Defining an Object
+      guid: b8aefa3a-2319-451f-a7f5-9828e1d2b071
+    - title: HTTP RESTful API
+      guid: ddc430c3-abce-40bc-a982-a0420606aae7
+  - title: Working with Swift
+    slides:
+    - title: Analyzing the Swift URL
+      guid: d8ce630c-a76a-4f94-bb1d-378a2ba278bd
+    - title: Data Types
+      guid: 34a70550-e01a-4730-a883-3f4954db5ef0
+    - title: 'Comparing Storage Types: Object, File, Block'
+      guid: 65b6f6a2-bea5-4fa5-a7b1-1369a6a06d86
+    - title: Consistency vs Availability Example
+      guid: fdb19de6-1686-4c46-a17b-0f23a455497d
+    - title: Saving a Swift Object
+      guid: 002d9a3d-8d3d-4149-84c7-e61072d75789
+    - title: 'Immutable Cluster Sizing '
+      guid: 22b6918c-4152-46c6-904d-039b433fcde3
+    - title: Calculating part_power
+      guid: 124c8a61-00bc-41d8-8bad-175f6d553507
+    - title: The Swift Proxy
+      guid: e6605597-bb60-4893-b862-34954a857bdb
+    - title: Multiple Swift Proxies and Load Balancing
+      guid: aec06e30-2c9c-41ee-ac32-ab0b5845ace5
+    - title: Swift Enhanced Consistent Hashing Ring
+      guid: 5b81e835-fab5-4f13-8b41-29f3ad174edf
+    - title: Durability with MD5 Metadata
+      guid: 3a63fe3f-d3da-4773-8ace-65ffe51409ec
+    - title: Durability with Replication
+      guid: aee1843d-1039-4416-9bde-e96e08300dbf
+    - title: Swift Background Auditor
+      guid: 23b66bb2-5c47-4bda-9214-b386c66bda0f
+    - title: Background Replicator
+      guid: 32d27c39-3061-476f-afc8-3efd2edfcac7
+    - title: Enhanced Consistent Hashing Ring
+      guid: 07bda9f6-1d9a-41a2-8bb1-b8195231f055
+    - title: Comparing Swift and Ceph
+      guid: cf8c3e23-c0f7-4710-8154-6580439a5293
+    - title: Swift Regions
+      guid: 6ef62199-8025-4919-a4b5-c8d4de115611
+    - title: How Ceph and Swift fit in OpenStack
+      guid: 63316ef5-2cf9-4108-97bc-29da4937f669
+  guid: fdccbfc3-b435-4022-828e-b6a9da9d18e3
+- title: Ceph
+  subchapters:
+  - title: Overview
+    slides:
+    - title: Storage Node - Ceph
+      guid: 9048b217-371a-4971-9692-9265cea1345d
+    - title: Ceph Advantages
+      guid: f831fac8-4249-4c56-aa5c-dcff59b65824
+    - title: RADOS
+      guid: 1fa27b17-2bae-481d-81ce-bc886d608c38
+    - title: Ceph Architecture
+      guid: 8836cc6a-5d60-4559-bc1d-fd75e9439a71
+    - title: Building Ceph Storage Nodes
+      guid: cf83624e-3cee-4a67-b47c-7089deb591bf
+  - title: OSD
+    slides:
+    - title: OSD (Object Storage Daemons)
+      guid: 06f46f88-3820-47f5-ad6a-f37e8d02800b
+    - title: Building  Ceph Cluster for Geographic Disparity
+      guid: 095df081-e23d-4628-8b92-11d74e056b0f
+    - title: Configuration to Prepare and Mount the Storage Devices to be Used with
+        Ceph
+      guid: 789fe440-80b4-4203-a7c7-37cd6c76de8c
+    - title: 'Prepare and Mount the Storage Devices to be Used with Ceph '
+      guid: 3a585f5c-b849-4e67-bad6-b16befdb88a0
+  - title: CRUSH
+    slides:
+    - title: Introduction to the CRUSH Map
+      guid: b8b9754f-7648-44ab-bf47-bd2eee8125ca
+    - title: The Ceph Monitors
+      guid: 90108756-ceb5-4b74-b555-3c5d9b0f8db0
+    - title: CRUSH Advantages over Other Forms of Data Mapping
+      guid: 45442a45-5f16-4986-9992-9ddeeb855380
+    - title: CRUSH Rules
+      guid: d6814dbd-e056-4b1a-a914-43c5ebfef631
+  - title: Replication
+    slides:
+    - title: Data Storage and OSD Replication
+      guid: fe48103e-3dd5-412b-939f-7872267366fa
+    - title: Data Storage and OSD Replication
+      guid: d63a0eef-aa17-490f-9bdd-c44f26fcf70d
+  - title: Durability
+    slides:
+    - title: Handing OSD Failures or other Topography Changes
+      guid: cf02c97a-07bc-40a3-b3d1-3b0ef2d42229
+  - title: Durability
+    slides:
+    - title: How to Recover from a Ceph SSH Configuration Error
+      guid: 27f46468-6e87-4cba-935c-17a696dd97f0
+  - title: Analyzing the Log Files
+    slides:
+    - title: Ceph - Troubleshooting the Logs
+      guid: 5db0b4a9-876a-4607-bb4b-f73990fc674f
+    - title: Crush Map from Ceph Lab
+      guid: b1e50a2b-8162-45e4-bc48-6f169dfd237d
+  - title: Analyzing the Log Files
+    slides:
+    - title: " Storage Node Log: cat /var/log/ceph/cat ceph-osd.0.log"
+      guid: 624ce692-e211-4a28-90f6-a9d5aee1d904
+  - title: Analyzing the Log Files
+    slides:
+    - title: Ceph Log /var/log/ceph/ceph.audit.log
+      guid: 5c59f0cc-864e-4386-bfb4-cef17f8dde62
+    - title: Ceph Log /var/log/ceph/ceph.audit.log
+      guid: ac651344-8aad-4f6b-aa3b-00624262dcad
+  - title: Durability
+    slides:
+    - title: Watch Cluster Activity in Real-time with ceph -w
+      guid: cee3c1a9-2263-4bac-a763-f41d6c1620ea
+  - title: Durability
+    slides:
+    - title: Erasure Coding Defined
+      guid: b1f4b311-1ecb-4314-9488-d45f340c7e90
+  - title: Deployment
+    slides:
+    - title: Performance Rules of thumb
+      guid: 2298ce1b-670c-4cf1-9caf-20695fb2db28
+    - title: Ceph Deployment
+      guid: ae0aa705-dd8c-4c82-af7a-cc2d0f1a3534
+  guid: 69a02643-1250-4305-8ae3-496538ef2320
+- title: Cinder
+  subchapters:
+  - title: Overview
+    slides:
+    - title: Cinder
+      guid: 24bf0c0e-617a-47f0-ac0c-295d38fe54e0
+    - title: Knowledge Check
+      guid: 9cca41d1-a89a-4099-b6f2-67cf6c7b718b
+    - title: Block - File - Object
+      guid: 4798a6ee-0600-4416-ab6d-d6c188a4ef4d
+    - title: The Linux Posix Filesystem Hierarchy
+      guid: fdb31354-b3b2-4c37-8fda-d5265525aea7
+    - title: Cinder Components
+      guid: b0ef2d1d-9477-4eb4-8dfe-90fc629546c1
+    - title: Cinder Volume
+      guid: 592fc421-de13-4630-82de-21a198200c6b
+    - title: Cinder Snapshot
+      guid: 1d9f7be1-4539-4930-9e5a-69a7078b7813
+  - title: Architecture
+    slides:
+    - title: Cinder Backend
+      guid: 63a1fb8e-6e3d-460a-ac52-94af167099cd
+    - title: Cinder Driver
+      guid: fd0139ec-7b89-4d68-bc4a-6073fd2ebb69
+    - title: Cinder Volume Type
+      guid: 908e3c75-8629-42ff-bfa3-85240649dc79
+    - title: Cinder Processes (1 of 2)
+      guid: f3eb89c7-c85c-4954-834b-01b208739967
+    - title: Cinder Processes (2 of 2)
+      guid: 7969aa6f-0c23-4837-815d-661e2ca9de49
+    - title: iSCSI
+      guid: fff230d2-947a-41b3-a0ec-ad4dfff4c5f6
+    - title: NFS
+      guid: 581f0835-828f-494c-8d3c-bdafbf8b7242
+    - title: Volume Attach Workflow
+      guid: 795c95ee-97b1-4cf6-a392-a46d307c33d7
+    - title: Volume Attach Workflow
+      guid: 862f3671-67ed-48c4-b36a-f7652ba92d03
+  guid: e79d1673-9aa8-44e3-b9ae-86a00908c42c
+- title: Ceilometer
+  subchapters:
+  - title: Overview
+    slides:
+    - title: Ceilometer - Telemetry
+      guid: 1804503c-6f62-4cb8-ae6c-3dcde7244258
+    - title: Metering Primer
+      guid: 417e697b-f619-48cf-ab38-39487a59654e
+    - title: Metering
+      guid: 3b2d2624-9c9b-407e-891e-ddc666acc40f
+    - title: 'Metering: Network'
+      guid: a677beff-d264-4af1-8f1e-99c003577ec8
+  - title: Architecture
+    slides:
+    - title: Notification
+      guid: 992ef48b-0c48-4d9d-a089-facbe5c569ac
+    - title: Polling - Agent
+      guid: 0cc9231d-002f-4c3c-b111-c866d5485668
+    - title: Data Collector
+      guid: c6a44eff-7635-46ec-9268-acd8cc22165a
+    - title: Ceilometer Architecture
+      guid: 00ec87b0-5206-439b-ae4c-7a966b0f767d
+  - title: Overview
+    slides:
+    - title: 'OpenStack Telemetry: It is more than just Ceilometer!'
+      guid: f7900247-477e-4b01-82b4-cd8485e3ef63
+  guid: 15cf4730-4372-49c3-8dc0-e0d928551f97
+- title: AMQP
+  subchapters:
+  - title: Overview
+    slides:
+    - title: How AMQP Fits with Similar Messaging Protocols.
+      guid: b3e42212-111f-4770-ad74-06cdca48a8d1
+    - title: AMQP in a Nutshell
+      guid: 26fa67d5-9c35-4d64-b933-ce98e5c29c22
+  - title: Message Delivery Options
+    slides:
+    - title: Direct Exchange
+      guid: 6b65ca0c-ec90-477a-9fe2-0ece07e9c3c7
+    - title: Fanout
+      guid: f30c85e0-01df-4238-b4e3-c1f4e3c74b8c
+    - title: Topic Exchange
+      guid: 9e9874c8-1698-4dcc-8b18-8cf7e880254f
+  - title: Subscribe and Publish
+    slides:
+    - title: Subscribe and Publish
+      guid: d544f52d-344a-40cd-aaee-68f2de5f3296
+    - title: Subscribe and Publish Message Flow
+      guid: d3c41e96-9a3a-4bea-ad7b-7a64b0b966a5
+    - title: Embedding RPC in RabbitMQ Messages
+      guid: f6c235b8-e135-4618-bdd5-cebdcac7f2b2
+    - title: Nova Messaging Service AMQP example
+      guid: 73a74578-f6b9-41df-bea9-67b70f9162fb
+  - title: MQ Alternatives
+    slides:
+    - title: RabbitMQ and zeroMQ
+      guid: 1e9e663f-020c-4e61-b785-4475e1caf5a9
+  guid: 7b1e8dab-c4e3-44bf-ac56-ab07ac539b26
+- title: Other Services
+  subchapters:
+  - title: NTP
+    slides:
+    - title: Network Time Protocol (NTP)
+      guid: 2b59450a-ae96-4057-9755-357f934b8738
+  - title: Trove
+    slides:
+    - title: Trove Database Manager
+      guid: e5b8e88f-4d26-4dcc-a32a-ab75eacdc1a5
+    - title: Trove - Database Service
+      guid: b5baf7ac-ae0c-47f7-b7ad-fcc6b7c6359e
+    - title: Trove - Database Service
+      guid: e520a8f2-62df-460a-897f-1767d4ae9ece
+    - title: Trove Architecture
+      guid: e4f0d61f-e382-4df3-bba2-121c7bc42e77
+  - title: OSLO
+    slides:
+    - title: OSLO - OpenStack Common Libraries
+      guid: a4bb776f-8d36-434b-bcbe-858c2d99f180
+  - title: MySQL
+    slides:
+    - title: Central DB - These Databases Define Your Cloud! (A unified DB)
+      guid: 503d7bfe-70f7-49a4-acb6-bb17179f6aa8
+  - title: Tempest
+    slides:
+    - title: Introduction to Tempest
+      guid: e8513870-ce4c-4167-9f49-c584cdd5b5db
+    - title: Introduction to Tempest
+      guid: 12e07e5e-d3f2-4e78-b149-807cfef68272
+  - title: Tempest
+    slides:
+    - title: Tempest Capabilites
+      guid: 12a4024b-13e6-4665-be2f-e92402d1e02f
+    - title: Python Versionssd
+      guid: 4d03cbb1-2f78-4b6a-87a5-f864ce31c955
+  - title: Review
+    slides:
+    - title: Knowledge Check
+      guid: 4f5dfb98-77d4-4091-a1cb-1410b49866b0
+  guid: eeb96797-1ab1-4ba0-af52-8d4cec29fdeb
+- title: Git Essentials
+  subchapters:
+  - title: Setting up the repository
+    slides:
+    - title: Why OpenStack users should know Git and GitHub
+      guid: 52b0ee1b-3590-4477-9543-5bb38372b857
+    - title: Git repo-to-repo collaboration
+      guid: d37dd8a7-6317-41f7-bb35-1652ac8983bf
+    - title: 'Git usage: git clone <repo> <directory>'
+      guid: 10ce7dad-d689-46cb-9e57-fd4c444e4fce
+    - title: 'Git usage: git init --bare <directory>'
+      guid: 5192dd13-b441-41ad-a79a-b2956c8f1cde
+    - title: 'Git usage: git config --global'
+      guid: f5836dbc-cb50-40db-954c-cff5567b9a22
+  - title: Saving changes
+    slides:
+    - title: 'Git usage: git add <file>         git reset <file>'
+      guid: 888839c1-a704-438d-b718-4fa4f1fdcc81
+    - title: 'Git usage: git commit -m "<message>"'
+      guid: 07af539f-5564-466f-9cf6-1ef9ba1d51c0
+    - title: 'Git usage: git push <remote> <branch>'
+      guid: 3783fa79-0095-4cfe-bd96-89ec97d17466
+    - title: Git saves files not deltas
+      guid: e9563498-ff20-4b13-8df1-068354c9da31
+    - title: 'Git usage: git status'
+      guid: 6690a722-ce65-47ae-a2fd-16081a78f399
+    - title: 'Git usage: git log --oneline'
+      guid: 064d1944-764f-47a7-bf8c-ed3f3d7abeca
+    - title: 'Git usage: git checkout <commit || master>'
+      guid: 12f1f7ad-700c-45da-a0f5-c653902d23f9
+  - title: Collaboration
+    slides:
+    - title: 'Git usage: git remote <add || rm> <name> <url>'
+      guid: 474a20f9-93df-41fb-90ce-03ba9f972ed0
+    - title: 'Git usage: git branch <branch>'
+      guid: c8a7d782-eb0b-4084-9a04-d8789e24bac5
+    - title: 'Git usage: git pull --rebase <remote>'
+      guid: cd69bdec-b815-49c4-ac80-698698f60143
+    - title: GitHub is git + social
+      guid: 0821f1a8-a34b-49d8-acb2-31abf67100cc
+  guid: c3e14b04-ded0-4186-896f-18076deec181
+- title: Cloud Automation
+  subchapters:
+  - title: Overview
+    slides:
+    - title: You've got VMs! Now what?
+      guid: 98acbcf9-a91e-471a-8637-b242d47ff493
+    - title: Configuration Management
+      guid: 94a0f064-b20a-4b26-a0af-158749f1700d
+    - title: 'AutomationMeet the "Cooks" and "Head Waiter" '
+      guid: 9048a4db-36f8-4b12-bb5f-8e5611f1f555
+  - title: Config Mgmt Tools
+    slides:
+    - title: Puppet
+      guid: aa8d4b02-b5c4-4f73-8888-72a4ff9f4920
+    - title: Chef
+      guid: 120b2507-d132-41f9-9370-c9f9fe7a2ea6
+    - title: Ansible
+      guid: 236bd2c1-b2a8-4763-96d4-d7d60f00f8b9
+  - title: Ansible Details
+    slides:
+    - title: Ansible Hosts
+      guid: c7660ee3-62e9-4c3c-87b2-ca9afc798ef0
+  - title: Ansible Details
+    slides:
+    - title: Ansible Hosts
+      guid: 4c3107dc-0837-481e-8df3-3235cc85b7c7
+    - title: Ansible Playbook - YAML (Yet Another Markup Language)
+      guid: 335e51bc-9cb8-4bc3-b89e-c95e98f60146
+    - title: Ansible Playbook - Running
+      guid: 62dd1bd7-fcbc-45ea-9c69-e90e99d83e2d
+  - title: Ansible Details
+    slides:
+    - title: Ansible Playbook - Running (2)
+      guid: 6138ae91-69ed-49e9-927e-fb7152243e68
+  - title: Ansible Details
+    slides:
+    - title: Ansible Playbook
+      guid: 5229017f-7326-4ccf-b431-b6b78db5d48b
+  - title: Heat
+    slides:
+    - title: Heat - Orchestration
+      guid: e5daf4b1-7a62-4beb-80c6-0ca911763716
+    - title: Heat Architecture
+      guid: c34f2cf8-865a-414e-8d5b-5d531332c465
+    - title: Heat Orchestration Template Structure
+      guid: 032e838f-bfaf-4b72-b780-786398c9e281
+    - title: Template Syntax
+      guid: 9870266a-e7f6-46f8-b703-10d94f8aae05
+  - title: Ironic
+    slides:
+    - title: OpenStack Ironic
+      guid: b4b39b60-b977-4752-8224-854082705383
+    - title: OpenStack Ironic
+      guid: 8bbc6a03-8b5c-4f13-a76f-b144c9638095
+  guid: 3aece59e-a791-41d3-969e-aa1ad0c17f1f
+- title: HA
+  subchapters:
+  - title: OpenStack Vulnerability
+    slides:
+    - title: 'Vulnerability Assessment: #1 Databases (STATEFUL)'
+      guid: 7da2f84d-ef73-4d73-a168-790bd3f4983b
+    - title: 'Vulnerability Assessment: #2 Networking'
+      guid: bedff048-040b-4697-ae1d-b5229458741d
+    - title: 'Vulnerability Assessment: #3 Stateful Services'
+      guid: 72b48a0a-5ca5-42e0-b677-f4acdbbed874
+    - title: 'Vulnerability Assessment: #4 The Stateless Services (Everything Else)'
+      guid: 8483865a-11c4-488d-8ee5-b8598b909ef7
+  - title: Planning
+    slides:
+    - title: 'HA Design Follows RPO and RTO  '
+      guid: a1a2f21d-090d-452b-abcb-087f60d2e397
+    - title: Stateful vs Stateless
+      guid: 01c915ad-02be-4702-aea2-8ff75eab1091
+    - title: Failover, Fallback, and Switchover
+      guid: 76ebeccc-6bb1-4050-bc6d-49f80f92c836
+    - title: Active/Passive vs Active/Active
+      guid: 75a19314-50b0-417d-a033-16655a856377
+    - title: HA Options by Vendor
+      guid: 5ec7d00b-2cee-40c8-b394-a179c9b9d521
+  - title: Methods
+    slides:
+    - title: Keepalived and HAProxy (keep alive' dee)
+      guid: 45280ee6-370d-4115-ba19-ebf7e9b7a0f2
+    - title: VRRP Virtual Router Redundancy Protocol - RFC 3768
+      guid: 4b22b250-00b2-4374-8aa7-3e11d53ddc10
+    - title: Native Cluster
+      guid: 61cb0183-336d-4ca4-a830-293e497ebc51
+    - title: Pacemaker
+      guid: b8b9faa9-4e9b-4f6a-b7fa-8203e1183b39
+    - title: 'Totem '
+      guid: ea3adf09-e091-4013-b051-e7a10d7b8897
+    - title: Resource Agents
+      guid: 1b62d925-7b4f-49b6-a72d-6ec91c072b15
+    - title: Corosync
+      guid: 507ed5d2-df0a-4cb9-a0ab-3ff68359a2fe
+    - title: Distributed Replicated Block Device (DRBD)
+      guid: c6f5ccc1-25c9-42f7-aa34-f23a8529f972
+    - title: Galera - Write Set Replication (WSREP)
+      guid: 5c8d7073-00e7-47dd-98a6-3a89b82a01dd
+    - title: 'Galera - Deadlock '
+      guid: ed16eae9-135d-420b-b1b7-a0810534a320
+    - title: 'MySQL Cluster Replication: Multi-master and Circular Replication'
+      guid: aac2a438-1487-466a-bd14-15b783124547
+    - title: RabbitMQ HA
+      guid: e8a9c3c1-9b9f-4ab8-a7f8-16cbfd2c01a1
+    - title: MySQL HA using Pacemaker, Corosync, and DRBD
+      guid: 8b7209dd-c147-41e1-891a-56aacab062eb
+    - title: HA for MySQL
+      guid: 4e4fdf6e-ad17-4914-a159-5afd247d8e61
+  - title: Planning
+    slides:
+    - title: Hypervisor Evacuation
+      guid: 5a56aff9-7ee1-4181-8052-79594e20f339
+  guid: f5fa64f6-fbd4-4c6b-8ad8-3de7fb920e17
+- title: Cloud Security
+  subchapters:
+  - title: Overview
+    slides:
+    - title: Keystone Identity Manager (1 of 2)
+      guid: 86972bf7-dc74-43c9-9872-533744519f49
+    - title: Keystone Identity Manager (2 of 2)
+      guid: 9bc916f5-f85f-4566-a49c-275170c3585a
+    - title: Keystone Authentication
+      guid: 00bcfa0d-f978-49f1-9c7e-8d01a355bffd
+    - title: Securing APIs
+      guid: 11d84d98-942c-4031-adc2-e4daff5a11b4
+    - title: 'Security groups: iptables and Linux bridges'
+      guid: 007df67b-a5ce-42d8-a3f1-dae17ebfe04b
+
+
