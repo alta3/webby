@@ -18,7 +18,7 @@ testimonials:
     stars: 50
   - quote: "Instructor is wonderful and very knowledgeable and made the class very enjoyable. Labs worked well and were very interesting."
     stars: 50
-video-link: "https://www.youtube.com/embed/ZDwkus-0A3I?rel=0;autoplay=1"
+video-link: "https://www.youtube.com/embed/ZDwkus-0A3I"
 web-url: "https://alta3.com/courses/ansible"
 has-labs: false
 has-videos: true

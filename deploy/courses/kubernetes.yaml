@@ -18,7 +18,7 @@ testimonials:
     stars: 5
   - quote: "Good course. Maybe I will take the ceph course next."
     stars: 5
-    video-link: "https://www.youtube.com/embed/FKOVrWJAJSE?rel=0;autoplay=1"
+video-link: "https://www.youtube.com/embed/FKOVrWJAJSE"
 web-url: "https://alta3.com/courses/kubernetes"
 has-labs: true
 has-videos: true

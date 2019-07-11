@@ -18,7 +18,7 @@ testimonials:
     stars: 5
   - quote: "Instructor and his approach to Openstack is the best training I have received this year. Great job!"
     stars: 5
-video-link: "https://www.youtube.com/embed/bDNXreGUMHk?rel=0;autoplay=1"
+video-link: "https://www.youtube.com/embed/bDNXreGUMHk"
 web-url: "https://alta3.com/courses/openstack"
 has-labs: true
 has-videos: true

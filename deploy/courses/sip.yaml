@@ -19,7 +19,7 @@ testimonials:
     stars: 5
   - quote: "This course killed 2 birds with one stone - I got to learn SIP and Wireshark at the same time. Great job!" 
     stars: 5
-video-link: "https://www.youtube.com/embed/RWggp5zHop8?rel=0;autoplay=1"
+video-link: "https://www.youtube.com/embed/RWggp5zHop8"
 web-url: "https://alta3.com/courses/sip"
 has-labs: true
 has-videos: true
