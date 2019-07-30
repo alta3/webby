@@ -15,7 +15,7 @@ type Include struct {
 
 type PriceTag struct {
   Id            string          `json:"id"`
-  price         int             `json:"price"`
+  Price         int             `json:"price"`
   Available     bool            `json:"available"`
   Description   string          `json:"description"`
   Includes      []Include       `json:"includes"`

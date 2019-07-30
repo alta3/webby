@@ -29,7 +29,7 @@ price:
     price-tags:
       - id: priceinfo-public-single-student 
         description: Face to face training for 1 student
-        price: 800000
+        price: 179500
         available: yes
         includes: 
         - item : has-video-true

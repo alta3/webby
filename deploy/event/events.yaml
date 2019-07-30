@@ -7,6 +7,7 @@ Events:
   startdate: '2019-05-20'
   enddate: '2019-05-24'
   courseid: pyb
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -17,6 +18,7 @@ Events:
   startdate: '2019-06-03'
   enddate: '2019-06-07'
   courseid: sip
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -27,6 +29,7 @@ Events:
   startdate: '2019-06-12'
   enddate: '2019-06-12'
   courseid: 5g
+  price: 0
   image: 
   location: Free Webinar
 
@@ -37,6 +40,7 @@ Events:
   startdate: '2019-06-17'
   enddate: '2019-06-21'
   courseid: rhel
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -47,6 +51,7 @@ Events:
   startdate: '2019-06-24'
   enddate: '2019-06-28'
   courseid: pyb
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -57,6 +62,7 @@ Events:
   startdate: '2019-07-08'
   enddate: '2019-07-12'
   courseid: volte
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -67,6 +73,7 @@ Events:
   startdate: '2019-07-10'
   enddate: '2019-07-10'
   courseid: rhel
+  price: 0
   image: 
   location: Free Webinar
 
@@ -77,6 +84,7 @@ Events:
   startdate: '2019-07-22'
   enddate: '2019-07-26'
   courseid: ceph
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -87,6 +95,7 @@ Events:
   startdate: '2019-08-05'
   enddate: '2019-08-09'
   courseid: rhel
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -97,6 +106,7 @@ Events:
   startdate: '2019-08-12'
   enddate: '2019-08-16'
   courseid: sip
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -107,6 +117,7 @@ Events:
   startdate: '2019-08-14'
   enddate: '2019-08-14'
   courseid: kubernetes
+  price: 0
   image: 
   location: Free Webinar
 
@@ -117,6 +128,7 @@ Events:
   startdate: '2019-08-26'
   enddate: '2019-08-29'
   courseid: kubernetes
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -127,6 +139,7 @@ Events:
   startdate: '2019-09-09'
   enddate: '2019-00-13'
   courseid: sdn
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -137,6 +150,7 @@ Events:
   startdate: '2019-09-12'
   enddate: '2019-09-12'
   courseid: pyb
+  price: 0
   image: 
   location: Free Webinar
 
@@ -147,6 +161,7 @@ Events:
   startdate: '2019-09-23'
   enddate: '2019-09-27'
   courseid: pyfna
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -157,6 +172,7 @@ Events:
   startdate: '2019-09-30'
   enddate: '2019-10-04'
   courseid: sip
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -167,6 +183,7 @@ Events:
   startdate: '2019-10-17'
   enddate: '2019-10-17'
   courseid: ansible
+  price: 0
   image: 
   location: Free Webinar
 
@@ -177,6 +194,7 @@ Events:
   startdate: '2019-11-04'
   enddate: '2019-11-08'
   courseid: ansible
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -187,6 +205,7 @@ Events:
   startdate: '2019-11-18'
   enddate: '2019-11-22'
   courseid: kubernetes
+  price: 0
   image: 
   location: Online - LIVE
 
@@ -197,6 +216,7 @@ Events:
   startdate: '2019-11-14'
   enddate: '2019-11-14'
   courseid: 5g
+  price: 0
   image: 
   location: Free Webinar
 
@@ -207,6 +227,7 @@ Events:
   startdate: '2019-12-02'
   enddate: '2019-12-06'
   courseid: sip
+  price: 0
   image: 
   location: Online - LIVE
 

@@ -19,6 +19,7 @@ type Event struct {
   CourseId       string         `yaml:"courseid"`
   Image          string         `yaml:"image"`
   Location       string         `yaml:"location"`
+	Price          int            `yaml:"price"`
 }
 
 

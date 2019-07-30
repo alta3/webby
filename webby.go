@@ -18,12 +18,13 @@ import (
 
 // ------------------------------------------------------------
 
+
 func main() {
 ////      router := mux.NewRouter().StrictSlash(true)
   cs := Load()
   fmt.Println("--------------------------------------------------")
   fmt.Println("Course Loaded into MAIN: " + cs.Cc[0].Id)
-  events := LoadEvents()
+  events := LoadEvents(cs)
   blogcontent := Loadblogs()
   fmt.Println("Blogs Loaded into MAIN: " + blogcontent[0].Id)
   cmenu :=  cs.menumaker()
@@ -32,6 +33,9 @@ func main() {
   fmt.Println("--------------------------------------------------")
   bmenu := blogcontent.blogmenumaker()
   fmt.Println("--------------------------------------------------")
+	posters := LoadPosters()
+	testimonials := LoadTestimonials()
+	fmt.Printf("Course: %s Price: %d\n", cs.Cc[0].Id, cs.Cc[0].Price.Public.PriceTags[0].Price/100)
 //	fmt.Printf("blogmenu: %s\n", bmenu[0].BlogCategory)
 
 
@@ -46,7 +50,8 @@ func main() {
   http.Handle("/api/v1/events/",             http.StripPrefix("/api/v1/events/",            events.getevents()))
   http.Handle("/api/v1/events/menu/",        http.StripPrefix("/api/v1/events/menu",        events.geteventsmenu()))
   http.Handle("/api/v1/blog/menu/",          http.StripPrefix("/api/v1/blog/menu/",         bmenu.blogmenu()))
-
+  http.Handle("/api/v1/posters/",            http.StripPrefix("/api/v1/posters/",           posters.getposters()))
+  http.Handle("/api/v1/testimonials/",       http.StripPrefix("/api/v1/testimonials/",      testimonials.gettestimonials()))
 
 // All the static folders
 	http.Handle("/downloads/",   http.StripPrefix("/downloads/",   http.FileServer(http.Dir("downloads"))))

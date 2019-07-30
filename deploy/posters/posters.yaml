@@ -1,0 +1,19 @@
+posters:
+  - name: Ansible
+    description: Ansible Cheat Sheet
+    downloadurl: "https://alta3.com/static/posters/ansible.pdf"
+  - name: SIP
+    description: SIP Cheat Sheet
+    downloadurl: "https://alta3.com/static/posters/sip.pdf" 
+  - name: git
+    description: Git Cheat Sheet
+    downloadurl: "https://alta3.com/static/posters/git.pdf"
+  - name: Regex
+    description: REgEx Cheat Sheet
+    downloadurl: "https://alta3.com/static/posters/regex.pdf"
+  - name: YAML
+    description: YAML Cheat Sheet
+    downloadurl: "https://alta3.com/static/posters/yaml.pdf"
+  - name: Python
+    description: Python 3 Cheat Sheet 
+    downloadurl: "https://alta3.com/static/posters/python3.pdf" 
