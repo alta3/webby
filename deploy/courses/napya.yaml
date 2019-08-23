@@ -10,9 +10,9 @@ duration:
   days: 5
 audience: "Network Administrators, Ansible devs, Python devs, Admins interested in Automation, and individuals interested in devops, specifically for networking."
 prereqs: 
-  -  pyb
+  -  Python Basics
 postreqs: 
-  -  pyfna
+  -  Python for Network Automation
 testimonials:
   - quote: "Neat class. I love the two for one aspect!"
     stars: 5
@@ -29,7 +29,7 @@ price:
     price-tags:
       - id: priceinfo-public-single-student 
         description: Face to face training for 1 student
-        price: 219500
+        price: 800000
         available: yes
         includes: 
         - item : has-video-true
@@ -117,764 +117,894 @@ price:
         - item : has-book-true
           description: Includes on-line book
         - item : has-labs-false
-overview: This class is a study of the Python programming language. Students will learn to build their own environments in which to program, and begin writing their own code. By the end of the first day, you should feel comfortable writing code on your own machine. By the conclusion of the course, students will understand the basics of object-oriented programming, how to use Python to interact with data sets (such as XML and JSON), interact with APIs, track down code snippets and programs on places like GitHub, as well as debug broken code. This course is 50% lecture and 50% hands-on labs. Students need no prior programming experience.
+overview: This course teaches students to blend Python skillsets with Ansible through the lens of automating networks. Automation techniques for the most popular vendors (incl. Cisco, Juniper, Arista) will be subjects of study, however students may request examples from vendors within their own environments. Topics begin with a focus on automating networks with Python. This skill set is then folded into a broadening understanding of automating with Ansible. By the conclusion of this course, Students will have programmatic experience automating enterprise class networks, including writing custom Ansible modules with Python. Class is a combination of lecture, demonstration, and hands-on labs. Students are invited to share their own relevant Python and Ansible scripts with the instructor to ensure class subjects are as relevant as possible.
 chapters:
-- title: Introduction to Python
-  guid: 6b31c414-c3ad-47c6-9c84-a5e59bd67e54
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 13
-      guid: 05c950e4-431d-4157-8c59-91f8c565ca31
-      title: Installing Python 2.7
-    - index: 14
-      guid: ece02c4a-00dd-4af5-9f75-72598dd4ab03
-      title: Installing Python 2.7 - Download (Windows)
-    - index: 15
-      guid: d97e9500-6f6c-4465-83f0-542f55154ee9
-      title: Installing Python 3.6
-    - index: 16
-      guid: 2add35ea-25dc-4e4c-b841-2eb59f62751b
-      title: Installing Python 3.6 - Getting to Downloads
-    - index: 17
-      guid: e3f89191-1673-446b-bc70-2c9c7b1dc937
-      title: Installing Python 3.6 - Download (Windows)
-    - index: 18
-      guid: 5644d7e8-89f7-4b51-ae68-2960f9b4266d
-      title: Preparing to write a Python (*.py) file - Text Editors
-    - index: 19
-      guid: 815a71a2-3eb4-42f3-aabf-51e91e8cb357
-      title: Writing our first Python (*.py) file
-    - index: 20
-      guid: efd3c99a-4c75-4a6f-94a0-42a513e39d6f
-      title: Executing our first Python (*.py) file - Testing Python 2.7
-    - index: 21
-      guid: c3da829c-d1af-4381-93ce-0afb6fbfc35a
-      title: Executing our first Python (*.py) file - Testing Python 3.6
-    - index: 22
-      guid: 11f2c867-430b-4a92-b5ee-8b49226eba92
-      title: Python Interpreter aka Interactive Shell
-    - index: 23
-      guid: 7056a84d-9272-4337-9ae2-c118964fb034
-      title: Python Enhancement Proposal (PEP)s
-    - index: 24
-      guid: 4232eb3d-ed6c-4c8b-a6df-7c24ca1166ae
-      title: Python Statements and Control Flow
-    - index: 25
-      guid: 94e433d3-6435-452d-b03d-12ac18196155
-      title: How to speak Python
-    questions: []
-- title: Version Controlling
-  guid: 65800686-4079-47f5-899a-64ae85fff26f
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 27
-      guid: 3a68a09d-3f39-487a-bf0f-688e833c9e2b
-      title: Setting up a GitHub Account
-    - index: 28
-      guid: 4db6e954-d810-4d07-a114-1216c82dc928
-      title: Setting up a GitHub Account (continued)
-    - index: 29
-      guid: 7157085c-a2b3-4d95-b516-098c0a3a897c
-      title: Why Python Developers need to know Git and Github
-    - index: 30
-      guid: fd0dbb0f-05d8-42ea-a6e6-c163e3738175
-      title: Git repo-to-repo collaboration
-    - index: 31
-      guid: 6440ebb7-8302-437e-9d0e-5c07c59352d6
-      title: 'Git usage: git clone <repo> <directory>'
-    - index: 32
-      guid: 36d35ac7-000a-4d37-b81b-a9e67127f8f1
-      title: 'Git usage: git init –bare <directory>'
-    - index: 33
-      guid: 17823740-07c2-4f1f-81e1-fcb0ccd45c81
-      title: 'Git usage: git config --global'
-    - index: 34
-      guid: 869a3f23-f5a4-4c15-bd97-6789663517bf
-      title: 'Git usage: git add <file> && git reset <file>'
-    - index: 35
-      guid: 16483a87-d000-490f-9ed5-698856bb014b
-      title: 'Git usage: git commit –m “<message>”'
-    - index: 36
-      guid: 51bf5b2c-4eb2-4223-a19f-562c74abf314
-      title: 'Git usage: git push <remote> <branch>'
-    - index: 37
-      guid: dc608d8c-3499-40df-be9b-dcdd8b36fd11
-      title: Git saves files not deltas
-    - index: 38
-      guid: db413801-0f3d-4095-924c-59bb3b131700
-      title: 'Git usage: git status'
-    - index: 39
-      guid: 00cebca5-6485-42f6-acbe-f2781b14c5ac
-      title: 'Git usage: git log --oneline'
-    - index: 40
-      guid: 41b404c4-cee4-4d44-b8f3-c6098baeed45
-      title: 'Git usage: git checkout <commit || master>'
-    - index: 41
-      guid: 17bc8757-3887-44ad-9f7c-8f061886fa21
-      title: 'Git usage: git remote <add || rm> <name> <url>'
-    - index: 42
-      guid: 240eb886-0b49-49bf-89d3-573c547d6d55
-      title: 'Git usage: git branch <branch>'
-    - index: 43
-      guid: 5d425b91-2d6f-4bc6-92fa-987491fb93f6
-      title: 'Git usage: git pull –rebase <remote>'
-    - index: 44
-      guid: dcd0193c-1167-4b77-80bd-89a47634d9d1
-      title: GitHub is git + social
-    - index: 45
-      guid: c64e1512-d992-487c-a2d2-1ba2c3489399
-      title: 'Git Recap: What you need to know'
-    questions: []
-- title: Programming Basics
-  guid: dbc9555c-ef2a-42cf-aed6-f3077ae85692
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 47
-      guid: 8c4aedf5-ddcd-4b10-98f7-c286c629d68c
-      title: Python Basic Data Types
-    - index: 48
-      guid: 317820f4-edae-42ec-b783-cefc472dd9ab
-      title: Built-in Python Functions
-    - index: 49
-      guid: 42beb933-ca37-40b5-91ff-b328390ff36a
-      title: Python Functions & Arguments
-    - index: 50
-      guid: cf51547b-3bf2-4517-8eb3-3827f98ddcc9
-      title: Print - Example
-    - index: 51
-      guid: b9818690-f578-4303-beff-9713599214c6
-      title: Print - Example results
-    - index: 52
-      guid: 127a2d72-32ff-402d-87a7-4817459e8480
-      title: Print with end='' - Example
-    - index: 53
-      guid: 2a68ea94-2c8f-4a81-807f-ca30e258066c
-      title: Print with end='' - Example results
-    - index: 54
-      guid: 184e4bb1-6664-4f2a-b6c1-bc1a057a2afb
-      title: Print with \t (tab) - Example
-    - index: 55
-      guid: dc5345df-139a-4cc9-94f2-51e682416c72
-      title: Print with \t - Example results
-    - index: 56
-      guid: 30ee788b-f7ae-4cb2-946f-6e6e2082df47
-      title: Print with + (concatenation) - Example
-    - index: 57
-      guid: a96bd3fb-4cfa-423e-8501-f3ad888bbe49
-      title: Print with concatenation (+) - Example results
-    - index: 58
-      guid: 27a1fea9-7a5c-4da7-a65b-ffefc0760d9c
-      title: Print with \n (new line) - Example
-    - index: 59
-      guid: f8db775a-1c2c-42fc-b8df-f5a6b27acf42
-      title: Print with \n (new line) - Example results
-    - index: 60
-      guid: d1135be2-4479-4c3a-8543-bdd26a3f7b54
-      title: String Literal Escape Sequences
-    - index: 61
-      guid: 2749181f-8ec0-478e-b4b3-9855a9161abb
-      title: Expressions & Literals
-    - index: 62
-      guid: dcb369d7-dc8e-4176-9f10-f2dccca841a6
-      title: Assignment Statements & Variables
-    - index: 63
-      guid: 2766e305-ab05-4a52-9405-4ca89648ee64
-      title: Useful snippet – Clearing the interpreter
-    questions: []
-- title: Numeric Operations
-  guid: c91ed2ac-0add-4db7-98e3-2584c63fcdb3
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 65
-      guid: 0be8cef3-e439-41f0-8909-952a914aa9e3
-      title: Number Types
-    - index: 66
-      guid: 167e8087-f826-4311-be0e-4e2202f8f982
-      title: Number Operators
-    - index: 67
-      guid: 5d4200aa-06d1-4d11-9af9-65ae6caa9800
-      title: Number Operators Have Precedence
-    - index: 68
-      guid: 43794ac1-d524-4a9e-b396-91fe176ddd4c
-      title: Combining Integers and Floating Points
-    - index: 69
-      guid: 241a60e6-e05c-42c7-b735-ed796ae343bc
-      title: Mathematical Functions
-    questions: []
-- title: String Types
-  guid: ffd5f24f-728e-49e9-9bde-470c62351c5f
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 71
-      guid: ea293eba-0557-46c1-91cd-80d361f4d730
-      title: Strings
-    - index: 72
-      guid: 5ec60cc1-2dee-446c-a44e-2f34c1d2e7ae
-      title: String Slicing
-    - index: 73
-      guid: abb2d3fc-ccf0-4a83-9344-bb62b6a91df5
-      title: String Repeating, Splitting, and Stripping White Spaces
-    - index: 74
-      guid: 09757224-9635-4a79-b352-918ec5994c22
-      title: Booleans
-    - index: 75
-      guid: 1e95dbbd-3a22-4f19-891d-04ed12ab5d09
-      title: Print & format strings
-    - index: 76
-      guid: 6dab08af-2647-4a31-942b-242996585a99
-      title: Print & format strings (old)
-    - index: 77
-      guid: 08004f4b-5719-4aa3-95db-b6fa889b5408
-      title: Scripting with input() - Example
-    - index: 78
-      guid: f6d280cf-e84f-4d8d-9bc3-1cefadf83d72
-      title: Scripting with input() - Example results
-    - index: 79
-      guid: cde116a0-8036-47f3-a417-96e431dc1d13
-      title: Scripting with input() improved - Example
-    - index: 80
-      guid: 86e526a4-2719-4c43-94e6-2c980349fb66
-      title: Gathering user input with raw_input() (Python 2)
-    questions: []
-- title: List & Tuples
-  guid: 6888840c-2c6d-4606-8215-47e58bb74f88
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 82
-      guid: 903c9289-0caa-414a-996f-cfaf05a7bdaf
-      title: Intro to Integer Lists
-    - index: 83
-      guid: f5ed1ef9-c468-46b2-b97e-2f2b7061f9ca
-      title: Mixed Variable Lists
-    - index: 84
-      guid: 8e0a5ff8-f22c-4031-b2f8-7bf19b632852
-      title: Tuples
-    - index: 85
-      guid: 9f286332-fe55-4fa7-8d13-0587ed193832
-      title: Python Time Touples
-    - index: 86
-      guid: bb79a00a-d4f4-4eee-9c39-379fdee70903
-      title: Tuples vs. Lists
-    questions: []
-- title: Dictionaries
-  guid: c427e38c-e675-486b-8431-4953ecb46562
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 88
-      guid: 6f545e85-fa62-424c-975d-680da09177b3
-      title: Dictionaries - Keys and Values
-    - index: 89
-      guid: 02048728-2c60-4cc1-8f22-0b9f310df9a4
-      title: Manual Dictionary { } Building
-    - index: 90
-      guid: 6ee2db25-d6ee-4cdf-901d-259bd942b9f8
-      title: Selecting a Data Structure
-    questions: []
-- title: if, elif, else
-  guid: 82160d3c-e781-4b17-b223-5ad4902b397e
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 92
-      guid: d5e99613-665d-4483-b4be-9a1fd74f8b7b
-      title: Relational Operators (1 of 2)
-    - index: 93
-      guid: d9811eb2-d112-4e06-b2d9-158f24e39a3d
-      title: Relational Operators (2 of 2)
-    - index: 94
-      guid: c10f76ac-468a-40ef-b52c-1d584aaf7b98
-      title: Logical Operator Truth Tables
-    - index: 95
-      guid: 9d6701c4-a67a-4561-94f1-c4eec3836ac2
-      title: Logical Operators
-    - index: 96
-      guid: 93f0d322-2f74-45b6-a139-e6cdc8172355
-      title: '"Simple" if'
-    - index: 97
-      guid: 9af43752-3178-4229-be97-0893bd8c7275
-      title: '"Simple" if - Example'
-    - index: 98
-      guid: 66cd22b3-9e85-4505-a083-6b53293e18a3
-      title: '"Simple" if - Example results'
-    - index: 99
-      guid: 156c8b10-5e58-4c6b-8c27-7ac807f20b3a
-      title: if-else Usage
-    - index: 100
-      guid: 5c0f2789-2526-49c0-a359-03e3fa3b29fe
-      title: if-else - Example
-    - index: 101
-      guid: 3059f749-24c5-41b8-b5c6-788dfa59ca62
-      title: if-else - Example results
-    - index: 102
-      guid: bf922961-8278-49c9-b393-2cd4121b90e1
-      title: if-elif Usage
-    - index: 103
-      guid: 627d31ce-0dd9-4549-a1cb-258dfff4836a
-      title: if-elif - Example
-    - index: 104
-      guid: 0ecd1065-28c2-430d-b420-4d98965b8e97
-      title: if-elif - Example results
-    - index: 105
-      guid: f76d8dac-e980-4d24-8aa2-96bed96bfd00
-      title: Nested if statement - Example (1 of 2)
-    - index: 106
-      guid: 6c02e197-1bd0-4ff9-8b51-6ec3888072d6
-      title: Nested if statement - Example (2 of 2)
-    - index: 107
-      guid: 5e9c3839-5332-4305-adf5-848c95a52392
-      title: Nested if statement - Example results
-    questions: []
-- title: while
-  guid: 3fe8076a-d91e-4c32-85fd-d2b31a6f5c3a
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 109
-      guid: 58cff75a-fb8a-4a6a-bf5e-94e5f2df7e00
-      title: while Usage
-    - index: 110
-      guid: cb3c5345-7183-44d7-a260-278b0bd075e4
-      title: while Loop - Example
-    - index: 111
-      guid: 8e951548-ba13-4535-826d-541caea2e41c
-      title: while Loop - Example results
-    - index: 112
-      guid: 974cd487-c22d-4ca2-b541-f00705d762c3
-      title: Count-controlled while Loop - Example
-    - index: 113
-      guid: 7c680b26-0428-47c7-8025-b0c367c64ca6
-      title: Count-controlled while Loop - Example results
-    - index: 114
-      guid: 65afc30a-839e-417c-b23e-174b930859c0
-      title: Event-controlled while Loop - Example (1 of 2)
-    - index: 115
-      guid: 735ecd1c-faae-4aa0-bb92-c829b60b6dac
-      title: Event-controlled while Loop - Example (2 of 2)
-    - index: 116
-      guid: 276bee27-6576-4757-bdfc-a5ff4a5bb150
-      title: Event-controlled while Loop - Example results
-    - index: 117
-      guid: bd6d43f4-884a-43ee-b53d-7770a5088ccc
-      title: continue Usage
-    - index: 118
-      guid: 4c995b02-b05f-4412-96dc-9c4a59d79c08
-      title: Continue - Example (1 of 2)
-    - index: 119
-      guid: 6a6fcd69-5a4e-4921-8a45-1b96d4d6a9d6
-      title: Continue - Example (2 of 2)
-    - index: 120
-      guid: 541fe82c-ae8d-45b5-9a33-273c038c94cb
-      title: Continue - Example results
-    - index: 121
-      guid: 0f36926e-091e-4d4a-a8c2-1f4deef54316
-      title: Break usage
-    - index: 122
-      guid: 91557603-ef2d-4948-96f4-5a2c1ee04918
-      title: Break - Example (1 of 2)
-    - index: 123
-      guid: 0e60a09c-4496-4260-a35c-987e81ddc187
-      title: Break - Example (2 of 2)
-    - index: 124
-      guid: 38d63cc5-0339-479b-85fe-d054c59f5e2f
-      title: Break - Example results
-    questions: []
-- title: for loop
-  guid: cb8027e5-8273-4550-9e6d-6a2c1215799c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 126
-      guid: afb51d2c-c477-4184-956f-53d0545a0f19
-      title: for Usage
-    - index: 127
-      guid: 6b7b2308-5e65-4ec5-8eef-c359aa29afc5
-      title: for Loop - Example
-    - index: 128
-      guid: a1ab8348-bec3-421c-871b-216614c89a2e
-      title: for Loop - Example results
-    - index: 129
-      guid: e360cc56-a8cb-4da4-b46c-c49907857c9d
-      title: for Loop - Example 2
-    - index: 130
-      guid: 03342db4-3a25-44fb-a100-216cb5dc20b2
-      title: for Loop - Example 2 results
-    - index: 131
-      guid: a5f7ccb4-f1eb-4bff-8561-93f73aec573e
-      title: for Loop - Example 3
-    - index: 132
-      guid: aed63ba9-330a-4637-97a1-d82ecd90b9a8
-      title: for Loop - Example 3 results
-    - index: 133
-      guid: 0f9af964-dc21-47ea-85d6-cb2f514d81bf
-      title: Programming Challenge - Rewrite as a "for" loop (1 of 2)
-    - index: 134
-      guid: 5c4127a6-7d33-48a7-ba2c-990cffac4a27
-      title: Programming Challenge - Rewrite as a "for" loop (2 of 2)
-    questions: []
-- title: Iterators
-  guid: dd822f5b-0ad9-41f8-8c9d-61283137161c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 136
-      guid: be8811eb-6cc3-4e33-a7e6-941486b6f746
-      title: Iterator vs iteration - Example
-    - index: 137
-      guid: f7286041-9c8b-4126-bce2-b8887bc87a10
-      title: Iterator vs iteration - Example results
-    - index: 138
-      guid: 821503cb-8761-45c2-92eb-becc00e988ae
-      title: Iteration with iter() and next() - Example
-    - index: 139
-      guid: 05995b4f-617f-4427-bd39-90c19ee276e3
-      title: Iteration with iter() and next() - Example results
-    - index: 140
-      guid: 57dbd265-3484-4715-ab4d-931153068c3e
-      title: Iterators and Dictionaries - Example
-    - index: 141
-      guid: 6ac98619-dd23-4842-9417-8ee1cf14d42f
-      title: Iterators and Dictionaries - Example results
-    - index: 142
-      guid: ca4f4eff-2338-4d6c-ad3e-dbbdd460f6dc
-      title: Iterating Tuples - Example
-    - index: 143
-      guid: 052461ca-61ff-4258-811d-50fbeced6adc
-      title: Iterating Tuples - Example results
-    - index: 144
-      guid: 33aabcd0-de5e-4e32-9f09-700020b23db4
-      title: range() Function
-    - index: 145
-      guid: 04581599-a360-409d-b97c-3f081e5b15b4
-      title: for Loop with range() - Example
-    - index: 146
-      guid: e09c73fa-785b-47d3-a53d-c42d1b9c1e92
-      title: for Loop with range() - Example results
-    - index: 147
-      guid: cd915030-8018-4423-a06c-09c279f40df1
-      title: for Loop with tuples [ ] and lists ( ) - Example
-    - index: 148
-      guid: c0264df7-2381-4cd9-a324-e8af505f4255
-      title: for Loop with tuples [ ] and lists ( ) - Example results
-    - index: 149
-      guid: 86dc9ae3-b38a-4441-abe6-711ed0ce7925
-      title: for Loop with string tuples[ ] - Example
-    - index: 150
-      guid: d75e8ecc-5974-436e-aab1-9b2fc50d08c4
-      title: for Loop with string tuples[ ] - Example results
-    - index: 151
-      guid: 44d2b76d-56b3-46da-a49c-3bedbbdc27e1
-      title: for Loop with dictionaries {'key':'value',…} - Example
-    - index: 152
-      guid: 142fa754-c7b3-467f-8432-fac4e7118415
-      title: for Loop with dictionaries {'key':'value',…} - Example results
-    questions: []
-- title: Input & Output with Files
-  guid: 8bba2c01-9855-4b59-b88e-04474e3b3537
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 154
-      guid: 9fbdb981-d675-45e7-9e9a-77b1b12369af
-      title: Print() Output to a Data File (Python 3.x)
-    - index: 155
-      guid: 3b2bea1e-a94c-4511-b3dc-7a204bce4c19
-      title: Writing data to files - Example
-    - index: 156
-      guid: 41e9eaee-e06b-4ced-b9bc-2ce222952c24
-      title: Writing data to files - Example results
-    - index: 157
-      guid: a4c14bfd-bcd4-442a-b297-9519a783e476
-      title: Writing data to files - Example 2
-    - index: 158
-      guid: a2b2201c-236a-44c3-bfcc-5b3f78734679
-      title: Writing data to files - Example 2 results
-    - index: 159
-      guid: 484070e1-b3ab-4b64-8859-24f8bd416f96
-      title: Opening a File – Python File Objects
-    - index: 160
-      guid: 0d648f9f-7d9c-4948-b5c3-1178f06b7fc5
-      title: Read data from files - Example
-    - index: 161
-      guid: 0ef8470b-bfd6-4067-a037-9721991e0e32
-      title: Read data from files - Example results
-    - index: 162
-      guid: 32760285-6369-45a2-92df-657688551e4d
-      title: Read data from files - Example 2
-    - index: 163
-      guid: 47d0e361-3ea0-49d6-a5b2-cf91c34b7e20
-      title: Read data from files - Example 2 results
-    - index: 164
-      guid: a403b8a0-a6bb-4bc3-a54d-2ea3a8957894
-      title: For Loop reading from a file - Example
-    - index: 165
-      guid: b5724ce1-f992-4174-ba29-83752f79eab6
-      title: For Loop reading from a file - Example results
-    questions: []
-- title: Python List Comprehensions
-  guid: a0517051-c2ce-4796-b683-c4ec1463a550
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 167
-      guid: a16e6b1a-591e-4394-acd3-8c05ee8bd609
-      title: List Comprehensions
-    - index: 168
-      guid: 6965286c-81fc-4b0c-9b5c-b27677dbfdd4
-      title: List Comprehensions - Example
-    - index: 169
-      guid: 8e49b2a5-ee2e-49bd-8967-a96807c372b6
-      title: List Comprehensions - Example results
-    - index: 170
-      guid: 8a79ed01-5848-4628-9ec9-b021631c7f81
-      title: List Comprehension with Strings - Example
-    - index: 171
-      guid: ce3a7481-e700-4146-9d5d-6fb1c1762bd4
-      title: List Comprehensions with Strings - Example results
-    - index: 172
-      guid: 5ea5adeb-35ef-4799-8ff2-633f7ec0c7ca
-      title: List Comprehension with Files - Example
-    - index: 173
-      guid: 103b3193-bb40-45d9-bd3d-d6b505b4d454
-      title: List Comprehensions with Files - Example results
-    questions: []
-- title: Creating Functions
-  guid: 3fa33927-291a-408f-a29a-d65af4e9cfee
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 175
-      guid: a0683880-5f59-4087-b85e-08de1121fb0e
-      title: Defining Functions
-    - index: 176
-      guid: f9acbbdc-ba09-451b-894a-3f0b07680e58
-      title: Calling Functions
-    - index: 177
-      guid: 4d3141ba-c690-4124-98f2-b3c49568b168
-      title: Function Basics
-    - index: 178
-      guid: 1a0969fb-61cc-475b-b40a-aeb04f99cb44
-      title: More Function Basics
-    - index: 179
-      guid: 706c62d3-619a-4ec7-a52e-43f488a851f1
-      title: Creating Functions that Process Integers - Example
-    - index: 180
-      guid: 1c1c3a88-b081-45e8-a1e8-e622e9eb70d5
-      title: Creating Functions - Example results
-    - index: 181
-      guid: 7ed997ac-770a-4d33-bbb5-47131d3b2da4
-      title: Creating Functions that Process Strings - Example
-    - index: 182
-      guid: 11320c29-c05e-4cfc-87c3-fbe8219e2554
-      title: Creating Functions That Process Strings - Example results
-    - index: 183
-      guid: 8a84b8a2-2eea-4826-a51e-5a20440479de
-      title: Defining Functions with Multiple Parameters
-    - index: 184
-      guid: 49737569-bcfe-4433-9547-877ae6262ca3
-      title: Calling Functions with Multiple Parameters
-    - index: 185
-      guid: ee9aa36e-09e6-4ed0-a732-bfa7297f3919
-      title: Creating Functions with Multiple Parameters - Example (1 of 2)
-    - index: 186
-      guid: 859d7a6a-adbb-4d8d-8845-ac5e197f0d26
-      title: Creating Functions with Multiple Parameters - Example (2 of 2)
-    - index: 187
-      guid: 9f3d0ea7-11c3-4c8e-9a56-5a49f22f9d7b
-      title: Creating Functions with Multiple Parameters - Example results
-    - index: 188
-      guid: 45ad19b4-00a0-47d6-9bb7-16ad3fbdd3c5
-      title: Predicate Functions - Example (1 of 2)
-    - index: 189
-      guid: 94ef4d48-06fb-455a-b57b-d28710480bcb
-      title: Predicate Functions - Example (2 of 2)
-    - index: 190
-      guid: 616d076a-cb54-4e51-a6da-4db9fe627cf5
-      title: Predicate Functions - Example results
-    - index: 191
-      guid: 337ab66c-51cf-45ae-b120-c2674e7de299
-      title: Recursive Functions - Example
-    - index: 192
-      guid: ae3e3620-299d-4c4d-9f12-3c149a48036e
-      title: Recursive Functions - Example results
-    - index: 193
-      guid: c5ae57f1-68d7-468e-af86-1b194dd7f28e
-      title: Recursive Functions with Strings - Example
-    - index: 194
-      guid: 211ab7a2-260d-4084-991c-9bbbe08fa8c2
-      title: Recursive Functions with Strings - Example results
-    - index: 195
-      guid: f1e0f556-5932-404f-82e9-06119df89a8e
-      title: Higher order functions - Example
-    - index: 196
-      guid: 6bcf0a28-a3f3-4e6d-b2df-79baccea6443
-      title: Higher order functions - Example results
-    - index: 197
-      guid: b58b1484-8e9a-460c-a7ca-062f71bca06a
-      title: Anonymous Functions - Basic Lambda Form - Example
-    - index: 198
-      guid: eb7f7574-b2de-409e-a1b4-82e9403df966
-      title: Anonymous Functions - Basic Lambda Form - Example Results
-    - index: 199
-      guid: cfd11759-8246-4890-8289-1fed471b9f49
-      title: Filter function - Example
-    - index: 200
-      guid: ce62555b-ab43-49b7-82db-114781c94e1a
-      title: Filter function - Example Results
-    questions: []
-- title: Modules and Packages
-  guid: a6d942ee-b8b3-4ab7-9ebd-8ab737de9b0c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 202
-      guid: a36a3361-f09a-4e05-92bf-0e2c3bf77a50
-      title: Packages & Modules
-    - index: 203
-      guid: 9a428071-7b1e-4ebc-a318-cd69fe20512c
-      title: PyPI - the Python Package index
-    - index: 204
-      guid: a4d18855-40e3-4a3c-981f-b873cd5d052b
-      title: Getting at PyPI with pip (1 of 3)
-    - index: 205
-      guid: d8e40ca2-e612-4b1e-b2ee-5523bd8191a7
-      title: Getting at PyPI with pip (2 of 3)
-    - index: 206
-      guid: f23e6a2c-2571-4fb5-aa72-f5edf428e620
-      title: Getting at PyPI with pip (3 of 3)
-    - index: 207
-      guid: d984e8ec-9a6d-467f-b3de-f95d28e8f06a
-      title: Lightweight Virtual Environments - Using venv
-    - index: 208
-      guid: 01c2cd70-d7f2-45c0-86db-55622c3de0af
-      title: import Statement - Example
-    - index: 209
-      guid: d482b7a7-5125-41a7-a882-b4e65a025f05
-      title: import Statement - Example Results
-    - index: 210
-      guid: 93b33ac1-c110-4a91-a390-0f7b4fb444cc
-      title: User Defined Modules - Example (1 of 2)
-    - index: 211
-      guid: bca3ace7-f44a-483d-a812-26474de18249
-      title: User Defined Modules - Example (2 of 2)
-    - index: 212
-      guid: 04ec0fbb-6ed0-43cc-aa66-f9eb1816eec7
-      title: User Defined Modules - Example Results
-    - index: 213
-      guid: a9f9be8c-c4b1-407d-a2b3-d5534ce4939a
-      title: Importing Functions from User Defined Modules - Example (1 of 2)
-    - index: 214
-      guid: 421b67b8-8b87-4003-8645-bb33a64c4aaf
-      title: Importing Functions from User Defined Modules - Example (2 of 2)
-    - index: 215
-      guid: 75168e5c-86bd-4b6e-ba00-dbeecae02cbc
-      title: Importing Functions from User Defined Modules - Example Results
-    - index: 216
-      guid: 2f588e9c-e556-4ade-9290-51810701027e
-      title: Importing Functions from User Defined Modules - Example 2
-    - index: 217
-      guid: a88a2909-81fa-41f8-af7a-0f4b5fe0ec8b
-      title: Importing Functions from User Defined Modules - Example 2 Results
-    - index: 218
-      guid: 09ed526b-40f2-4864-9042-6feaeaae53eb
-      title: Python Names and Namespaces
-    - index: 219
-      guid: 14c6856a-0c46-4ef0-9ddb-42577cdfe9f5
-      title: Import effects on Namespace
-    questions: []
-- title: Python Scope
-  guid: 46de4fa3-b904-41d8-9ca1-544958796131
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 221
-      guid: 7d457624-de1a-4fad-9167-449e1c6f3431
-      title: Python Names
-    - index: 222
-      guid: b7708f60-5dac-4698-95c0-ef8ca085418a
-      title: Global Scope - Example
-    - index: 223
-      guid: 332d5c0c-53ba-4889-ac97-1d9b815788a3
-      title: Global Scope - Example Results
-    - index: 224
-      guid: 5800d398-afcf-402f-aaea-f2bbe6749f8c
-      title: Local Scope - Example
-    - index: 225
-      guid: 0d24cb38-ef4e-4355-814b-f71e588baaea
-      title: Local Scope - Example Results
-    - index: 226
-      guid: c7925e27-1433-4b0a-9fac-e846229bc01b
-      title: Nested Scope - Example
-    - index: 227
-      guid: d906a089-e498-4d51-9e16-e2424cdf06cd
-      title: Nested Scope - Example Results
-    questions: []
-- title: Object-Oriented Programming
-  guid: 565f6d30-84e5-432d-b81c-eb9406c04ad9
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 229
-      guid: 7ded1be0-a1f6-4b52-911d-ebc5d1741ae3
-      title: Mutable vs Immutable Objects
-    - index: 230
-      guid: 92d907a7-cbe7-4fa0-bab1-5324ce476182
-      title: Python and Objects
-    - index: 231
-      guid: 72cbfa11-c3e2-4e79-9b5c-df1a921d32ea
-      title: Checking Python Data Types with type()
-    - index: 232
-      guid: 9847c91a-ec35-4f6f-b291-b94e9e9ff64f
-      title: Abstract Data Types
-    - index: 233
-      guid: cdd16aed-d138-4b2d-ae1d-9cf370e990ee
-      title: Defining a Class
-    - index: 234
-      guid: 092e5c74-058f-4691-8808-66a05a9c7b86
-      title: Object vs Class
-    - index: 235
-      guid: a1a06164-a0f8-46e3-8b02-19abc7abdd3b
-      title: Class Fields & Constructors - Example
-    - index: 236
-      guid: 4818bb1c-120e-476d-87cf-d4f3c450b1a0
-      title: Class Fields & Constructors - Example Results
-    - index: 237
-      guid: b3e1c6e2-bd35-465e-ad04-238214b51a4e
-      title: Data Structures within a Class (1 of 2) - Example
-    - index: 238
-      guid: a423895e-5dc5-4715-a719-50565615f531
-      title: Data Structures within a Class (2 of 2) - Example
-    - index: 239
-      guid: 8c93314b-9c4d-4f09-9436-ddea6a6bc8b2
-      title: Data Structures within a Class - Example Results
-    - index: 240
-      guid: 93121524-57c7-49fc-a879-b8397cd4bc39
-      title: Class Inheritance (Is-a relationships)
-    - index: 241
-      guid: fbb4fd17-4445-47c6-b2c7-8b591185b0ef
-      title: 'Class Inheritance (Is-a relationships) within a '
-    - index: 242
-      guid: 2f08d661-91cb-47eb-b2f9-199f775d7d64
-      title: Sub Classes (Inheritance) - Example (1 of 3)
-    - index: 243
-      guid: c2d8498f-9907-496c-9bcd-9dafa5b9a090
-      title: Sub Classes (Inheritance) - Example (2 of 3)
-    - index: 244
-      guid: 98c85b2a-6e14-43cb-9106-8cc14ff53157
-      title: Sub Classes (Inheritance) - Example (3 of 3)
-    - index: 245
-      guid: a901c1e8-2f25-4a02-9453-b3e4bd61a67e
-      title: Sub Classes (Inheritance) - Example Results
-    - index: 246
-      guid: 650cc14d-16ee-4dae-97a4-e606ad3e7d9d
-      title: Polymorphism with a Function
-    - index: 247
-      guid: 47fa6ee2-f69d-46cc-a219-48bbb19e30ed
-      title: Polymorphism with a Function – Example Results
-    questions: []
+-   guid: 019b850d-a24a-45b2-9639-67775fdc4bc4
+    subchapters:
+    -   slides:
+        - {guid: 722bc1c3-94b4-485b-80f5-08ee84dd90c8, title: Data Plane}
+        title: Data Plane
+    -   slides:
+        - {guid: 1bfa4d41-63f3-4a35-a208-e7258f904b22, title: Distributed Control
+                Plane}
+        title: Control Plane
+    -   slides:
+        - {guid: b15a0676-09ed-4f84-95ad-62ad3723040f, title: Interfacing with the
+                Distributed Control Plane}
+        - {guid: 339b257d-3c54-4e1b-931c-adaec9cf0888, title: Problems with Distributed
+                Control Plane}
+        title: Problems with the current distributed Control Plane design
+    -   slides:
+        - {guid: 94da9d0b-9846-41b6-8206-eeb518d66752, title: Clean Interface for
+                new Applications}
+        - {guid: 6bc46198-a8cb-4f50-97bc-f4ed0cc552d6, title: Clean Interface for
+                new Applications}
+        - {guid: 3d860639-f920-4490-9d0d-40d14ee8f12f, title: 'What about the Southbound
+                Interface?'}
+        title: Problems solved by the Centralized Control Plane
+    title: Software Defined Networking Intro
+-   guid: e5f7b1a7-a7ae-4422-ac6b-a59ee387e932
+    subchapters:
+    -   slides:
+        - {guid: 4ee4ae5d-02ae-4473-91df-7b8403700bd9, title: 'Controller, OpenFlow,
+                Open vSwitch, & Hosts'}
+        title: Overview
+    -   slides:
+        - {guid: 48e12c8f-5efe-4f0d-878b-3d6f7b240496, title: Example of Controller
+                Framework (Ryu)}
+        - {guid: 01167cea-0260-4fe3-8431-26a440c1cfa5, title: "Ryu Python App Example\
+                \ \u2013 GUI Topology App (gui_topology.py)"}
+        title: RYU Controller
+    -   slides:
+        - {guid: f5ed3ee8-ea81-4d4d-bb07-386e4a017b29, title: The Need to Virtualize
+                the Network}
+        - {guid: 499040bb-e92e-4197-86c5-5ba7169fe518, title: Imagine this "REAL"
+                network}
+        - {guid: d03dbb8b-3943-4445-9886-95ccebc5449c, title: Traditional "Full System
+                Virtualization"}
+        - {guid: 863bf8c4-d44f-404a-a8eb-d8ee4adc85ef, title: Lightweight Virtualization
+                with Namespaces}
+        - {guid: 3b748427-b6c1-467a-b548-569bfca9ef97, title: Lightweight Virtualization
+                with Namespaces - (1 of 2)}
+        - {guid: 29d96764-6a70-400f-b388-c41134f2e168, title: Lightweight Virtualization
+                with Namespaces - (2 of 2)}
+        title: Network Function Virtualization Introduction
+    -   slides:
+        - {guid: f2011dcb-7bd7-424a-9684-f42baf589b8b, title: Mininet is Lightweight
+                Virtualization Simplification}
+        - {guid: 819bb161-5578-4f22-b476-5556cd413aff, title: Running Processes in
+                Mininet hosts}
+        - {guid: 8b479efe-4614-4d72-a97b-539a158e6c6c, title: python -m SimpleHTTPServer
+                80}
+        title: Tools for Abstracting NFV Complexities
+    -   slides:
+        - {guid: f99f0ce5-9ebe-430d-b323-a86af17bd610, title: Mininet && Ryu Controller}
+        - {guid: 14a57b42-d035-4b72-bed6-5dc00b555b56, title: Building Custom Mininet
+                Topologies with Python (1 of 5) - Basic}
+        - {guid: 3f972710-0868-4efb-8aef-f3ac6dbf5c5a, title: Building Custom Mininet
+                Topologies with Python (2 of 5) - Basic}
+        - {guid: 618daf85-0916-4ee5-89fe-fc6a67e53c54, title: Building Custom Mininet
+                Topologies with Python (3 of 5) - Basic}
+        - {guid: 64da9302-b6c0-4dbf-991c-cd256d3d38ec, title: Building Custom Mininet
+                Topologies with Python (4 of 5) - Basic}
+        - {guid: 261d0c25-ef56-46e9-922a-0a0a1c5ea86d, title: Building Custom Mininet
+                Topologies with Python (5 of 5) - Basic}
+        title: Deploying Controllers and Topologies with Python
+    -   slides:
+        - {guid: 313b8268-2306-4261-b6a3-28e2ede7ea83, title: Performance modeling
+                without Mininet}
+        - {guid: fb225540-84fd-4d8a-b88d-48e284413056, title: Custom Topologies -
+                Performance Modeling Python (1 of 2)}
+        - {guid: fe3b46ff-a030-42b2-9fd8-44922674df60, title: Custom Topologies -
+                Performance Modeling Python (2 of 2)}
+        title: Performance Modeling Topology Modifications
+    title: SDN and Python
+-   guid: 461c4c7e-ef6e-4e25-99ca-872c006d3a63
+    subchapters:
+    -   slides:
+        - {guid: 8790f817-e7d0-40f5-b051-1dd0d5d676fc, title: Installing Python 2.7}
+        - {guid: 63634a54-2ab7-4280-9899-6c64ab5603ec, title: Installing Python 2.7
+                - Download (Windows)}
+        title: Installing Python
+    -   slides:
+        - {guid: a57ad71f-312d-43c4-89b3-c0fe3a3be92c, title: Installing Python 3.6}
+        - {guid: 4353757a-414a-4ee7-8159-3340153727c3, title: Installing Python 3.6
+                - Getting to Downloads}
+        - {guid: e3d440a9-6563-4707-ae8b-65a0ec0739c3, title: Installing Python 3.6
+                - Download (Windows)}
+        title: Installing Python 3.x
+    -   slides:
+        - {guid: 3ea614e9-a823-4e5c-a672-1c2879035314, title: Preparing to write a
+                Python (*.py) file - Text Editors}
+        title: Preparing to write Python files
+    -   slides:
+        - {guid: 16a6895c-8ea5-4dc7-a07e-8596acbf9400, title: Python Enhancement Proposal
+                (PEP)s}
+        title: Python Enhancement Proposal (PEP)
+    -   slides:
+        - {guid: e5a8966e-234b-48e2-b565-e8612f55f89c, title: Python Statements and
+                Control Flow}
+        title: Python Statements and Control Flow
+    title: Introduction to Python
+-   guid: bd4ca1fb-43c0-4161-9056-8619aa397b66
+    subchapters:
+    -   slides:
+        - {guid: f00b80f1-0d88-4f1c-9fb7-90a5cd04fd08, title: Python Functions & Arguments}
+        - {guid: 0fe476e9-ed7b-4c88-8284-a3c7db621b7a, title: Writing our first Python
+                (*.py) file}
+        - {guid: 972c324b-bbce-4e72-a798-99ee23fa2756, title: Executing our first
+                Python (*.py) file - Testing Python 2.7}
+        - {guid: 6153458e-d98d-4a91-88ef-19b9b5481b68, title: Executing our first
+                Python (*.py) file - Testing Python 3.6}
+        title: Syntax
+    -   slides:
+        - {guid: 3d06749b-c33f-4312-8344-e8c5828790e5, title: Print - Example}
+        - {guid: 2d63f3eb-8d7c-486b-8ca3-3c2344bd04fe, title: Print - Example results}
+        - {guid: 549dab04-cb84-451f-b051-a52acca4ed57, title: Print with end='' -
+                Example}
+        - {guid: 80419ffe-1c61-448a-bb8a-743dfa3b1ad9, title: Print with end='' -
+                Example results}
+        - {guid: 22e9ddcd-20e6-4e0b-8c6e-7786d145ce3f, title: Print with \t (tab)
+                - Example}
+        - {guid: efc83cf0-7482-4240-981e-0e84511ec42d, title: Print with \t - Example
+                results}
+        - {guid: 059f91e6-a0f0-4adf-9e70-8220a5f356a0, title: Print with + (concatenation)
+                - Example}
+        - {guid: d83f15cd-7d89-4633-a9d0-40ec5d453c73, title: Print with concatenation
+                (+) - Example results}
+        - {guid: 8d32de6c-97f3-4d17-bbe7-f94fcb4af415, title: Print with \n (new line)
+                - Example}
+        - {guid: 57e43f41-3afc-4d92-997f-ec4d81f10ba1, title: Print with \n (new line)
+                - Example results}
+        title: Print
+    -   slides:
+        - {guid: af1fa46a-6906-4700-ae97-ef8c586a8176, title: String Literal Escape
+                Sequences}
+        title: Escape Sequences
+    title: Basics of Python Programming
+-   guid: db746325-193d-4b18-acda-d2cf2c43c35f
+    subchapters:
+    -   slides:
+        - {guid: fc3e7442-d9dc-4673-a291-3d3f67654bee, title: Python Interactive Shell}
+        title: Using the Interactive Shell
+    -   slides:
+        - {guid: 8126e3c0-f1b9-4708-9adb-329be132b714, title: Expressions & Literals}
+        title: Expressions
+    -   slides:
+        - {guid: f10d5d07-b873-4148-abba-82b6edb0d573, title: Assignment Statements
+                & Variables}
+        title: Variables
+    -   slides:
+        - {guid: a6150a10-66f3-4e12-9365-51ac45046eb7, title: Number Types}
+        title: Variable Types
+    -   slides:
+        - {guid: 787afdac-d743-43da-8e54-753e408266b3, title: Number Operators}
+        - {guid: 3b83b2af-b058-4022-b6cb-db24ed050232, title: Number Operators Have
+                Precedence}
+        - {guid: 7ace7017-e6a9-4754-9ab5-5da7b72da4ea, title: Combining Integers and
+                Floating Points}
+        title: Operators
+    -   slides:
+        - {guid: 21d8e095-3943-4845-b356-686f0e2f2a23, title: Mathematical Functions}
+        title: Math Functions
+    -   slides:
+        - {guid: 3aeddeeb-7742-4ad1-9f92-eea8fde0ae3b, title: Strings}
+        - {guid: 916e9a44-1c00-4ba8-bf25-fb1d0377b33a, title: String Slicing}
+        - {guid: de061462-8b67-407c-ab70-03aa2221c46c, title: 'String Repeating, Splitting,
+                and Stripping White Spaces'}
+        title: Strings
+    -   slides:
+        - {guid: da5836b5-6cb0-4de7-b1d3-713e7174084d, title: Booleans}
+        title: Boolean
+    -   slides:
+        - {guid: c4ae481f-9048-41a5-bef1-cc55468c90fe, title: Intro to Integer Lists}
+        - {guid: d2824c87-3ca9-44c8-952d-fb5072215607, title: Mixed Variable Lists}
+        - {guid: 083f923e-536c-4171-aa9e-9d0345984da0, title: Dictionaries - Keys
+                and Values}
+        - {guid: 2a80d0de-cf3c-489f-8760-8ed589c2d6f2, title: Tuples}
+        - {guid: 522a84a6-6150-4ef1-80a5-3b39ab00c47d, title: Tuples vs. Lists}
+        - {guid: 4985d592-1fe8-4115-9236-d028894e367f, title: Selecting a Data Structure}
+        - {guid: fc876442-6324-4c4f-91ae-74ec587af862, title: 'Manual List [ ] Building'}
+        - {guid: 1c77cad9-912a-4ebd-b298-f79e0f16aba1, title: 'Manual Dictionary {
+                } Building'}
+        title: Data Structure
+    title: Python Basic Variables and Data Types
+-   guid: d08aef3c-0bc2-4881-af14-d7798a011941
+    subchapters:
+    -   slides:
+        - {guid: 508e8da3-7ed2-45a7-a50f-48548b173369, title: Print & format strings}
+        - {guid: 9022d253-e208-4a5a-b459-170010516833, title: Print & format strings
+                (old)}
+        title: Formatting
+    -   slides:
+        - {guid: 80530316-b8e0-435e-97b9-47ce6fff2b48, title: Print() Output to a
+                Data File (Python 3.x)}
+        title: Output to File
+    -   slides:
+        - {guid: 4fe3d147-21d9-4cf3-bcfe-6639626acc15, title: Scripting with input()
+                - Example}
+        - {guid: 7e48db18-29d6-4a8e-a925-8e2eb80d9e5b, title: Scripting with input()
+                - Example results}
+        - {guid: b1aff6c9-eb77-4850-a69d-5529e197418a, title: Gathering user input
+                with raw_input() (Python 2)}
+        title: Collecting User Input
+    title: Python Input & Output
+-   guid: e389dc32-c3ea-4e42-9e28-c1682280e853
+    subchapters:
+    -   slides:
+        - {guid: 1464aea6-0539-4bb5-b85d-fccebd2be46e, title: Relational Operators
+                (1 of 2)}
+        title: Operators
+    -   slides:
+        - {guid: 03044b8b-ed55-4524-8eb1-aee32eaf49f6, title: Relational Operators
+                (2 of 2)}
+        - {guid: 8957370c-5fe1-4adb-9d48-c3d312e8a744, title: Logical Operator Truth
+                Tables}
+        title: Operators
+    -   slides:
+        - {guid: eb9f6472-f3b4-473e-a119-b1092fe5fd0b, title: Logical Operators}
+        title: Operators
+    -   slides:
+        - {guid: de09d2d2-b5d1-4b98-b575-54c37fb7a820, title: '"Simple" if'}
+        - {guid: 6eb94e27-5244-44ba-8b65-6eb9c2659781, title: '"Simple" if - Example'}
+        - {guid: d818bfe7-13cc-44aa-840f-7f88e6bbbadf, title: '"Simple" if - Example
+                results'}
+        - {guid: 64896438-e463-4b3d-a96d-22e77f1e5936, title: if-else Usage}
+        - {guid: 14e0a11e-227d-41ab-a167-e2375e72992c, title: if-else - Example}
+        title: if
+    -   slides:
+        - {guid: 6572d015-f49e-4460-8686-db394dd70004, title: if-else - Example results}
+        title: else
+    -   slides:
+        - {guid: f6333ee4-6c34-4c6c-8e2e-b2dd0e40e3bd, title: if-elif Usage}
+        - {guid: ef1c59a8-3f24-4421-b32c-f038d60f123f, title: if-elif - Example}
+        - {guid: a3096d61-9883-41f0-8c0c-3820c04052c7, title: if-elif - Example results}
+        title: elif
+    -   slides:
+        - {guid: 17f4f138-8b6b-4b13-981b-da97ad1b1c29, title: Nested if statement
+                - Example (1 of 2)}
+        - {guid: 7e0ac9f1-322e-4650-9b60-664342b2fa67, title: Nested if statement
+                - Example (2 of 2)}
+        - {guid: 9a9d6e07-259e-4998-9cfa-1781f5dea249, title: Nested if statement
+                - Example results}
+        title: Nested if
+    title: Python if Statements
+-   guid: 4c50bc2f-6c32-484b-ad20-125707b16945
+    subchapters:
+    -   slides:
+        - {guid: e1800e05-4992-4f38-8dae-a5bc3f05fdef, title: while Usage}
+        title: Flow
+    -   slides:
+        - {guid: 1be2c64a-62e4-4cf7-9cf8-029544a1fa98, title: while Loop - Example}
+        - {guid: 69720b9a-95fc-4de0-9ca6-6af20520dbe1, title: while Loop - Example
+                results}
+        - {guid: 721c210b-5521-4bcd-8330-fc99c07d0ff5, title: Count-controlled while
+                Loop - Example}
+        - {guid: b775aa21-e25c-48e3-a4d4-f6521af146ea, title: Count-controlled while
+                Loop - Example results}
+        - {guid: dcf7a97b-e33d-4358-acea-6e389a40d089, title: Event-controlled while
+                Loop - Example (1 of 2)}
+        - {guid: 7a16a607-0280-4414-9fa5-c69605fee51e, title: Event-controlled while
+                Loop - Example (2 of 2)}
+        title: Example
+    -   slides:
+        - {guid: a96bcb85-3df4-4d6b-b062-01ed94ff8f63, title: Event-controlled while
+                Loop - Example results}
+        title: Events
+    -   slides:
+        - {guid: 7b62d358-51e7-4345-ba73-fd7edc82fa2b, title: continue Usage}
+        - {guid: a8d9c349-4173-477e-bff4-d1c36bbd5e02, title: Continue - Example (1
+                of 2)}
+        - {guid: c298949b-4b0d-4ecb-941d-42258685af2f, title: Continue - Example (2
+                of 2)}
+        - {guid: 5ed60620-831a-4146-8bb1-053e110ffdd1, title: Continue - Example results}
+        title: Continue
+    -   slides:
+        - {guid: 4593d34a-b0ed-4fa5-84be-1dd697d6ee25, title: Break usage}
+        - {guid: dd6c6dd7-9364-44ca-8063-1978af18884f, title: Break - Example (1 of
+                2)}
+        - {guid: a5a99a21-7748-4ab3-9eba-a6f6fa2ee320, title: Break - Example (2 of
+                2)}
+        - {guid: bfd7e3b3-6f3e-40ba-b980-fc4d6c57cd88, title: Break - Example results}
+        - {guid: 62a81aba-7d95-4bcc-b964-cf84c9c57bb6, title: Writing data to files
+                - Example}
+        - {guid: 4e427ff4-df03-4d1a-a5c4-1b2b73e5b881, title: Writing data to files
+                - Example results}
+        title: Break
+    -   slides:
+        - {guid: ba1181b6-a02f-477b-86e3-0ac32d4c992c, title: Writing data to files
+                - Example 2}
+        - {guid: 0ff3b4b8-7671-40dd-ad81-e3d49239872c, title: Writing data to files
+                - Example 2 results}
+        - {guid: d4bccbb1-b3f4-4fb8-a70d-d3b114b53915, title: Read data from files
+                - Example}
+        - {guid: 51843fa7-acb9-4e29-b77c-f6915b096b31, title: Read data from files
+                - Example results}
+        - {guid: 6bd3bf72-4845-434d-96db-6a8c5be28b0b, title: Read data from files
+                - Example 2}
+        - {guid: 22ebacfd-4cac-45d6-bfb4-86fc5769443d, title: Read data from files
+                - Example 2 results}
+        title: File Read Write
+    title: While Loops
+-   guid: 2662640c-cf89-491d-99ab-b1259f3234f0
+    subchapters:
+    -   slides:
+        - {guid: 876183f0-deac-4e4e-858e-ad0abc718cf7, title: for Usage}
+        title: Flow
+    -   slides:
+        - {guid: f123f0f7-10e3-4b02-bd12-b56cf757179c, title: for Loop - Example}
+        - {guid: 5d75fbfd-29a7-4b0a-ad77-d2695cfaa492, title: for Loop - Example results}
+        - {guid: 06d33114-878a-4916-8e13-b8abd8ff08a1, title: for Loop - Example 2}
+        - {guid: 5d589c99-3f7e-4ece-9568-72252d229005, title: for Loop - Example 2
+                results}
+        - {guid: 2780da6c-3956-45f2-8bec-a9e9ca243dcf, title: for Loop - Example 3}
+        - {guid: cc7b900c-ad18-4dfb-9adc-3f0083d83c93, title: for Loop - Example 3
+                results}
+        title: Example
+    -   slides:
+        - {guid: 3ab6d0fe-b21b-44ee-bd55-16fa0aeb0a6a, title: range() Function}
+        - {guid: 64beee8a-10e7-4aee-a6bc-ecd85b8f7150, title: for Loop with range()
+                - Example}
+        - {guid: e23dd0b1-27c1-44bb-9200-b67e3dfd9172, title: for Loop with range()
+                - Example results}
+        title: range
+    -   slides:
+        - {guid: 41779d2a-dcb2-41f2-baad-0c424b2f28e1, title: 'for Loop with tuples
+                [ ] and lists ( ) - Example'}
+        - {guid: 1d93dd1f-18c6-4441-b0ab-6c662f334be4, title: 'for Loop with tuples
+                [ ] and lists ( ) - Example results'}
+        - {guid: 7a1edae9-ac18-4cb4-9078-f851f343e90f, title: 'for Loop with string
+                tuples[ ] - Example'}
+        - {guid: bdd6d2e2-6687-4f01-bcd5-311f49ba3862, title: 'for Loop with string
+                tuples[ ] - Example results'}
+        title: tuples and lists
+    -   slides:
+        - {guid: 455d7238-b51a-4cac-9463-1a42af77bd1f, title: "for Loop with dictionaries\
+                \ {'key':'value',\u2026} - Example"}
+        - {guid: 7f22c047-0df3-4748-8d26-381ed8e5c2d4, title: "for Loop with dictionaries\
+                \ {'key':'value',\u2026} - Example results"}
+        title: dictionaries
+    -   slides:
+        - {guid: 0de2ef41-d531-457f-b7fe-43d491890768, title: Programming Challenge
+                - Rewrite as a "for" loop (1 of 2)}
+        - {guid: 58a51e20-38d1-4dd3-b92f-e36ce196fc7a, title: Programming Challenge
+                - Rewrite as a "for" loop (2 of 2)}
+        - {guid: 16bf1704-b151-4af9-b661-ab639b62fae6, title: For Loop reading from
+                a file - Example}
+        - {guid: e07236c5-4c38-4457-bfa8-d6f8f591a142, title: For Loop reading from
+                a file - Example results}
+        title: while vs if
+    title: Python for Loops
+-   guid: 32b54b71-810f-4ad9-8417-d0cac95e6fac
+    subchapters:
+    -   slides:
+        - {guid: 26ea31b5-7c0e-45c8-bcc1-69741922bf6b, title: Iterator vs iteration
+                - Example}
+        - {guid: 8824c3ce-fc67-4c8f-b8b0-cc2e45e745e6, title: Iterator vs iteration
+                - Example results}
+        - {guid: 1e036062-134d-4d60-93a3-56fcc5da7be4, title: Iteration with iter()
+                and next() - Example}
+        - {guid: 73aa8d24-0881-4b60-864d-6233a5e29b8b, title: Iteration with iter()
+                and next() - Example results}
+        - {guid: d00cf3dc-188f-4448-b947-cb707849b33e, title: Iterators and Dictionaries
+                - Example}
+        - {guid: a958a131-43f8-46da-9615-e8f2fe7aaff9, title: Iterators and Dictionaries
+                - Example results}
+        title: Examples
+    -   slides:
+        - {guid: f38c6028-e1b7-436c-a73b-9785be76fd83, title: Iterating Tuples - Example}
+        - {guid: 80d442b9-a67c-422d-ae57-7966b2ef40a4, title: Iterating Tuples - Example
+                results}
+        title: Tuples
+    title: Python Iterators
+-   guid: 798081d1-4007-491d-a7b8-d6b38793045d
+    subchapters:
+    -   slides:
+        - {guid: 804b223e-06eb-4b1c-82f0-e43a95b0a67a, title: List Comprehensions}
+        title: Overview
+    -   slides:
+        - {guid: 2600aaf5-f812-44dc-94d9-bc7bac0da0e1, title: List Comprehensions
+                - Example}
+        - {guid: 7905cc23-e247-4c24-a749-5469b5d4ff09, title: List Comprehensions
+                - Example results}
+        - {guid: 8cab8afe-d69f-40b0-a5ac-01593160a557, title: List Comprehension with
+                Strings - Example}
+        title: Example
+    -   slides:
+        - {guid: c272624c-53e2-478f-8f9c-f7fa74461ce5, title: List Comprehensions
+                with Strings - Example results}
+        - {guid: 61ae3242-809f-45bf-a331-a48295eb409d, title: List Comprehension with
+                Files - Example}
+        - {guid: c16271cf-4655-41ca-8977-2fce6ae47ec8, title: List Comprehensions
+                with Files - Example results}
+        title: Strings
+    title: Python List Comprehensions
+-   guid: 64d1c124-1117-47d3-a7f8-91b132a491e8
+    subchapters:
+    -   slides:
+        - {guid: e3ead1d2-401d-46b3-9228-a146af4c3be4, title: Defining Functions}
+        - {guid: 15763851-391e-4c43-9470-76fdec6a939e, title: Calling Functions}
+        - {guid: 573f1e14-8b5c-42dd-98b9-f6257a409f0d, title: Function Basics}
+        title: Syntax
+    -   slides:
+        - {guid: f0774028-3ea0-4a76-a9c7-b34290d78b50, title: More Function Basics}
+        - {guid: a87f920c-2a66-46c8-a733-783221115718, title: Creating Functions that
+                Process Integers - Example}
+        - {guid: a4d97819-9089-42a2-81b0-1210681d41d8, title: Creating Functions -
+                Example results}
+        title: Structure
+    -   slides:
+        - {guid: 300bd0bf-68c4-4c83-833e-f996e7a260e5, title: Creating Functions that
+                Process Strings - Example}
+        - {guid: 750fcd88-d849-4699-b764-52e655aeb351, title: Creating Functions That
+                Process Strings - Example results}
+        title: String Processing
+    -   slides:
+        - {guid: 38afc9f5-9cb2-4363-88b9-18a96b8a8d3d, title: Defining Functions with
+                Multiple Parameters}
+        - {guid: f144594f-c91e-496b-87cd-b355985cbe28, title: Calling Functions with
+                Multiple Parameters}
+        - {guid: 6200ea07-b8ae-4e2b-96f5-ffbb412822b3, title: Creating Functions with
+                Multiple Parameters - Example (1 of 2)}
+        - {guid: a6df8972-529e-403d-a233-723ecf63ece2, title: Creating Functions with
+                Multiple Parameters - Example (2 of 2)}
+        - {guid: a97fa06f-515b-4863-a727-c5c8b82e18f6, title: Creating Functions with
+                Multiple Parameters - Example results}
+        title: Multiple Parameters
+    -   slides:
+        - {guid: 2860822c-08fb-474b-b889-cb5887b480e1, title: Predicate Functions
+                - Example (1 of 2)}
+        - {guid: dcd0d8c3-c4fb-4f6e-a9ed-6a9885a41f60, title: Predicate Functions
+                - Example (2 of 2)}
+        - {guid: 181161ad-1c85-457a-86ca-4baafb1a3578, title: Predicate Functions
+                - Example results}
+        - {guid: 658d4ec3-1004-4cd5-912d-41c89a575444, title: Recursive Functions
+                - Example}
+        - {guid: 2b9fc113-8a6f-49d5-bcd7-36d3e9839dde, title: Recursive Functions
+                - Example results}
+        - {guid: 1f891f1f-d875-4242-98b9-c5a7cd22e875, title: Recursive Functions
+                with Strings - Example}
+        - {guid: 0ccce149-fd7d-44d9-81dc-c9554a5a1f14, title: Recursive Functions
+                with Strings - Example results}
+        - {guid: c19c9a9c-96ba-4a8b-802d-f30136650414, title: Higher order functions
+                - Example}
+        - {guid: 97e8adcf-c646-4678-b733-dd18af5ed7ad, title: Higher order functions
+                - Example results}
+        - {guid: a346279e-48a2-4ad4-829c-ae75697f3f02, title: Anonymous Functions
+                - Basic Lambda Form - Example}
+        - {guid: 0b206471-5fc8-49c7-aff8-22ab192ed206, title: Anonymous Functions
+                - Basic Lambda Form - Example Results}
+        - {guid: 062bff8a-aa83-4bab-99ad-4f9ff9deafd1, title: Filter function - Example}
+        - {guid: ccb164c6-85e2-4806-98ae-ee21f44672c6, title: Filter function - Example
+                Results}
+        title: Other Function Types
+    title: Python Functions
+-   guid: 442b5455-b0af-43ff-8cb6-9f6e9bb7e8b1
+    subchapters:
+    -   slides:
+        - {guid: 0bff8e31-ee31-4383-841a-671112b6a7ff, title: Python Names}
+        title: Names
+    -   slides:
+        - {guid: 5000a593-f097-4c85-9081-b80c9127b72d, title: Global Scope - Example}
+        - {guid: 482b062e-6b4e-4be4-91b4-c36ba04b026e, title: Global Scope - Example
+                Results}
+        title: Global
+    -   slides:
+        - {guid: cfabf4ca-b021-4f20-b141-747c5ece6d69, title: Local Scope - Example}
+        - {guid: 5a91c35d-edc4-42ef-a518-3271333fbf31, title: Local Scope - Example
+                Results}
+        title: Local
+    -   slides:
+        - {guid: 66e7ac51-a562-4cc7-bdcb-0bf3ee396d9b, title: Nested Scope - Example}
+        - {guid: ba113fdb-cd47-4373-8d89-850f1d5ace13, title: Nested Scope - Example
+                Results}
+        title: Nested
+    title: Python Scope
+-   guid: 6a47d597-f0fb-4c4c-9afc-7efa42f10005
+    subchapters:
+    -   slides:
+        - {guid: c1115e48-8dfc-4023-8a42-e703c167c0cc, title: Packages & Modules}
+        title: Libraries
+    -   slides:
+        - {guid: fab0687e-400b-4e0d-add8-1361026e8606, title: import Statement - Example}
+        - {guid: b85f93eb-c8fe-4cc9-bfe1-65753f50f4db, title: import Statement - Example
+                Results}
+        title: Import
+    -   slides:
+        - {guid: 5a8b509f-14ce-4a5f-9dcd-e30cfec52c73, title: User Defined Modules
+                - Example (1 of 2)}
+        - {guid: db0b9434-9240-4a83-bb63-e791c75c323c, title: User Defined Modules
+                - Example (2 of 2)}
+        - {guid: ad1581a9-a4cc-40ac-abde-286eb8095218, title: User Defined Modules
+                - Example Results}
+        - {guid: 03e2cf7d-90fe-4ac0-b4fc-b78be23aff66, title: Importing Functions
+                from User Defined Modules - Example (1 of 2)}
+        - {guid: 9d608167-1ba1-425b-8456-f097167e62b8, title: Importing Functions
+                from User Defined Modules - Example (2 of 2)}
+        - {guid: c0b73fb0-3593-45d7-bfa6-2b118ec3ec0f, title: Importing Functions
+                from User Defined Modules - Example Results}
+        - {guid: 8889cfb4-25ab-47a2-bd98-653ebaff3aca, title: Importing Functions
+                from User Defined Modules - Example 2}
+        - {guid: ac710948-63a4-49e8-bd6f-47d77fea340e, title: Importing Functions
+                from User Defined Modules - Example 2 Results}
+        title: Modules
+    -   slides:
+        - {guid: 0c12d520-6712-4a7b-9274-2af731194bb4, title: Python Names and Namespaces}
+        - {guid: 1d426b75-44be-4d81-b9c6-4e8d3d71ded9, title: Import effects on Namespace}
+        title: Names
+    title: Python Importing, Packages, and Modules
+-   guid: 72958612-af0a-41db-8173-fb0c6fc5f2f2
+    subchapters:
+    -   slides:
+        - {guid: c2110ea2-0243-447c-90b0-1e23c5b11cd9, title: Abstract Data Types}
+        title: Data Abstraction
+    -   slides:
+        - {guid: 7fa7f482-bb59-469a-be4e-de59e106f161, title: Defining a Class}
+        - {guid: 548f8860-52c9-4b76-b46b-eb9237940faa, title: Object vs Class}
+        - {guid: 6a1026b3-dee6-48fe-9d3d-02284d14f95e, title: Class Fields & Constructors
+                - Example}
+        - {guid: 1af945b2-fe98-4e4d-8eed-80cb55158907, title: Class Fields & Constructors
+                - Example Results}
+        - {guid: 720f2a8e-6bc6-47f9-8207-ab75324f0b6f, title: Data Structures within
+                a Class (1 of 2) - Example}
+        - {guid: 63008fdc-26dd-40fc-8d7d-62bf400236b9, title: Data Structures within
+                a Class (2 of 2) - Example}
+        - {guid: 15232fac-f9b3-4de1-9012-39fd7fccc918, title: Data Structures within
+                a Class - Example Results}
+        title: Class
+    -   slides:
+        - {guid: b02f5b8d-b5e2-4b34-87c2-c6df5f01d84b, title: Class Inheritance (Is-a
+                relationships)}
+        - {guid: e54a8177-703c-42d7-9d2d-d206b46c742d, title: 'Class Inheritance (Is-a
+                relationships) within a '}
+        - {guid: 378d645f-b12b-462a-8a2a-87a3e9e94636, title: Sub Classes (Inheritance)
+                - Example (1 of 3)}
+        - {guid: 5184e159-99e1-41c1-b790-fbaa70f1d056, title: Sub Classes (Inheritance)
+                - Example (2 of 3)}
+        - {guid: 05926c56-3321-48e7-beb6-2d6f2a6033d8, title: Sub Classes (Inheritance)
+                - Example (3 of 3)}
+        - {guid: 175b8860-5b06-4f60-9e91-edc8537f5db3, title: Sub Classes (Inheritance)
+                - Example Results}
+        title: Inheritance
+    title: Object-Oriented Programming
+-   guid: ecc1e88c-a7f8-46c8-a18b-391673d9d12b
+    subchapters:
+    -   slides:
+        - {guid: e82c9a2d-8673-44e5-9089-d77c25e70c45, title: Common Errors (Exceptions)
+                - Example}
+        - {guid: 07d9a825-e963-4000-9239-fcc37cc085d3, title: Common Errors (Exceptions)
+                - Example Results}
+        title: Common Errors
+    -   slides:
+        - {guid: a5682074-6d9d-4843-a6f6-951537293be8, title: Try and Except - Example}
+        - {guid: 35d3c3cd-e114-4cda-9115-6443a13be354, title: Try and Except - Example
+                Results}
+        title: Exception Handler
+    -   slides:
+        - {guid: 02e07764-d4a7-41ed-bfe0-099f7cb067f3, title: 'Except Specific Errors
+                - Example (1 of 2) '}
+        - {guid: c8c0c643-a125-4dfe-9dc4-0666dfeaa794, title: 'Except Specific Errors
+                - Example (2 of 2) '}
+        - {guid: c86e9cf5-5adf-45eb-b747-8de7ad8e3471, title: Except Specific Errors
+                - Example Results}
+        title: Examples
+    -   slides:
+        - {guid: 4c4ee46e-736d-46cc-8520-63b6bff9d30b, title: Python Exceptions (1
+                of 3)}
+        - {guid: b9167181-759d-4930-a1aa-3eb88d97ae49, title: Python Exceptions (2
+                of 3)}
+        - {guid: ed0ab1d5-51f1-4a59-b00e-b156f843186f, title: Python Exceptions (3
+                of 3)}
+        title: Exceptions
+    -   slides:
+        - {guid: 6ce41d43-eabe-4544-97fa-e6b998869634, title: 'Try, Except, Finally
+                - Example'}
+        - {guid: a6a7f6c9-b8f1-418e-adc3-fbae9fef946e, title: Except Specific Errors
+                - Example Results}
+        title: Handler Examples
+    title: Python Exception Handling
+-   guid: 44026a46-b78a-44bc-bb51-88d69e54972b
+    subchapters:
+    -   slides:
+        - {guid: d6ea6b52-b854-4af5-939e-c06bbcf708a5, title: Metacharacters (1 of
+                4)}
+        - {guid: 6c012adf-d417-4113-a31e-5cb9a31f3997, title: Metacharacters (2 of
+                4)}
+        - {guid: e5e103ab-496d-4565-91e4-ac5590739f38, title: Metacharacters (3 of
+                4)}
+        - {guid: f70d36f4-d186-471c-943a-76bdf252d642, title: Metacharacters (4 of
+                4)}
+        title: Operators
+    -   slides:
+        - {guid: f5e40e05-2c7f-415f-bfab-f61da089249a, title: Writing RegEx Expressions
+                (1 of 2)}
+        - {guid: 8490aff2-71cd-4f0c-a1d4-92b9cc44ea83, title: Writing RegEx Expressions
+                (2 of 2)}
+        title: Examples
+    -   slides:
+        - {guid: 9ee0931e-032c-4bf3-b12b-be0a27c65620, title: Raw Python Strings}
+        title: Raw
+    -   slides:
+        - {guid: 73eb4244-52c5-4b20-a1a3-a97480ba30f0, title: 're Module - search(),
+                match() and match objects'}
+        - {guid: 31b6f348-4aa6-4202-8af8-bc23bc8c70a1, title: 're Module - Match Objects
+                - group(), start(), end(), and span()'}
+        - {guid: ea669ed5-5541-44b0-b370-07c65b8ac709, title: re Module - Python Search
+                Function - Example}
+        - {guid: fdbf2313-46d0-4f97-9c5b-88b7c1bf2ed4, title: re Module - Python Search
+                Function - Example Results}
+        - {guid: 445f605e-fbf7-49b9-b135-2d95e8253238, title: re Module - Parsing
+                Data from a File with findall() - Example}
+        - {guid: ad7bdd01-dd05-4592-815a-10a15c0913be, title: re Module - Parsing
+                Data from a File with findall() - Example Results}
+        - {guid: d15539d7-a25f-461e-8e0e-50f15449f8bc, title: re Module - Regular
+                Expression Objects}
+        title: Re.
+    title: Regular Expressions
+-   guid: fab31fb7-4ede-4a3a-a49c-873c4f6b8a0b
+    subchapters:
+    -   slides:
+        - {guid: bbbcc979-5ab3-4077-bf97-a6b780c5ed5c, title: (JavaScript Object Notation)
+                JSON - RFC 7159 (obsoletes RFC 4627)}
+        title: JSON Standards
+    -   slides:
+        - {guid: f93ba7f2-f375-4c09-8f7a-354b7ffdb947, title: JSON Formatting Example}
+        title: JSON Examples
+    -   slides:
+        - {guid: f5d826da-1cee-40e9-a675-dd5247ba9a2c, title: YAML (YAML Ain't Markup
+                Language) - Lists}
+        - {guid: 4fbc3c75-93a4-4c36-9e8d-a2a7662b790a, title: YAML (YAML Ain't Markup
+                Language) - Dictionary}
+        - {guid: 5c38ff56-5134-45c5-b829-8357fa060fb4, title: YAML (YAML Ain't Markup
+                Language) - Dictionary & List Example}
+        title: YAML
+    -   slides:
+        - {guid: 220fa687-822e-4ae2-bec4-3a5b76985372, title: YAML - Dictionaries
+                and Lists Abbreviated Forms}
+        title: YAML Dictionary and List
+    -   slides:
+        - {guid: e97b074a-a151-447a-b95a-1188f8a0c3d7, title: YAML - Line Spanning}
+        - {guid: 6ded1de9-297f-49cc-bf26-0d2234757e92, title: YAML - Reading an Example}
+        title: YAML Syntax
+    -   slides:
+        - {guid: a4703952-c233-4776-b9c4-c50880bbdb85, title: eXtensible Markup Language
+                (XML)}
+        - {guid: d6574f57-9db1-410b-a9a7-212a8c2e5ba4, title: XML - Example 1 (Self-Describing
+                Syntax)}
+        - {guid: 1af6e761-e9bc-4b3d-af2f-5b5259f6af38, title: XML - Example 1 (Tree
+                Structure)}
+        - {guid: b0b6ac65-68b6-4591-a911-eb0bbdd43ad7, title: XML - Reading an Example}
+        title: XML
+    -   slides:
+        - {guid: f3ea69d7-5ef2-4acb-a0ca-ee321ab83dc6, title: Comma Separated Value
+                (CSV) - RFC 4180 (Updated by RFC 7111)}
+        title: CSV
+    -   slides:
+        - {guid: 4c9a9123-16b2-46bc-8018-5f6d6069ab53, title: import json - Example}
+        - {guid: 8fa10863-26c9-4d45-a2a1-a3cf137eff42, title: import json - Example
+                Results}
+        - {guid: ee914d76-e50d-457a-b2d8-8cd756f5288e, title: OpenStack's JSON Policy
+                - policy.json}
+        - {guid: be65a7bf-825d-4041-8371-f8e21a649594, title: OpenStack policy.json
+                Snippets}
+        - {guid: bb89c0a9-b5ad-4101-b572-14bb96518ca9, title: OpenStack policy.json}
+        - {guid: da89d022-de14-47ea-a4b3-39419f28a64c, title: OpenStack policy.json
+                Parser - Example}
+        - {guid: 18cb41b8-2348-48c3-9e37-e9ef57ddcb48, title: OpenStack policy.json
+                Parser - Example Results}
+        title: JSON
+    -   slides:
+        - {guid: 90808c8f-06f7-4711-8db7-a84fe7c19962, title: Ansible Playbook YAML
+                snippet}
+        - {guid: 48a16505-2cf9-46b4-a193-d31930fff4e7, title: import yaml - Example}
+        - {guid: c0d8d8ec-cd55-462b-8a7f-343bd36edcd8, title: import yaml - Example
+                Results}
+        - {guid: ffd85fae-65d6-47fc-83c2-4a57f4418b4f, title: import yaml (with Dragons)
+                - Example}
+        - {guid: fbd28c9d-4bae-42b8-b59d-07c719400160, title: import yaml (with Dragons)
+                - Example Results}
+        - {guid: 72681daa-5d5f-479f-8b6f-44a2e0ba4bb5, title: Python for Session Initiation
+                Protocol (SIP) - VoIP Engineers & Devs}
+        title: Python YMAL
+    -   slides:
+        - {guid: f5f2ae6b-f4ef-4ef8-9dac-fdf65ea2d8da, title: Python and Wireshark's
+                Data Structures}
+        title: Python JSON
+    -   slides:
+        - {guid: 3dad3993-a202-4ed9-94ec-4589ac13ee07, title: Wireshark SIP Trace
+                - CSV to YAML}
+        - {guid: 6a802f76-7a29-427d-acd9-668a242af5de, title: Wireshark SIP Trace
+                - YAML to JSON}
+        - {guid: baf88fff-ac67-40fd-9265-95a3c99ec781, title: Wireshark SIP Trace
+                - JSON to XML and JSON to Text}
+        - {guid: 4c28db96-ff17-41cc-bbcf-1d4da1c95e84, title: Alta3 Python sip-tool}
+        - {guid: d65a4df7-e9ee-4025-b767-602a7364912a, title: Python for Session Initiation
+                Protocol (SIP) - Request}
+        - {guid: d41df1cd-540a-4555-90b6-2e85cac6c0b0, title: Python for Session Initiation
+                Protocol (SIP) - Response}
+        title: Examples
+    title: Data Serialization
+-   guid: 1c07a86d-07c0-4c01-8ce9-d8e1f7e30f82
+    subchapters:
+    -   slides:
+        - {guid: f51e4152-eef1-4b74-bb9d-f5c1e365ef6f, title: PyPI - the Python Package
+                Index}
+        - {guid: 52414ca5-cfd5-4dfb-8c8f-7d80d6932428, title: Getting at PyPI with
+                pip (1 of 3)}
+        - {guid: c49a9ad7-a649-4a98-9ffc-b7ccbbd01134, title: Getting at PyPI with
+                pip (2 of 3)}
+        - {guid: 9967d95c-4518-4434-a0df-04286e6a74b6, title: Getting at PyPI with
+                pip (3 of 3)}
+        title: PiPI
+    -   slides:
+        - {guid: 7d871851-ce75-4c80-ad97-9858f5b7c11b, title: Lightweight Virtual
+                Environments - Using venv}
+        title: venv
+    -   slides:
+        - {guid: 18884b90-4936-4ecf-85cd-7b10587a9558, title: Representational State
+                Transfer (REST)}
+        - {guid: 18ef7bc4-b70e-4f9d-aa9f-efd6385a1912, title: REST APIs and HTTP CRUD}
+        - {guid: 9cb16c2b-4ef6-4c45-9c2b-9232c0f6c898, title: Representational State
+                Transfer (REST) and OpenStack Clients}
+        - {guid: 46d1a825-09fb-4acc-b8c3-06889163b256, title: Representational State
+                Transfer (REST) and openstack-python}
+        - {guid: 4de614d4-e3cf-4b23-9d8a-fec9e79e91b0, title: Python to RESTful OpenStack
+                API (1 of X)}
+        - {guid: 1f97af66-c003-4600-88d0-63bec9bba218, title: Python to RESTful OpenStack
+                API (2 of X)}
+        - {guid: 706cc462-5a10-40d6-926b-0008cb4c8900, title: Python to RESTful OpenStack
+                API (3 of X)}
+        - {guid: 3fda1ca9-9a17-41ff-9c4c-d8323b043d60, title: Python to RESTful OpenStack
+                API (4 of X)}
+        - {guid: 17bc80ac-a27e-41f7-b6de-409c9a3abee1, title: Python to RESTful OpenStack
+                API (5 of X)}
+        - {guid: 5ac28735-1505-478b-86cb-d0a37fcc7462, title: Python to RESTful OpenStack
+                API (6 of X)}
+        - {guid: b1da39ab-3c2a-4054-8173-545c6a553ea3, title: Python to RESTful OpenStack
+                API (7 of X)}
+        - {guid: 14f2dc66-79c1-4e4f-ae82-813ffcf23597, title: Getting REST with Insomnia}
+        - {guid: 10d3d001-d7be-4c23-ad5f-b278014f3a29, title: 'Insomnia, cURL, and
+                python -m json.tool'}
+        title: REST
+    -   slides:
+        - {guid: daffaa72-9853-438b-aa31-564a6cbb2a1d, title: etcd (1 of 5)}
+        - {guid: ecc5f4d6-cfde-4db7-8f3a-5fd5cce9a5ac, title: etcd (2 of 5)}
+        - {guid: 3449b8eb-1aef-4c28-848c-7088abda9e69, title: etcd (3 of 5)}
+        - {guid: 2511f1a7-9abd-4616-a8e8-1c4da9d53c06, title: etcd (4 of 5)}
+        - {guid: 1e4130db-0659-445d-9712-73193602c7bb, title: etcd (5 of 5)}
+        - {guid: 3578fea0-83b6-43ce-b914-c28372bcbc36, title: etcd API - Hierarchical
+                Key Space}
+        - {guid: 190ab90d-fb12-4f87-887a-a66658e30639, title: etcd API - Changing
+                a Value of a Key}
+        - {guid: 8296bd91-300b-4e48-a4eb-8cc7aa4014d6, title: etcd API - Deleting
+                a Key}
+        - {guid: 3cb24b76-8889-49a7-b18c-c566aca37b2d, title: etcd API - Set a Key
+                with TTL}
+        - {guid: 58726651-b6ab-4fed-94c4-2a267d0dc5b7, title: etcd API - Retrieving
+                an Expired Key Error}
+        - {guid: c72da5c9-7157-48f6-8bf2-6e64c1cc5894, title: REST and Python}
+        - {guid: c8fbea98-a575-4208-8292-1696b6f178ad, title: REST and Python - python-etcd}
+        - {guid: 7690c62f-7d3c-42b6-b9a8-5c89124d0d7b, title: REST and Python - python-etcd
+                (Example)}
+        title: etcd
+    title: Python Environments and Projects
+-   guid: f78e6c16-99d0-4ca0-bc93-916851ec4950
+    subchapters:
+    -   slides:
+        - {guid: 17aab666-183e-417a-87bc-4f598454ae37, title: Intro to Cisco Conf
+                Parse - Basic Python Tools}
+        - {guid: 6b612c0b-08b8-4a84-929a-85fa11719e48, title: Parent vs Child lines}
+        - {guid: 0db43f60-b7fe-4ce9-b354-ccdb97c99141, title: IOSCfgLine objects}
+        - {guid: 501ea6b8-42dd-4aca-8517-b1c106075a7b, title: Retrieving text from
+                an IOSCfgLine object}
+        - {guid: 6e0217bc-366c-4a31-95ff-307b7766c834, title: Example Cisco IOS Config
+                - cisco_a3.conf}
+        title: Basic Tools
+    -   slides:
+        - {guid: 8fd66cbd-de7d-4760-a51f-b3ccbf9ecb2e, title: Finding interface names
+                that match a substring}
+        - {guid: cf7501f7-6d3c-4f7f-a67a-388499015f1f, title: Finding parents with
+                a specific child - Method 1 (for-loop)}
+        - {guid: 64a47088-fb01-49ec-8b9f-ff401d3494c0, title: Finding parents with
+                a specific child - Method 2 (list-comprehension)}
+        - {guid: 5e117c89-7b16-4a9d-a68e-e364e937538f, title: Finding parents with
+                a specific child - Method 3 find_object_w_child}
+        - {guid: feeace3e-92c7-4564-9183-f472b9541904, title: Finding parents without
+                a specific child - find_object_wo_child}
+        - {guid: 58d9f938-6158-465b-8cac-39a02b430404, title: Example Cisco IOS Config
+                - cisco_short_a3.conf}
+        - {guid: e0a3abbe-b958-4b02-97aa-0740cf91d275, title: Writing a Script with
+                CiscoConfParse - Example (1 of 4)}
+        - {guid: b7b5f984-7ec7-42f9-aa79-e701e7461eff, title: Writing a Script with
+                CiscoConfParse - Example (2 of 4)}
+        - {guid: 234921a4-16ff-4af6-93e4-4b92d034e9c0, title: Writing a Script with
+                CiscoConfParse - Example (3 of 4)}
+        - {guid: 2f3b8065-ab1c-49b8-9020-fba6802b6e4f, title: Writing a Script with
+                CiscoConfParse - Example (4 of 4)}
+        - {guid: 189fc926-17b0-4dba-8481-0f6115d21082, title: Example Cisco IOS Config
+                - cisco_short_a3.conf.new (Results)}
+        title: Basic Steps
+    title: Cisco Conf Parse
+-   guid: 37118be6-db47-4291-8ca4-57bdd1299d85
+    subchapters:
+    -   slides:
+        - {guid: f9c2ab00-43d0-4c6b-bb1b-ba8644cea147, title: 'What is Ansible good
+                for?'}
+        - {guid: bc6e1cdc-3fd6-4d76-a5fb-6bb550414462, title: Ansible Use Case - The
+                Basics}
+        - {guid: a1548886-8931-4808-9cfe-8cf98527332e, title: Ansible vs Puppet and
+                Chef || (Push vs Pull configuration)}
+        title: Introduction
+    -   slides:
+        - {guid: af9ae67e-f13e-4c3e-b788-3aae45d3a795, title: Ansible Module Index
+                (they're written in Python)}
+        - {guid: d4b3085a-7b1e-4c82-9edb-8a6b630b2a30, title: Deep dive into a Module
+                - archive Example}
+        - {guid: ae658446-d1af-487c-bdc0-ceb89bad50c7, title: Explore Modules with
+                ansible-doc}
+        title: Modules
+    -   slides:
+        - {guid: 179dea45-d967-4bf5-806c-a9e32d625e3e, title: 'Silly Fancy Buzz Words
+                vs Simplicity and Predictable Behavior '}
+        - {guid: 641b43df-ced7-472e-8e95-ba082dc741c8, title: Why Ansible is not for-looping
+                over SSH scripts (1 of 2)}
+        - {guid: a4969d5c-5298-4f21-ae73-8cc0572c3820, title: Why Ansible is not for-looping
+                over SSH scripts (2 of 2)}
+        - {guid: 38d21ee7-7cfa-4150-98f1-28f673f2e977, title: Pets vs Cattle - Service
+                Model}
+        title: Applications
+    -   slides:
+        - {guid: a19ec491-e2d0-478e-9b96-80cea1967785, title: Ansible Use Case}
+        - {guid: 1a6e2647-5fe8-4246-a551-4005f0cfb8c3, title: Virtual Box and Vagrant
+                VM Manager}
+        - {guid: bd7473a0-44a2-4c64-9cf3-a9f8d3332386, title: Vagrant ssh-config}
+        - {guid: 44972a26-d9b3-4716-9dbc-0c04f4472e33, title: Ansible Host File (Inventory)}
+        - {guid: 7d8b038e-3e35-4c1a-9b13-dc0287287166, title: Ansible commands and
+                the ping module}
+        - {guid: 8f72baf4-8e35-4811-9762-665f05466c05, title: Simplify hosts with
+                ansible.cfg}
+        - {guid: c6d8f30d-f7ab-4aaf-aa85-e16f9a3ac7e2, title: More on Ansible Commands
+                (1 of 3)}
+        - {guid: 05a536b0-de32-4074-bdfb-8c0f69824706, title: More on Ansible Commands
+                (2 of 3)}
+        - {guid: 4b46794c-6959-4534-9b5f-e19648453c97, title: More on Ansible Commands
+                (3 of 3)}
+        - {guid: c11c658d-69ff-461d-9d96-bea9828a8892, title: Exposing ports on Vagrant
+                VM (1 of 2)}
+        - {guid: 2c8c2576-d274-4fa7-98ea-768318eed525, title: Exposing ports on Vagrant
+                VM (2 of 2)}
+        title: Examples
+    -   slides:
+        - {guid: af8885fa-9869-49f9-81ed-6413bf305dbf, title: Simple Playbook}
+        - {guid: 257419af-11ad-4788-8e94-ec28d48467b1, title: 'YAML truthy / falsey
+                -- Ansible truthy / falsey (1 of 2) '}
+        - {guid: 1a2f8b92-b77d-4f92-a724-942738c56b34, title: 'YAML truthy / falsey
+                -- Ansible truthy / falsey (2 of 2) '}
+        - {guid: 0e668532-7810-4877-8647-5e5cc54dac99, title: How Ansible Fits Together}
+        - {guid: 68006f0d-bea2-4afa-9c3c-41ffab5e9026, title: The Play in the Playbook}
+        - {guid: 24cf72e9-5086-49c3-8612-ae14b0db47ba, title: Ansible apt Module}
+        - {guid: 82435fcc-bcdb-4629-adfa-b889207bdc8e, title: Ansible copy Module}
+        - {guid: 80da4449-a436-42a7-9e09-81145614c668, title: Ansible file Module}
+        - {guid: c6f91882-53c5-401c-b634-957e760bf4ea, title: Ansible template Module}
+        - {guid: 2fca384a-8a6d-4d21-adc5-d2caf71c1bdb, title: Ansible service Module}
+        - {guid: fdc39f0d-f34e-46ca-8fbf-ee39acbbf331, title: Creating an the nginx
+                Config file}
+        - {guid: 2fed4d70-2f0d-4566-9d95-308c933509fd, title: An Intro to Jinja2 Templates
+                & Creating a Homepage}
+        - {guid: 930d8eac-c918-4baa-8bff-9097eccc627b, title: 'Host File [groups]'}
+        title: Writing a Playbook
+    -   slides:
+        - {guid: 8214918a-2c82-4e42-9e69-2576ddc1d456, title: Playbook Failure - Attempt
+                1}
+        - {guid: c54975a8-66ec-4e6d-827a-d8f42c9b2896, title: Playbook Failure - Attempt
+                2}
+        - {guid: 8107a143-4c7f-4b38-9dd1-f2be5735aed2, title: Playbook Success - Attempt
+                3}
+        - {guid: 96e519a1-983e-4b08-8fed-9e9218a454cd, title: 'Ansible - Success -
+                http://localhost:8080'}
+        title: Troubleshooting
+    -   slides:
+        - {guid: ec8dfcb8-23c9-4997-90ca-26f388d0b57b, title: A Playbook with Variables
+                and Handlers (1 of 2)}
+        title: Handlers
+    title: Ansible

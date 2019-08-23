@@ -12,14 +12,14 @@ audience: "Any telecom personnel working with SIP or SIP trunks. Also for those 
 prereqs: 
   -  none
 postreqs: 
-  -  volte
-  -  5g
+  -  VoLTE
+  -  5G
 testimonials:
   - quote: "After taking a different Intro. to SIP Course - I was thrilled to attend this class with an instructor who is excited and passionate about teaching and who really understands the materials." 
     stars: 5
   - quote: "This course killed 2 birds with one stone - I got to learn SIP and Wireshark at the same time. Great job!" 
     stars: 5
-video-link: "https://www.youtube.com/embed/RWggp5zHop8"
+video-link: "https://www.youtube.com/embed/RWggp5zHop8?rel=0;autoplay=1"
 web-url: "https://alta3.com/courses/sip"
 has-labs: true
 has-videos: true
@@ -30,7 +30,7 @@ price:
     price-tags:
       - id: priceinfo-public-single-student 
         description: Face to face training for 1 student
-        price: 179500 
+        price: 800000
         available: yes
         includes: 
         - item : has-video-true
@@ -118,764 +118,721 @@ price:
         - item : has-book-true
           description: Includes on-line book
         - item : has-labs-false
-overview: This class is a study of the Python programming language. Students will learn to build their own environments in which to program, and begin writing their own code. By the end of the first day, you should feel comfortable writing code on your own machine. By the conclusion of the course, students will understand the basics of object-oriented programming, how to use Python to interact with data sets (such as XML and JSON), interact with APIs, track down code snippets and programs on places like GitHub, as well as debug broken code. This course is 50% lecture and 50% hands-on labs. Students need no prior programming experience.
+overview: In this course, students learn Session Initiation Protocol and important protocols related to SIP implementations. This course thoroughly explains what SIP is, how it works, and also provides a practical guide on how to use it. The lessons in this course are clear and very technical. In this course, students will examine how SIP interoperates in the current telecommunications network, going beyond the basics of the protocol and getting a big picture understanding of how it all fits together. At the end of the course, students will receive access to an Alta3 Research SIP certification exam. Upon successful completion of the exam, students will be awarded a SIP certificate.
 chapters:
-- title: Introduction to Python
-  guid: 6b31c414-c3ad-47c6-9c84-a5e59bd67e54
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 13
-      guid: 05c950e4-431d-4157-8c59-91f8c565ca31
-      title: Installing Python 2.7
-    - index: 14
-      guid: ece02c4a-00dd-4af5-9f75-72598dd4ab03
-      title: Installing Python 2.7 - Download (Windows)
-    - index: 15
-      guid: d97e9500-6f6c-4465-83f0-542f55154ee9
-      title: Installing Python 3.6
-    - index: 16
-      guid: 2add35ea-25dc-4e4c-b841-2eb59f62751b
-      title: Installing Python 3.6 - Getting to Downloads
-    - index: 17
-      guid: e3f89191-1673-446b-bc70-2c9c7b1dc937
-      title: Installing Python 3.6 - Download (Windows)
-    - index: 18
-      guid: 5644d7e8-89f7-4b51-ae68-2960f9b4266d
-      title: Preparing to write a Python (*.py) file - Text Editors
-    - index: 19
-      guid: 815a71a2-3eb4-42f3-aabf-51e91e8cb357
-      title: Writing our first Python (*.py) file
-    - index: 20
-      guid: efd3c99a-4c75-4a6f-94a0-42a513e39d6f
-      title: Executing our first Python (*.py) file - Testing Python 2.7
-    - index: 21
-      guid: c3da829c-d1af-4381-93ce-0afb6fbfc35a
-      title: Executing our first Python (*.py) file - Testing Python 3.6
-    - index: 22
-      guid: 11f2c867-430b-4a92-b5ee-8b49226eba92
-      title: Python Interpreter aka Interactive Shell
-    - index: 23
-      guid: 7056a84d-9272-4337-9ae2-c118964fb034
-      title: Python Enhancement Proposal (PEP)s
-    - index: 24
-      guid: 4232eb3d-ed6c-4c8b-a6df-7c24ca1166ae
-      title: Python Statements and Control Flow
-    - index: 25
-      guid: 94e433d3-6435-452d-b03d-12ac18196155
-      title: How to speak Python
-    questions: []
-- title: Version Controlling
-  guid: 65800686-4079-47f5-899a-64ae85fff26f
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 27
-      guid: 3a68a09d-3f39-487a-bf0f-688e833c9e2b
-      title: Setting up a GitHub Account
-    - index: 28
-      guid: 4db6e954-d810-4d07-a114-1216c82dc928
-      title: Setting up a GitHub Account (continued)
-    - index: 29
-      guid: 7157085c-a2b3-4d95-b516-098c0a3a897c
-      title: Why Python Developers need to know Git and Github
-    - index: 30
-      guid: fd0dbb0f-05d8-42ea-a6e6-c163e3738175
-      title: Git repo-to-repo collaboration
-    - index: 31
-      guid: 6440ebb7-8302-437e-9d0e-5c07c59352d6
-      title: 'Git usage: git clone <repo> <directory>'
-    - index: 32
-      guid: 36d35ac7-000a-4d37-b81b-a9e67127f8f1
-      title: 'Git usage: git init –bare <directory>'
-    - index: 33
-      guid: 17823740-07c2-4f1f-81e1-fcb0ccd45c81
-      title: 'Git usage: git config --global'
-    - index: 34
-      guid: 869a3f23-f5a4-4c15-bd97-6789663517bf
-      title: 'Git usage: git add <file> && git reset <file>'
-    - index: 35
-      guid: 16483a87-d000-490f-9ed5-698856bb014b
-      title: 'Git usage: git commit –m “<message>”'
-    - index: 36
-      guid: 51bf5b2c-4eb2-4223-a19f-562c74abf314
-      title: 'Git usage: git push <remote> <branch>'
-    - index: 37
-      guid: dc608d8c-3499-40df-be9b-dcdd8b36fd11
-      title: Git saves files not deltas
-    - index: 38
-      guid: db413801-0f3d-4095-924c-59bb3b131700
-      title: 'Git usage: git status'
-    - index: 39
-      guid: 00cebca5-6485-42f6-acbe-f2781b14c5ac
-      title: 'Git usage: git log --oneline'
-    - index: 40
-      guid: 41b404c4-cee4-4d44-b8f3-c6098baeed45
-      title: 'Git usage: git checkout <commit || master>'
-    - index: 41
-      guid: 17bc8757-3887-44ad-9f7c-8f061886fa21
-      title: 'Git usage: git remote <add || rm> <name> <url>'
-    - index: 42
-      guid: 240eb886-0b49-49bf-89d3-573c547d6d55
-      title: 'Git usage: git branch <branch>'
-    - index: 43
-      guid: 5d425b91-2d6f-4bc6-92fa-987491fb93f6
-      title: 'Git usage: git pull –rebase <remote>'
-    - index: 44
-      guid: dcd0193c-1167-4b77-80bd-89a47634d9d1
-      title: GitHub is git + social
-    - index: 45
-      guid: c64e1512-d992-487c-a2d2-1ba2c3489399
-      title: 'Git Recap: What you need to know'
-    questions: []
-- title: Programming Basics
-  guid: dbc9555c-ef2a-42cf-aed6-f3077ae85692
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 47
-      guid: 8c4aedf5-ddcd-4b10-98f7-c286c629d68c
-      title: Python Basic Data Types
-    - index: 48
-      guid: 317820f4-edae-42ec-b783-cefc472dd9ab
-      title: Built-in Python Functions
-    - index: 49
-      guid: 42beb933-ca37-40b5-91ff-b328390ff36a
-      title: Python Functions & Arguments
-    - index: 50
-      guid: cf51547b-3bf2-4517-8eb3-3827f98ddcc9
-      title: Print - Example
-    - index: 51
-      guid: b9818690-f578-4303-beff-9713599214c6
-      title: Print - Example results
-    - index: 52
-      guid: 127a2d72-32ff-402d-87a7-4817459e8480
-      title: Print with end='' - Example
-    - index: 53
-      guid: 2a68ea94-2c8f-4a81-807f-ca30e258066c
-      title: Print with end='' - Example results
-    - index: 54
-      guid: 184e4bb1-6664-4f2a-b6c1-bc1a057a2afb
-      title: Print with \t (tab) - Example
-    - index: 55
-      guid: dc5345df-139a-4cc9-94f2-51e682416c72
-      title: Print with \t - Example results
-    - index: 56
-      guid: 30ee788b-f7ae-4cb2-946f-6e6e2082df47
-      title: Print with + (concatenation) - Example
-    - index: 57
-      guid: a96bd3fb-4cfa-423e-8501-f3ad888bbe49
-      title: Print with concatenation (+) - Example results
-    - index: 58
-      guid: 27a1fea9-7a5c-4da7-a65b-ffefc0760d9c
-      title: Print with \n (new line) - Example
-    - index: 59
-      guid: f8db775a-1c2c-42fc-b8df-f5a6b27acf42
-      title: Print with \n (new line) - Example results
-    - index: 60
-      guid: d1135be2-4479-4c3a-8543-bdd26a3f7b54
-      title: String Literal Escape Sequences
-    - index: 61
-      guid: 2749181f-8ec0-478e-b4b3-9855a9161abb
-      title: Expressions & Literals
-    - index: 62
-      guid: dcb369d7-dc8e-4176-9f10-f2dccca841a6
-      title: Assignment Statements & Variables
-    - index: 63
-      guid: 2766e305-ab05-4a52-9405-4ca89648ee64
-      title: Useful snippet – Clearing the interpreter
-    questions: []
-- title: Numeric Operations
-  guid: c91ed2ac-0add-4db7-98e3-2584c63fcdb3
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 65
-      guid: 0be8cef3-e439-41f0-8909-952a914aa9e3
-      title: Number Types
-    - index: 66
-      guid: 167e8087-f826-4311-be0e-4e2202f8f982
-      title: Number Operators
-    - index: 67
-      guid: 5d4200aa-06d1-4d11-9af9-65ae6caa9800
-      title: Number Operators Have Precedence
-    - index: 68
-      guid: 43794ac1-d524-4a9e-b396-91fe176ddd4c
-      title: Combining Integers and Floating Points
-    - index: 69
-      guid: 241a60e6-e05c-42c7-b735-ed796ae343bc
-      title: Mathematical Functions
-    questions: []
-- title: String Types
-  guid: ffd5f24f-728e-49e9-9bde-470c62351c5f
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 71
-      guid: ea293eba-0557-46c1-91cd-80d361f4d730
-      title: Strings
-    - index: 72
-      guid: 5ec60cc1-2dee-446c-a44e-2f34c1d2e7ae
-      title: String Slicing
-    - index: 73
-      guid: abb2d3fc-ccf0-4a83-9344-bb62b6a91df5
-      title: String Repeating, Splitting, and Stripping White Spaces
-    - index: 74
-      guid: 09757224-9635-4a79-b352-918ec5994c22
-      title: Booleans
-    - index: 75
-      guid: 1e95dbbd-3a22-4f19-891d-04ed12ab5d09
-      title: Print & format strings
-    - index: 76
-      guid: 6dab08af-2647-4a31-942b-242996585a99
-      title: Print & format strings (old)
-    - index: 77
-      guid: 08004f4b-5719-4aa3-95db-b6fa889b5408
-      title: Scripting with input() - Example
-    - index: 78
-      guid: f6d280cf-e84f-4d8d-9bc3-1cefadf83d72
-      title: Scripting with input() - Example results
-    - index: 79
-      guid: cde116a0-8036-47f3-a417-96e431dc1d13
-      title: Scripting with input() improved - Example
-    - index: 80
-      guid: 86e526a4-2719-4c43-94e6-2c980349fb66
-      title: Gathering user input with raw_input() (Python 2)
-    questions: []
-- title: List & Tuples
-  guid: 6888840c-2c6d-4606-8215-47e58bb74f88
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 82
-      guid: 903c9289-0caa-414a-996f-cfaf05a7bdaf
-      title: Intro to Integer Lists
-    - index: 83
-      guid: f5ed1ef9-c468-46b2-b97e-2f2b7061f9ca
-      title: Mixed Variable Lists
-    - index: 84
-      guid: 8e0a5ff8-f22c-4031-b2f8-7bf19b632852
-      title: Tuples
-    - index: 85
-      guid: 9f286332-fe55-4fa7-8d13-0587ed193832
-      title: Python Time Touples
-    - index: 86
-      guid: bb79a00a-d4f4-4eee-9c39-379fdee70903
-      title: Tuples vs. Lists
-    questions: []
-- title: Dictionaries
-  guid: c427e38c-e675-486b-8431-4953ecb46562
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 88
-      guid: 6f545e85-fa62-424c-975d-680da09177b3
-      title: Dictionaries - Keys and Values
-    - index: 89
-      guid: 02048728-2c60-4cc1-8f22-0b9f310df9a4
-      title: Manual Dictionary { } Building
-    - index: 90
-      guid: 6ee2db25-d6ee-4cdf-901d-259bd942b9f8
-      title: Selecting a Data Structure
-    questions: []
-- title: if, elif, else
-  guid: 82160d3c-e781-4b17-b223-5ad4902b397e
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 92
-      guid: d5e99613-665d-4483-b4be-9a1fd74f8b7b
-      title: Relational Operators (1 of 2)
-    - index: 93
-      guid: d9811eb2-d112-4e06-b2d9-158f24e39a3d
-      title: Relational Operators (2 of 2)
-    - index: 94
-      guid: c10f76ac-468a-40ef-b52c-1d584aaf7b98
-      title: Logical Operator Truth Tables
-    - index: 95
-      guid: 9d6701c4-a67a-4561-94f1-c4eec3836ac2
-      title: Logical Operators
-    - index: 96
-      guid: 93f0d322-2f74-45b6-a139-e6cdc8172355
-      title: '"Simple" if'
-    - index: 97
-      guid: 9af43752-3178-4229-be97-0893bd8c7275
-      title: '"Simple" if - Example'
-    - index: 98
-      guid: 66cd22b3-9e85-4505-a083-6b53293e18a3
-      title: '"Simple" if - Example results'
-    - index: 99
-      guid: 156c8b10-5e58-4c6b-8c27-7ac807f20b3a
-      title: if-else Usage
-    - index: 100
-      guid: 5c0f2789-2526-49c0-a359-03e3fa3b29fe
-      title: if-else - Example
-    - index: 101
-      guid: 3059f749-24c5-41b8-b5c6-788dfa59ca62
-      title: if-else - Example results
-    - index: 102
-      guid: bf922961-8278-49c9-b393-2cd4121b90e1
-      title: if-elif Usage
-    - index: 103
-      guid: 627d31ce-0dd9-4549-a1cb-258dfff4836a
-      title: if-elif - Example
-    - index: 104
-      guid: 0ecd1065-28c2-430d-b420-4d98965b8e97
-      title: if-elif - Example results
-    - index: 105
-      guid: f76d8dac-e980-4d24-8aa2-96bed96bfd00
-      title: Nested if statement - Example (1 of 2)
-    - index: 106
-      guid: 6c02e197-1bd0-4ff9-8b51-6ec3888072d6
-      title: Nested if statement - Example (2 of 2)
-    - index: 107
-      guid: 5e9c3839-5332-4305-adf5-848c95a52392
-      title: Nested if statement - Example results
-    questions: []
-- title: while
-  guid: 3fe8076a-d91e-4c32-85fd-d2b31a6f5c3a
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 109
-      guid: 58cff75a-fb8a-4a6a-bf5e-94e5f2df7e00
-      title: while Usage
-    - index: 110
-      guid: cb3c5345-7183-44d7-a260-278b0bd075e4
-      title: while Loop - Example
-    - index: 111
-      guid: 8e951548-ba13-4535-826d-541caea2e41c
-      title: while Loop - Example results
-    - index: 112
-      guid: 974cd487-c22d-4ca2-b541-f00705d762c3
-      title: Count-controlled while Loop - Example
-    - index: 113
-      guid: 7c680b26-0428-47c7-8025-b0c367c64ca6
-      title: Count-controlled while Loop - Example results
-    - index: 114
-      guid: 65afc30a-839e-417c-b23e-174b930859c0
-      title: Event-controlled while Loop - Example (1 of 2)
-    - index: 115
-      guid: 735ecd1c-faae-4aa0-bb92-c829b60b6dac
-      title: Event-controlled while Loop - Example (2 of 2)
-    - index: 116
-      guid: 276bee27-6576-4757-bdfc-a5ff4a5bb150
-      title: Event-controlled while Loop - Example results
-    - index: 117
-      guid: bd6d43f4-884a-43ee-b53d-7770a5088ccc
-      title: continue Usage
-    - index: 118
-      guid: 4c995b02-b05f-4412-96dc-9c4a59d79c08
-      title: Continue - Example (1 of 2)
-    - index: 119
-      guid: 6a6fcd69-5a4e-4921-8a45-1b96d4d6a9d6
-      title: Continue - Example (2 of 2)
-    - index: 120
-      guid: 541fe82c-ae8d-45b5-9a33-273c038c94cb
-      title: Continue - Example results
-    - index: 121
-      guid: 0f36926e-091e-4d4a-a8c2-1f4deef54316
-      title: Break usage
-    - index: 122
-      guid: 91557603-ef2d-4948-96f4-5a2c1ee04918
-      title: Break - Example (1 of 2)
-    - index: 123
-      guid: 0e60a09c-4496-4260-a35c-987e81ddc187
-      title: Break - Example (2 of 2)
-    - index: 124
-      guid: 38d63cc5-0339-479b-85fe-d054c59f5e2f
-      title: Break - Example results
-    questions: []
-- title: for loop
-  guid: cb8027e5-8273-4550-9e6d-6a2c1215799c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 126
-      guid: afb51d2c-c477-4184-956f-53d0545a0f19
-      title: for Usage
-    - index: 127
-      guid: 6b7b2308-5e65-4ec5-8eef-c359aa29afc5
-      title: for Loop - Example
-    - index: 128
-      guid: a1ab8348-bec3-421c-871b-216614c89a2e
-      title: for Loop - Example results
-    - index: 129
-      guid: e360cc56-a8cb-4da4-b46c-c49907857c9d
-      title: for Loop - Example 2
-    - index: 130
-      guid: 03342db4-3a25-44fb-a100-216cb5dc20b2
-      title: for Loop - Example 2 results
-    - index: 131
-      guid: a5f7ccb4-f1eb-4bff-8561-93f73aec573e
-      title: for Loop - Example 3
-    - index: 132
-      guid: aed63ba9-330a-4637-97a1-d82ecd90b9a8
-      title: for Loop - Example 3 results
-    - index: 133
-      guid: 0f9af964-dc21-47ea-85d6-cb2f514d81bf
-      title: Programming Challenge - Rewrite as a "for" loop (1 of 2)
-    - index: 134
-      guid: 5c4127a6-7d33-48a7-ba2c-990cffac4a27
-      title: Programming Challenge - Rewrite as a "for" loop (2 of 2)
-    questions: []
-- title: Iterators
-  guid: dd822f5b-0ad9-41f8-8c9d-61283137161c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 136
-      guid: be8811eb-6cc3-4e33-a7e6-941486b6f746
-      title: Iterator vs iteration - Example
-    - index: 137
-      guid: f7286041-9c8b-4126-bce2-b8887bc87a10
-      title: Iterator vs iteration - Example results
-    - index: 138
-      guid: 821503cb-8761-45c2-92eb-becc00e988ae
-      title: Iteration with iter() and next() - Example
-    - index: 139
-      guid: 05995b4f-617f-4427-bd39-90c19ee276e3
-      title: Iteration with iter() and next() - Example results
-    - index: 140
-      guid: 57dbd265-3484-4715-ab4d-931153068c3e
-      title: Iterators and Dictionaries - Example
-    - index: 141
-      guid: 6ac98619-dd23-4842-9417-8ee1cf14d42f
-      title: Iterators and Dictionaries - Example results
-    - index: 142
-      guid: ca4f4eff-2338-4d6c-ad3e-dbbdd460f6dc
-      title: Iterating Tuples - Example
-    - index: 143
-      guid: 052461ca-61ff-4258-811d-50fbeced6adc
-      title: Iterating Tuples - Example results
-    - index: 144
-      guid: 33aabcd0-de5e-4e32-9f09-700020b23db4
-      title: range() Function
-    - index: 145
-      guid: 04581599-a360-409d-b97c-3f081e5b15b4
-      title: for Loop with range() - Example
-    - index: 146
-      guid: e09c73fa-785b-47d3-a53d-c42d1b9c1e92
-      title: for Loop with range() - Example results
-    - index: 147
-      guid: cd915030-8018-4423-a06c-09c279f40df1
-      title: for Loop with tuples [ ] and lists ( ) - Example
-    - index: 148
-      guid: c0264df7-2381-4cd9-a324-e8af505f4255
-      title: for Loop with tuples [ ] and lists ( ) - Example results
-    - index: 149
-      guid: 86dc9ae3-b38a-4441-abe6-711ed0ce7925
-      title: for Loop with string tuples[ ] - Example
-    - index: 150
-      guid: d75e8ecc-5974-436e-aab1-9b2fc50d08c4
-      title: for Loop with string tuples[ ] - Example results
-    - index: 151
-      guid: 44d2b76d-56b3-46da-a49c-3bedbbdc27e1
-      title: for Loop with dictionaries {'key':'value',…} - Example
-    - index: 152
-      guid: 142fa754-c7b3-467f-8432-fac4e7118415
-      title: for Loop with dictionaries {'key':'value',…} - Example results
-    questions: []
-- title: Input & Output with Files
-  guid: 8bba2c01-9855-4b59-b88e-04474e3b3537
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 154
-      guid: 9fbdb981-d675-45e7-9e9a-77b1b12369af
-      title: Print() Output to a Data File (Python 3.x)
-    - index: 155
-      guid: 3b2bea1e-a94c-4511-b3dc-7a204bce4c19
-      title: Writing data to files - Example
-    - index: 156
-      guid: 41e9eaee-e06b-4ced-b9bc-2ce222952c24
-      title: Writing data to files - Example results
-    - index: 157
-      guid: a4c14bfd-bcd4-442a-b297-9519a783e476
-      title: Writing data to files - Example 2
-    - index: 158
-      guid: a2b2201c-236a-44c3-bfcc-5b3f78734679
-      title: Writing data to files - Example 2 results
-    - index: 159
-      guid: 484070e1-b3ab-4b64-8859-24f8bd416f96
-      title: Opening a File – Python File Objects
-    - index: 160
-      guid: 0d648f9f-7d9c-4948-b5c3-1178f06b7fc5
-      title: Read data from files - Example
-    - index: 161
-      guid: 0ef8470b-bfd6-4067-a037-9721991e0e32
-      title: Read data from files - Example results
-    - index: 162
-      guid: 32760285-6369-45a2-92df-657688551e4d
-      title: Read data from files - Example 2
-    - index: 163
-      guid: 47d0e361-3ea0-49d6-a5b2-cf91c34b7e20
-      title: Read data from files - Example 2 results
-    - index: 164
-      guid: a403b8a0-a6bb-4bc3-a54d-2ea3a8957894
-      title: For Loop reading from a file - Example
-    - index: 165
-      guid: b5724ce1-f992-4174-ba29-83752f79eab6
-      title: For Loop reading from a file - Example results
-    questions: []
-- title: Python List Comprehensions
-  guid: a0517051-c2ce-4796-b683-c4ec1463a550
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 167
-      guid: a16e6b1a-591e-4394-acd3-8c05ee8bd609
-      title: List Comprehensions
-    - index: 168
-      guid: 6965286c-81fc-4b0c-9b5c-b27677dbfdd4
-      title: List Comprehensions - Example
-    - index: 169
-      guid: 8e49b2a5-ee2e-49bd-8967-a96807c372b6
-      title: List Comprehensions - Example results
-    - index: 170
-      guid: 8a79ed01-5848-4628-9ec9-b021631c7f81
-      title: List Comprehension with Strings - Example
-    - index: 171
-      guid: ce3a7481-e700-4146-9d5d-6fb1c1762bd4
-      title: List Comprehensions with Strings - Example results
-    - index: 172
-      guid: 5ea5adeb-35ef-4799-8ff2-633f7ec0c7ca
-      title: List Comprehension with Files - Example
-    - index: 173
-      guid: 103b3193-bb40-45d9-bd3d-d6b505b4d454
-      title: List Comprehensions with Files - Example results
-    questions: []
-- title: Creating Functions
-  guid: 3fa33927-291a-408f-a29a-d65af4e9cfee
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 175
-      guid: a0683880-5f59-4087-b85e-08de1121fb0e
-      title: Defining Functions
-    - index: 176
-      guid: f9acbbdc-ba09-451b-894a-3f0b07680e58
-      title: Calling Functions
-    - index: 177
-      guid: 4d3141ba-c690-4124-98f2-b3c49568b168
-      title: Function Basics
-    - index: 178
-      guid: 1a0969fb-61cc-475b-b40a-aeb04f99cb44
-      title: More Function Basics
-    - index: 179
-      guid: 706c62d3-619a-4ec7-a52e-43f488a851f1
-      title: Creating Functions that Process Integers - Example
-    - index: 180
-      guid: 1c1c3a88-b081-45e8-a1e8-e622e9eb70d5
-      title: Creating Functions - Example results
-    - index: 181
-      guid: 7ed997ac-770a-4d33-bbb5-47131d3b2da4
-      title: Creating Functions that Process Strings - Example
-    - index: 182
-      guid: 11320c29-c05e-4cfc-87c3-fbe8219e2554
-      title: Creating Functions That Process Strings - Example results
-    - index: 183
-      guid: 8a84b8a2-2eea-4826-a51e-5a20440479de
-      title: Defining Functions with Multiple Parameters
-    - index: 184
-      guid: 49737569-bcfe-4433-9547-877ae6262ca3
-      title: Calling Functions with Multiple Parameters
-    - index: 185
-      guid: ee9aa36e-09e6-4ed0-a732-bfa7297f3919
-      title: Creating Functions with Multiple Parameters - Example (1 of 2)
-    - index: 186
-      guid: 859d7a6a-adbb-4d8d-8845-ac5e197f0d26
-      title: Creating Functions with Multiple Parameters - Example (2 of 2)
-    - index: 187
-      guid: 9f3d0ea7-11c3-4c8e-9a56-5a49f22f9d7b
-      title: Creating Functions with Multiple Parameters - Example results
-    - index: 188
-      guid: 45ad19b4-00a0-47d6-9bb7-16ad3fbdd3c5
-      title: Predicate Functions - Example (1 of 2)
-    - index: 189
-      guid: 94ef4d48-06fb-455a-b57b-d28710480bcb
-      title: Predicate Functions - Example (2 of 2)
-    - index: 190
-      guid: 616d076a-cb54-4e51-a6da-4db9fe627cf5
-      title: Predicate Functions - Example results
-    - index: 191
-      guid: 337ab66c-51cf-45ae-b120-c2674e7de299
-      title: Recursive Functions - Example
-    - index: 192
-      guid: ae3e3620-299d-4c4d-9f12-3c149a48036e
-      title: Recursive Functions - Example results
-    - index: 193
-      guid: c5ae57f1-68d7-468e-af86-1b194dd7f28e
-      title: Recursive Functions with Strings - Example
-    - index: 194
-      guid: 211ab7a2-260d-4084-991c-9bbbe08fa8c2
-      title: Recursive Functions with Strings - Example results
-    - index: 195
-      guid: f1e0f556-5932-404f-82e9-06119df89a8e
-      title: Higher order functions - Example
-    - index: 196
-      guid: 6bcf0a28-a3f3-4e6d-b2df-79baccea6443
-      title: Higher order functions - Example results
-    - index: 197
-      guid: b58b1484-8e9a-460c-a7ca-062f71bca06a
-      title: Anonymous Functions - Basic Lambda Form - Example
-    - index: 198
-      guid: eb7f7574-b2de-409e-a1b4-82e9403df966
-      title: Anonymous Functions - Basic Lambda Form - Example Results
-    - index: 199
-      guid: cfd11759-8246-4890-8289-1fed471b9f49
-      title: Filter function - Example
-    - index: 200
-      guid: ce62555b-ab43-49b7-82db-114781c94e1a
-      title: Filter function - Example Results
-    questions: []
-- title: Modules and Packages
-  guid: a6d942ee-b8b3-4ab7-9ebd-8ab737de9b0c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 202
-      guid: a36a3361-f09a-4e05-92bf-0e2c3bf77a50
-      title: Packages & Modules
-    - index: 203
-      guid: 9a428071-7b1e-4ebc-a318-cd69fe20512c
-      title: PyPI - the Python Package index
-    - index: 204
-      guid: a4d18855-40e3-4a3c-981f-b873cd5d052b
-      title: Getting at PyPI with pip (1 of 3)
-    - index: 205
-      guid: d8e40ca2-e612-4b1e-b2ee-5523bd8191a7
-      title: Getting at PyPI with pip (2 of 3)
-    - index: 206
-      guid: f23e6a2c-2571-4fb5-aa72-f5edf428e620
-      title: Getting at PyPI with pip (3 of 3)
-    - index: 207
-      guid: d984e8ec-9a6d-467f-b3de-f95d28e8f06a
-      title: Lightweight Virtual Environments - Using venv
-    - index: 208
-      guid: 01c2cd70-d7f2-45c0-86db-55622c3de0af
-      title: import Statement - Example
-    - index: 209
-      guid: d482b7a7-5125-41a7-a882-b4e65a025f05
-      title: import Statement - Example Results
-    - index: 210
-      guid: 93b33ac1-c110-4a91-a390-0f7b4fb444cc
-      title: User Defined Modules - Example (1 of 2)
-    - index: 211
-      guid: bca3ace7-f44a-483d-a812-26474de18249
-      title: User Defined Modules - Example (2 of 2)
-    - index: 212
-      guid: 04ec0fbb-6ed0-43cc-aa66-f9eb1816eec7
-      title: User Defined Modules - Example Results
-    - index: 213
-      guid: a9f9be8c-c4b1-407d-a2b3-d5534ce4939a
-      title: Importing Functions from User Defined Modules - Example (1 of 2)
-    - index: 214
-      guid: 421b67b8-8b87-4003-8645-bb33a64c4aaf
-      title: Importing Functions from User Defined Modules - Example (2 of 2)
-    - index: 215
-      guid: 75168e5c-86bd-4b6e-ba00-dbeecae02cbc
-      title: Importing Functions from User Defined Modules - Example Results
-    - index: 216
-      guid: 2f588e9c-e556-4ade-9290-51810701027e
-      title: Importing Functions from User Defined Modules - Example 2
-    - index: 217
-      guid: a88a2909-81fa-41f8-af7a-0f4b5fe0ec8b
-      title: Importing Functions from User Defined Modules - Example 2 Results
-    - index: 218
-      guid: 09ed526b-40f2-4864-9042-6feaeaae53eb
-      title: Python Names and Namespaces
-    - index: 219
-      guid: 14c6856a-0c46-4ef0-9ddb-42577cdfe9f5
-      title: Import effects on Namespace
-    questions: []
-- title: Python Scope
-  guid: 46de4fa3-b904-41d8-9ca1-544958796131
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 221
-      guid: 7d457624-de1a-4fad-9167-449e1c6f3431
-      title: Python Names
-    - index: 222
-      guid: b7708f60-5dac-4698-95c0-ef8ca085418a
-      title: Global Scope - Example
-    - index: 223
-      guid: 332d5c0c-53ba-4889-ac97-1d9b815788a3
-      title: Global Scope - Example Results
-    - index: 224
-      guid: 5800d398-afcf-402f-aaea-f2bbe6749f8c
-      title: Local Scope - Example
-    - index: 225
-      guid: 0d24cb38-ef4e-4355-814b-f71e588baaea
-      title: Local Scope - Example Results
-    - index: 226
-      guid: c7925e27-1433-4b0a-9fac-e846229bc01b
-      title: Nested Scope - Example
-    - index: 227
-      guid: d906a089-e498-4d51-9e16-e2424cdf06cd
-      title: Nested Scope - Example Results
-    questions: []
-- title: Object-Oriented Programming
-  guid: 565f6d30-84e5-432d-b81c-eb9406c04ad9
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 229
-      guid: 7ded1be0-a1f6-4b52-911d-ebc5d1741ae3
-      title: Mutable vs Immutable Objects
-    - index: 230
-      guid: 92d907a7-cbe7-4fa0-bab1-5324ce476182
-      title: Python and Objects
-    - index: 231
-      guid: 72cbfa11-c3e2-4e79-9b5c-df1a921d32ea
-      title: Checking Python Data Types with type()
-    - index: 232
-      guid: 9847c91a-ec35-4f6f-b291-b94e9e9ff64f
-      title: Abstract Data Types
-    - index: 233
-      guid: cdd16aed-d138-4b2d-ae1d-9cf370e990ee
-      title: Defining a Class
-    - index: 234
-      guid: 092e5c74-058f-4691-8808-66a05a9c7b86
-      title: Object vs Class
-    - index: 235
-      guid: a1a06164-a0f8-46e3-8b02-19abc7abdd3b
-      title: Class Fields & Constructors - Example
-    - index: 236
-      guid: 4818bb1c-120e-476d-87cf-d4f3c450b1a0
-      title: Class Fields & Constructors - Example Results
-    - index: 237
-      guid: b3e1c6e2-bd35-465e-ad04-238214b51a4e
-      title: Data Structures within a Class (1 of 2) - Example
-    - index: 238
-      guid: a423895e-5dc5-4715-a719-50565615f531
-      title: Data Structures within a Class (2 of 2) - Example
-    - index: 239
-      guid: 8c93314b-9c4d-4f09-9436-ddea6a6bc8b2
-      title: Data Structures within a Class - Example Results
-    - index: 240
-      guid: 93121524-57c7-49fc-a879-b8397cd4bc39
-      title: Class Inheritance (Is-a relationships)
-    - index: 241
-      guid: fbb4fd17-4445-47c6-b2c7-8b591185b0ef
-      title: 'Class Inheritance (Is-a relationships) within a '
-    - index: 242
-      guid: 2f08d661-91cb-47eb-b2f9-199f775d7d64
-      title: Sub Classes (Inheritance) - Example (1 of 3)
-    - index: 243
-      guid: c2d8498f-9907-496c-9bcd-9dafa5b9a090
-      title: Sub Classes (Inheritance) - Example (2 of 3)
-    - index: 244
-      guid: 98c85b2a-6e14-43cb-9106-8cc14ff53157
-      title: Sub Classes (Inheritance) - Example (3 of 3)
-    - index: 245
-      guid: a901c1e8-2f25-4a02-9453-b3e4bd61a67e
-      title: Sub Classes (Inheritance) - Example Results
-    - index: 246
-      guid: 650cc14d-16ee-4dae-97a4-e606ad3e7d9d
-      title: Polymorphism with a Function
-    - index: 247
-      guid: 47fa6ee2-f69d-46cc-a219-48bbb19e30ed
-      title: Polymorphism with a Function – Example Results
-    questions: []
+-   guid: 0c44fa89-2694-402c-aaeb-823f9c78fbf9
+    subchapters:
+    -   slides:
+        - {guid: 21ea187a-8275-4a76-9054-0ac6f993a4ef, title: SIP Messages}
+        - {guid: 08e1aa59-be3e-451a-bef1-4d811b17bc01, title: SIP Request and Response
+                Format}
+        title: SIP Message Format
+    -   slides:
+        - {guid: 634aeef0-e9ff-4cd5-94bc-9963e4f61224, title: Softswitch with Embedded
+                GW}
+        - {guid: ddc71fda-970a-4dcf-b186-fe9a267eff2e, title: Gateway Control Protocol}
+        - {guid: 9902d0c0-d22b-40e7-b9e1-8d97a1f4c15b, title: SIP and the PSTN}
+        - {guid: 64fa573d-b6b3-4acc-93ca-b447c1601224, title: SIP and the PSTN}
+        title: Compare SIP with Legacy Call Control
+    -   slides:
+        - {guid: 211bc8d6-ba16-4874-9f3b-a85f04448502, title: RTP Packet}
+        - {guid: 3094bc7c-3df1-40d3-be6a-418487495192, title: How Queuing Causes Jitter}
+        title: How to packetize voice
+    -   slides:
+        - {guid: 494c3763-7790-41ed-a35d-cedeed301b1d, title: "Meet Alice, Bob, and\
+                \ Charlie \u2013 Debut in RFC 2543"}
+        - {guid: f81dd55b-5d97-4340-9a29-a9d78059d1ce, title: SIP Message Flow}
+        - {guid: 4b7e0e3f-df98-4adf-a13c-1e2f1c0e53f3, title: The Dialog Path}
+        - {guid: dd5e6f16-63be-40ec-ac39-8eeb0841d038, title: Trust Chain}
+        - {guid: 484db764-83a1-4ce9-87e2-0e3fa4ca515f, title: 4G IP Multimedia Subsystem
+                (IMS)}
+        title: VoIP Call Flow
+    title: VoIP Introduction
+-   guid: 8520258a-f46f-4d89-9146-cf4825da26ee
+    subchapters:
+    -   slides:
+        - {guid: d21a1ca0-4f80-4fca-a4df-d44470158f43, title: SIP User Agent}
+        title: SIP UA Defined
+    -   slides:
+        - {guid: a3fa64fb-63b3-4fd1-a793-37871b6b788d, title: SIP Architecture}
+        - {guid: cd80912f-a9e5-4ada-9aac-160bdb680d9a, title: SIP Responses Status
+                Codes}
+        - {guid: 7e1965b5-9a6f-406d-8151-0eaeef187db5, title: SIP Response Codes}
+        - {guid: 7be50630-f273-4548-8ddd-43a261e0f22c, title: SIP Response Codes}
+        title: SIP Requests and Responses
+    -   slides:
+        - {guid: 380af9ac-7b31-44a4-a8fb-492c91eb762e, title: SIP and SIPS URI Structure}
+        title: SIP URI Structure
+    -   slides:
+        - {guid: 9ebd0e45-e178-4bd5-98a2-28de483f6857, title: SIP Architecture}
+        - {guid: 0ba76f00-b511-47fc-8fce-ba8b4485260e, title: Contact URI}
+        - {guid: fe6bfad9-86e7-402b-a037-ef51d07fc823, title: Add a SIP Proxy}
+        - {guid: 01e8b265-87ab-4897-aa51-c397ca2d4110, title: Finding the SIP Proxy}
+        - {guid: 5110d2cb-f0b1-4435-bb61-c5e9d555065c, title: Assign a SIP Domain}
+        - {guid: 425ca97f-5208-41cb-ab2b-57ab9d2e8557, title: Add DNS resource records
+                to point to SIP domain}
+        title: SIP Domain
+    -   slides:
+        - {guid: 6af7c9d6-9d88-4bb6-9e8d-9d05fbfd6eee, title: No Trust!}
+        - {guid: c73edd1b-e513-45f2-9614-91d7e8316e42, title: Configure SIP REGISTRAR}
+        - {guid: 4ddb9bc5-ca27-4680-94ad-5d152d496717, title: SIP REGISTRATION - First
+                Attempt}
+        - {guid: 5003651c-4ba8-408a-be54-ded60f88438b, title: "SIP REGISTRATION \u2013\
+                \ Authenticate the User Agents\v"}
+        - {guid: c53bfe0b-1f16-4ca7-a384-06041aa553f5, title: "SIP REGISTRATION \u2013\
+                \ Establishing TRUST!"}
+        - {guid: 9ec4b7bc-e502-4d96-8535-faae7b3fceb5, title: "SIP REGISTRATION \u2013\
+                \ Trust ESTABLISHED"}
+        title: REGISTRATION
+    -   slides:
+        - {guid: f8cd0e02-dc35-4c9f-a9a9-934d6276572d, title: SIP Call Routing}
+        - {guid: b9b35910-7038-420d-893a-afb1e5898939, title: SIP Routing call flow
+                within a Domain}
+        title: SIP Routing within a Domain
+    -   slides:
+        - {guid: 2739b3a5-0231-43cb-aadd-52eae6869947, title: SIP Loose Routing}
+        - {guid: 7d883674-246b-49a9-8aab-e31a78fb10b9, title: "SIP Routing \u2013\
+                \ Showing Loose routing"}
+        - {guid: de4a65a1-c840-41e0-b03a-d90e4f33291a, title: SIP Routing using E.164
+                User-ID}
+        - {guid: f3261a11-0488-4608-a00e-43ce0f9ed797, title: Defining a "SIP Transaction"}
+        - {guid: e54a11b7-e7cd-49ed-b64f-1b5fe02174fb, title: SIP Proxy Function}
+        title: SIP Routing between domains
+    title: SIP Architecture
+-   guid: dc023940-102d-4072-9d4e-07eb5bc51a97
+    subchapters:
+    -   slides:
+        - {guid: dcfd286e-8e83-479d-9d4f-d929138462e3, title: Metacharacters (1 of
+                3)}
+        - {guid: 05628a68-1012-4d44-b1c4-1aa46209ab0a, title: Metacharacters (2 of
+                3)}
+        - {guid: fb7831e4-b157-4b2d-be5b-db5358445eb3, title: Metacharacters (3 of
+                3)}
+        title: REGEX Meta Characters
+    -   slides:
+        - {guid: 1781e65b-3172-41ca-bd55-a98b603c435b, title: Substitution and Replace
+                (1 of 2)}
+        - {guid: f2ee942d-ff80-47a6-95e1-7046b4faa3f6, title: Substitution and Replace
+                (2 of 2)}
+        title: REGEX Substitution
+    -   slides:
+        - {guid: ca1929e9-4e13-4b9e-94ce-5a6cd93f0894, title: Common Modifications
+                to REGEX}
+        - {guid: ff0a54ee-b5ba-4d61-9a3e-f09f2d698d46, title: REGEX Examples}
+        - {guid: aacf17c6-8956-4fd0-9456-cbcd56a92736, title: Lab Example}
+        - {guid: aef330a8-9725-4ed4-ac78-4b8f68e443b3, title: 'Regular Expression:
+                Call routing using REGEX'}
+        title: Call routing using REGEX
+    title: Regular Expression
+-   guid: 30f28655-96f2-4ef3-b0a8-b3f54d0bc59b
+    subchapters:
+    -   slides:
+        - {guid: 72953fd9-d579-4335-b465-181d8d865ab8, title: ''}
+        - {guid: 28ce7215-a23f-4409-8a22-0c46c83fe8d1, title: SIP Dialog vs Media}
+        title: Dialog vs Media
+    -   slides:
+        - {guid: 3a3f7ba7-c2e0-4f91-8562-f4a62f4c65cc, title: Routing a SIP Request}
+        - {guid: 10e4f4c6-dc2e-44fe-94d3-0bfde7a95b90, title: Via and Record-Route}
+        - {guid: aae70cc4-d26b-486e-b4a0-a5650c2b4784, title: The Via path}
+        - {guid: 93e5127d-370f-4852-b770-3cd9333db4bf, title: The Dialog Path}
+        - {guid: db10d18e-d64f-4f26-9ba9-745f5f73fb35, title: SIP Response Routing}
+        - {guid: 69a8a1b1-8a03-4ec6-8181-1bc00daef21f, title: "SIP Dialog after Bob\u2019\
+                s 200"}
+        - {guid: 066ab091-6aa9-490d-8375-b39162a3e8df, title: SIP INVITE No Record-Route}
+        - {guid: 89a54006-e9f2-4ba6-bbdb-ab4c99feb24b, title: SIP 200 Response No
+                Record-Route}
+        - {guid: de29a470-2b07-4c5e-9e82-35a2f1cbb0b6, title: SIP Dialog No Record-route}
+        - {guid: b867d38b-da3e-4cd4-8f65-8d04f6180d47, title: "Which proxy didn\u2019\
+                t add a record-route?"}
+        - {guid: 6b10a59b-7c36-4313-bef5-f3bca8663597, title: Knowledge Review}
+        title: Via and Record-Route
+    title: Routing the SIP INVITE
+-   guid: 1acbede6-f25c-45ff-8309-b0d6a053298c
+    subchapters:
+    -   slides:
+        - {guid: 767f8d79-02b6-480c-ad4c-fd261100538c, title: Defining the SIP Dialog}
+        - {guid: 979b2e97-26dd-48a3-a0a1-c2846feeb94d, title: Components of a SIP
+                Dialog}
+        title: Key SIP dialog identifiers
+    -   slides:
+        - {guid: 3c06bb00-b08a-4246-97f3-43e753f5f6ed, title: Defining a reINVITE}
+        - {guid: 19db2032-024b-4bfd-867b-166bf4a2c24b, title: Knowledge Check}
+        title: Understanding the reINVITE
+    title: The SIP Dialog
+-   guid: d64d7332-9f26-4f12-a2ec-c055202d3e56
+    subchapters:
+    -   slides:
+        - {guid: e2c6544f-52cd-4b03-a5ef-2307a932ebcc, title: Session Border Controller
+                and Softswitch Topography}
+        title: SIP Topography
+    -   slides:
+        - {guid: 6dfffe87-86bd-4e88-93de-bb328ceb50b3, title: SIP Proxy}
+        title: SIP Proxy
+    -   slides:
+        - {guid: f8d77f6a-6890-49a2-9eca-4edc8e3700d4, title: SIP Back-to-Back UA}
+        - {guid: c83505f0-0869-492a-8698-72e76c86f999, title: Session Border Controller}
+        - {guid: 802f7d6c-0ad5-483c-a143-a1bd5bd37999, title: Session Border Controller}
+        title: SIP SBC and Softswitch
+    -   slides:
+        - {guid: 9177e227-a2ca-4ae7-a3e0-484409a18166, title: Outbound Proxy vs. Proxy}
+        - {guid: 24f2f7e0-3b8b-4c48-8633-aa8d7be88263, title: Outbound Proxy}
+        title: SIP Outbound Proxy
+    title: SIP Entities
+-   guid: 2ff16a53-e1b2-45b3-9e06-0fbdd2bda45a
+    subchapters:
+    -   slides:
+        - {guid: dba6c54d-6117-4732-ac80-b9fbd05a9ea4, title: SIP Functional Stack}
+        - {guid: 2af90391-0a83-437c-88f3-53e966b4719a, title: SIP Core Document and
+                Extensions}
+        title: SIP Stack and Key RFCs
+    -   slides:
+        - {guid: 470068de-18e0-415b-a269-0e81f78ec65a, title: "SIP Registration Process\
+                \ \u2013 Binding the AOR to the Contact URI"}
+        title: SIP REGISTER with Authentication
+    -   slides:
+        - {guid: bb038e38-a89c-45f8-b8e3-a739e0fd0143, title: "INVITE / 200 / ACK\
+                \ \u2013 What is Really Necessary for a SIP Dialog?"}
+        - {guid: 5a6567ea-6d9f-4a52-a820-b8a523882fa6, title: "INVITE \u2013 Learning\
+                \ the Route Set (1 of 2)"}
+        - {guid: 21a0d871-bab2-44c1-af29-994976aebf0c, title: "INVITE \u2013 Learning\
+                \ the Route Set (2 of 2)"}
+        - {guid: f26fa80a-3901-4f01-a738-34737cb4526e, title: SIP Dialog and the ACK}
+        - {guid: 0b78e63b-cae0-4498-a92f-75d3e9468de2, title: Ending the Dialog -
+                BYE Transaction}
+        - {guid: c84cafb5-1a4b-4939-85a0-7970cbe2c935, title: Ending the Dialog -
+                BYE transaction final response}
+        title: Dialog and the Route Set
+    -   slides:
+        - {guid: 2b56c98d-6ba0-4518-a14b-4bca86daca89, title: SIP Redirect}
+        - {guid: 3205e679-9ab1-4ac3-8f58-e93cfd1c1c13, title: "SIP Redirect - \u2018\
+                Call Forwarding\u2019 (unconditional & noanswer)"}
+        title: SIP Redirect
+    -   slides:
+        - {guid: 5b4def79-c508-411f-8706-35df27f178e1, title: Call Transfer Using
+                REFER}
+        - {guid: 053dc537-7beb-4973-a82b-f76717f42c29, title: Blind Transfer Using
+                REFER (1 of 3)}
+        - {guid: 38e2cb75-21c7-40a8-921d-9caeb37261cc, title: Blind Transfer Using
+                REFER (2 of 3)}
+        - {guid: d43bb246-2e3c-40a0-ab26-33eb3b3af5ff, title: Blind Transfer Using
+                REFER (3 of 3)}
+        title: Call Transfer
+    -   slides:
+        - {guid: 9ca5cd30-af6a-4ab7-a61a-7ee1f830ba7a, title: SIP Call Routing}
+        title: null
+    -   slides:
+        - {guid: 297eaee1-ad82-4ff8-931d-50f19eea583d, title: The 100rel Process}
+        title: PRACK and 100rel
+    -   slides:
+        - {guid: efe53e96-e9f7-4c51-8e5b-d7a450dff180, title: Call Forking using RFC
+                6228 Process (1 of 2)}
+        - {guid: 17285535-8338-4ffb-bc49-7bdcda1d0b15, title: Call Forking using RFC
+                6228 Process (2 of 2)}
+        title: Call Forking and RFC 6228
+    -   slides:
+        - {guid: 460f7cc8-7be0-47f4-9e8e-325b549c1316, title: 'via: path vs. route:
+                path'}
+        - {guid: b4bd4092-f6d3-444e-9ade-fb880a06297a, title: Loop and Spiral Detection
+                - 483 Too many hops}
+        - {guid: e8781eed-7e92-43ff-80f6-aa28ed51159a, title: Loops vs. Spirals}
+        title: Loop vs Spiral
+    -   slides:
+        - {guid: 9df64a7f-dd21-4879-bf93-8b9ed4112513, title: "RFC 3725 \u2013 Third\
+                \ Party Call Control (3PCC) example (1 of 2)"}
+        - {guid: 83ff5684-1fa5-4311-9a47-a7c79bb23a77, title: "RFC 3725 \u2013 Third\
+                \ Party Call Control (3PCC) example (2 of 2)\v"}
+        - {guid: dcf2bf02-11d6-4cec-85ce-12ed70781256, title: RFC 3725 - Third Party
+                Call Control (3PCC) Flow I}
+        title: RFC 3725 3PCC
+    -   slides:
+        - {guid: c70fd9b3-59d4-4e31-8c3b-00887b28cba5, title: RFC 3725 - Mobile to
+                Mobile Roaming with "Path Minimization" (AKA 3PCC)}
+        - {guid: 480fafb4-a55d-4de7-8dc8-0829613dba56, title: PSTN to Mobile}
+        - {guid: de4f4cfb-58d5-436c-bbfa-31ef7e1eee99, title: Example MSC to MSC prior
+                to Proxy}
+        - {guid: 7b5682a4-8b5d-4d1b-92ef-12ccb9bd6517, title: Example MSC to PSTN
+                after Proxy}
+        - {guid: fadef4a3-c266-4d0c-852d-b157767e057c, title: Example MSC to PSTN
+                after Proxy with rn and npdi results}
+        - {guid: c48b3cd2-3133-4eff-ba74-2b24f57dc92e, title: OPTIONS Used to Discover
+                Supported Capabilities}
+        title: SIP Routing in 3G networks
+    title: SIP Call Flow Examples
+-   guid: 00040ff8-7de2-4a5d-a84e-0f361c8a6093
+    subchapters:
+    -   slides:
+        - {guid: aa1e266e-6eb8-4970-8f53-126f73da06f0, title: 'URI vs URL vs URN -
+                What is the Difference?'}
+        title: URI vs URL vs URN
+    -   slides:
+        - {guid: c30155a2-799d-4dfd-a3a1-775fd88cf64a, title: Generic URI Information
+                RFC 3986}
+        - {guid: 45351f9b-093e-4e36-896e-e58d7edbc0a9, title: SIP URI Parameter Examples}
+        - {guid: 4b357b4b-9dc7-4d6a-aa6f-25066cefcf08, title: SIP URI Structure}
+        - {guid: f94bc771-f4f0-4802-b5ca-6e9f1d32a69a, title: SIP URI Examples}
+        title: Examples
+    -   slides:
+        - {guid: 337654aa-3b27-4423-94ef-f234bfaa8136, title: SIP URI Delimiters <
+                >}
+        title: URI Delimiters
+    -   slides:
+        - {guid: 985c908c-5252-418a-aab3-a727659f36bd, title: SIP URI Schema}
+        title: sip and sips
+    -   slides:
+        - {guid: cf2f7858-c7c7-41fe-a428-3b8678fe1a3e, title: 'RFC 2806 URLs '}
+        title: tel URI
+    -   slides:
+        - {guid: 93559251-e80b-43e1-b920-3478c2e6fc4c, title: SIP Uniform Resource
+                Indicator (URI)}
+        - {guid: 28607f9e-d9d3-452d-8100-9170a51cc6ea, title: SIP Uniform Resource
+                Indicator (URI)}
+        title: URI Escape Codes
+    title: SIP Uniform Resource Indicator (URI)
+-   guid: 598e51e8-20ad-4c5b-b5a5-bc0068ebff80
+    subchapters:
+    -   slides:
+        - {guid: 756e16ee-88b3-49c9-8097-8a01ead378e0, title: DNS root zone}
+        - {guid: b89bb4f4-19d5-4db2-ad24-a21043c1acf0, title: How a Zone file appears
+                in Linux - Bind9}
+        - {guid: c82bbf1d-6691-419d-b766-d7d7d1f33b96, title: How ORIGIN Impacts the
+                Zone File}
+        - {guid: 1a901cef-841e-408b-9146-04328c0e71d4, title: Sample Zone File}
+        title: Zone File
+    -   slides:
+        - {guid: 05cfc763-b87d-4864-b153-a1387d0630cc, title: "\"SOA\" Record \u2013\
+                \ The start of Authority"}
+        - {guid: b3aec444-99a6-4432-97fc-86b4b3637620, title: NS-record}
+        - {guid: 02e614ab-157c-40eb-a7d7-7b8e5e4bcb89, title: A-record}
+        - {guid: 7994513d-e9f5-4c28-acfa-8217a6044ccb, title: SRV-record}
+        - {guid: e5f6a0bd-3d53-4ecf-97f6-c8124e27af94, title: "NAPTR \u2013 Naming\
+                \ Authority Pointer"}
+        title: Record Types
+    -   slides:
+        - {guid: b783cff4-608d-48a0-9674-52e4ddbf3e5e, title: NAPTR Example}
+        - {guid: 58428317-2ce6-43c5-b723-6c6a5e3ffb55, title: SRV Example}
+        - {guid: a916c3d2-6e5b-40d6-b296-0f463b2dd3ac, title: A-record Example}
+        - {guid: 96740dc5-4cb9-4660-9ef8-5644debbb7e8, title: "RFC 3263 \u2013 Locating\
+                \ SIP Servers"}
+        title: Locating SIP Servers
+    title: SIP and the DNS
+-   guid: f38e2f0f-8cce-4b50-a724-d6cafe2154cf
+    subchapters:
+    -   slides:
+        - {guid: 6815c839-c7d7-4ea0-b982-ac8c349b9492, title: Configuring ENUM}
+        title: ENUM Database Example
+    -   slides:
+        - {guid: b793b2ef-2f68-4e6d-8e24-9232adb8b792, title: ENUM Query and Response}
+        title: ENUM Query and Response
+    -   slides:
+        - {guid: a99163c2-4e78-4523-9309-f11ce663358b, title: Proxy processes ENUM
+                regex}
+        title: ENUM REGEX
+    -   slides:
+        - {guid: 2600e93d-4a0d-49a4-a0a5-7177255c9ff4, title: "RFC 3263 \u2013 Locating\
+                \ SIP Servers - INVITE"}
+        - {guid: d5d5ee86-a02d-4627-ab3b-6e9607a97c4f, title: ENUM}
+        - {guid: 4e756c84-37c3-4964-be0c-732d7d8389e2, title: ENUM Service}
+        - {guid: f680d5db-ee71-4c63-a22b-19720fab354b, title: NAPTR "u" flag}
+        title: Post ENUM Routing
+    title: ENUM
+-   guid: 2e72d162-b4cd-4100-b3b6-4fdc72a002c3
+    subchapters:
+    -   slides:
+        - {guid: 969ff865-c3f9-4ef2-a235-2f1d2ec8d0f4, title: "E&M Tie Trunk \u2013\
+                \ Can this cause SIP \"180\" problems?"}
+        - {guid: e39d2453-ea3f-4b9e-bbef-3fbeb1d72f00, title: Handling Calls Terminating
+                into Legacy Local Call Control (E&M or DID)}
+        - {guid: f95186aa-3f7a-49fd-bc05-236cec234f44, title: SIP 183 Response}
+        - {guid: fea83a40-89dd-48a8-812a-93b7de924e36, title: SIP and PSTN Interworking}
+        title: Early Media
+    -   slides:
+        - {guid: 6b456129-6aa4-463f-80b9-f3ba5d1f6928, title: Interoperating SIP with
+                Legacy PSTN}
+        - {guid: acf3aa6c-c558-4095-8cf0-ac3f1987e26b, title: SIP-T Message Format}
+        - {guid: 59b0798d-191a-474f-85b7-230a33315003, title: SIP-T (RFC 3372)}
+        - {guid: 15befc7b-3afd-43a0-8427-053f128fc36a, title: Interoperating SIP with
+                Legacy PSTN}
+        - {guid: bcb1c567-0710-4e63-ab6b-8c844b4aa005, title: SIP-T Message Format}
+        - {guid: ac8f5826-ec62-46b0-965f-5edc3c15acf6, title: Interoperating SIP with
+                Legacy PSTN}
+        title: SIP-T and SIP-I
+    title: SIP Interoperation with the PSTN
+-   guid: 525a9a91-83fd-4a55-8502-52be0275a4db
+    subchapters:
+    -   slides:
+        - {guid: b43da857-84ca-48d5-8c29-f3cda3501fb9, title: SIPp Overview}
+        - {guid: abd017f4-ff7b-4000-afe4-b215156232aa, title: Running SIPp}
+        - {guid: 5f34c0fe-4720-4feb-be13-61ae4df1b327, title: Dissecting a complex
+                SIPp command}
+        title: Overview
+    -   slides:
+        - {guid: 2426616a-0843-45e0-ad73-ff40e0dacac4, title: Edit the uac.xml file}
+        - {guid: 555c4922-8208-4d72-9e09-4a26091ea87e, title: Testing our new SIPp
+                scenario}
+        title: Testing with SIPp
+    title: SIPp
+-   guid: 4a71fbe5-b27c-4dd9-afdd-678f34262e8a
+    subchapters:
+    -   slides:
+        - {guid: b0838713-3860-4c60-b8bd-f92ad313facf, title: ''}
+        - {guid: f33a3957-d13f-4e11-abe7-4b51bc78c436, title: Start Line - First Line
+                in a SIP Request or Response}
+        title: SIP Header Overview
+    -   slides:
+        - {guid: 942aeb77-04db-4c32-ba06-d35369728150, title: 'Via: - Trail of Breadcrumbs'}
+        - {guid: a1d43876-1a67-4593-a2cf-3fbdee18d75a, title: 'Via: - Branch Tag'}
+        - {guid: 6bb54c99-fcf2-480c-8567-c2baa840b03d, title: "The SIP Dialog \u2013\
+                \ From tag, To tag, Call-ID"}
+        - {guid: 06385365-fc4d-4ba3-b4eb-a75f9a2e7098, title: 'From:'}
+        - {guid: 2ef510b6-3a30-403a-a6ac-0d5011a02256, title: 'To:'}
+        - {guid: 1a326343-1890-426d-9129-c69be85dd898, title: 'B-party adding the
+                To: tag parameter'}
+        - {guid: 70406953-8569-4ccf-9ee6-23cdb9565f29, title: SIP Message Headers}
+        - {guid: 580aedc8-02dd-422c-9dd8-4af3089aed72, title: Call-ID}
+        - {guid: be193d80-41e5-4a19-8c45-1f6c272fe18a, title: 'Contact:'}
+        - {guid: 91d54a54-c0bc-40a7-90db-bdfa882848d0, title: 'CSeq:'}
+        - {guid: d2a179fb-bd63-40de-b084-ce978e6b6bf9, title: 'User-Agent:'}
+        - {guid: b85038cc-7cb2-4dad-8e2b-bc2ed3f8c70b, title: 'Max-Forwards:'}
+        title: Dialog
+    -   slides:
+        - {guid: 6cf83691-2d05-4e30-8981-6a0f84e191ba, title: Using SIPp variables
+                to modify headers}
+        - {guid: bb9608b3-6ef2-4db0-9c58-f680851918d1, title: SIPp Conditional Branching
+                and Pausing (Rocket Scientists ONLY)}
+        title: Use SIPp to Modify headers
+    -   slides:
+        - {guid: da6c2e1c-d5ef-421a-95dc-0280d452dcee, title: 'Proxy-Authenticate:'}
+        - {guid: ff52ccbd-bc64-4055-a4e0-39fae88758c2, title: 'Proxy-Authorization:'}
+        - {guid: 06d4fea9-9225-48e6-902e-ee6f4b1d6de4, title: 'Authorization:'}
+        title: Security Headers
+    -   slides:
+        - {guid: 7b3dc298-7201-4d00-8684-dad1c53ae0b7, title: 'Allow:'}
+        - {guid: 608a5771-6548-4671-9583-fc31129fd082, title: 'Supported:'}
+        - {guid: 7b3c0745-4439-4730-a2dd-d73acf07dd3f, title: History-Info (RFC 4244)}
+        - {guid: dadd5bed-a85a-4842-a402-c47642aea52c, title: Join Header (RFC 3911)
+                - "Join" an existing call}
+        - {guid: b772d187-0866-4f73-b7e2-6884fc137bbc, title: "SIP Session Timers\
+                \ (RFC 4028) \u2013  Setting keep-alive interval mechanism (1 of 2)"}
+        - {guid: b0384342-2d10-4ef6-aa4c-1d7061b7a7af, title: "SIP Session Timers\
+                \ (RFC 4028) \u2013  Setting keep-alive interval mechanism (2 of 2)"}
+        title: Features
+    -   slides:
+        - {guid: 28820c1d-c116-4c48-8cf8-910e0f84cfdf, title: 'P-Preferred Identity:
+                and P-Asserted Identity: - RFC 3325'}
+        - {guid: 84f333c2-de91-472f-85da-5183a45a6a37, title: 'P-Preferred Identity:
+                and P-Asserted Identity: - RFC 3325'}
+        - {guid: fe289334-271e-49bf-8e10-6dac9bb3fd76, title: 'Path: - RFC 3327'}
+        - {guid: ddd71c5d-140f-4bc4-9ac6-147d45fb1bd2, title: 'Service-Route: - RFC
+                3608'}
+        - {guid: c8099557-8a7b-46df-b899-ca5375ccfb84, title: 'P-Access-Network-Info:
+                - RFC 3455'}
+        - {guid: f5d2ecab-18c8-438b-88b1-2f7157409dec, title: 'P-Charging-Vector:
+                - RFC 3455'}
+        title: IMS
+    -   slides:
+        - {guid: 3d99dc7e-1949-4a16-8742-cfc6c44608d3, title: 'Content-Length:'}
+        - {guid: fe8abe2b-cc2b-40d7-812a-f70730e50fa7, title: 'Content-Type: message/sipfrag
+                (RFC 3420)'}
+        - {guid: ef6d1b45-80f5-422a-8188-9f4150d79456, title: 'Content-Type: application/hook-flash'}
+        - {guid: 325bcc36-38f5-49ac-a429-7a1fc6a9103a, title: 'Content-Type:'}
+        - {guid: fe1fd577-c840-45c9-bb57-211a4ceba442, title: SIP Message Body - Session
+                Description Protocol}
+        title: Content
+    title: SIP Headers
+-   guid: 9128dae6-b42e-40ab-8409-1a8b942ba7a9
+    subchapters:
+    -   slides:
+        - {guid: 9e44c47b-55bb-49a7-90d5-c5124a202bae, title: ''}
+        title: Introduction
+    -   slides:
+        - {guid: e55e379d-2f0f-4b66-9069-8fe01b60c8d4, title: SDP and SIP}
+        title: Format
+    -   slides:
+        - {guid: 769a93dd-aaaf-4856-940f-d2499d9cbac8, title: SDP Establishes Half
+                of the Media Channel}
+        - {guid: 5021d30f-77e5-4463-b582-d85220404e23, title: Media Flows Opposite
+                the SDP}
+        - {guid: 5fc988b6-9cb4-4251-8c17-06443b33ef92, title: Media Flows Opposite
+                the SDP}
+        - {guid: 9845d583-f0ba-4f1d-9bb8-71ef69877134, title: RTP is "simplex"}
+        - {guid: 375d40ba-e932-4989-a60e-833c7166c5e3, title: a=sendonly knowledge
+                check}
+        - {guid: 0a0ed218-fd37-4846-a3e1-7c8134dff6d1, title: a=sendonly}
+        - {guid: db918bee-8828-417b-8576-94c8c1113cb4, title: "Media Direction\u2019\
+                s Impact on RTCP"}
+        - {guid: b8233a74-9c5f-49d9-b50b-b178818fde04, title: "Media Direction\u2019\
+                s Impact on RTCP"}
+        - {guid: 753a5616-4792-477e-a421-ca42fef551ae, title: RFC 3264 - Placing a
+                Call on HOLD}
+        title: Media Direction
+    -   slides:
+        - {guid: 5780f662-6fc7-408c-b833-c8e376f2b466, title: The Version Header}
+        - {guid: 5e8b90c0-0b91-4959-b36f-f31375d01ecc, title: ''}
+        - {guid: 5876e076-1f9e-4bba-b460-b197ed797137, title: The "s=" Session Name
+                Header}
+        - {guid: 6474f45a-cbf9-4ede-b241-5ab23902e474, title: The "c=" Connection
+                Information Header}
+        - {guid: 20a42c4b-a6af-4c9f-a4a3-2225f6419191, title: The "t=" Time Header}
+        - {guid: 206f3eed-a3fb-430b-a1d3-c4bd3e0e0fba, title: The "m=" Media Header}
+        - {guid: bfd2e5b9-01e1-487d-9f1b-6040803ce803, title: The "a=" Attribute Header}
+        - {guid: 7654adb4-5a86-4c4f-a68e-b524a3f90ee9, title: Format Specific Parameter}
+        - {guid: 731ddae1-a306-4ea0-a51d-4cf1eb265f63, title: Packet Interval}
+        - {guid: f8901389-6956-4dc5-b2c1-4c811e19dc14, title: Mode}
+        - {guid: ae415b7c-a0eb-4daf-872d-38f76b100d06, title: Bandwidth Header}
+        title: Lines
+    -   slides:
+        - {guid: 405f31e8-bfe5-4846-b79a-e0a412d5db77, title: RFC 3264 - Offer/Answer}
+        - {guid: f5859582-4d8b-4157-9a60-d217ed01d45c, title: OFFER/ANSWER Example
+                1}
+        - {guid: 952ce838-a47f-4efb-b8ac-7479f5c71ca4, title: OFFER/ANSWER Example
+                1 (continued)}
+        - {guid: 5bb3797f-97e4-4760-92d2-a56d113d91f2, title: "OFFER/ANSWER Example\
+                \ 2 \u2013 One of N Codec Selection"}
+        - {guid: 56428707-0489-410b-a6b9-2837ce809678, title: "OFFER/ANSWER Example\
+                \ 2 \u2013 One of N Codec Selection (continued)"}
+        - {guid: 42ee8622-3e0e-4175-8045-4fd40f56da26, title: RFC 6337 SDP Offer/Answer
+                Model}
+        - {guid: 0061febb-7436-4f07-a2f4-c1d0fdf5eb7d, title: "RFC 3311 \u2013 UPDATE\
+                \  (showing RFC 6337 Offer/Answer call types)"}
+        title: Offer/Answer
+    title: Session Description Protocol
+-   guid: 2f64b0db-3a1c-4026-ae62-a5ce5925d82e
+    subchapters:
+    -   slides:
+        - {guid: 2cee0441-803f-4a80-9726-d0e11af47c04, title: Real-time Transport
+                Protocol (RTP) and RTP Control Protocol (RTCP)}
+        - {guid: 73c49ec0-3456-417a-b5bb-f9b3e67e5e7c, title: Payload Types}
+        - {guid: dc9a10d5-76b6-42d6-9acd-5b57e2a4ee21, title: 'RTP Sequence #'}
+        - {guid: 49cb8f4c-4d59-49a0-a6d5-908d8ccce6dc, title: Voice Samples}
+        - {guid: d7b401cc-0f55-483b-bdca-e1f6f4ac4a30, title: RTP Timestamps}
+        - {guid: 1eae538d-e17d-44f8-864b-3747bc56fe7c, title: Silence Suppression
+                or Voice Activation Detection (VAD)}
+        - {guid: c8ed70bb-2a2e-4aa0-b488-81d9f8e79d5e, title: 'RTP Header Compression
+                Process (RFC 2508) '}
+        - {guid: c59a6a00-0bb5-4236-9ebd-dff89e283fd4, title: Real-Time Transport
+                Protocol (RTP)}
+        - {guid: cf023aa5-e83d-4a37-910b-22adb26fa5b0, title: RTP Header Compression
+                Header Format}
+        - {guid: 0fba30d3-bb25-4b05-8920-cf80e8fd17ca, title: Real-Time Transport
+                Protocol (RTP)}
+        title: RTP Headers
+    -   slides:
+        - {guid: 3c03a197-7dd9-4f18-becc-2fc3b95e03bf, title: Supporting Real-time
+                Traffic}
+        - {guid: 504c6836-459c-422a-a604-bfda45ac1447, title: The First Voice Packet}
+        - {guid: 4f0e92f6-b55e-4616-a6a7-9ac6cebf2b06, title: The Second Voice Packet}
+        - {guid: 5c47f0f2-2e4b-4b3b-8714-c0ae0a205f65, title: The Third Voice Packet}
+        - {guid: b6c0038f-adc5-493d-afc8-72c63f1a2b08, title: A Jitter Buffer Operating
+                Under Perfect Conditions}
+        - {guid: b2f19ff4-82f6-4b0f-aa3e-595083ec5e3d, title: The Adaptive Jitter
+                Buffer Example}
+        title: RTP Dejitter
+    -   slides:
+        - {guid: 75cfe722-8f4e-45f0-8b0a-6243bbea390c, title: Synchronization Source}
+        - {guid: 043cef1f-6992-4ee8-85e7-de1aafd58df8, title: "Conference Bridge Adds\
+                \ CRSC \u2013 Contributing Source"}
+        - {guid: 018f90d6-77b0-4f3a-b886-77f4ef03c7b8, title: 'RTP Packet - Using
+                Wireshark, Find All These RTP Fields'}
+        title: Conferencing
+    -   slides:
+        - {guid: 080e3f21-3606-4504-b522-57b8a9e129c4, title: RTP Control Protocol}
+        - {guid: 10d24eea-5145-4db1-a8c0-4f932dcdf874, title: RTCP SDES}
+        - {guid: 05ac50c1-a0ff-45ab-905e-51d13937f5d6, title: RTCP Sender Report}
+        - {guid: 925b9236-4b2d-4cde-862b-531bf1e1e414, title: RTCP Receiver Report}
+        - {guid: 69ff915a-6d35-42ce-9e24-6a5561517fb5, title: RTCP Calculates Round
+                Trip}
+        - {guid: 41a3dc4e-9641-4d0d-9f54-c7709bf7afdf, title: RTCP BYE Report}
+        title: RTCP Reports
+    title: RTP & RTCP
+-   guid: 4048f6ab-f76a-4383-b38e-2e4a09e4c9dd
+    subchapters:
+    -   slides:
+        - {guid: d6f0c423-789f-46cc-ad70-d03b766802ee, title: Producing Dual Tone
+                Multi Frequency}
+        - {guid: a87a3f93-1132-4a4c-b7e1-e7d89d10584d, title: Inband DTMF}
+        - {guid: 0be5ba59-8150-47d3-978a-b1afc18a5bf4, title: DTMF Validity Checking}
+        - {guid: 9caca2f8-5675-4536-a9ac-f955a849f73b, title: DTMF Validity Checking}
+        - {guid: 7ca0cffd-e581-4a69-821c-5113f0cb69a8, title: Three Methods for Sending
+                Dual Tone Multi Frequency}
+        title: DTMF Tones
+    -   slides:
+        - {guid: fc09234d-2441-4361-b86b-cae3955b7574, title: SIP INFO (1 of 2)}
+        - {guid: e64f8a63-5138-45ee-b918-f95dff69447f, title: SIP INFO (2 of 2)}
+        title: SIP INFO
+    -   slides:
+        - {guid: 5aa6a742-e8be-44dc-ba41-fb8d43b93cf9, title: RFC 2833 call Flow (1
+                of 3)}
+        - {guid: 774266fe-6b9a-4577-8e0c-d406ab4f5e65, title: RFC 2833 call Flow (2
+                of 3)}
+        - {guid: e9953040-5edd-4c5d-804a-c55f1b007669, title: RFC 2833 call Flow (3
+                of 3)}
+        - {guid: 8c15d0ab-2a70-4b37-8e08-31d6ed5288ce, title: RFC 2833 Events (updated
+                by RFC 4733)}
+        - {guid: 7401af99-a702-4180-b462-514f684291d2, title: RFC 2833 Fields (Now
+                RFC 4733)}
+        - {guid: ba9fa5db-f855-4039-ac3d-38fb135dc4ab, title: RFC 2833 Format Specific
+                Parameter (fmtp)}
+        - {guid: 91e15a04-87c0-4878-b6a9-c1ee0091cc2d, title: RFC 2833 at the Transmitter
+                (Updated by RFC 4733)}
+        - {guid: 0368d659-e042-4f36-85bb-4dcad0d6b45a, title: RFC 2833 Forward Error
+                Correction}
+        title: RFC 2833
+    title: DTMF Handling
+-   guid: f946d9f3-dbb7-4fb0-b31a-c7f75e065b2b
+    subchapters:
+    -   slides:
+        - {guid: 797a1421-a431-4631-98d4-b7694feed850, title: "T.30 Fax Protocol \u2013\
+                \ (This is What We Must Emulate)"}
+        - {guid: 0a70abcb-6603-4289-8d1b-a45f22ad437b, title: "T.30 Fax Protocol \u2013\
+                \ Notes (1 of 2)"}
+        - {guid: 145ea437-cf51-4ee9-91e7-c55cc4ece9e5, title: "T.30 Fax Protocol \u2013\
+                \ Notes (2 of 2)"}
+        title: T.30
+    -   slides:
+        - {guid: 4ac0fb90-9deb-49a7-9719-b27bf7e67f09, title: "Fax Handling\vT.38\
+                \ Fax Protocol \u2013 Stated with a SIP <re>INVITE"}
+        - {guid: 20573d93-315b-4cb0-bc42-10d06921f69e, title: "T.38 Fax Protocol \u2013\
+                \ Transporting T.30 messages"}
+        title: T.38
+    -   slides:
+        - {guid: 7081db9f-9570-4bb8-8753-38a8e4aa2553, title: Session Description
+                Protocol (SDP) Simple Capability (RFC 3407)}
+        - {guid: 0d71efbb-0ba5-4bb7-860b-dd7490e48961, title: Session Description
+                Protocol (SDP) Simple Capability (RFC 3407)}
+        title: SDP RFC 3407
+    title: Fax Handling
+-   guid: 54a615de-5cba-4d11-976b-7de8659ec92e
+    subchapters:
+    -   slides:
+        - {guid: 37aa87de-0e52-4f6b-a3f1-4056cce300e4, title: Introducing the Presence
+                RFCs}
+        - {guid: b569f6e7-8c54-4ef9-a1e8-5bac62c9aaf0, title: 'RFC 2778 The Model
+                for Presence '}
+        - {guid: c6c8425c-db49-44e1-bf3a-6fe7768f048d, title: PUBLISH}
+        - {guid: 1236cc61-f9f3-4fda-b8e4-146034c1ff13, title: SUBSCRIBE}
+        - {guid: c86494cf-5846-4fa0-9d17-7387d6f12120, title: NOTIFY}
+        - {guid: 6920e0ca-00b9-4c6c-b4f7-0ae060c52cff, title: "SUBSCRIBE \u2013 Acceptance"}
+        - {guid: 11fb178b-7123-43e4-835b-2777e8137bc7, title: SUBSCRIBE Acceptance
+                fails}
+        title: Overview
+    -   slides:
+        - {guid: 0b1adb22-04eb-4602-8153-709ea3fcea78, title: "Presence Information\
+                \ Data Format (PIDF) \u2013 BASIC Example"}
+        title: PIDF XML Example
+    -   slides:
+        - {guid: 1de26ac9-120e-4299-94b1-1dd48cc6cb11, title: RFC 4480 Rich Presence
+                Information Data format (RPID)}
+        title: Rich Presence
+    -   slides:
+        - {guid: bde04f2d-24b6-4050-ab6d-c9f31eda7d4c, title: PUBLISH (Initial)}
+        - {guid: f30e5202-85c0-4b28-9665-35fa5b8e54b9, title: SUBSCRIBE (Watcher)}
+        - {guid: aa427a50-7273-4466-9b5b-a1ce5140de9d, title: NOTIFY (Initial Status)}
+        - {guid: 45b2dd9f-fa52-47a9-be19-646bcc0a7670, title: PUBLISH (Updated status)}
+        - {guid: 1124caae-adf6-4c17-963b-633024872904, title: NOTIFY  (Updated status)}
+        title: Message Flow
+    -   slides:
+        - {guid: 9c3ac4cf-9760-41e4-810c-7c5bdffe546c, title: RFC 2778 The Model for
+                Instant Messaging}
+        - {guid: 94a2783a-b8df-4dad-8119-df8a948776de, title: Instant Message Processing}
+        - {guid: 6cafc4bb-962e-4549-a4a9-04d501a890ed, title: Instant Message Example}
+        title: Instant Messaging
+    title: Presence
+-   guid: 9d0acbdb-da2b-4ee9-9fd8-ca81c1dbc51a
+    subchapters:
+    -   slides:
+        - {guid: 8e55b66b-7af4-45ae-8733-1acea41dd52b, title: SIP Timers}
+        title: Standard Timer Values
+    -   slides:
+        - {guid: ae4d284c-92b3-4aba-9ada-3cabf834860e, title: SIP Reliability on INVITE}
+        - {guid: 0beeec5f-d445-4206-a153-07c4d4f66767, title: SIP Reliability on BYE}
+        - {guid: 47ccc1e8-74af-4a12-996b-887781c27367, title: Hop by Hop vs. End to
+                End}
+        - {guid: bc28f39a-40dd-47e4-9062-6f8af106f6ec, title: Session Expires (SE)
+                (Message 1-8)}
+        - {guid: 2c7ad39d-c877-4667-b8ea-17106eec2a0e, title: Session Expires (SE)
+                (Messages 9-15)}
+        - {guid: 78775e0c-c8a8-4fea-9826-e20475960853, title: Session Expires (Messages
+                16-24)}
+        title: Session-Expires
+    title: SIP Timers
+-   guid: 4758c56c-c4f1-425f-bbb7-6fc9f0ab838b
+    subchapters:
+    -   slides:
+        - {guid: 06c2b6fd-e35d-4921-8c95-2f7fc2e7f850, title: General Security Principals}
+        title: Security Principals
+    -   slides:
+        - {guid: 0b225228-ea08-49d8-b971-46701d1ae6bf, title: 'Proxy-Authenticate:
+                Challenge the Caller with a Nonce'}
+        - {guid: d6902612-f4ba-4d84-95dc-8734b5fd383f, title: 'Proxy-Authorization:
+                HMAC'}
+        - {guid: aae1e3f4-742a-459b-a41d-2930f5768822, title: "Hashing Algorithms\
+                \ \u2013 MD5 and SHA"}
+        - {guid: 00a1e691-b512-4501-9169-77f6c22d8955, title: 'Example: Using Hashing
+                Algorithms for Authentication'}
+        title: HMAC and Hashing
+    -   slides:
+        - {guid: a69bf1ad-d8c4-4de5-b746-bd59fb0f163c, title: "Symmetric Key: A Single\
+                \ Key \u2013 Secure in Both Directions"}
+        title: Symmetric Key
+    -   slides:
+        - {guid: 2b972130-8c2e-4a89-9092-f79a0777f7fc, title: Public Key Encryption}
+        - {guid: ea4a8696-0a19-4fde-a4ae-a9bf5cbdde55, title: PKI Authentication}
+        - {guid: d4265ef6-31d5-485d-9e3a-560538ced849, title: Public Key Encryption
+                using Four Keys}
+        title: PKI
+    -   slides:
+        - {guid: 4907500c-af51-4f2b-8240-440dd7bc2678, title: A Fake Certificate Contains
+                a Fake Public Key = Loss of Privacy}
+        - {guid: b9c6b4b8-c47e-40b8-8a15-f270b862ea9a, title: Detecting the Fake Certificate}
+        - {guid: 793eecbf-1b43-4157-8e9d-2fad734af1d2, title: PKI Process Introducing
+                the CA (Certificate Authority)}
+        - {guid: 3918f8d4-00ca-4cf0-8f91-e94ce8e2eb76, title: Signing the Digital
+                Certificate}
+        - {guid: b8682fb7-0038-40f5-973e-d2b2348ee214, title: A Digital Certificate
+                Example}
+        - {guid: f89a11b6-a60e-4a6b-8b78-9050a31a0564, title: SUBJECT and ISSUER Data
+                Elements}
+        - {guid: ede19bbd-28ac-4740-a6dc-f5c9f7f18c00, title: Verify the Digital Certificate}
+        - {guid: 02cf88d5-1446-40c6-aea9-7aeaf80f6b67, title: A PEM Formatted Digital
+                Certificate}
+        title: Digital Certificates
+    -   slides:
+        - {guid: f271cf02-2753-4884-880c-60e307692198, title: TLS Connection Establishment}
+        title: TLS
+    -   slides:
+        - {guid: 10818d34-8652-4337-94fa-c2c522b37bff, title: (RFC 3711) Secure Real-time
+                Transport Protocol (SRTP) Offers Media Privacy}
+        title: Secure RTP
+    title: SIP Security
+-   guid: e5a7fa4d-9cfc-4bdb-b0c2-c32ac2807fcf
+    subchapters:
+    -   slides:
+        - {guid: 1c9cc927-2b79-4148-8a1f-a69857195480, title: Why A NAT Causes Failures
+                on SIP INVITE (1 of 2)}
+        - {guid: d87063b4-734d-43e1-9f72-8d62f9deb4ee, title: Why A NAT Causes Failures
+                on SIP INVITE (2 of 2)}
+        title: How NAT Effects the Media
+    -   slides:
+        - {guid: b57fccf5-b81f-4bc6-915c-e7162fe2364f, title: 'TURN  (Traversal Using
+                Relays around NAT) '}
+        - {guid: 279b5cc8-fc08-498e-b68e-4840ba6e5d42, title: STUN}
+        - {guid: 9a6757c5-ae10-4726-993d-9fe0659b5675, title: Full Cone NAT}
+        - {guid: 7e5a58b5-eb0f-4b90-a25e-9e5c56db9143, title: (IP) Address Restricted
+                NAT}
+        - {guid: c30aefd8-9aef-456a-b571-6548d9510455, title: Port Address Restricted
+                NAT}
+        - {guid: cb26e4ed-9c93-4c8f-b2e3-0251083d8ad3, title: Symmetric NAT}
+        title: Types of NATs
+    -   slides:
+        - {guid: 5587ce16-1ec6-4bf1-b05f-00aa9f0496dd, title: Three Media Pathways
+                to Bob at Work}
+        - {guid: c565ccfa-850a-4856-8063-d60a00367d38, title: How a=candidate Supports
+                ICE}
+        - {guid: 89b048e8-77e5-4643-8f81-e55ec0246002, title: 'Two Media Pathways
+                to Bob at Work '}
+        - {guid: a8df74a6-4899-4a90-9837-2c03a42ea8ba, title: Two Media Pathways from
+                Alice-at-Home to Bob-at-Home}
+        - {guid: 864fdddd-e25b-4a14-ab40-dff8218e5dc6, title: NAT with Embedded Application
+                Layer Gateway (ALG)}
+        title: STUN and TURN
+    title: SIP NAT Traversal

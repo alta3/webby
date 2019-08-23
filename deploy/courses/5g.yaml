@@ -4,20 +4,20 @@ course-title: 5G Essentials
 tags:
   - telecom
 duration:
-  hours: 32
-  days: 50
+  hours: 14
+  days: 2
 audience: "Anyone with strong 4G background that needs an clear understanding of 5G architecture."
 prereqs:
-  - volte
-  - sip
+  - VoLTE
+  - SIP
 postreqs:
-  - k8s
-  - sdn
-  - ceph
+  - Kubernetes Bootcamp
+  - SDN/NFV
+  - Ceph Essentials
 testimonials:
    - quote: "All excellant"
      stars: 5
-video-link: "https://www.youtube.com/embed/h-WfQrTvOMk" 
+video-link: "https://www.youtube.com/embed/h-WfQrTvOMk?rel=0;autoplay=1" 
 web-url: "https://alta3.com/courses/5g"
 has-labs: false
 has-videos: true

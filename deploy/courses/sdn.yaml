@@ -1,6 +1,6 @@
 ---
 id: sdn 
-course-title: Software Defined Networking and Network Function Virtualization
+course-title: SDN/NFV
 tags:
   - networking
 stars: 40
@@ -9,15 +9,15 @@ duration:
   days: 5
 audience: "Whomever is looking to learn" 
 prereqs: 
- -  ipsec 
+ -  IPSec 
 postreqs: 
- -  pyfna  
+ -  Python for Network Automation  
 testimonials:
   - quote: "I was extremely impressed with the instructors' knowledge of SDN & NFV topics and their ability to articulate these complex topics."
     stars: 5
   - quote: "Stuart was absolutely great! He was a wealth of knowledge and his evident passion made it easy to feel constantly engaged. I will definitely recommend Alta3 to my colleagues and consider them for future training."
     stars: 5
-video-link: "https://www.youtube.com/embed/zqvH2tQQA7E"
+video-link: "https://www.youtube.com/embed/zqvH2tQQA7E?rel=0;autoplay=1"
 web-url: "https://alta3.com/courses/sdn"
 has-labs: false
 has-videos: true
@@ -28,7 +28,7 @@ price:
     price-tags:
       - id: priceinfo-public-single-student 
         description: Face to face training for 1 student
-        price: 179500
+        price: 800000
         available: yes
         includes: 
         - item : has-video-true
@@ -116,764 +116,843 @@ price:
         - item : has-book-true
           description: Includes on-line book
         - item : has-labs-false
-overview: This class is a study of the Python programming language. Students will learn to build their own environments in which to program, and begin writing their own code. By the end of the first day, you should feel comfortable writing code on your own machine. By the conclusion of the course, students will understand the basics of object-oriented programming, how to use Python to interact with data sets (such as XML and JSON), interact with APIs, track down code snippets and programs on places like GitHub, as well as debug broken code. This course is 50% lecture and 50% hands-on labs. Students need no prior programming experience.
+overview: In this course, students learn Software Defined Network architecture and the important protocols related to SDN implementations. This course thoroughly explains what SDN is, how it works, and then does a deep dive into the SDN protocols themselves. SDN can both manage and control physical network elements as well as Network Function Virtualization, allowing network professionals to deploy and maintain a clean integration between cloud environments and the physical network itself. Often we are asked by network personnel to teach them what the network looks like when it enters the cloud. This is why the study of Network Function Virtualization is a natural progression in this type of study, so we have included both SDN and NFV in one course. This course will clarify what happens at the cloud boundary and then look into the virtual network within the cloud itself. If you are already a networking professional and you take a look at what is going on inside the cloud, you will learn that there is no reason not to take all those good ideas and implement them outside the cloud. The networking control layer as you may currently understand it, will change radically with SDN. We will show you that the change is both amazing and powerful. In this course, you will build, configure, and deploy the most popular network functions, routing, bridging, and OpenFlow switches along with requisite protocols. You will integrate these components with an emulated physical environment and perform verification testing. The cloud environment will be represented with a *very* deep dive into OpenStack Neutron and Neutron-compute.
 chapters:
-- title: Introduction to Python
-  guid: 6b31c414-c3ad-47c6-9c84-a5e59bd67e54
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 13
-      guid: 05c950e4-431d-4157-8c59-91f8c565ca31
-      title: Installing Python 2.7
-    - index: 14
-      guid: ece02c4a-00dd-4af5-9f75-72598dd4ab03
-      title: Installing Python 2.7 - Download (Windows)
-    - index: 15
-      guid: d97e9500-6f6c-4465-83f0-542f55154ee9
-      title: Installing Python 3.6
-    - index: 16
-      guid: 2add35ea-25dc-4e4c-b841-2eb59f62751b
-      title: Installing Python 3.6 - Getting to Downloads
-    - index: 17
-      guid: e3f89191-1673-446b-bc70-2c9c7b1dc937
-      title: Installing Python 3.6 - Download (Windows)
-    - index: 18
-      guid: 5644d7e8-89f7-4b51-ae68-2960f9b4266d
-      title: Preparing to write a Python (*.py) file - Text Editors
-    - index: 19
-      guid: 815a71a2-3eb4-42f3-aabf-51e91e8cb357
-      title: Writing our first Python (*.py) file
-    - index: 20
-      guid: efd3c99a-4c75-4a6f-94a0-42a513e39d6f
-      title: Executing our first Python (*.py) file - Testing Python 2.7
-    - index: 21
-      guid: c3da829c-d1af-4381-93ce-0afb6fbfc35a
-      title: Executing our first Python (*.py) file - Testing Python 3.6
-    - index: 22
-      guid: 11f2c867-430b-4a92-b5ee-8b49226eba92
-      title: Python Interpreter aka Interactive Shell
-    - index: 23
-      guid: 7056a84d-9272-4337-9ae2-c118964fb034
-      title: Python Enhancement Proposal (PEP)s
-    - index: 24
-      guid: 4232eb3d-ed6c-4c8b-a6df-7c24ca1166ae
-      title: Python Statements and Control Flow
-    - index: 25
-      guid: 94e433d3-6435-452d-b03d-12ac18196155
-      title: How to speak Python
-    questions: []
-- title: Version Controlling
-  guid: 65800686-4079-47f5-899a-64ae85fff26f
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 27
-      guid: 3a68a09d-3f39-487a-bf0f-688e833c9e2b
-      title: Setting up a GitHub Account
-    - index: 28
-      guid: 4db6e954-d810-4d07-a114-1216c82dc928
-      title: Setting up a GitHub Account (continued)
-    - index: 29
-      guid: 7157085c-a2b3-4d95-b516-098c0a3a897c
-      title: Why Python Developers need to know Git and Github
-    - index: 30
-      guid: fd0dbb0f-05d8-42ea-a6e6-c163e3738175
-      title: Git repo-to-repo collaboration
-    - index: 31
-      guid: 6440ebb7-8302-437e-9d0e-5c07c59352d6
-      title: 'Git usage: git clone <repo> <directory>'
-    - index: 32
-      guid: 36d35ac7-000a-4d37-b81b-a9e67127f8f1
-      title: 'Git usage: git init –bare <directory>'
-    - index: 33
-      guid: 17823740-07c2-4f1f-81e1-fcb0ccd45c81
-      title: 'Git usage: git config --global'
-    - index: 34
-      guid: 869a3f23-f5a4-4c15-bd97-6789663517bf
-      title: 'Git usage: git add <file> && git reset <file>'
-    - index: 35
-      guid: 16483a87-d000-490f-9ed5-698856bb014b
-      title: 'Git usage: git commit –m “<message>”'
-    - index: 36
-      guid: 51bf5b2c-4eb2-4223-a19f-562c74abf314
-      title: 'Git usage: git push <remote> <branch>'
-    - index: 37
-      guid: dc608d8c-3499-40df-be9b-dcdd8b36fd11
-      title: Git saves files not deltas
-    - index: 38
-      guid: db413801-0f3d-4095-924c-59bb3b131700
-      title: 'Git usage: git status'
-    - index: 39
-      guid: 00cebca5-6485-42f6-acbe-f2781b14c5ac
-      title: 'Git usage: git log --oneline'
-    - index: 40
-      guid: 41b404c4-cee4-4d44-b8f3-c6098baeed45
-      title: 'Git usage: git checkout <commit || master>'
-    - index: 41
-      guid: 17bc8757-3887-44ad-9f7c-8f061886fa21
-      title: 'Git usage: git remote <add || rm> <name> <url>'
-    - index: 42
-      guid: 240eb886-0b49-49bf-89d3-573c547d6d55
-      title: 'Git usage: git branch <branch>'
-    - index: 43
-      guid: 5d425b91-2d6f-4bc6-92fa-987491fb93f6
-      title: 'Git usage: git pull –rebase <remote>'
-    - index: 44
-      guid: dcd0193c-1167-4b77-80bd-89a47634d9d1
-      title: GitHub is git + social
-    - index: 45
-      guid: c64e1512-d992-487c-a2d2-1ba2c3489399
-      title: 'Git Recap: What you need to know'
-    questions: []
-- title: Programming Basics
-  guid: dbc9555c-ef2a-42cf-aed6-f3077ae85692
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 47
-      guid: 8c4aedf5-ddcd-4b10-98f7-c286c629d68c
-      title: Python Basic Data Types
-    - index: 48
-      guid: 317820f4-edae-42ec-b783-cefc472dd9ab
-      title: Built-in Python Functions
-    - index: 49
-      guid: 42beb933-ca37-40b5-91ff-b328390ff36a
-      title: Python Functions & Arguments
-    - index: 50
-      guid: cf51547b-3bf2-4517-8eb3-3827f98ddcc9
-      title: Print - Example
-    - index: 51
-      guid: b9818690-f578-4303-beff-9713599214c6
-      title: Print - Example results
-    - index: 52
-      guid: 127a2d72-32ff-402d-87a7-4817459e8480
-      title: Print with end='' - Example
-    - index: 53
-      guid: 2a68ea94-2c8f-4a81-807f-ca30e258066c
-      title: Print with end='' - Example results
-    - index: 54
-      guid: 184e4bb1-6664-4f2a-b6c1-bc1a057a2afb
-      title: Print with \t (tab) - Example
-    - index: 55
-      guid: dc5345df-139a-4cc9-94f2-51e682416c72
-      title: Print with \t - Example results
-    - index: 56
-      guid: 30ee788b-f7ae-4cb2-946f-6e6e2082df47
-      title: Print with + (concatenation) - Example
-    - index: 57
-      guid: a96bd3fb-4cfa-423e-8501-f3ad888bbe49
-      title: Print with concatenation (+) - Example results
-    - index: 58
-      guid: 27a1fea9-7a5c-4da7-a65b-ffefc0760d9c
-      title: Print with \n (new line) - Example
-    - index: 59
-      guid: f8db775a-1c2c-42fc-b8df-f5a6b27acf42
-      title: Print with \n (new line) - Example results
-    - index: 60
-      guid: d1135be2-4479-4c3a-8543-bdd26a3f7b54
-      title: String Literal Escape Sequences
-    - index: 61
-      guid: 2749181f-8ec0-478e-b4b3-9855a9161abb
-      title: Expressions & Literals
-    - index: 62
-      guid: dcb369d7-dc8e-4176-9f10-f2dccca841a6
-      title: Assignment Statements & Variables
-    - index: 63
-      guid: 2766e305-ab05-4a52-9405-4ca89648ee64
-      title: Useful snippet – Clearing the interpreter
-    questions: []
-- title: Numeric Operations
-  guid: c91ed2ac-0add-4db7-98e3-2584c63fcdb3
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 65
-      guid: 0be8cef3-e439-41f0-8909-952a914aa9e3
-      title: Number Types
-    - index: 66
-      guid: 167e8087-f826-4311-be0e-4e2202f8f982
-      title: Number Operators
-    - index: 67
-      guid: 5d4200aa-06d1-4d11-9af9-65ae6caa9800
-      title: Number Operators Have Precedence
-    - index: 68
-      guid: 43794ac1-d524-4a9e-b396-91fe176ddd4c
-      title: Combining Integers and Floating Points
-    - index: 69
-      guid: 241a60e6-e05c-42c7-b735-ed796ae343bc
-      title: Mathematical Functions
-    questions: []
-- title: String Types
-  guid: ffd5f24f-728e-49e9-9bde-470c62351c5f
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 71
-      guid: ea293eba-0557-46c1-91cd-80d361f4d730
-      title: Strings
-    - index: 72
-      guid: 5ec60cc1-2dee-446c-a44e-2f34c1d2e7ae
-      title: String Slicing
-    - index: 73
-      guid: abb2d3fc-ccf0-4a83-9344-bb62b6a91df5
-      title: String Repeating, Splitting, and Stripping White Spaces
-    - index: 74
-      guid: 09757224-9635-4a79-b352-918ec5994c22
-      title: Booleans
-    - index: 75
-      guid: 1e95dbbd-3a22-4f19-891d-04ed12ab5d09
-      title: Print & format strings
-    - index: 76
-      guid: 6dab08af-2647-4a31-942b-242996585a99
-      title: Print & format strings (old)
-    - index: 77
-      guid: 08004f4b-5719-4aa3-95db-b6fa889b5408
-      title: Scripting with input() - Example
-    - index: 78
-      guid: f6d280cf-e84f-4d8d-9bc3-1cefadf83d72
-      title: Scripting with input() - Example results
-    - index: 79
-      guid: cde116a0-8036-47f3-a417-96e431dc1d13
-      title: Scripting with input() improved - Example
-    - index: 80
-      guid: 86e526a4-2719-4c43-94e6-2c980349fb66
-      title: Gathering user input with raw_input() (Python 2)
-    questions: []
-- title: List & Tuples
-  guid: 6888840c-2c6d-4606-8215-47e58bb74f88
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 82
-      guid: 903c9289-0caa-414a-996f-cfaf05a7bdaf
-      title: Intro to Integer Lists
-    - index: 83
-      guid: f5ed1ef9-c468-46b2-b97e-2f2b7061f9ca
-      title: Mixed Variable Lists
-    - index: 84
-      guid: 8e0a5ff8-f22c-4031-b2f8-7bf19b632852
-      title: Tuples
-    - index: 85
-      guid: 9f286332-fe55-4fa7-8d13-0587ed193832
-      title: Python Time Touples
-    - index: 86
-      guid: bb79a00a-d4f4-4eee-9c39-379fdee70903
-      title: Tuples vs. Lists
-    questions: []
-- title: Dictionaries
-  guid: c427e38c-e675-486b-8431-4953ecb46562
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 88
-      guid: 6f545e85-fa62-424c-975d-680da09177b3
-      title: Dictionaries - Keys and Values
-    - index: 89
-      guid: 02048728-2c60-4cc1-8f22-0b9f310df9a4
-      title: Manual Dictionary { } Building
-    - index: 90
-      guid: 6ee2db25-d6ee-4cdf-901d-259bd942b9f8
-      title: Selecting a Data Structure
-    questions: []
-- title: if, elif, else
-  guid: 82160d3c-e781-4b17-b223-5ad4902b397e
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 92
-      guid: d5e99613-665d-4483-b4be-9a1fd74f8b7b
-      title: Relational Operators (1 of 2)
-    - index: 93
-      guid: d9811eb2-d112-4e06-b2d9-158f24e39a3d
-      title: Relational Operators (2 of 2)
-    - index: 94
-      guid: c10f76ac-468a-40ef-b52c-1d584aaf7b98
-      title: Logical Operator Truth Tables
-    - index: 95
-      guid: 9d6701c4-a67a-4561-94f1-c4eec3836ac2
-      title: Logical Operators
-    - index: 96
-      guid: 93f0d322-2f74-45b6-a139-e6cdc8172355
-      title: '"Simple" if'
-    - index: 97
-      guid: 9af43752-3178-4229-be97-0893bd8c7275
-      title: '"Simple" if - Example'
-    - index: 98
-      guid: 66cd22b3-9e85-4505-a083-6b53293e18a3
-      title: '"Simple" if - Example results'
-    - index: 99
-      guid: 156c8b10-5e58-4c6b-8c27-7ac807f20b3a
-      title: if-else Usage
-    - index: 100
-      guid: 5c0f2789-2526-49c0-a359-03e3fa3b29fe
-      title: if-else - Example
-    - index: 101
-      guid: 3059f749-24c5-41b8-b5c6-788dfa59ca62
-      title: if-else - Example results
-    - index: 102
-      guid: bf922961-8278-49c9-b393-2cd4121b90e1
-      title: if-elif Usage
-    - index: 103
-      guid: 627d31ce-0dd9-4549-a1cb-258dfff4836a
-      title: if-elif - Example
-    - index: 104
-      guid: 0ecd1065-28c2-430d-b420-4d98965b8e97
-      title: if-elif - Example results
-    - index: 105
-      guid: f76d8dac-e980-4d24-8aa2-96bed96bfd00
-      title: Nested if statement - Example (1 of 2)
-    - index: 106
-      guid: 6c02e197-1bd0-4ff9-8b51-6ec3888072d6
-      title: Nested if statement - Example (2 of 2)
-    - index: 107
-      guid: 5e9c3839-5332-4305-adf5-848c95a52392
-      title: Nested if statement - Example results
-    questions: []
-- title: while
-  guid: 3fe8076a-d91e-4c32-85fd-d2b31a6f5c3a
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 109
-      guid: 58cff75a-fb8a-4a6a-bf5e-94e5f2df7e00
-      title: while Usage
-    - index: 110
-      guid: cb3c5345-7183-44d7-a260-278b0bd075e4
-      title: while Loop - Example
-    - index: 111
-      guid: 8e951548-ba13-4535-826d-541caea2e41c
-      title: while Loop - Example results
-    - index: 112
-      guid: 974cd487-c22d-4ca2-b541-f00705d762c3
-      title: Count-controlled while Loop - Example
-    - index: 113
-      guid: 7c680b26-0428-47c7-8025-b0c367c64ca6
-      title: Count-controlled while Loop - Example results
-    - index: 114
-      guid: 65afc30a-839e-417c-b23e-174b930859c0
-      title: Event-controlled while Loop - Example (1 of 2)
-    - index: 115
-      guid: 735ecd1c-faae-4aa0-bb92-c829b60b6dac
-      title: Event-controlled while Loop - Example (2 of 2)
-    - index: 116
-      guid: 276bee27-6576-4757-bdfc-a5ff4a5bb150
-      title: Event-controlled while Loop - Example results
-    - index: 117
-      guid: bd6d43f4-884a-43ee-b53d-7770a5088ccc
-      title: continue Usage
-    - index: 118
-      guid: 4c995b02-b05f-4412-96dc-9c4a59d79c08
-      title: Continue - Example (1 of 2)
-    - index: 119
-      guid: 6a6fcd69-5a4e-4921-8a45-1b96d4d6a9d6
-      title: Continue - Example (2 of 2)
-    - index: 120
-      guid: 541fe82c-ae8d-45b5-9a33-273c038c94cb
-      title: Continue - Example results
-    - index: 121
-      guid: 0f36926e-091e-4d4a-a8c2-1f4deef54316
-      title: Break usage
-    - index: 122
-      guid: 91557603-ef2d-4948-96f4-5a2c1ee04918
-      title: Break - Example (1 of 2)
-    - index: 123
-      guid: 0e60a09c-4496-4260-a35c-987e81ddc187
-      title: Break - Example (2 of 2)
-    - index: 124
-      guid: 38d63cc5-0339-479b-85fe-d054c59f5e2f
-      title: Break - Example results
-    questions: []
-- title: for loop
-  guid: cb8027e5-8273-4550-9e6d-6a2c1215799c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 126
-      guid: afb51d2c-c477-4184-956f-53d0545a0f19
-      title: for Usage
-    - index: 127
-      guid: 6b7b2308-5e65-4ec5-8eef-c359aa29afc5
-      title: for Loop - Example
-    - index: 128
-      guid: a1ab8348-bec3-421c-871b-216614c89a2e
-      title: for Loop - Example results
-    - index: 129
-      guid: e360cc56-a8cb-4da4-b46c-c49907857c9d
-      title: for Loop - Example 2
-    - index: 130
-      guid: 03342db4-3a25-44fb-a100-216cb5dc20b2
-      title: for Loop - Example 2 results
-    - index: 131
-      guid: a5f7ccb4-f1eb-4bff-8561-93f73aec573e
-      title: for Loop - Example 3
-    - index: 132
-      guid: aed63ba9-330a-4637-97a1-d82ecd90b9a8
-      title: for Loop - Example 3 results
-    - index: 133
-      guid: 0f9af964-dc21-47ea-85d6-cb2f514d81bf
-      title: Programming Challenge - Rewrite as a "for" loop (1 of 2)
-    - index: 134
-      guid: 5c4127a6-7d33-48a7-ba2c-990cffac4a27
-      title: Programming Challenge - Rewrite as a "for" loop (2 of 2)
-    questions: []
-- title: Iterators
-  guid: dd822f5b-0ad9-41f8-8c9d-61283137161c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 136
-      guid: be8811eb-6cc3-4e33-a7e6-941486b6f746
-      title: Iterator vs iteration - Example
-    - index: 137
-      guid: f7286041-9c8b-4126-bce2-b8887bc87a10
-      title: Iterator vs iteration - Example results
-    - index: 138
-      guid: 821503cb-8761-45c2-92eb-becc00e988ae
-      title: Iteration with iter() and next() - Example
-    - index: 139
-      guid: 05995b4f-617f-4427-bd39-90c19ee276e3
-      title: Iteration with iter() and next() - Example results
-    - index: 140
-      guid: 57dbd265-3484-4715-ab4d-931153068c3e
-      title: Iterators and Dictionaries - Example
-    - index: 141
-      guid: 6ac98619-dd23-4842-9417-8ee1cf14d42f
-      title: Iterators and Dictionaries - Example results
-    - index: 142
-      guid: ca4f4eff-2338-4d6c-ad3e-dbbdd460f6dc
-      title: Iterating Tuples - Example
-    - index: 143
-      guid: 052461ca-61ff-4258-811d-50fbeced6adc
-      title: Iterating Tuples - Example results
-    - index: 144
-      guid: 33aabcd0-de5e-4e32-9f09-700020b23db4
-      title: range() Function
-    - index: 145
-      guid: 04581599-a360-409d-b97c-3f081e5b15b4
-      title: for Loop with range() - Example
-    - index: 146
-      guid: e09c73fa-785b-47d3-a53d-c42d1b9c1e92
-      title: for Loop with range() - Example results
-    - index: 147
-      guid: cd915030-8018-4423-a06c-09c279f40df1
-      title: for Loop with tuples [ ] and lists ( ) - Example
-    - index: 148
-      guid: c0264df7-2381-4cd9-a324-e8af505f4255
-      title: for Loop with tuples [ ] and lists ( ) - Example results
-    - index: 149
-      guid: 86dc9ae3-b38a-4441-abe6-711ed0ce7925
-      title: for Loop with string tuples[ ] - Example
-    - index: 150
-      guid: d75e8ecc-5974-436e-aab1-9b2fc50d08c4
-      title: for Loop with string tuples[ ] - Example results
-    - index: 151
-      guid: 44d2b76d-56b3-46da-a49c-3bedbbdc27e1
-      title: for Loop with dictionaries {'key':'value',…} - Example
-    - index: 152
-      guid: 142fa754-c7b3-467f-8432-fac4e7118415
-      title: for Loop with dictionaries {'key':'value',…} - Example results
-    questions: []
-- title: Input & Output with Files
-  guid: 8bba2c01-9855-4b59-b88e-04474e3b3537
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 154
-      guid: 9fbdb981-d675-45e7-9e9a-77b1b12369af
-      title: Print() Output to a Data File (Python 3.x)
-    - index: 155
-      guid: 3b2bea1e-a94c-4511-b3dc-7a204bce4c19
-      title: Writing data to files - Example
-    - index: 156
-      guid: 41e9eaee-e06b-4ced-b9bc-2ce222952c24
-      title: Writing data to files - Example results
-    - index: 157
-      guid: a4c14bfd-bcd4-442a-b297-9519a783e476
-      title: Writing data to files - Example 2
-    - index: 158
-      guid: a2b2201c-236a-44c3-bfcc-5b3f78734679
-      title: Writing data to files - Example 2 results
-    - index: 159
-      guid: 484070e1-b3ab-4b64-8859-24f8bd416f96
-      title: Opening a File – Python File Objects
-    - index: 160
-      guid: 0d648f9f-7d9c-4948-b5c3-1178f06b7fc5
-      title: Read data from files - Example
-    - index: 161
-      guid: 0ef8470b-bfd6-4067-a037-9721991e0e32
-      title: Read data from files - Example results
-    - index: 162
-      guid: 32760285-6369-45a2-92df-657688551e4d
-      title: Read data from files - Example 2
-    - index: 163
-      guid: 47d0e361-3ea0-49d6-a5b2-cf91c34b7e20
-      title: Read data from files - Example 2 results
-    - index: 164
-      guid: a403b8a0-a6bb-4bc3-a54d-2ea3a8957894
-      title: For Loop reading from a file - Example
-    - index: 165
-      guid: b5724ce1-f992-4174-ba29-83752f79eab6
-      title: For Loop reading from a file - Example results
-    questions: []
-- title: Python List Comprehensions
-  guid: a0517051-c2ce-4796-b683-c4ec1463a550
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 167
-      guid: a16e6b1a-591e-4394-acd3-8c05ee8bd609
-      title: List Comprehensions
-    - index: 168
-      guid: 6965286c-81fc-4b0c-9b5c-b27677dbfdd4
-      title: List Comprehensions - Example
-    - index: 169
-      guid: 8e49b2a5-ee2e-49bd-8967-a96807c372b6
-      title: List Comprehensions - Example results
-    - index: 170
-      guid: 8a79ed01-5848-4628-9ec9-b021631c7f81
-      title: List Comprehension with Strings - Example
-    - index: 171
-      guid: ce3a7481-e700-4146-9d5d-6fb1c1762bd4
-      title: List Comprehensions with Strings - Example results
-    - index: 172
-      guid: 5ea5adeb-35ef-4799-8ff2-633f7ec0c7ca
-      title: List Comprehension with Files - Example
-    - index: 173
-      guid: 103b3193-bb40-45d9-bd3d-d6b505b4d454
-      title: List Comprehensions with Files - Example results
-    questions: []
-- title: Creating Functions
-  guid: 3fa33927-291a-408f-a29a-d65af4e9cfee
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 175
-      guid: a0683880-5f59-4087-b85e-08de1121fb0e
-      title: Defining Functions
-    - index: 176
-      guid: f9acbbdc-ba09-451b-894a-3f0b07680e58
-      title: Calling Functions
-    - index: 177
-      guid: 4d3141ba-c690-4124-98f2-b3c49568b168
-      title: Function Basics
-    - index: 178
-      guid: 1a0969fb-61cc-475b-b40a-aeb04f99cb44
-      title: More Function Basics
-    - index: 179
-      guid: 706c62d3-619a-4ec7-a52e-43f488a851f1
-      title: Creating Functions that Process Integers - Example
-    - index: 180
-      guid: 1c1c3a88-b081-45e8-a1e8-e622e9eb70d5
-      title: Creating Functions - Example results
-    - index: 181
-      guid: 7ed997ac-770a-4d33-bbb5-47131d3b2da4
-      title: Creating Functions that Process Strings - Example
-    - index: 182
-      guid: 11320c29-c05e-4cfc-87c3-fbe8219e2554
-      title: Creating Functions That Process Strings - Example results
-    - index: 183
-      guid: 8a84b8a2-2eea-4826-a51e-5a20440479de
-      title: Defining Functions with Multiple Parameters
-    - index: 184
-      guid: 49737569-bcfe-4433-9547-877ae6262ca3
-      title: Calling Functions with Multiple Parameters
-    - index: 185
-      guid: ee9aa36e-09e6-4ed0-a732-bfa7297f3919
-      title: Creating Functions with Multiple Parameters - Example (1 of 2)
-    - index: 186
-      guid: 859d7a6a-adbb-4d8d-8845-ac5e197f0d26
-      title: Creating Functions with Multiple Parameters - Example (2 of 2)
-    - index: 187
-      guid: 9f3d0ea7-11c3-4c8e-9a56-5a49f22f9d7b
-      title: Creating Functions with Multiple Parameters - Example results
-    - index: 188
-      guid: 45ad19b4-00a0-47d6-9bb7-16ad3fbdd3c5
-      title: Predicate Functions - Example (1 of 2)
-    - index: 189
-      guid: 94ef4d48-06fb-455a-b57b-d28710480bcb
-      title: Predicate Functions - Example (2 of 2)
-    - index: 190
-      guid: 616d076a-cb54-4e51-a6da-4db9fe627cf5
-      title: Predicate Functions - Example results
-    - index: 191
-      guid: 337ab66c-51cf-45ae-b120-c2674e7de299
-      title: Recursive Functions - Example
-    - index: 192
-      guid: ae3e3620-299d-4c4d-9f12-3c149a48036e
-      title: Recursive Functions - Example results
-    - index: 193
-      guid: c5ae57f1-68d7-468e-af86-1b194dd7f28e
-      title: Recursive Functions with Strings - Example
-    - index: 194
-      guid: 211ab7a2-260d-4084-991c-9bbbe08fa8c2
-      title: Recursive Functions with Strings - Example results
-    - index: 195
-      guid: f1e0f556-5932-404f-82e9-06119df89a8e
-      title: Higher order functions - Example
-    - index: 196
-      guid: 6bcf0a28-a3f3-4e6d-b2df-79baccea6443
-      title: Higher order functions - Example results
-    - index: 197
-      guid: b58b1484-8e9a-460c-a7ca-062f71bca06a
-      title: Anonymous Functions - Basic Lambda Form - Example
-    - index: 198
-      guid: eb7f7574-b2de-409e-a1b4-82e9403df966
-      title: Anonymous Functions - Basic Lambda Form - Example Results
-    - index: 199
-      guid: cfd11759-8246-4890-8289-1fed471b9f49
-      title: Filter function - Example
-    - index: 200
-      guid: ce62555b-ab43-49b7-82db-114781c94e1a
-      title: Filter function - Example Results
-    questions: []
-- title: Modules and Packages
-  guid: a6d942ee-b8b3-4ab7-9ebd-8ab737de9b0c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 202
-      guid: a36a3361-f09a-4e05-92bf-0e2c3bf77a50
-      title: Packages & Modules
-    - index: 203
-      guid: 9a428071-7b1e-4ebc-a318-cd69fe20512c
-      title: PyPI - the Python Package index
-    - index: 204
-      guid: a4d18855-40e3-4a3c-981f-b873cd5d052b
-      title: Getting at PyPI with pip (1 of 3)
-    - index: 205
-      guid: d8e40ca2-e612-4b1e-b2ee-5523bd8191a7
-      title: Getting at PyPI with pip (2 of 3)
-    - index: 206
-      guid: f23e6a2c-2571-4fb5-aa72-f5edf428e620
-      title: Getting at PyPI with pip (3 of 3)
-    - index: 207
-      guid: d984e8ec-9a6d-467f-b3de-f95d28e8f06a
-      title: Lightweight Virtual Environments - Using venv
-    - index: 208
-      guid: 01c2cd70-d7f2-45c0-86db-55622c3de0af
-      title: import Statement - Example
-    - index: 209
-      guid: d482b7a7-5125-41a7-a882-b4e65a025f05
-      title: import Statement - Example Results
-    - index: 210
-      guid: 93b33ac1-c110-4a91-a390-0f7b4fb444cc
-      title: User Defined Modules - Example (1 of 2)
-    - index: 211
-      guid: bca3ace7-f44a-483d-a812-26474de18249
-      title: User Defined Modules - Example (2 of 2)
-    - index: 212
-      guid: 04ec0fbb-6ed0-43cc-aa66-f9eb1816eec7
-      title: User Defined Modules - Example Results
-    - index: 213
-      guid: a9f9be8c-c4b1-407d-a2b3-d5534ce4939a
-      title: Importing Functions from User Defined Modules - Example (1 of 2)
-    - index: 214
-      guid: 421b67b8-8b87-4003-8645-bb33a64c4aaf
-      title: Importing Functions from User Defined Modules - Example (2 of 2)
-    - index: 215
-      guid: 75168e5c-86bd-4b6e-ba00-dbeecae02cbc
-      title: Importing Functions from User Defined Modules - Example Results
-    - index: 216
-      guid: 2f588e9c-e556-4ade-9290-51810701027e
-      title: Importing Functions from User Defined Modules - Example 2
-    - index: 217
-      guid: a88a2909-81fa-41f8-af7a-0f4b5fe0ec8b
-      title: Importing Functions from User Defined Modules - Example 2 Results
-    - index: 218
-      guid: 09ed526b-40f2-4864-9042-6feaeaae53eb
-      title: Python Names and Namespaces
-    - index: 219
-      guid: 14c6856a-0c46-4ef0-9ddb-42577cdfe9f5
-      title: Import effects on Namespace
-    questions: []
-- title: Python Scope
-  guid: 46de4fa3-b904-41d8-9ca1-544958796131
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 221
-      guid: 7d457624-de1a-4fad-9167-449e1c6f3431
-      title: Python Names
-    - index: 222
-      guid: b7708f60-5dac-4698-95c0-ef8ca085418a
-      title: Global Scope - Example
-    - index: 223
-      guid: 332d5c0c-53ba-4889-ac97-1d9b815788a3
-      title: Global Scope - Example Results
-    - index: 224
-      guid: 5800d398-afcf-402f-aaea-f2bbe6749f8c
-      title: Local Scope - Example
-    - index: 225
-      guid: 0d24cb38-ef4e-4355-814b-f71e588baaea
-      title: Local Scope - Example Results
-    - index: 226
-      guid: c7925e27-1433-4b0a-9fac-e846229bc01b
-      title: Nested Scope - Example
-    - index: 227
-      guid: d906a089-e498-4d51-9e16-e2424cdf06cd
-      title: Nested Scope - Example Results
-    questions: []
-- title: Object-Oriented Programming
-  guid: 565f6d30-84e5-432d-b81c-eb9406c04ad9
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 229
-      guid: 7ded1be0-a1f6-4b52-911d-ebc5d1741ae3
-      title: Mutable vs Immutable Objects
-    - index: 230
-      guid: 92d907a7-cbe7-4fa0-bab1-5324ce476182
-      title: Python and Objects
-    - index: 231
-      guid: 72cbfa11-c3e2-4e79-9b5c-df1a921d32ea
-      title: Checking Python Data Types with type()
-    - index: 232
-      guid: 9847c91a-ec35-4f6f-b291-b94e9e9ff64f
-      title: Abstract Data Types
-    - index: 233
-      guid: cdd16aed-d138-4b2d-ae1d-9cf370e990ee
-      title: Defining a Class
-    - index: 234
-      guid: 092e5c74-058f-4691-8808-66a05a9c7b86
-      title: Object vs Class
-    - index: 235
-      guid: a1a06164-a0f8-46e3-8b02-19abc7abdd3b
-      title: Class Fields & Constructors - Example
-    - index: 236
-      guid: 4818bb1c-120e-476d-87cf-d4f3c450b1a0
-      title: Class Fields & Constructors - Example Results
-    - index: 237
-      guid: b3e1c6e2-bd35-465e-ad04-238214b51a4e
-      title: Data Structures within a Class (1 of 2) - Example
-    - index: 238
-      guid: a423895e-5dc5-4715-a719-50565615f531
-      title: Data Structures within a Class (2 of 2) - Example
-    - index: 239
-      guid: 8c93314b-9c4d-4f09-9436-ddea6a6bc8b2
-      title: Data Structures within a Class - Example Results
-    - index: 240
-      guid: 93121524-57c7-49fc-a879-b8397cd4bc39
-      title: Class Inheritance (Is-a relationships)
-    - index: 241
-      guid: fbb4fd17-4445-47c6-b2c7-8b591185b0ef
-      title: 'Class Inheritance (Is-a relationships) within a '
-    - index: 242
-      guid: 2f08d661-91cb-47eb-b2f9-199f775d7d64
-      title: Sub Classes (Inheritance) - Example (1 of 3)
-    - index: 243
-      guid: c2d8498f-9907-496c-9bcd-9dafa5b9a090
-      title: Sub Classes (Inheritance) - Example (2 of 3)
-    - index: 244
-      guid: 98c85b2a-6e14-43cb-9106-8cc14ff53157
-      title: Sub Classes (Inheritance) - Example (3 of 3)
-    - index: 245
-      guid: a901c1e8-2f25-4a02-9453-b3e4bd61a67e
-      title: Sub Classes (Inheritance) - Example Results
-    - index: 246
-      guid: 650cc14d-16ee-4dae-97a4-e606ad3e7d9d
-      title: Polymorphism with a Function
-    - index: 247
-      guid: 47fa6ee2-f69d-46cc-a219-48bbb19e30ed
-      title: Polymorphism with a Function – Example Results
-    questions: []
+-   guid: 3d22ef50-784d-4d8b-87f2-57d5652bb6a4
+    subchapters:
+    -   slides:
+        - {guid: f8d406d5-1df4-446b-85a1-7931897d77fa, title: Data Plane}
+        title: Data Plane
+    -   slides:
+        - {guid: a8b15b6a-04f6-4860-9336-4306aa7dba54, title: Distributed Control
+                Plane}
+        title: Control Plane
+    -   slides:
+        - {guid: c45a07a1-1d5d-40f3-b448-9a59022d9025, title: Interfacing with the
+                Distributed Control Plane}
+        - {guid: 3511a169-6cbe-488f-beda-a03f9093c6b4, title: Problems with Distributed
+                Control Plane}
+        title: Problems with the current distributed Control Plane design
+    -   slides:
+        - {guid: 86b2d4f9-4d7a-498e-8b3d-af0f727d1f36, title: Clean Interface for
+                new Applications}
+        - {guid: 3830eb1e-f91c-4ad3-a67f-329c923433e1, title: Clean Interface for
+                new Applications}
+        - {guid: 11f66409-7687-460f-930d-696a0afb837e, title: Declarative vs Imperative
+                Control}
+        - {guid: ad6eae94-fab0-4a14-be16-1d16ae535499, title: 'What about the Southbound
+                Interface?'}
+        title: Problems solved by the Centralized Control Plane
+    -   slides:
+        - {guid: b8c3faf4-42b0-471b-ac54-aff4975adf14, title: Controller Southbound
+                Interface (SBI) & Northbound Interface (NBI)}
+        title: Southbound Interface and Northbound Interface
+    -   slides:
+        - {guid: cda91ac9-1ab8-4689-b083-1320fd004cb4, title: Classic Forwarding Device}
+        - {guid: 8d5f75a4-e727-4be8-9b29-d08458e71002, title: Service Chaining}
+        title: Data Plane
+    -   slides:
+        - {guid: 277d0c49-1d35-4132-8d50-e04f91476a76, title: RFC 7426  SDN Layers
+                and Architecture Terminology}
+        title: Management Plane Functions
+    -   slides:
+        - {guid: ddf9f387-805c-4803-aa66-b301a674de2f, title: "Northbound API Abstractions\v"}
+        title: Northbound API Abstractions
+    title: Software Defined Networking Intro
+-   guid: fe75ab80-f277-44e6-89a5-acf0e029cb77
+    subchapters:
+    -   slides:
+        - {guid: 6f746d56-4b0f-464d-9a62-c7e3a9c120d1, title: Recognizing Cloud Types}
+        - {guid: 7eca8f9a-83bd-42eb-b9e4-40647d733f70, title: Data Center Layout -
+                Basic Cloud Components}
+        - {guid: 029128d9-5ebf-4c17-a8a0-f80337016ec9, title: "Data Center Layout\
+                \ \u2013 Network Fabric"}
+        - {guid: 8036c597-c695-4a35-b93d-f58fee38242e, title: "Data Center Layout\
+                \ \u2013 NFV Network"}
+        - {guid: 37eff158-9fd5-4c63-b5c6-1144b0185efc, title: "Data Center Layout\
+                \ \u2013 Controller Node"}
+        - {guid: f0ffc202-825b-4934-97ac-860bffc7e5fa, title: "Data Center Layout\
+                \ \u2013 Network Node"}
+        - {guid: 94981960-00d8-4166-a7dd-c23fa1f47a21, title: "Data Center Layout\
+                \ \u2013 Compute Nodes"}
+        - {guid: 1e1b5a83-1df1-4b34-8459-4bd4f4c8a250, title: "Data Center Layout\
+                \ \u2013 Storage Nodes"}
+        - {guid: 8f78a4ac-22e6-46d8-b8a7-ab77952df0b7, title: A Data Center Rack -
+                Generic!}
+        - {guid: 74badeaf-b5d3-47ba-b440-f012847f8a9a, title: Compute Node Functions}
+        title: Universal Data Center Options
+    -   slides:
+        - {guid: 98dcb84f-0b37-423b-83cb-509f237e6b89, title: A Data Center Rack according
+                to Cisco ACI}
+        - {guid: 767bb3be-641f-4e75-bfb2-8db586a01ffa, title: "Data Center Layout\
+                \ - Cisco ACI\v(Always google a model number suffixed with \"End of\
+                \ life\")"}
+        title: Cisco Data Center Options
+    -   slides:
+        - {guid: 135d88a8-a80f-4534-9221-9d2da43fbce4, title: A Data Center Rack according
+                to NSX (VMware)}
+        - {guid: 8c5587a7-5734-4606-af99-33ea25a5dc39, title: Data Center Layout -
+                NSX Vmware + Cisco-driven Fabric}
+        title: NSX VMware Data Center Options
+    -   slides:
+        - {guid: e2d7f93d-3679-41e5-8b8f-a286156eca38, title: A Data Center Rack -
+                Openstack}
+        - {guid: 11e98862-8726-47b0-a820-dc52c9b53056, title: Data Center Layout -
+                Openstack}
+        title: OpenStack Data Center Options
+    title: NFV Practical Application
+-   guid: 1506f552-9a35-401a-b81a-82054b102f50
+    subchapters:
+    -   slides:
+        - {guid: d46e2127-d3b6-43a4-8695-4621385cfdae, title: NFV Terminology}
+        title: NFV Terminology
+    -   slides:
+        - {guid: b231bb4f-d68a-49e6-b76c-b26c25f2f661, title: ETSI NFV ISG Interfaces
+                and Architecture IFA WG}
+        - {guid: e5107198-bf8a-4fcc-a170-80f15da7634e, title: 'Network Functions Virtualization:
+                VNF, Network Service and E2E Network Service'}
+        - {guid: 1b8521a0-9cfa-47a4-a177-41d4a81f0765, title: 'Network Functions Virtualization:
+                Management of NFV Components'}
+        - {guid: da7c06f6-e6d7-4c44-b39a-13993c4fc722, title: 'Management and Orchestration:
+                Architecture'}
+        - {guid: ef74867e-0f46-4ffd-aac5-b4bad05e207d, title: Virtualized Infrastructure
+                Manager (VIM)}
+        - {guid: 8f7d0681-2fd7-495c-8d76-6d3aa8258b09, title: VNF Manager (VNFM)}
+        - {guid: 9bb6953a-7fd3-492f-82c5-be415337afa8, title: NFV Orchestrator (NFVO)}
+        - {guid: 6be0c81e-2e54-451c-bb4a-77cc120f12c8, title: VNF Forwarding Graph
+                and Network Forwarding Path on top of a Network Service}
+        - {guid: 8c9fd624-ce2a-4521-80ab-c6d2df523c1b, title: Base Information Elements}
+        title: NFV Architecture
+    -   slides:
+        - {guid: 0b0ac632-a235-4e3b-85ae-935728304fe3, title: MANO Architectural Framework-
+                Reference Points and Interfaces}
+        title: NFV Reference Points
+    -   slides:
+        - {guid: d1e4e654-e0b8-4423-a758-c0bdeb620948, title: Service Chaining}
+        title: Service Function Chaining Architecture (RFC 7665)
+    title: Network Function Virtualization
+-   guid: a6468fa7-e1e7-4796-9679-190ad066315c
+    subchapters:
+    -   slides:
+        - {guid: 7a333e42-26b3-47b4-8fe4-287e04e3bfeb, title: net-tools (Legacy) vs
+                iproute2 (NFV friendly)}
+        title: net-tools vs iproute2
+    -   slides:
+        - {guid: e70ececb-6f9b-43b7-a9e5-06ed11fb3064, title: ' iproute2 Package Commands'}
+        - {guid: 5a0022ad-def8-44ce-965b-71fee70975a2, title: Linux Container Building
+                Blocks}
+        title: iproute2
+    -   slides:
+        - {guid: 226a4822-d375-42c8-ad0b-fdcdcd5e6927, title: Linux Network Devices
+                Used in this Course}
+        - {guid: 65e15d17-db91-4cdd-8c70-64568fb688f4, title: "Linux Network Devices\
+                \ Basics \u2013 Linux Bridge"}
+        - {guid: 8be98f1f-3e46-40c2-9f64-ed29ca5f119d, title: OVSwitch}
+        - {guid: bdd258fd-e847-42ef-9498-f757425308f5, title: TAP (1 of 2)}
+        - {guid: e0235b41-c5dc-4595-b5e1-0008cff88d9b, title: TAP (2 of 2)}
+        - {guid: f91a951b-1132-4fa9-a101-e546819991e0, title: Physical & Virtual Interfaces}
+        - {guid: f480ac03-ac08-4849-b3f3-8a801f9e2b7d, title: Namespaces}
+        - {guid: fc48eff2-a75a-479b-90f7-fb727319435e, title: Introducing the Linux
+                veth}
+        - {guid: 852551bd-9b2f-4545-86c8-5c62bee51078, title: Linux veth}
+        - {guid: a9fc4de5-546d-45ee-8c4f-759e32882a80, title: OVS Bridge Internal}
+        - {guid: 2be8a964-4647-4a8d-bd47-5d476a88d1cf, title: iptables (1 of 2)}
+        - {guid: 4e21e677-c560-485e-9680-4408bc0670da, title: iptables (2 of 2)}
+        - {guid: bd3c850e-1f19-4d95-af44-6d631efffce7, title: Linux Bridge}
+        - {guid: 903d7072-fde6-482e-8aa5-500395ff0179, title: namespaces}
+        title: Linux Network Devices
+    -   slides:
+        - {guid: 8f068d66-c9ed-40c5-a22d-c1f2e02a879a, title: 'Step 1: create veths'}
+        - {guid: 817c3d0e-e969-4f01-8acf-7630479a9a42, title: 'Step 2: Connect veth
+                to Linux bridge'}
+        - {guid: 4abb4792-2a8d-47ee-9e33-3bcabce2d91e, title: 'Step 3: Connect veth
+                to namespace'}
+        - {guid: a4c6f420-aebb-416e-bde3-972dbef74b08, title: 'Step 4: Connectivity
+                path between namespaces'}
+        title: Bridging namespaces
+    -   slides:
+        - {guid: ac65dc9d-96ab-40d8-a1a6-a07c36298af2, title: Use a tap for connectivity
+                to WM (not veths)}
+        - {guid: 57f40f1c-6701-40e6-adf6-ddbcce8c8eb0, title: Linux tap}
+        title: Bridging VMs
+    -   slides:
+        - {guid: 78f01af7-e857-414d-bd07-6755987d5ad0, title: ip tables - Type of
+                Chains}
+        - {guid: ac3a0501-2b02-45b5-b037-bebcd514cc24, title: Reading an iptables
+                entry}
+        - {guid: eb182f57-27bb-443c-94de-fa3d985580ab, title: An iptables example}
+        - {guid: 3abde1b6-1a96-47a5-8458-a8cf0e6fe161, title: ip table example per
+                device}
+        - {guid: b1240028-a775-4e43-8d32-77e87def1b7a, title: ip table example by
+                protocol (DHCP example)}
+        - {guid: f1c4097b-8adc-4e7a-b984-cca41a019d94, title: How to use tcpdump to
+                monitor flows}
+        title: Forwarding Logic
+    -   slides:
+        - {guid: 5b425071-ccf6-4c6f-b054-ef9417736b74, title: mn (Mininet) Commands}
+        title: mininet
+    -   slides:
+        - {guid: 7b3cba87-49a0-45b4-a0a4-1de480c9110f, title: ip neigh}
+        title: ip neigh
+    -   slides:
+        - {guid: adb9c260-3bd9-4110-84ae-41965f4b8d58, title: ip link}
+        - {guid: 94c8e7f1-a762-42a7-a2b4-07a5603a23b2, title: 'ip addr '}
+        - {guid: dd453251-07c3-437d-b200-78729d53810d, title: ip route}
+        title: ip2
+    -   slides:
+        - {guid: 2be5d5cc-573b-459d-b840-94028aec03e2, title: ovs-vsctl command examples}
+        title: ovs vsctl
+    -   slides:
+        - {guid: 16cbb30e-a1c8-4e2b-a7d9-facc9848ae97, title: Creating complex tcpdump
+                expressions}
+        - {guid: 0942406f-c6d8-4d8b-ac01-4c2eef30b6f7, title: Other search expression}
+        - {guid: ed9f431d-5305-48c3-a886-c3d5042ede7d, title: tcpdump Essentials}
+        - {guid: bd63aed7-c009-437a-bf9d-d97dc4d796f0, title: BPF Berkley Packet Filter
+                Primer}
+        title: TCPDUMP
+    -   slides:
+        - {guid: 5305fa6c-7a85-4277-a317-7d86168e9ac8, title: a3diff}
+        - {guid: 27f33ec5-7c18-4ab3-9ec9-6b4c1ece97ee, title: ip address vs. ip link}
+        title: Troubleshooting
+    title: NFV Commands
+-   guid: aac8c1cf-3690-46cd-9fe7-8143c9d83338
+    subchapters:
+    -   slides:
+        - {guid: 8aa07407-9237-4240-89c0-d0613e0058b1, title: OpenFlow Interface}
+        title: OpenDaylight Soutbound APIs
+    -   slides:
+        - {guid: 65d14436-662e-414b-b994-b272fd94975e, title: Active Networking}
+        title: Active Networking
+    -   slides:
+        - {guid: f979e9cc-3a6f-45ea-a02f-8845c30c5ba7, title: ForCES Architecture}
+        - {guid: 0bcffdcb-ef66-41c8-a85b-9b39e7f4793a, title: ForCES Architecture-
+                FE Model}
+        title: ForCES Architecture
+    -   slides:
+        - {guid: 181d4d75-d836-49be-8b99-6e4cdb85c0f5, title: OpenFlow}
+        title: Clean Slate
+    -   slides:
+        - {guid: 4073cc8a-64fd-473d-b9a0-55329fb26721, title: OpenFlow in a SDN Architecture}
+        title: Layers - API vs Control vs Infrastructure
+    -   slides:
+        - {guid: 7c0948a8-f562-4ccd-bfd8-22f51a587696, title: OpenFlow Switch Specification}
+        title: Switch Specification
+    -   slides:
+        - {guid: 74c71398-92aa-43b2-a1b0-5aa1c6543da3, title: Installed on a Linux
+                Machine using x86 Hardware}
+        title: Linux Installation and Deployment
+    -   slides:
+        - {guid: 7d4dd4b6-dfaf-4c44-a061-1ebfb92c6472, title: 'What is OpenFlow?'}
+        title: Components
+    -   slides:
+        - {guid: 83d219ea-75cc-44eb-92ab-8bfcc0bb91d4, title: Main Components of an
+                OpenFlow Switch}
+        - {guid: 65eb8ee0-61a2-4838-a9d5-780a2b2e6479, title: OpenFlow Compliant Controllers}
+        - {guid: 4f31e3e0-dfaa-48eb-834b-03db53e707c5, title: OpenFlow Compliant Controllers}
+        title: Main Components the Switch and Controller
+    -   slides:
+        - {guid: 053a0b5d-ebde-4293-a45c-61a83521f53e, title: The MAC Address}
+        - {guid: ae5e0bfd-f684-49b9-b7ff-82757cfd1e59, title: An Ethernet Access}
+        - {guid: 57a99cdf-805c-41b7-b8e5-537473bdf0ae, title: The Ethernet Link}
+        - {guid: 3453bd6b-107a-42da-bed8-aeec19fb234b, title: Ethernet Broadcast Domain}
+        - {guid: 90bf9186-73fa-46d0-a2b3-ef7aa227bde2, title: "The Source and Destination\
+                \ IP Addresses\v "}
+        - {guid: eabee347-b48b-4551-b857-7e8ca6a8ae63, title: "Referencing the Host\
+                \ Routing Table\v "}
+        - {guid: 69f7a890-c07c-4d5e-9c87-2933c8ce2a1c, title: Ethernet Broadcast Domain}
+        - {guid: 907e7250-cd9c-4009-bae7-517e66d4b61d, title: Ethernet Switch MAC
+                Address Learning}
+        - {guid: d49971ea-cb11-4c44-afb2-4ffd92ef00bc, title: Ethernet Broadcast Domain}
+        - {guid: 54088386-33ef-42b6-911c-d780ab2b317c, title: ARP Response}
+        - {guid: 969fafbb-5eb4-4945-9eea-a207ce019eca, title: ARP Response}
+        - {guid: ed647614-3aeb-43c0-a6e2-9869b3b33134, title: Analyzing the ARP Table}
+        - {guid: 48a7b4fb-435a-4d96-8e84-add4b680ef66, title: Switch Forwarding to
+                "Known" MAC Address}
+        - {guid: 9de702b0-ed16-4687-af42-4f218686d90b, title: "MAC table aging on\
+                \ no activity\vARP cache aging on no activity"}
+        title: Traditional L2
+    -   slides:
+        - {guid: 95e7f61c-ac66-4536-ac75-dfbbdcecc47c, title: OpenFlow Learning Bridge
+                example}
+        - {guid: cd2738a8-5aad-4a52-bea2-b158cfccaa09, title: OpenFlow Ethernet Broadcast
+                Domain}
+        - {guid: ca0553d4-ac9e-498a-870d-50978b07cb9c, title: OpenFlow Learning Switch
+                Application}
+        - {guid: cfdedb30-7393-4f19-859b-fb2df3f7d96f, title: OpenFlow Learning Switch
+                - ARP}
+        - {guid: e5836583-481b-44e7-9bf1-ef26fdade17a, title: OpenFlow Learning Switch
+                - Flow match}
+        - {guid: 324172c3-f96d-4233-9d77-0c4787fd1be3, title: OpenFlow Learning Switch
+                - Packet IN}
+        - {guid: 14c27652-934b-4295-b738-b65289ae7d73, title: OpenFlow Learning Switch
+                - Learning}
+        - {guid: b92037bd-7646-46a6-a442-04fbd41790a4, title: OpenFlow Learning Switch
+                - Packet OUT}
+        - {guid: 77693bb1-008a-4b03-a830-fa17221282d1, title: OpenFlow Learning Switch
+                - Flooding}
+        - {guid: 1b09d624-36af-4880-a4f4-e52a46ef1fcc, title: OpenFlow Learning Switch
+                - ARP Response}
+        - {guid: f5b6bfa0-bd63-448a-af11-64d6fbcaac61, title: OpenFlow Learning Switch
+                - Packet IN}
+        - {guid: 653fe193-ddb5-4077-b780-d3f2681e29a2, title: OpenFlow Learning Switch
+                - Packet OUT}
+        - {guid: 6105d3fe-7d1c-42f6-b656-95bb2ce42f4d, title: OpenFlow Learning Switch
+                - L2 Forwarding}
+        - {guid: 60292206-18fe-4ddb-beb6-6bcb49216b99, title: OpenFlow Learning Switch
+                - L2 Forwarding}
+        - {guid: 7b2f6e13-81b7-4e8e-bd60-d9ab30b5e601, title: Flow Timers}
+        - {guid: 2c03f4cd-dcd9-4856-9082-7e7a4b5ba7d5, title: Populating Flow Entries
+                Reactively}
+        - {guid: 09a8d728-5493-412f-a7b6-1fc16c57351c, title: Populating Flow Entries
+                Proactively}
+        - {guid: c60c865d-f153-44cf-b690-ca5de920e0e6, title: HW vs SW Switches}
+        title: Basic Operations and Messages
+    -   slides:
+        - {guid: bcb17372-bdcb-4683-aeb7-3d84c9abff62, title: Flow Table}
+        - {guid: 88d5e7c9-05c1-4075-a7c0-2775b3ad1f82, title: Flow Entries}
+        - {guid: 94790bdc-1193-456b-bfaa-d433f655813b, title: Table ID}
+        - {guid: eb90d5ce-df03-4166-8a8a-235f2239537e, title: Priority}
+        - {guid: 29048a2e-9958-4f87-a3a1-19461675ec31, title: Packets}
+        - {guid: dc21da9f-8568-45ef-9009-987f2c7511d1, title: Match}
+        - {guid: 0d1c3259-7b3c-4077-a8bf-84e0f57afe5d, title: Actions/Instructions}
+        title: Flow Table
+    -   slides:
+        - {guid: a8b3c3b5-410d-4bc6-8ec4-d0ae02ffbbae, title: Normal Port}
+        title: Review of OpenFlow Specification (current or 1.1.0, Wire Protocol 0x02)
+    -   slides:
+        - {guid: efb1b7d5-7a56-4bf2-950c-40bea612c7ae, title: Pipeline Processing}
+        - {guid: bce3cdd3-d83d-4224-b220-8a65d98a7893, title: Multiple Match Tables
+                (MMT)}
+        title: Flow Tables, Pipeline Processing
+    -   slides:
+        - {guid: c5d1c1c6-a143-4813-a1cd-7a821693491e, title: Instructions}
+        - {guid: 0a387f25-4cfb-48c1-94f8-d63e1f65274f, title: Action Set}
+        - {guid: 1ce08168-ad4b-44cb-af89-3ee768246bec, title: Instructions that modify
+                action set}
+        - {guid: 1a109a32-b611-426c-a866-07f101dfa9c2, title: Actions}
+        - {guid: 83a5b8d9-d3d5-491a-a377-a91afa7ef16c, title: Flow Table Entry}
+        - {guid: c34350e9-61de-444d-bd76-17aba352deb9, title: Flow Switching/Routing}
+        - {guid: c0871ff6-45d2-4026-8855-a096f4701f96, title: Group Tables (OF 1.1)}
+        - {guid: 83317f9a-84b4-4e90-ba55-b7160445b571, title: OpenFlow 1.2}
+        - {guid: 6cfc70c6-4969-4f70-8a8b-df0c4d780eec, title: OpenFlow 1.3}
+        - {guid: f32b272e-c5d7-4f24-b9ca-b7e8b26f3341, title: OpenFlow 1.4}
+        - {guid: ef29d60d-2fca-40eb-9a8d-474ee4d3c445, title: OF 1.5}
+        title: Group Table, Matching, Instructors
+    title: OpenFlow Switches
+-   guid: aaf2b77f-cc58-44a4-ab52-b513ffc7b3c1
+    subchapters:
+    -   slides:
+        - {guid: 8900e8c6-ceca-46f4-9b70-070af365c140, title: 'What is Open vSwitch?'}
+        - {guid: 0b60c2b3-50d6-47d0-990e-6fb319d41457, title: 'What is Virtual Switch?'}
+        - {guid: 7330d746-ffbd-4256-9a07-b891a87783ba, title: Open vSwitch Design}
+        - {guid: b4193fa7-ac86-4387-a19c-46a3727d9571, title: ' Open Virtual Network
+                Architecture'}
+        - {guid: 19779a83-584c-4520-96f3-f3e3569ca447, title: ' Open Virtual Network
+                Architecture'}
+        - {guid: 880c5012-c380-4c8b-a148-ed8722d7dd4a, title: ' Open Virtual Network
+                Architecture'}
+        - {guid: 395f8bc2-bc8b-444f-a0f7-5b759e9e7a76, title: ' Open Virtual Network
+                Architecture'}
+        - {guid: 75479075-1e2d-4501-aced-26e04ddbc9e0, title: ' Open Virtual Network
+                Architecture'}
+        - {guid: 003818f0-28ad-4748-9fcd-1977b73aa3e8, title: ' Open Virtual Network
+                Architecture'}
+        - {guid: a8a50704-4e5f-4fde-ac85-e05c22fd178d, title: ' Open Virtual Network
+                Architecture'}
+        - {guid: 24dc5b46-92a9-44a9-8efd-aa7a50d811e6, title: ' Open Virtual Network
+                Architecture'}
+        - {guid: b29f610d-5465-4ae2-97de-58355c8975c7, title: ' Open Virtual Network
+                Architecture'}
+        - {guid: 016651eb-fa26-4e7b-978e-50cfc8d64df4, title: ' Open Virtual Network
+                Architecture'}
+        title: Architecture and Components
+    -   slides:
+        - {guid: eac8e98b-2352-4577-b2f3-c65130c82650, title: ovs-vswitchd}
+        title: OpenvSwitch Daemon
+    -   slides:
+        - {guid: 3270c480-e95f-4f0b-91f2-b12336dc8f84, title: Lifecycle of a VIF}
+        title: ovsdb-server
+    -   slides:
+        - {guid: 082ff6af-1e9f-42d3-8582-f90d90389589, title: Open vSwitch}
+        title: Core Tables
+    -   slides:
+        - {guid: 3f937719-c28c-4d7d-a135-b4df4a25417d, title: Virtual Network Topology
+                in OpenStack Example}
+        title: Linux Bridge vs. OpenvSwitch Design
+    -   slides:
+        - {guid: 1463cd8e-86b5-4323-8e6e-dbfad0787f9d, title: Management}
+        title: Ovs-ofctl, ovs-dpctl
+    -   slides:
+        - {guid: 1b833d45-b2c1-4520-969d-1251cb01903e, title: Traditional VM Ethernet
+                Processing}
+        title: Traditional VM Ethernet Processing
+    -   slides:
+        - {guid: d2966100-2c40-4bdc-84d2-4b2ac406d853, title: Intel DPDK}
+        title: Intel DPDK intro
+    -   slides:
+        - {guid: 771c7b88-296b-4cc3-875d-ceae518d710b, title: Intel SR-IOV (Single
+                Root IO Virtualization)}
+        title: Intel SR-IOV
+    -   slides:
+        - {guid: 5503b61c-7cd4-4c97-9a81-2e96b8adab8d, title: 'OVS Kernel Module:
+                openvswitch_mod.ko'}
+        title: OVS Kernel Module
+    -   slides:
+        - {guid: df45698f-8076-4c0a-a967-64340742df62, title: 'Why is OVS-DPDK faster
+                than OVS?'}
+        - {guid: 7b560946-4ee6-43a5-a2c1-72a80817363f, title: OVS vs OVS-DPDK}
+        - {guid: ce0f719d-4bf3-4fed-93fb-76a7cc675fe2, title: Cross Socket Tests}
+        title: Intel DPDK Effect
+    -   slides:
+        - {guid: d17efcc2-39a6-45c7-8fca-0c494623aec6, title: ovs-vswitchd.conf.db
+                - Open_vSwitch database schema}
+        - {guid: aa00b376-a17d-4150-a920-cfdb80aaf260, title: ovs-vswitchd.conf.db
+                - Open_vSwitch TABLE SUMMARY}
+        title: ovs-vswitchd.conf.db(5)
+    title: Open vSwitch
+-   guid: caea93c4-cadd-4641-a4b1-32edea2fadf7
+    subchapters:
+    -   slides:
+        - {guid: 8ffcefec-c624-4bf3-9b82-5cd68b652935, title: OpenFlow Switch Specification}
+        title: Big Picture
+    -   slides:
+        - {guid: 6a430def-c5f7-47bb-b629-3813ebea0d82, title: Northbound API Abstractions}
+        title: Northbound vs. Southbound Interfaces
+    -   slides:
+        - {guid: 3244a5ce-7b88-4de4-96bc-78de051f7f9c, title: 'What is Ryu?'}
+        - {guid: 9611b6bc-dce9-42da-9af0-3c292499829d, title: 'What''s Ryu?'}
+        - {guid: 4853291c-0d4b-4fc0-a713-afdd6160563d, title: Supported features/protocols}
+        - {guid: 50d81d46-8f44-4e5d-ace9-1b87795345a8, title: OF/firewall/router REST
+                API}
+        - {guid: f1783aa3-02f8-4ebd-9192-55ecc9f280dd, title: 'IDS Support '}
+        - {guid: 024796a6-8de3-4a7f-a579-cde234aafc81, title: Ryu Implementation}
+        - {guid: 05c5f916-8a68-421e-a60e-4bb440b2507a, title: Ryu Architecture}
+        - {guid: 5d005b1d-082c-40ce-a63d-1e0cfce7d1ff, title: Event Dispatcher}
+        - {guid: 9367a8fd-b544-43ae-87c5-df6287271ee4, title: Event Source/Sink}
+        - {guid: 6c854a97-31f8-4353-a16f-24997b93ccfb, title: Event Request/Reply}
+        - {guid: 7147d8f4-343b-4a43-8251-c6fb1e562e38, title: Connection to OpenFlow
+                Switch}
+        - {guid: bb739a07-a735-429a-b4b0-822a47c02fcb, title: Overview of Ryu Plugin}
+        - {guid: 1e1a4513-9121-4f17-b8a9-9cb40bc00743, title: 'OpenStack L2 Isolation:
+                Physical View'}
+        - {guid: 343c1350-6df6-4c95-bc20-95fac2b2f166, title: Flow Table Usage}
+        - {guid: 63fdbfab-ecbc-45b4-96e1-612a044b497e, title: GRE Tunneling with OpenStack}
+        - {guid: 6e9d9beb-fb82-4802-92a8-0ba963fd060b, title: Python}
+        - {guid: 6d0d6178-dab1-4f9b-89ae-12f85cc3bdea, title: AIO Libraries}
+        - {guid: 8730b6e1-25e8-474a-8414-537c502b7e0c, title: Threading}
+        - {guid: d8edab38-7e05-49b9-a498-564f939efcf7, title: Hello Packets and Discovery}
+        - {guid: 9d34d627-1004-4acb-9a7b-c6275634159b, title: Default Match}
+        - {guid: 7a23a638-6184-414d-9eea-1bc23ab15b00, title: PacketIN and PacketOut}
+        - {guid: 2c28d298-60d3-4339-9cac-595361c0eb49, title: Source MAC learning
+                at the controller}
+        - {guid: a50e913f-42fd-4bba-9429-990e2879afbc, title: Simple Switch via FlowMod}
+        title: RYU SDN Framework
+    title: OpenFlow Controller
+-   guid: 5a2eff2b-ef98-4d6d-93b6-4cd6eff3347e
+    subchapters:
+    -   slides:
+        - {guid: 920cbd0c-1aae-4a2d-b3f0-f74b13d37807, title: 'What is NETCONF and
+                YANG?'}
+        - {guid: 53fb7b7c-8d76-4a75-a348-5b82814e2104, title: 'Why NETCONF and YANG?'}
+        - {guid: 57c56d78-4078-4b33-a12d-2f601a33d09d, title: 'YANG: Data Schema for
+                Networking'}
+        title: Overview of Network Configuration
+    -   slides:
+        - {guid: 9cc6fadc-5a74-4108-b2e0-caa62256bf7a, title: NETCONF Configuration
+                Data Stores}
+        - {guid: 7561c40d-27fc-4bd4-ba1b-de00e10a3d13, title: NETCONF Layers}
+        - {guid: a207ab95-ef6d-4aee-a99c-cea86b721930, title: 'NETCONF Transactions,
+                Network-wide Transactions'}
+        - {guid: 47f2003b-2f04-490e-95cb-255bd91e6041, title: 'NETCONF Transactions,
+                Network-wide Transactions'}
+        - {guid: c4f8c042-f0de-4c14-a618-e9ac8f232771, title: NETCONF Base Operations}
+        - {guid: 483046d4-46bf-452d-b867-4d3cf798bec4, title: NETCONF Example Configuration
+                Sequence}
+        title: Introduction to SDN with NETCONF
+    -   slides:
+        - {guid: bb30f423-044c-4f70-b562-b42c7949aade, title: YANG Data Modeling Nodes}
+        - {guid: 51853f21-b2e6-45d8-b99e-d6141bbf60cc, title: YANG Data Modeling Nodes}
+        - {guid: 1a38bdfd-9345-47a2-98df-65b682365690, title: YANG Example}
+        - {guid: 21f15732-3f52-4660-9358-2baf1692c4e8, title: YANG - Toaster}
+        - {guid: db83a91a-667c-4150-bdd3-2bf6b8e0ac8c, title: YANG - Toaster}
+        title: Introduction to SDN with YANG
+    -   slides:
+        - {guid: 977b1266-30a4-4d69-b6f4-4eeafcb66134, title: YANG - Structure}
+        - {guid: 49c1d173-9313-45dd-b39f-ce87355c0be7, title: YANG - Header}
+        - {guid: 42307df7-4195-4293-b2af-2f52a489a9e9, title: YANG - Identities}
+        - {guid: 3e7adf1a-9a5a-4db0-866a-6f506e48163c, title: YANG - Container}
+        - {guid: b453088c-3f8e-4121-be72-9dbe523fdee7, title: YANG - RPC Example}
+        - {guid: a4cceaa2-7b35-4763-9c25-4d2a47c6d3fb, title: YANG - RPC example 2}
+        - {guid: 88e91416-f251-4023-868f-7071c2a36504, title: YANG - Notifications}
+        title: SDN Programming with YANG
+    -   slides:
+        - {guid: 9069dd0b-5c16-4f8a-9295-cc31695509ec, title: NETCONF RFC 6241 Optional
+                Capabilities}
+        - {guid: e10b1eab-be20-46c6-a90d-236896a2a54e, title: Non-base NETCONF Capabilities}
+        - {guid: aeffe985-3548-4ac9-8690-799195b9bac0, title: NETCONF <hello> Operation}
+        - {guid: e2ae560f-f0ad-4714-89bf-8dc18db6eee0, title: NETCONF <get-config>
+                Operation}
+        - {guid: 6b1736d0-2cff-4f9d-b459-6ea314fa1465, title: NETCONF <get-config>
+                Operation}
+        - {guid: f2be8574-7130-43d5-8e68-832470461b4d, title: NETCONF <edit-config>
+                Operation}
+        - {guid: 60639752-b4f5-4c5b-b431-b26d9ad77896, title: 'NETCONF <lock>, <unlock>
+                Operation'}
+        - {guid: 55d5674c-6829-4f86-80bf-a621b45f5e04, title: NETCONF <get> Operation}
+        - {guid: 282f4559-5e87-4ecb-a6c9-4bf7bfbc189e, title: NETCONF <close-session>
+                Operation}
+        - {guid: b3da4e96-5b09-4880-8a6d-a2132ffc0574, title: Additional NETCONF operations
+                by capabilities}
+        title: SDN Programming with NETCONF
+    -   slides:
+        - {guid: 7fe9a1f7-0ae9-4290-9372-12b54c6b667d, title: VPN Scenario}
+        title: VPN Scenario
+    -   slides:
+        - {guid: a37dced3-dbad-48cd-aa47-8e4bafddac65, title: RFC 7149 A Perspective
+                from within a Service Provider Environment}
+        - {guid: 5c17a087-c317-4021-995a-b25a654d1bb1, title: RFC 7426 SDN Layers
+                and Architecture Terminology}
+        title: RFC 7149
+    title: NETCONF and YANG
+-   guid: 425f4073-0404-4bb5-9508-15dab58d9794
+    subchapters:
+    -   slides:
+        - {guid: cb14e89d-a0c3-4c56-af5d-8c8c225d05ac, title: OpFlex Background}
+        - {guid: 5dc5264b-fe2d-407d-929f-a95d9b56b8c4, title: draft-smith-opflex-03
+                Status}
+        title: Introduction
+    -   slides:
+        - {guid: 12033126-4c93-47bb-9819-dea84be822bb, title: Group Based Policy (1
+                of 3) "As desired"}
+        - {guid: d2321ab0-2c5e-4039-8b22-a4acdeaad04d, title: Group Based Policy (2
+                of 3) "in Reality"}
+        - {guid: fed03a6b-9e38-4f2b-9b7e-2f948e098796, title: Group Based Policy (3
+                of 3) "How Group based Policy is Deployed"}
+        - {guid: 0f5a9f9e-a262-4791-96b7-71ce07979855, title: Group Based Policy Constructs}
+        title: Group Policy
+    -   slides:
+        - {guid: 86adf694-eaf8-4e95-911b-70026604e5f8, title: The Translation from
+                Group based Policy to Reality}
+        - {guid: c51be9b4-3c77-410d-97f9-166dc68994de, title: The OpenFlow Conversion
+                from Policy to Reality}
+        - {guid: 4b63cb4d-b524-4b62-8657-001250d0038a, title: The OpFlex Conversion
+                from Policy to Reality}
+        title: Group Policy Processing
+    -   slides:
+        - {guid: 4a1412a0-ee32-482d-9fba-a231eebdc143, title: OpFlex Elements}
+        - {guid: a5f0e18f-70ae-4a1b-90f4-e59477a54a59, title: ' Logical constructs
+                required for OpFlex operation'}
+        title: Elements
+    -   slides:
+        - {guid: 04022a35-69ce-4456-a416-7ce4253f991c, title: OpFlex Transaction Types}
+        title: Transactions
+    title: OpFlex
+-   guid: 9a581a74-77f2-4553-a89e-ac9a85b29e0d
+    subchapters:
+    -   slides:
+        - {guid: 2d861c98-680c-4efb-b60b-1755eb80954e, title: Open Daylight- 4th Release
+                "Beryllium" Production-Ready Open SDN Platform}
+        title: Fundamentals for OpenDaylight Programming
+    -   slides:
+        - {guid: f13fb106-5c96-4973-afbc-4ee1de50c98e, title: OPEN DAYLIGHT Versions}
+        - {guid: 89782ee9-2983-473b-9cce-dc6348a59286, title: OPEN DAYLIGHT Versions}
+        title: Setup
+    -   slides:
+        - {guid: d82b1989-9586-47bf-8766-3f98988909da, title: 'OSGI: As the Architect
+                Designed it'}
+        - {guid: 22c679cd-48cb-40f5-bdb2-20c3d34da8d7, title: 'OSGI: As the Boss Changed
+                it'}
+        - {guid: 91d44abd-d519-4dce-b2cb-731bb778500f, title: 'OSGI: Business Requirements
+                Changed it'}
+        - {guid: df3c2eb0-c144-4464-a4c8-8cd8248c122c, title: 'OSGI: As the programmer
+                developed it'}
+        - {guid: 8cc73580-7ca9-49af-8b70-fd8baaa25254, title: 'OSGI: Design vs Deployment
+                without OSGI'}
+        - {guid: e79a38dc-091f-4285-8d46-9b1108faf7b1, title: 'OSGI: As the programmer
+                Maintains the Code'}
+        - {guid: 50d3e8b8-1e62-48c3-b910-e3e801d49ee1, title: 'OSGI: Unknown Dependencies!?'}
+        - {guid: 45ba49c5-395b-4550-a9c0-e43408ae4e53, title: 'OSGI: How OSGI Helps'}
+        - {guid: ddcfa130-08f6-47be-9b46-a1ac54162aab, title: Open Service Gateway
+                Initiative (OSGI)}
+        title: OSGI
+    -   slides:
+        - {guid: b6738904-648f-468c-8358-70884c5e698f, title: Maven Package Manager
+                for Java}
+        title: "Fundamentals \u2013 Maven and Project Building"
+    -   slides:
+        - {guid: e1e91f94-1fb3-4e26-bc32-b363e5380aaf, title: 'Karaf: OSGI Management'}
+        title: Apache Karaf
+    -   slides:
+        - {guid: b73ca480-a4c6-4331-b6fe-8393c7b0b338, title: Apache Karaf Overview}
+        title: "Fundamentals \u2013 Mininet"
+    title: Introduction to OpenDaylight
+-   guid: e22c4710-5805-43a2-bde9-bdff93da1c8a
+    subchapters:
+    -   slides:
+        - {guid: dd6cdfdb-5c5e-430b-961d-e2629cb08727, title: Critical Northbound
+                Applications}
+        title: Controller Functionality
+    -   slides:
+        - {guid: a2e0b1e6-5742-4d48-94e9-f4c701977eea, title: Diagram of Standardization}
+        title: Standardization
+    -   slides:
+        - {guid: d68ab3e1-3349-4d2d-afef-4072a50a5f10, title: The Big Picture}
+        title: Big Picture Diagramming
+    -   slides:
+        - {guid: b920871c-57a4-4ee2-b284-abec2ed07db8, title: MD-SAL Communication
+                Model}
+        title: Standardization
+    -   slides:
+        - {guid: e7937986-65b1-4e3a-b739-8c18834adf2b, title: "MD-SAL\u2019s Restful\
+                \ Interface"}
+        title: Restful Interface YANG
+    -   slides:
+        - {guid: b22d6535-5b8c-4985-b2a6-cbc5774a0c5a, title: "MD-SAL\u2019s Interaction\
+                \ with the Controller"}
+        title: Model Driven Service Abstraction Layer
+    -   slides:
+        - {guid: 29fbed3e-84d2-4170-a411-45b05ea25268, title: Network Abstractions
+                (Policy/Intent)}
+        title: Network Abstraction
+    -   slides:
+        - {guid: e0b6c3d3-f61a-4050-8c96-553fb2d59747, title: Alto Protocol Manger}
+        title: Alto Protocol
+    -   slides:
+        - {guid: 6497a006-8e40-4b22-a759-9ef07ba060df, title: 'New, Fabric as a Service
+                (FaaS)'}
+        title: Fabric as a Service
+    -   slides:
+        - {guid: 525cc18a-ee2a-4f81-b8c7-03e4cac2eb51, title: "New, Nemo \u2013 A\
+                \ NEtwork MOdeling Language"}
+        title: Network Modeling Language NEMO
+    -   slides:
+        - {guid: 90f455c7-2c35-4f0e-a471-a565221b4f78, title: Network Intent Composition}
+        title: Group Based Policy Service Example
+    title: Service Abstraction Layer (SAL)
+-   guid: 75404da7-82c4-4453-b97e-d7aa9c9d006e
+    subchapters:
+    -   slides:
+        - {guid: 819dcaa9-6ac2-47d9-93ca-afde25f264f3, title: An Architecture for
+                Data Center Network Virtualization Overlays}
+        - {guid: e30f4f59-9953-43f0-bd5b-9f52d8534678, title: An Architecture for
+                Data Center Network Virtualization Overlays (Continued)}
+        title: Architecture for Overlay Networks (draft-ietf-nvo3-arch-04)
+    -   slides:
+        - {guid: a7cececa-8a13-4a6d-9bc7-c17b4e496082, title: Security Requirements
+                of NVO3 (draft-ietf-nvo3-security-requirements-07)}
+        - {guid: 0715a26b-a03d-48f4-be73-e48148088411, title: Introduction to Cloud
+                Overlay Networks}
+        - {guid: b26ca3a3-ebc5-422c-84c3-31ee318264be, title: L3 Based Fabric Advantages}
+        - {guid: f0dfcd0b-4032-48d1-9e82-1907b1d9594b, title: 'L3: A Better Design'}
+        - {guid: 011515bb-ea87-47f5-a2e5-ac45e829d758, title: Tunnels in the Physical
+                World}
+        - {guid: 878e74f1-590f-462b-8e22-1bac0b5e338e, title: 'VXLAN: Virtual eXtensible
+                LAN'}
+        - {guid: aeba3b83-7480-4562-bf58-23b3367f66a7, title: 'VXLAN: Virtual eXtensible
+                LAN'}
+        - {guid: d03f3ccd-ba13-4931-9b76-cf380161133e, title: ''}
+        - {guid: 46671e95-8e01-4b22-bc87-95818909e857, title: 'VXLAN: Virtual eXtensible
+                LAN'}
+        - {guid: 93ecfa17-3b6d-4633-a897-dfa6bd92b4c2, title: 'How do VTEPs handle
+                BUM (Broadcast, Unknown Unicast, Multicast)?'}
+        - {guid: 6511b4ab-736f-421b-a880-9b8de8c0a96d, title: 'VXLAN: Virtual eXtensible
+                LAN'}
+        - {guid: bd793012-c386-4a8f-86fd-58a401e12f10, title: VXLAN Service Node}
+        - {guid: 12b28463-0e13-4679-8f16-8a5fcf5aac2c, title: 'How many L2 networks
+                in this picture? Two!'}
+        - {guid: f8338ae6-23dc-46b6-84ca-12d87873161b, title: 'How many L2 networks
+                in this picture? Still only two!'}
+        title: Security Requirements of NVO3 (draft-ietf-nvo3-security-requirements-07)
+    -   slides:
+        - {guid: 3cc6e844-adad-4060-b996-12e702f9da1b, title: VLAN}
+        title: Architecture
+    -   slides:
+        - {guid: 578c6fbf-8eb3-42b4-a049-5da4280d7afa, title: How L2 VLAN tagging
+                works}
+        - {guid: 7d156893-3258-4668-b6d7-7d09ad66a2ef, title: 'How many L2 networks
+                in this picture? Four!'}
+        - {guid: caa890bd-5ae4-45f7-a28d-51496c2d0cc6, title: 'Again, how many L2
+                networks in this picture? Four!'}
+        title: Security Requirements of NVO3 (draft-ietf-nvo3-security-requirements-07)
+    -   slides:
+        - {guid: 0b43a3bc-b555-4b03-84f8-d8aa7c1f9402, title: VXLAN Packet Headers}
+        - {guid: 7c3d6785-0356-4771-9b84-528cf6f6ded7, title: NVGRE Packet Headers}
+        title: Architecture
+    -   slides:
+        - {guid: 77865146-a41d-47a0-b465-8f575742d413, title: How L2 VLAN tagging
+                works with L3 subnets}
+        - {guid: 47be6451-3cf5-4f9f-9ffd-ef1d5fb6ae02, title: VTEP allows L2 connectivity
+                despite L3 boundaries}
+        - {guid: ab661754-c1b6-4318-a05b-d7792ff15725, title: VTEP allows L2 connectivity
+                despite L3 boundaries (1 of 2)}
+        - {guid: f857fa08-a996-41f8-8d2f-92e37204aa90, title: VTEP allows L2 connectivity
+                despite L3 boundaries (2 of 2)}
+        - {guid: 16129c16-d856-4e0f-b012-222dab58ef05, title: Examining VXLAN tagging
+                in Wireshark}
+        - {guid: 7e665436-0600-4e22-a9a8-9381d373d8a6, title: Decode as VXLAN}
+        - {guid: eeca050d-5626-4371-bd9d-71751ecc5a32, title: Now Wireshark shows
+                vxlan-encapsulated internal packets!}
+        title: Security Requirements of NVO3 (draft-ietf-nvo3-security-requirements-07)
+    title: Overlays and Underlays
+-   guid: f721dddf-238e-4cb7-b0e8-435613531965
+    subchapters:
+    -   slides:
+        - {guid: 0bbfa22c-135e-4687-b821-9d4ba0633a0e, title: Neutron Networks}
+        - {guid: 22eee9e8-f721-440a-b13c-a80fef58f514, title: 'Same Tenant, Same Host'}
+        - {guid: 09f3b34f-db8a-4caf-9fb6-4fc1296b4f21, title: 'Neutron Networking
+                same compute, same subnet'}
+        - {guid: 50601077-db59-46df-97ee-f024cfae4438, title: 'Neutron Networking
+                same compute, different subnet, no DVR'}
+        - {guid: 32940781-d10b-421d-9800-d34ad0c59c65, title: Neutron Networking VXLAN
+                Option without DVR}
+        - {guid: b0f4f33b-50bb-402e-b0b7-c8b6897f25c9, title: 'Neutron Networking
+                same compute, different subnet, with DVR'}
+        - {guid: 9e15395e-4c87-4bed-8346-6fdc89394799, title: 'Neutron Networking
+                different compute, different subnet'}
+        - {guid: 83086dcd-75f7-455b-9d62-f4f253148a04, title: 'Neutron Networking
+                same compute, different subnet, no DVR'}
+        - {guid: c4d32d34-a922-4175-87c1-c9eb8caa5ec3, title: Neutron Networks}
+        - {guid: ef01b4c1-1bd4-4d29-9aaf-8cfbb5bb4048, title: Neutron Networks}
+        - {guid: a2a29206-e2f5-4220-aae1-61491d83616e, title: Neutron Networks}
+        - {guid: 7dc303c2-5f3b-4604-bc5b-945f581e6340, title: Neutron Networks}
+        title: Bare Metal Interfaces
+    -   slides:
+        - {guid: 5395dd70-d069-464b-ba57-7d0813a62377, title: Neutron Architecture
+                (OVS)}
+        title: OpenvSwitch
+    -   slides:
+        - {guid: 0fad4e43-b787-48e8-acc3-4378614d8cbd, title: Neutron ML2 Type Drivers}
+        - {guid: 40a09075-9aec-4a35-8a04-a02ca4b3a84f, title: Neutron ML2 Mechanism
+                Drivers Drivers}
+        title: "Type Drivers \u2013 VLAN"
+    -   slides:
+        - {guid: 0dfef737-ecad-46c7-8dba-aacfd36df759, title: Neutron Network Types}
+        title: Neutron Network Types
+    -   slides:
+        - {guid: 75369ef1-aaf4-401e-82a9-cb811d54c2fe, title: OpenStack VXLAN}
+        title: "Type Drivers \u2013 VXLAN"
+    -   slides:
+        - {guid: a1fece11-aa26-4002-b151-ae94c88cc6a9, title: "Step 1 of 7 Networking\
+                \ a Freshly Bootstrapped Neutron\v"}
+        - {guid: 09e9690e-f99d-4604-abac-17a92cbf75b7, title: Step 2 of 7 Networking
+                a Freshly Bootstrapped Neutron}
+        title: "Neutron Network Types \u2013 Overlay Networks"
+    -   slides:
+        - {guid: 6f362c3a-7808-4169-b1d8-ccca1af27c0b, title: Step 3 of 7 Networking
+                a Freshly Bootstrapped Neutron}
+        title: Neutron Subnets
+    -   slides:
+        - {guid: 64288c9f-f378-44a3-930d-c6a9967684fc, title: Neutron Subnet}
+        title: Neutron Subnet Pool
+    -   slides:
+        - {guid: a846aa98-b4d9-4225-80dc-55088d2cba57, title: Neutron Router}
+        - {guid: d2299f30-d0d2-4e9f-abcd-a15fd4dea350, title: Neutron Router Interface}
+        - {guid: d0598c87-e0d7-4290-a765-ea16a7425ee1, title: Neutron Router Gateway}
+        title: Neutron Routers
+    -   slides:
+        - {guid: 9d58330d-b9e5-4ee2-bf20-d7e9b34d7572, title: Tenant Networks}
+        title: "Neutron Network Types \u2013 Overlay Networks"
+    -   slides:
+        - {guid: 0b0bf525-6a1f-40cd-a999-08f7604269f0, title: Neutron Ports}
+        title: Neutron Ports
+    -   slides:
+        - {guid: 0d641d2b-97b5-46c0-a505-04762c3f9741, title: Neutron Namespaces}
+        title: Neutron Namespaces
+    -   slides:
+        - {guid: a452583f-6257-45ca-a9f3-58b9b5fe3fd1, title: Compute Node Network
+                OVS Integration}
+        title: Architecture
+    -   slides:
+        - {guid: b0d4a366-f631-4508-81c6-70d660fb5b0e, title: Neutron Architecture
+                (Linux Bridge)}
+        title: Linux Bridge
+    -   slides:
+        - {guid: 517f3b7b-875a-4988-a7cf-d5ab01ea5779, title: Neutron Server}
+        title: neutron-server
+    -   slides:
+        - {guid: 8be3ad46-e308-4e49-85fb-df106452ec31, title: Compute Node Network
+                OVS Integration}
+        title: Neutron Security Group
+    -   slides:
+        - {guid: 7db9a2e8-9900-401a-91b3-8a152091154a, title: Neutron ML2 Plugin}
+        title: "neutron-server \u2013 ML2Plugin"
+    -   slides:
+        - {guid: 785c90a1-41bf-43c9-ac03-6e19c15249d4, title: Neutron ML2 Plugin}
+        - {guid: e821ea7f-5075-4957-9044-09c198cecd5a, title: Neutron ML2 Plugin}
+        title: "neutron-server \u2013 L3 Agent"
+    -   slides:
+        - {guid: 28cb77d7-b68f-4795-9402-81281918415c, title: Neutron L2 Agent}
+        - {guid: 55d62690-5e90-4084-8862-d54a53e33b3c, title: Neutron L2 Agent}
+        title: "neutron-server \u2013 OVS L2 Agent"
+    title: OpenStack Neutron Networking
+-   guid: 2142f401-bcc6-4324-b4f0-1b1823281982
+    subchapters:
+    -   slides:
+        - {guid: 3f1c4d81-643a-40ff-befa-c18437809951, title: Restful Interface}
+        - {guid: d18cf2f0-5bb2-46f2-bc8d-3fbf7f4e43ff, title: Writing an Application
+                using RESTful API}
+        title: Restful Interface
+    title: Writing an App using OpenDaylight
+-   guid: b385bf4a-0a87-4752-9318-9f06640f3fc2
+    subchapters:
+    -   slides:
+        - {guid: 3d50b736-cbd7-4e26-8450-8b627c6c71fd, title: ONOS without Open_vSwitch
+                table summarization}
+        title: East-West ONOS Cluster
+    -   slides:
+        - {guid: 52cf26b3-ab14-4711-83a0-45db7a8f73dd, title: ONOS Open_vSwitch with
+                summarization (east)}
+        - {guid: 8cb5ea29-c0c0-46fa-8fe9-7ebafb74c3e6, title: ONOS Open_vSwitch view
+                after summarization}
+        title: Shared Aggregate Network Topology
+    -   slides:
+        - {guid: 9fc90843-2f25-429d-b82c-e260cbc0b7b4, title: Open_vSwitch TABLE SUMMARY}
+        title: Provider Clustering Diagram
+    -   slides:
+        - {guid: 077b05f2-3838-4ca1-85b3-5bd1c8cf8c59, title: ONOS0}
+        title: ONOS0
+    -   slides:
+        - {guid: a908ca88-3113-4af0-88b8-05a0385c86c8, title: ONOS1}
+        title: ONOS1
+    -   slides:
+        - {guid: 88979194-d94c-4389-a9fd-dac54203c6df, title: ONOS Ecosystem}
+        title: Ecosystem
+    -   slides:
+        - {guid: bc012e87-a031-4ad4-b66a-80cc0cec78b7, title: ONOS Control & Data
+                Planes}
+        - {guid: 44388486-b4f9-4e3f-962d-246bc3c440d8, title: Redundant ONOS Controllers}
+        title: Control and Data Planes
+    -   slides:
+        - {guid: 3be5ce58-c706-4f27-8c46-75dbbd881a49, title: Network topology determined
+                by slice aggregation}
+        - {guid: 78aea270-4991-44d7-9048-8d94b5d0983a, title: ONOS controllers topology
+                map sharing.}
+        - {guid: 775a7c11-bbfc-4f5e-a087-6aa64e0b3f50, title: An ONOS primary controller
+                is elected per slice}
+        - {guid: a234591c-8cb0-402e-a5a5-2e82c8f36fa7, title: ONON network when a
+                primary controller fails}
+        - {guid: 1ace2932-8d53-4139-846d-af0dfbce5c83, title: 'Rapid Raft Consensus
+                Protocol '}
+        - {guid: 677d310b-c516-42b0-b2d2-df5720312245, title: ONOS after controller
+                recovery}
+        title: Network Slicing
+    -   slides:
+        - {guid: 076ebc02-dc4f-496e-bd4a-bb1f3dbd6c67, title: ''}
+        title: Versions
+    title: ''
+-   guid: 22711a8a-e2f9-49dd-bea9-1f80fb06820b
+    subchapters:
+    -   slides:
+        - {guid: afe92712-94e9-40ce-bf72-654823bba478, title: Security Challenges}
+        title: Securing the Controller
+    -   slides:
+        - {guid: f1b1c4d5-b44a-443f-9566-7df264ae7e98, title: SDN-Specific Security
+                Challenges}
+        title: Security Challenges
+    -   slides:
+        - {guid: b3623e06-f26d-4959-aaf8-2dcf17e8d92b, title: Security Principles}
+        - {guid: 4f09413b-36ec-4e47-b505-c8d669d7e48f, title: Security Principles}
+        - {guid: c79d3c42-a00d-4695-8c58-faf749d00c06, title: Security Principles}
+        - {guid: ab069cbb-6f23-482c-b823-0f874998cc38, title: Security Principles}
+        title: Security Principles
+    title: Securing SDN

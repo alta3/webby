@@ -1,0 +1,704 @@
+---
+id: aadpy 
+course-title: APIs and API Design with Python
+tags: 
+  -  programming
+stars: 40
+duration:
+  hours: 35 
+  days: 5
+audience: System administrators, network engineers, and developers will find this course compelling as they build and interact with APIs that not only return highly parsable datasets, but also trigger scripted actions. Some previous experience with Python is ideal, although coding experience in another language is also enough to find success within this course.
+prereqs: 
+  -  Python Basics 
+postreqs: 
+  -  Python for Network Automation
+testimonials:
+  - quote: "The instructor perhaps one of the most knowledgeable trainers on any course I have ever been on. "
+    stars: 5
+  - quote: "Very informative & excelling instructor! Had full command of the subject. This course has a lot of in depth information!" 
+    stars: 5
+video-link: "https://www.youtube.com/embed/UetUm0q0sBE?rel=0;autoplay=1"
+web-url: "https://alta3.com/courses/aadpy"
+has-labs: true
+has-videos: true
+has-slides: true
+filename: courses/aadpy.json
+price:
+  public:
+    price-tags:
+      - id: priceinfo-public-single-student 
+        description: Face to face training for 1 student
+        price: 800000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+  private:
+    price-tags:
+      - id: priceinfo-private-base8
+        description: face to face training for up to 8 students
+        price: 850000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-private-plus1-to-base8
+        description: Add one additional student base8 
+        price: 50000
+        available: yes
+        includes: 
+         - item : plus1
+           description: Includes same features as base 8
+  self-paced:
+    price-tags:
+      - id: priceinfo-selfpaced-singlestudent 
+        description: Self Paced Training
+        price: 250000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-selfpaced-sixpack
+        description: Package price for six self=paced students
+        price: 500000
+        available: yes
+        includes: 
+        - item : has-video-true
+          description: Includes video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+  extend-lms-access:
+    price-tags:
+      - id: priceinfo-extendaccess-lab-one-month
+        description: Extend your lab access for one month
+        price: 5000
+        available: no
+      - id: priceinfo-extendaccess-lab-one-year
+        description: Extend your lab access for one month
+        price: 50000
+        available: no
+  book:
+    price-tags:
+      - id: priceinfo-book-paper 
+        description: Paper Student Manual 
+        price-desc: 
+        price: 850000
+        available: yes
+        includes: 
+        - item: has-video-false
+          description: Does not include video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+          description: Does not include labs
+      - id: priceinfo-book-online 
+        description: Paper Student Manual 
+        price-desc: 
+        price: 450000
+        available: yes
+        includes: 
+        - item : has-video-false
+          description: Does not include video
+        - item : has-book-true
+          description: Includes on-line book
+        - item : has-labs-false
+overview: The objective of this class is to push students beyond print( 'hello world' ). Students work to develop Python scripts that handle exceptions, interface with the operating system, communicating with RESTful (and non-RESTful) APIs, understand and write complex scripts with multiple threads, and learn to work with libraries, like NAPALM, to automate L2 and L3 network devices across a wide breadth of vendors (Juniper, Cisco, Arista, to name a few). Other skills students will learn include; parsing data structures (such as XML, YAML, and JSON), writing and creating highly efficient regular expression, best practices and code review, and interacting with IMAP (email).
+chapters:
+-   guid: 64f613c5-ff47-4fed-9b02-462b208535dd
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 216df9b1-599d-441f-8e3e-e937735b5bb1, index: 13, title: Built-in
+                Module Review}
+        - {guid: 9b772185-c75a-4e3c-8199-6e2dbe430a25, index: 14, title: Using import
+                - Review}
+        - {guid: 443655fe-e5db-476d-96fa-3b9bb7971d44, index: 15, title: import operator}
+        - {guid: 83c48c6e-4874-4548-89b2-1a0f7522e0c7, index: 16, title: import operator
+                - Example}
+        - {guid: 1f144a54-9bf7-41a4-a4ae-1f9c70e06899, index: 17, title: import decimal}
+        - {guid: 0ffa2ffd-06aa-44a4-9301-227b9c6b34f8, index: 18, title: "import decimal\
+                \ \u2013 Example (1 of 2)"}
+        - {guid: ee09f6ea-553e-4bca-ac4a-68d2eef213d1, index: 19, title: "import decimal\
+                \ \u2013 Example (2 of 2)"}
+        - {guid: 56949feb-1d58-476d-b578-5bbc70ee74cb, index: 20, title: "import decimal\
+                \ \u2013 Example Results"}
+        - {guid: 81f9a1d2-0b20-4a61-89c0-580de2e5235b, index: 21, title: "import decimal\
+                \ getcontext() \u2013 Example (1 of 2)"}
+        - {guid: b023a94f-917c-4e4d-b362-3d88f379e480, index: 22, title: "import decimal\
+                \ getcontext() \u2013 Example (2 of 2)"}
+        - {guid: 5f9f2699-b1a9-4a96-bf48-f21bcda180c9, index: 23, title: Using pip
+                Review}
+        - {guid: 3e65c708-4e35-460e-a820-c9e1dcbf0366, index: 24, title: import pyexcel}
+        - {guid: f6d21e7c-8d83-4f07-82da-41c0c22a11d9, index: 25, title: "import pyexcel\
+                \ \u2013 example.csv, example.xls, example.xlsx "}
+        - {guid: 6420d4be-6a29-416e-bba0-39b5f726b87e, index: 26, title: "import pyexcel\
+                \ \u2013 Example "}
+        - {guid: 6620331c-635e-4976-92c7-b796c669d911, index: 27, title: "import pyexcel\
+                \ \u2013 Example Results"}
+        - {guid: 9c175aec-1ee9-4f24-8a9c-ed7cf6376665, index: 28, title: "import pyexcel\
+                \ \u2013 Example 2"}
+        - {guid: f4baf141-56de-4e74-b1ed-925796eafd95, index: 29, title: "import pyexcel\
+                \ \u2013 Example 2 Results"}
+        - {guid: e4b50ab0-1947-4b1b-a28f-cf2d6b9a47f2, index: 30, title: "import pyexcel\
+                \ \u2013 Example 3"}
+        - {guid: 854ced39-3e03-4813-9d8a-cba6c14436fd, index: 31, title: "import pyexcel\
+                \ \u2013 Example 3 Results"}
+        - {guid: 7c7ff05e-6086-49d9-8ba3-e2445e922428, index: 32, title: "Interfacing\
+                \ with Excel \u2013 Example"}
+        - {guid: 157fb5a9-8f26-40f0-be20-0f9c4442f45c, index: 33, title: "Interfacing\
+                \ with Excel \u2013 Example Results"}
+        - {guid: 91cf773c-6b3b-4e97-a0c0-472912a1b6cc, index: 34, title: import pprint}
+        - {guid: 6a74dc19-6cc6-4269-beef-ba402a7697d5, index: 35, title: Python Linting}
+        - {guid: ab697822-5cbb-451a-af9b-b8f15e317130, index: 36, title: Functions
+                - Review}
+        - {guid: a37a4093-c28f-4317-802e-4e58220be062, index: 37, title: Variable
+                Scope - Review}
+        - {guid: d6d4c15e-f28a-47db-8c5a-b63ded44063e, index: 38, title: Converting
+                boilerplate code to functional code}
+        - {guid: ffc56479-e2e0-49a3-a215-e37ff38699b2, index: 39, title: Writing Functions
+                (reusable code)}
+        - {guid: 21b029de-8534-46a8-8f10-2578c8958d77, index: 40, title: Publishing
+                a module}
+        - {guid: 9db7c0f0-6af0-46ee-b066-f8607ddff88b, index: 41, title: Documenting
+                modules}
+        - {guid: 3f746d10-bfc7-4e7d-a809-e87a584d8cdf, index: 42, title: Using from
+                x import y - Review}
+        - {guid: 971867a2-d084-4081-aecf-7cee700c4c7d, index: 43, title: Module search
+                path (PYTHONPATH)}
+        title: Contents
+    title: "Python Review \u2013 Useful Modules"
+-   guid: 0bb03918-ec16-4902-802a-7dad23ac6ed0
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 86e4f3bc-928c-40c9-a637-26a46bfa3344, index: 45, title: Common Errors
+                (Exceptions) - Example}
+        - {guid: 97cc9540-daf7-42a2-a854-bcf93a018cb4, index: 46, title: Common Errors
+                (Exceptions) - Example Results}
+        - {guid: f7112806-b8f0-45df-b6c7-f7efa40a25fc, index: 47, title: Try and Except
+                - Example}
+        - {guid: 15ed106b-04d3-46e1-a65b-d5fae9320af9, index: 48, title: Try and Except
+                - Example Results}
+        - {guid: 43137104-e5d7-4f3c-8335-0fb4df03b9f8, index: 49, title: 'Except Specific
+                Errors - Example (1 of 2) '}
+        - {guid: 2db67425-fb30-43a1-866e-58be47b7cd62, index: 50, title: 'Except Specific
+                Errors - Example (2 of 2) '}
+        - {guid: e3398524-daf0-4b07-85b5-f0ea3f292989, index: 51, title: Except Specific
+                Errors - Example Results}
+        - {guid: 4a286943-ccf5-4177-b27b-0bb1025e6de1, index: 52, title: Python Exceptions
+                (1 of 3)}
+        - {guid: 22d67103-c40d-40f4-8120-5808fd092c5d, index: 53, title: Python Exceptions
+                (2 of 3)}
+        - {guid: ebad5a63-7241-497d-b783-255ea853bd38, index: 54, title: Python Exceptions
+                (3 of 3)}
+        - {guid: d0e5b428-d702-4766-84a4-06fa058aa0b7, index: 55, title: 'Try, Except,
+                Finally - Example'}
+        - {guid: 9981ff3b-c048-4067-87ff-d94b8bb1fc40, index: 56, title: Except Specific
+                Errors - Example Results}
+        - {guid: 99d53daf-98b1-44d6-a94c-34aa211fadc4, index: 57, title: The raise
+                Statement}
+        - {guid: 64f9d2b9-05b7-439c-b75e-a5eef506809c, index: 58, title: Generating
+                User Defined Exceptions}
+        - {guid: 940d7935-1169-42f1-8b73-b3060915d002, index: 59, title: Using Asserts}
+        title: Contents
+    title: Exceptions & Exception Handling
+-   guid: 80a54ca6-76ab-43a5-a98c-520d0edf9a5a
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 65464415-4fcd-49f6-b6b9-a51cf98690fa, index: 61, title: About Generators}
+        - {guid: fcb08503-2873-47ef-873a-c44cdbb1883b, index: 62, title: "Iterators\
+                \ \u2013 Lazy Evaluation - Example \u2013 1 of 3"}
+        - {guid: 11a52562-5ce4-4b89-9184-058d3428ad13, index: 63, title: "Iterators\
+                \ \u2013 Lazy Evaluation - Example \u2013 2 of 3"}
+        - {guid: 7ea29e51-c8cf-409a-aec9-a2ad84c4ceec, index: 64, title: "Iterators\
+                \ \u2013 Lazy Evaluation - Example \u2013 2 of 3"}
+        - {guid: e91a27e7-f5da-4dc6-aab7-968563811c16, index: 65, title: "Iterators\
+                \ \u2013 Lazy Evaluation \u2013 Example Results"}
+        - {guid: 9fb5f534-3e61-49ad-a88d-2d54ca305c82, index: 66, title: "Generator\
+                \ \u2013 Example \u2013 1 of 2"}
+        - {guid: 5feed949-a37c-43a3-83cb-82e4d313c847, index: 67, title: "Generator\
+                \ \u2013 Example \u2013 2 of 2"}
+        - {guid: 34b6e008-c8ae-4f44-80e2-1acc3a80d8a0, index: 68, title: "Generator\
+                \ \u2013 Example Result"}
+        - {guid: f734e3b4-ee95-42e7-afba-eaf719a012d3, index: 69, title: "Generator\
+                \ Expressions \u2013 Example "}
+        - {guid: f4d17b1d-e23c-4b2a-8610-66460e0eb6e1, index: 70, title: "Generator\
+                \ Expressions \u2013 Example Results"}
+        - {guid: 94419a68-ca7a-4949-b247-ecc946358ba4, index: 71, title: Using yield
+                and send with a generator}
+        - {guid: 3400281c-b24a-4315-aa69-9448777dbbf7, index: 72, title: Generator
+                and send()}
+        - {guid: 5bd2e25d-1902-4c51-ad15-667b74f2c88e, index: 73, title: The send()
+                case-use with Twisted}
+        title: Contents
+    title: Python Generators
+-   guid: 330f3d5d-72fa-4f4d-b76a-2a1c395051dd
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: b5b920be-0bbf-4b96-b52f-a87328f9880a, index: 75, title: Intro to
+                the (Operating System) OS module}
+        - {guid: 3caaf6fe-a2f2-49b6-b843-7318bb7e4d4f, index: 76, title: "OS module\
+                \ \u2013 listdir(), getcwd(), mkdir()"}
+        - {guid: 47b6e601-b10f-4013-9b91-c8e3f327964d, index: 77, title: import os}
+        - {guid: bd974bf6-f14e-4386-90e7-3502ad44c052, index: 78, title: "os module\
+                \ \u2013 Example "}
+        - {guid: 4defac04-1993-4d1e-9cde-03c76b3345bd, index: 79, title: "os module\
+                \ \u2013 Example Results"}
+        - {guid: bb0ed617-dbe3-4c4e-bf29-53611d284a2f, index: 80, title: Walking File
+                Trees with os.walk()}
+        - {guid: 2e770eeb-a7c9-49fb-a682-42e098b1d1ff, index: 81, title: os.walk()
+                - Example}
+        - {guid: 56141c4c-c057-44c1-a7e0-342b960ab858, index: 82, title: "os.walk()\
+                \ \u2013 Example Results"}
+        - {guid: 561a0253-911e-4979-ace3-04d3dee5e8b7, index: 83, title: Environmental
+                Variables}
+        - {guid: fb8f37b6-a684-4c8b-8180-fb6d200ed310, index: 84, title: 'Paths, Directories,
+                and Filenames'}
+        - {guid: 3c49536b-c098-4488-8a25-3e231c0b5855, index: 85, title: Running Shell
+                Commands (executing additional tasks)}
+        title: Contents
+    title: OS Interfacing
+-   guid: a4aba7ea-4331-4b07-a331-089c59b0389f
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 06260746-415d-4557-9e75-ef2427af4e86, index: 87, title: Python and
+                Cron}
+        - {guid: 5180ae12-dfa6-40f2-9067-bfa62f588087, index: 88, title: time.time()
+                - Time access and conversions}
+        - {guid: a7764f55-7b29-48ae-8ff8-fcc14ce53e42, index: 89, title: time.ctime()
+                - Scripting a Wall Clock}
+        - {guid: 6f768a65-5be0-40bd-9560-5820d48a8ac9, index: 90, title: Suspending
+                threads}
+        - {guid: 7469f9ae-f9d2-48c9-8b12-d3323e47adfd, index: 91, title: Dealing with
+                Time - Examples}
+        - {guid: c805e6c3-a4ea-4f7e-a116-de007e6274e0, index: 92, title: Dealing with
+                Time - Example Results}
+        - {guid: 4b31c354-9d76-4067-84c4-22de17cf8145, index: 93, title: Time string
+                formatting}
+        - {guid: 20adf4d5-0082-4717-8289-c0af414e160c, index: 94, title: Time Formatting
+                - Example}
+        - {guid: 80e34718-d73a-4e1a-874f-0a86aeb017a3, index: 95, title: "Time Formatting\
+                \ \u2013 Example Results"}
+        - {guid: 4d010d28-98c3-488f-9878-aff5b48be6b8, index: 96, title: Python Time
+                Touples}
+        - {guid: 207b448f-bfe0-441b-a360-255f29e2a8a6, index: 97, title: "Creating\
+                \ Calendars \u2013 Example "}
+        - {guid: 38badb7b-f4b1-464a-bab4-2617d9fd08c1, index: 98, title: "Creating\
+                \ Calendars \u2013 Example Results"}
+        title: Contents
+    title: Dates and Times
+-   guid: 28e8bb0c-37d8-4a35-b858-61863f107392
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 1abe2c93-807e-479f-9231-b2c71fa699a6, index: 100, title: Representational
+                State Transfer (REST)}
+        - {guid: 479b5a9c-811b-4b5c-86fe-e452fb8fe5f3, index: 101, title: REST APIs
+                and HTTP CRUD}
+        - {guid: e193b6cb-e27b-4840-bde0-2341dc0c54ae, index: 103, title: Representational
+                State Transfer (REST) and OpenStack Clients}
+        - {guid: 9b65f21a-e194-4fb3-b853-0f498980836d, index: 104, title: Representational
+                State Transfer (REST) and openstack-python}
+        - {guid: 5a4971f6-7e9e-45e3-8f40-b43014cb5b3a, index: 105, title: Python to
+                RESTful OpenStack API (1 of X)}
+        - {guid: 841b38f6-b4bb-4469-9be2-f72d4db4c27b, index: 106, title: Python to
+                RESTful OpenStack API (2 of X)}
+        - {guid: bf5a3eaa-a364-4989-992a-3e70afddeab8, index: 107, title: Python to
+                RESTful OpenStack API (3 of X)}
+        - {guid: 7c791a7f-b9c0-4375-84e3-f200f194f098, index: 108, title: Python to
+                RESTful OpenStack API (4 of X)}
+        - {guid: 2a83c1de-8446-4d0f-bce5-f56376d2b20f, index: 109, title: Python to
+                RESTful OpenStack API (5 of X)}
+        - {guid: 49d1df02-b8e8-4f75-b6a9-1f1f3be4e7aa, index: 110, title: Python to
+                RESTful OpenStack API (6 of X)}
+        - {guid: 7cc31039-a658-40af-b01b-2b1b8fdf74b6, index: 111, title: Python to
+                RESTful OpenStack API (7 of X)}
+        - {guid: 8cdfdea7-6cf4-4cc0-a7b6-8af5fefcc926, index: 112, title: Getting
+                REST with Insomnia}
+        - {guid: 44a926c4-6cc0-4706-9653-24e58b61e58d, index: 113, title: 'Insomnia,
+                cURL, and python -m json.tool'}
+        title: REST
+    -   questions: []
+        slides:
+        - {guid: b0182960-d296-4e5c-8cd0-22542f115eb2, index: 102, title: REST APIs
+                and HTTP CRUD - NOTES PAGE HIDDEN}
+        title: ''
+    -   questions: []
+        slides:
+        - {guid: 0cf17da2-5221-4089-a28c-b87370603804, index: 114, title: etcd (1
+                of 5)}
+        - {guid: 95953e87-0f7a-46ff-bb26-27e7b3cf9279, index: 115, title: etcd (2
+                of 5)}
+        - {guid: c8d0cf85-add6-40a1-a66a-33eac099a897, index: 116, title: etcd (3
+                of 5)}
+        - {guid: d9e67205-0ca2-47d8-9102-241324a854f3, index: 117, title: etcd (4
+                of 5)}
+        - {guid: bd414a92-b2be-449c-8222-45721a75fad6, index: 118, title: etcd (5
+                of 5)}
+        - {guid: ec87246f-43f0-4e4f-8112-ef01248aa32f, index: 119, title: etcd API
+                - Hierarchical Key Space}
+        - {guid: 75a0a15d-3e3f-45b4-ac33-4168184f6c01, index: 120, title: etcd API
+                - Changing a Value of a Key}
+        - {guid: 978ee488-bf30-4251-98ef-128ca007c7e1, index: 121, title: etcd API
+                - Deleting a Key}
+        - {guid: b7cf1cea-1580-4313-b740-c8a813c33b7e, index: 122, title: etcd API
+                - Set a Key with TTL}
+        - {guid: b0566cd0-38a5-45bd-8bb1-a942830a81f6, index: 123, title: etcd API
+                - Retrieving an Expired Key Error}
+        - {guid: 9b201f12-7494-466a-a8df-b639cc07d634, index: 124, title: REST and
+                Python}
+        - {guid: 45aadf61-bfb0-450a-8eb5-3f7e50a4927c, index: 125, title: REST and
+                Python - python-etcd}
+        - {guid: 811771e1-ee31-4b98-aeb2-4a7974afebc8, index: 126, title: REST and
+                Python - python-etcd (Example)}
+        title: etcd
+    title: Python Environments and Projects
+-   guid: 3f2de5bf-c4a4-4ebc-8a6e-fc66ab9e804e
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 0eeed8d7-23dd-4e56-9baf-6d32b259b1d2, index: 128, title: Metacharacters
+                (1 of 4)}
+        - {guid: ee35ac0a-d3c3-45d2-b78c-6f9b37b242cb, index: 129, title: Metacharacters
+                (2 of 4)}
+        - {guid: 880995b5-7823-4fbf-b503-04e43f400e8e, index: 130, title: Metacharacters
+                (3 of 4)}
+        - {guid: 72282c5a-8a3d-453e-b6b9-9bceef21896f, index: 131, title: Metacharacters
+                (4 of 4)}
+        title: Operators
+    -   questions: []
+        slides:
+        - {guid: 66aa5b8d-eb4d-4cc6-8d36-63f590ff8274, index: 132, title: Writing
+                RegEx Expressions (1 of 2)}
+        - {guid: 9121c90f-7ab0-4e7b-9c3a-7320a74f621d, index: 133, title: Writing
+                RegEx Expressions (2 of 2)}
+        title: Examples
+    -   questions: []
+        slides:
+        - {guid: 26fa628e-4518-4177-b25d-bf9da96bc160, index: 134, title: Raw Python
+                Strings}
+        title: Raw
+    -   questions: []
+        slides:
+        - {guid: c355211d-4313-4754-91a0-64653ed44d33, index: 135, title: 're Module
+                - search(), match() and match objects'}
+        - {guid: ca7f76d9-a21b-4db1-900b-d346809983ac, index: 136, title: 're Module
+                - Match Objects - group(), start(), end(), and span()'}
+        - {guid: 120712b3-074a-4ad0-9ed6-ba8e9f0e07b1, index: 137, title: re Module
+                - Python Search Function - Example}
+        - {guid: 7d9f534b-493c-432d-bef5-c2502312e6eb, index: 138, title: re Module
+                - Python Search Function - Example Results}
+        - {guid: fb02369d-6c4c-498b-a63d-10f70ad313c6, index: 139, title: re Module
+                - Parsing Data from a File with findall() - Example}
+        - {guid: dfc1c6a7-08a5-4738-8a1f-83d19cbc2855, index: 140, title: re Module
+                - Parsing Data from a File with findall() - Example Results}
+        - {guid: 84ad65e7-6208-48b1-974d-b269b12f3549, index: 141, title: re Module
+                - Regular Expression Objects}
+        title: Re.
+    title: Python Regular Expression
+-   guid: ed76f538-d1d9-4400-bdc5-b4e750700808
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 69666d69-658d-4efc-bdf8-e92f928decd2, index: 143, title: "Scripting\
+                \ with webbrowser \u2013 Example "}
+        - {guid: a6451ae3-7f59-4dd7-9d84-87507fb32104, index: 144, title: "Scripting\
+                \ with webbrowser \u2013 Example Results"}
+        - {guid: 48e6b7ee-8647-400b-ad18-94610fd54d2f, index: 145, title: URL Parsing}
+        - {guid: 53d9f266-0253-464f-b51a-ff39496ebe12, index: 146, title: "Building\
+                \ an HTTP Client \u2013 Example"}
+        - {guid: abb9d38f-8ca2-4d50-a603-b8b2f6b93324, index: 147, title: "Building\
+                \ an HTTP Client \u2013 Example Results"}
+        - {guid: 7c386ae5-e452-483a-bc9f-dc6bbea91231, index: 148, title: "PUT resources\
+                \ with HTTP client \u2013 Example"}
+        - {guid: 7fd628b7-e3f5-4f81-b076-d17753bd8dd9, index: 149, title: "PUT resources\
+                \ with HTTP client \u2013 Example Results"}
+        - {guid: c4c6c869-f617-4c52-953b-ff180cd737d9, index: 150, title: Building
+                an FTP Server with pyftpdlib}
+        - {guid: 8c23a782-15b7-4fbd-a319-a6b99c5c806e, index: 151, title: About pyftpdlib}
+        - {guid: 602972c1-54e2-4e21-a56a-b8dd7adf99ee, index: 152, title: "FTP Client\
+                \ & Server \u2013 Example "}
+        - {guid: 4bfd47b5-c55d-4eba-bf05-0255cbc9afa0, index: 153, title: "FTP Client\
+                \ & Server \u2013 Example Results"}
+        - {guid: 37370371-fd02-4841-92f8-e4c60812e315, index: 154, title: "FTP Client\
+                \ Downloading Files \u2013 Example "}
+        title: ''
+    title: Python Protocol Clients
+-   guid: a3e82d97-9d63-4f34-99ba-7fad846ed5cb
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: f51e1be4-9859-473d-acf3-d23c27451895, index: 156, title: Overview
+                of email Module}
+        - {guid: 93f0b483-80b4-43c8-9df8-b40fdacdc686, index: 157, title: Creating
+                simple emails - Example}
+        - {guid: a77fdc84-8370-4852-97f8-9ab7862182a1, index: 158, title: "smtplib\
+                \ \u2013 SMTP protocol client"}
+        - {guid: 64cafaf4-fca6-4e8d-8f6a-ce0b30f67a2d, index: 159, title: Messages
+                and RFC 5322 compliance}
+        - {guid: 8660f8b2-b3b8-4424-a56a-6000efbdf74e, index: 160, title: Common SMTP
+                errors}
+        - {guid: 5b58cfb1-2793-4e8f-96ad-e5448cbdcfa9, index: 161, title: Creating
+                an SMTP instance}
+        - {guid: 22a7d1d8-79d9-4750-92e3-2f697d556c60, index: 162, title: Connecting
+                to ESMTP vs SMTP}
+        - {guid: eae896e3-88d9-4bd4-acf6-6d14cc751d2a, index: 163, title: Applying
+                TLS encryption to SMTP login}
+        - {guid: cf7858f3-0c73-42eb-8114-fe3bf2bc8e6d, index: 164, title: Logging
+                into an SMTP server requiring authentication}
+        - {guid: f069f908-3aae-4207-a5d2-814e5fba6437, index: 165, title: Sending
+                an SMTP message with Python}
+        - {guid: 42b76723-17f8-46f9-a66c-3f6fe5ccd566, index: 166, title: Terminating
+                SMTP connections}
+        title: ''
+    title: Generating and Sending Emails
+-   guid: 7a41fea6-59db-450b-ae09-35e97689f376
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 152cfe26-6b04-4970-8d1b-022f0da40495, index: 168, title: Glob Patterns}
+        - {guid: 0cb6532d-6d3b-4713-8dd5-86aa0e8de469, index: 169, title: Returning
+                directory list}
+        - {guid: 62c6e429-f11e-4457-a22c-4f09de48474d, index: 170, title: Printing
+                directory contents}
+        title: ''
+    title: File Globbing
+-   guid: fc8eacfe-6f39-4f19-8f96-930a059b6880
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 1bd5966f-8104-4c1a-89de-4ac90e95a42b, index: 172, title: (JavaScript
+                Object Notation) JSON - RFC 7159 (obsoletes RFC 4627)}
+        title: JSON Standards
+    -   questions: []
+        slides:
+        - {guid: 41fb5ef6-e9bf-424f-a70e-53532142f1b8, index: 173, title: JSON Formatting
+                Example}
+        title: JSON Examples
+    -   questions: []
+        slides:
+        - {guid: 2d625432-adf7-40ea-9050-d0c8a0caeb40, index: 174, title: YAML (YAML
+                Ain't Markup Language) - Lists}
+        - {guid: 491ad858-e83e-48cf-9dbe-006789297d0f, index: 175, title: YAML (YAML
+                Ain't Markup Language) - Dictionary}
+        - {guid: c0c74c6c-21fc-45c8-bd9a-d0276afc1a2a, index: 176, title: YAML (YAML
+                Ain't Markup Language) - Dictionary & List Example}
+        title: YAML
+    -   questions: []
+        slides:
+        - {guid: 327d46e3-4cc8-4c00-945e-ff23fd11eef3, index: 177, title: YAML - Dictionaries
+                and Lists Abbreviated Forms}
+        title: YAML Dictionary and List
+    -   questions: []
+        slides:
+        - {guid: feb16fda-d700-473d-842b-39b1478d6477, index: 178, title: YAML - Line
+                Spanning}
+        - {guid: 451dcad6-dd62-47c9-a471-26565edfc6fd, index: 179, title: YAML - Reading
+                an Example}
+        title: YAML Syntax
+    -   questions: []
+        slides:
+        - {guid: bb33c98b-cd68-4c06-ac18-8cdc2a6f5dc2, index: 180, title: eXtensible
+                Markup Language (XML)}
+        - {guid: 6dbbee0e-fef8-40f3-919e-ddaaf4dc4972, index: 181, title: XML - Example
+                1 (Self-Describing Syntax)}
+        - {guid: 771fa76f-c749-424f-a82f-9fff382e1e3c, index: 182, title: XML - Example
+                1 (Tree Structure)}
+        - {guid: a437f715-4f38-4848-aa78-9f488b79ade6, index: 183, title: XML - Reading
+                an Example}
+        title: XML
+    -   questions: []
+        slides:
+        - {guid: 8ff6c96e-6153-4ef1-8dc9-61e1a3c7c5ba, index: 184, title: Comma Separated
+                Value (CSV) - RFC 4180 (Updated by RFC 7111)}
+        title: CSV
+    -   questions: []
+        slides:
+        - {guid: f01f455b-d1fd-41b5-87b5-b58a745c4c26, index: 185, title: import json
+                - Example}
+        - {guid: 80704638-36b4-406d-8d46-e10d48926566, index: 186, title: import json
+                - Example Results}
+        - {guid: a54f3c17-d3a7-44ac-af3c-ec9e88bfd4a6, index: 187, title: OpenStack's
+                JSON Policy - policy.json}
+        - {guid: e57b2209-4330-4f0c-b0f6-b2238706a7c9, index: 188, title: OpenStack
+                policy.json Snippets}
+        - {guid: 93ded6d1-8f05-4d58-86aa-ea7acb367e54, index: 189, title: OpenStack
+                policy.json}
+        - {guid: cebe076a-0141-4797-a3f5-ec06dddecc7c, index: 190, title: OpenStack
+                policy.json Parser - Example}
+        - {guid: bc50a958-233e-4f8a-af3f-b170d04ddf5d, index: 191, title: OpenStack
+                policy.json Parser - Example Results}
+        title: JSON
+    -   questions: []
+        slides:
+        - {guid: b3a41319-eeff-4cd8-9d20-4b26f41facf7, index: 192, title: Ansible
+                Playbook YAML snippet}
+        - {guid: 26f6f6b5-4818-44eb-939c-11a1240270d5, index: 193, title: import yaml
+                - Example}
+        - {guid: 003526e2-b157-41c7-8f07-6c09b01f79f9, index: 194, title: import yaml
+                - Example Results}
+        - {guid: 9b3572ca-6185-4b5b-9d4d-af15f32eae48, index: 195, title: import yaml
+                (with Dragons) - Example}
+        - {guid: 6d2e981c-3742-4adc-9741-04e5bbe91b44, index: 196, title: import yaml
+                (with Dragons) - Example Results}
+        - {guid: 10e72e5d-f0dd-43f0-b80e-06a618cdd780, index: 197, title: Python for
+                Session Initiation Protocol (SIP) - VoIP Engineers & Devs}
+        title: Python YMAL
+    -   questions: []
+        slides:
+        - {guid: 79208395-a386-4492-a7d3-60ef917f85ed, index: 198, title: Python and
+                Wireshark's Data Structures}
+        title: Python JSON
+    -   questions: []
+        slides:
+        - {guid: b13a05db-1acc-43a1-a429-34ce8cbcd217, index: 199, title: Wireshark
+                SIP Trace - CSV to YAML}
+        - {guid: a6169f23-a647-467f-8aea-f65f4432af11, index: 200, title: Wireshark
+                SIP Trace - YAML to JSON}
+        - {guid: cbfc8bb2-58a8-40a6-9fb0-e37b4f55a585, index: 201, title: Wireshark
+                SIP Trace - JSON to XML and JSON to Text}
+        - {guid: 0ae707dc-b177-46a5-a9ff-57ce71fb50e3, index: 202, title: Alta3 Python
+                sip-tool}
+        - {guid: 69ee44cb-41a3-4bcb-900e-f6f93ecc768b, index: 203, title: Python for
+                Session Initiation Protocol (SIP) - Request}
+        - {guid: e1b6c9d5-4de5-4086-bdaa-83aafcfcca98, index: 204, title: Python for
+                Session Initiation Protocol (SIP) - Response}
+        title: Examples
+    title: XML Formatting and Beyond
+-   guid: 9c108ae2-cd0a-49e2-9078-01b13147c173
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 2d9dc942-b54c-4aee-8c51-2fb2ed3558c2, index: 206, title: "Conventions\
+                \ \u2013 Underscore for the Interpreter"}
+        - {guid: 4336ee10-ee95-4b20-b7eb-a660048dfd9b, index: 207, title: "Conventions\
+                \ \u2013 Underscore for Scripting"}
+        - {guid: bc5a5574-2c9f-42dd-8cda-43ccf46bab70, index: 208, title: Conventions
+                - Single underscore before name}
+        - {guid: 79a4d650-55d8-45cf-97c9-a3eb270db9f8, index: 209, title: Double leading
+                underscore & opt. single trailing (1 of 2)}
+        - {guid: 4e858273-2e2d-4f60-81a9-81142802b50d, index: 210, title: Double leading
+                underscore & opt. single trailing (2 of 2)}
+        - {guid: 02131288-5081-4f2e-80d7-ab2a34370b8f, index: 211, title: Double underscore
+                before & after name}
+        title: ''
+    title: Code Review
+-   guid: a26cab8f-6523-4f9f-a890-82f7fae4c563
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: f6fd8907-2df6-4bc7-b711-674c258dc94d, index: 213, title: Intro to
+                Python Threads}
+        - {guid: ab09bc19-f1b5-427e-a23f-f36f5a7507ad, index: 214, title: Context
+                Change}
+        - {guid: 215c370e-4733-497d-bfb5-ffc1aa1a8279, index: 215, title: "Threading\
+                \ \u2013 Deadlock Errors"}
+        - {guid: c6911bda-33b5-4870-a8b3-c5f7d6063055, index: 216, title: "Threading\
+                \ \u2013 Starvation"}
+        - {guid: 1b6075f5-653f-417e-92a8-3d62aa91dd30, index: 217, title: Threading
+                - Racing Conditions}
+        - {guid: faaf55f1-3da8-4100-bbad-d165b8c73fd9, index: 218, title: "Racing\
+                \ \u2013 Example (1 of 2) "}
+        - {guid: 1f183b8f-162b-4dc2-bfb9-04d97b8f17ef, index: 219, title: "Racing\
+                \ \u2013 Example (2 of 2)"}
+        - {guid: 212fc6a7-7118-4960-8534-6f93a993b07f, index: 220, title: import _thread
+                - Example}
+        - {guid: ca81955b-e9a9-4a50-a661-d018f1f3002e, index: 221, title: "import\
+                \ threading \u2013 Example "}
+        title: ''
+    title: Processes & Threads
+-   guid: da46cbe1-60e9-4dd6-a0ac-4e4c66886603
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 8b55f925-fb61-4170-b284-61d1f3d8a580, index: 223, title: "Signal\
+                \ Handling \u2013 Example "}
+        - {guid: 78c92d79-d8c9-4c17-bd33-4c3e619cc3fa, index: 224, title: "Signal\
+                \ Handling \u2013 Example Results"}
+        - {guid: 3a8105a8-13fd-4f7f-8ab3-0d935d4a592f, index: 225, title: Signal Handling
+                and Opening a File - Example}
+        title: ''
+    title: Signal Handling
+-   guid: a41f23c1-f9fe-41c2-8430-92ff8d16b93c
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 1399d620-ff73-49dd-8e36-3dbdf50dda7c, index: 227, title: Network
+                Automation Transactions}
+        - {guid: 489bfa2f-a2d4-4c9a-aadc-1b81f5651d14, index: 228, title: NAPALM}
+        - {guid: 2cc01a9c-ae73-4971-b3fc-1651189d36cb, index: 229, title: How Napalm
+                works}
+        - {guid: 1dcba95b-b775-474b-b243-d1ebe7152835, index: 230, title: Napalm Installation}
+        - {guid: 41f462d5-53bb-4838-a5f4-d43f7f261f26, index: 231, title: Load / Replace
+                Config with Napalm}
+        - {guid: a7ab864b-85fe-4a50-9190-f617e09e21d8, index: 232, title: Getting
+                a driver}
+        - {guid: 491bad5a-095e-4429-ae58-768b6d46b4e8, index: 233, title: Connecting
+                to the device}
+        - {guid: ded3d36c-03c4-4208-a9ea-cb06022c585b, index: 234, title: Replacing
+                the Configuration}
+        - {guid: 341094f1-8876-4c4c-872b-30a1dcdd4d69, index: 235, title: Disconnect}
+        - {guid: 6ef998dc-3029-48d3-af8f-37e270c96f7d, index: 236, title: Context
+                Manager}
+        - {guid: 69134979-7ac3-4779-8958-dce7d0037c66, index: 237, title: Rollback
+                Changes}
+        title: ''
+    title: Introduction to Network Automation
+-   guid: ab17cd0e-2bd5-49b0-bb26-3a6ee921e64b
+    subchapters:
+    -   questions: []
+        slides:
+        - {guid: 12f5ca22-10cb-458f-9dd0-c56adef30d63, index: 239, title: Intro to
+                Cisco Conf Parse - Basic Python Tools}
+        - {guid: f2af2b41-c504-48c1-99c4-feaf7fa2dcc8, index: 240, title: Parent vs
+                Child lines}
+        - {guid: 17078ab4-4bc8-4bf2-bbba-737f3e3261c9, index: 241, title: IOSCfgLine
+                objects}
+        - {guid: 9dd16562-3e4e-4070-9aa7-f6bbc34fe159, index: 242, title: Retrieving
+                text from an IOSCfgLine object}
+        - {guid: 7126c7c2-e8c3-4373-91f5-e31777d0bb89, index: 243, title: Example
+                Cisco IOS Config - cisco_a3.conf}
+        title: Basic Tools
+    -   questions: []
+        slides:
+        - {guid: f08d818e-06f9-4235-9296-4e7f12abadc5, index: 244, title: Finding
+                interface names that match a substring}
+        - {guid: 2ddd570b-3d09-4570-9d21-1e74898c6845, index: 245, title: Finding
+                parents with a specific child - Method 1 (for-loop)}
+        - {guid: 35ac6907-65ae-4841-ac8f-bd53295eb10e, index: 246, title: Finding
+                parents with a specific child - Method 2 (list-comprehension)}
+        - {guid: 3d3ebc78-21d7-46ae-bff9-6d3fb7569f12, index: 247, title: Finding
+                parents with a specific child - Method 3 find_object_w_child}
+        - {guid: 5238dd86-49e8-480d-b6bb-d0c57c4875b4, index: 248, title: Finding
+                parents without a specific child - find_object_wo_child}
+        - {guid: 15f129c6-465d-4a5d-8244-002f18a6062c, index: 249, title: Example
+                Cisco IOS Config - cisco_short_a3.conf}
+        - {guid: bccd427f-2ba5-4920-aec2-19641861a1a8, index: 250, title: Writing
+                a Script with CiscoConfParse - Example (1 of 4)}
+        - {guid: 8e31889a-c18f-47d9-850d-09de23c35ffe, index: 251, title: Writing
+                a Script with CiscoConfParse - Example (2 of 4)}
+        - {guid: 53881f27-2365-4f9d-8457-a7560ecbf23a, index: 252, title: Writing
+                a Script with CiscoConfParse - Example (3 of 4)}
+        - {guid: 893807a9-f1fa-4d71-96b7-d0d14e94c50c, index: 253, title: Writing
+                a Script with CiscoConfParse - Example (4 of 4)}
+        - {guid: c0ae8ed4-13bb-4475-974a-81b8447420ef, index: 254, title: Example
+                Cisco IOS Config - cisco_short_a3.conf.new (Results)}
+        title: Basic Steps
+    title: Automating Cisco Configurations

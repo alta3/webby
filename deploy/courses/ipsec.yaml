@@ -7,18 +7,18 @@ stars: 43
 duration:
   hours: 18 
   days: 3
-audience: "For those wanting to gain a clear understanding of how IPSec works and deploying it through a study of best practices." 
+audience: "For students who want to gain a clear understanding of how IPSec works through a study of best practices."
 prereqs: 
-  -  nf
-  -  sip
+  -  Networking Fundamentals
+  -  SIP Essentials
 postreqs: 
-  -  sdn 
+  -  sdn/nfv
 testimonials:
   - quote: "excellent training and highly recommend" 
     stars: 5
   - quote: "this is an excellent course. stuart really knows his stuff!"
     stars: 5
-video-link: "https://www.youtube.com/embed/cIgLoZ2GQjM"
+video-link: "https://www.youtube.com/embed/cIgLoZ2GQjM?rel=0;autoplay=1"
 web-url: "https://alta3.com/courses/ipsec"
 has-labs: true
 has-videos: true
@@ -117,764 +117,451 @@ price:
         - item : has-book-true
           description: Includes on-line book
         - item : has-labs-false
-overview: This class is a study of the Python programming language. Students will learn to build their own environments in which to program, and begin writing their own code. By the end of the first day, you should feel comfortable writing code on your own machine. By the conclusion of the course, students will understand the basics of object-oriented programming, how to use Python to interact with data sets (such as XML and JSON), interact with APIs, track down code snippets and programs on places like GitHub, as well as debug broken code. This course is 50% lecture and 50% hands-on labs. Students need no prior programming experience.
+overview: Our IPsec course offers both hands on and lecture, allowing students to gain a clear understanding of how IPsec works and how to properly deploy it though a study of best practices. This course is vendor neutral, so labs will use open source projects such as strongswan, to demonstrate how IPsec is configured and deployed. You will learn best practices regarding selection of encryption algorithms, learning advantages and tradeoffs of security mechanisms managed by IPsec. Important linux skills necessary to perform effective CLI tasks are also taught. All hands-on labs are written to reinforce each lesson, making the concepts clearly understood.
 chapters:
-- title: Introduction to Python
-  guid: 6b31c414-c3ad-47c6-9c84-a5e59bd67e54
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 13
-      guid: 05c950e4-431d-4157-8c59-91f8c565ca31
-      title: Installing Python 2.7
-    - index: 14
-      guid: ece02c4a-00dd-4af5-9f75-72598dd4ab03
-      title: Installing Python 2.7 - Download (Windows)
-    - index: 15
-      guid: d97e9500-6f6c-4465-83f0-542f55154ee9
-      title: Installing Python 3.6
-    - index: 16
-      guid: 2add35ea-25dc-4e4c-b841-2eb59f62751b
-      title: Installing Python 3.6 - Getting to Downloads
-    - index: 17
-      guid: e3f89191-1673-446b-bc70-2c9c7b1dc937
-      title: Installing Python 3.6 - Download (Windows)
-    - index: 18
-      guid: 5644d7e8-89f7-4b51-ae68-2960f9b4266d
-      title: Preparing to write a Python (*.py) file - Text Editors
-    - index: 19
-      guid: 815a71a2-3eb4-42f3-aabf-51e91e8cb357
-      title: Writing our first Python (*.py) file
-    - index: 20
-      guid: efd3c99a-4c75-4a6f-94a0-42a513e39d6f
-      title: Executing our first Python (*.py) file - Testing Python 2.7
-    - index: 21
-      guid: c3da829c-d1af-4381-93ce-0afb6fbfc35a
-      title: Executing our first Python (*.py) file - Testing Python 3.6
-    - index: 22
-      guid: 11f2c867-430b-4a92-b5ee-8b49226eba92
-      title: Python Interpreter aka Interactive Shell
-    - index: 23
-      guid: 7056a84d-9272-4337-9ae2-c118964fb034
-      title: Python Enhancement Proposal (PEP)s
-    - index: 24
-      guid: 4232eb3d-ed6c-4c8b-a6df-7c24ca1166ae
-      title: Python Statements and Control Flow
-    - index: 25
-      guid: 94e433d3-6435-452d-b03d-12ac18196155
-      title: How to speak Python
-    questions: []
-- title: Version Controlling
-  guid: 65800686-4079-47f5-899a-64ae85fff26f
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 27
-      guid: 3a68a09d-3f39-487a-bf0f-688e833c9e2b
-      title: Setting up a GitHub Account
-    - index: 28
-      guid: 4db6e954-d810-4d07-a114-1216c82dc928
-      title: Setting up a GitHub Account (continued)
-    - index: 29
-      guid: 7157085c-a2b3-4d95-b516-098c0a3a897c
-      title: Why Python Developers need to know Git and Github
-    - index: 30
-      guid: fd0dbb0f-05d8-42ea-a6e6-c163e3738175
-      title: Git repo-to-repo collaboration
-    - index: 31
-      guid: 6440ebb7-8302-437e-9d0e-5c07c59352d6
-      title: 'Git usage: git clone <repo> <directory>'
-    - index: 32
-      guid: 36d35ac7-000a-4d37-b81b-a9e67127f8f1
-      title: 'Git usage: git init –bare <directory>'
-    - index: 33
-      guid: 17823740-07c2-4f1f-81e1-fcb0ccd45c81
-      title: 'Git usage: git config --global'
-    - index: 34
-      guid: 869a3f23-f5a4-4c15-bd97-6789663517bf
-      title: 'Git usage: git add <file> && git reset <file>'
-    - index: 35
-      guid: 16483a87-d000-490f-9ed5-698856bb014b
-      title: 'Git usage: git commit –m “<message>”'
-    - index: 36
-      guid: 51bf5b2c-4eb2-4223-a19f-562c74abf314
-      title: 'Git usage: git push <remote> <branch>'
-    - index: 37
-      guid: dc608d8c-3499-40df-be9b-dcdd8b36fd11
-      title: Git saves files not deltas
-    - index: 38
-      guid: db413801-0f3d-4095-924c-59bb3b131700
-      title: 'Git usage: git status'
-    - index: 39
-      guid: 00cebca5-6485-42f6-acbe-f2781b14c5ac
-      title: 'Git usage: git log --oneline'
-    - index: 40
-      guid: 41b404c4-cee4-4d44-b8f3-c6098baeed45
-      title: 'Git usage: git checkout <commit || master>'
-    - index: 41
-      guid: 17bc8757-3887-44ad-9f7c-8f061886fa21
-      title: 'Git usage: git remote <add || rm> <name> <url>'
-    - index: 42
-      guid: 240eb886-0b49-49bf-89d3-573c547d6d55
-      title: 'Git usage: git branch <branch>'
-    - index: 43
-      guid: 5d425b91-2d6f-4bc6-92fa-987491fb93f6
-      title: 'Git usage: git pull –rebase <remote>'
-    - index: 44
-      guid: dcd0193c-1167-4b77-80bd-89a47634d9d1
-      title: GitHub is git + social
-    - index: 45
-      guid: c64e1512-d992-487c-a2d2-1ba2c3489399
-      title: 'Git Recap: What you need to know'
-    questions: []
-- title: Programming Basics
-  guid: dbc9555c-ef2a-42cf-aed6-f3077ae85692
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 47
-      guid: 8c4aedf5-ddcd-4b10-98f7-c286c629d68c
-      title: Python Basic Data Types
-    - index: 48
-      guid: 317820f4-edae-42ec-b783-cefc472dd9ab
-      title: Built-in Python Functions
-    - index: 49
-      guid: 42beb933-ca37-40b5-91ff-b328390ff36a
-      title: Python Functions & Arguments
-    - index: 50
-      guid: cf51547b-3bf2-4517-8eb3-3827f98ddcc9
-      title: Print - Example
-    - index: 51
-      guid: b9818690-f578-4303-beff-9713599214c6
-      title: Print - Example results
-    - index: 52
-      guid: 127a2d72-32ff-402d-87a7-4817459e8480
-      title: Print with end='' - Example
-    - index: 53
-      guid: 2a68ea94-2c8f-4a81-807f-ca30e258066c
-      title: Print with end='' - Example results
-    - index: 54
-      guid: 184e4bb1-6664-4f2a-b6c1-bc1a057a2afb
-      title: Print with \t (tab) - Example
-    - index: 55
-      guid: dc5345df-139a-4cc9-94f2-51e682416c72
-      title: Print with \t - Example results
-    - index: 56
-      guid: 30ee788b-f7ae-4cb2-946f-6e6e2082df47
-      title: Print with + (concatenation) - Example
-    - index: 57
-      guid: a96bd3fb-4cfa-423e-8501-f3ad888bbe49
-      title: Print with concatenation (+) - Example results
-    - index: 58
-      guid: 27a1fea9-7a5c-4da7-a65b-ffefc0760d9c
-      title: Print with \n (new line) - Example
-    - index: 59
-      guid: f8db775a-1c2c-42fc-b8df-f5a6b27acf42
-      title: Print with \n (new line) - Example results
-    - index: 60
-      guid: d1135be2-4479-4c3a-8543-bdd26a3f7b54
-      title: String Literal Escape Sequences
-    - index: 61
-      guid: 2749181f-8ec0-478e-b4b3-9855a9161abb
-      title: Expressions & Literals
-    - index: 62
-      guid: dcb369d7-dc8e-4176-9f10-f2dccca841a6
-      title: Assignment Statements & Variables
-    - index: 63
-      guid: 2766e305-ab05-4a52-9405-4ca89648ee64
-      title: Useful snippet – Clearing the interpreter
-    questions: []
-- title: Numeric Operations
-  guid: c91ed2ac-0add-4db7-98e3-2584c63fcdb3
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 65
-      guid: 0be8cef3-e439-41f0-8909-952a914aa9e3
-      title: Number Types
-    - index: 66
-      guid: 167e8087-f826-4311-be0e-4e2202f8f982
-      title: Number Operators
-    - index: 67
-      guid: 5d4200aa-06d1-4d11-9af9-65ae6caa9800
-      title: Number Operators Have Precedence
-    - index: 68
-      guid: 43794ac1-d524-4a9e-b396-91fe176ddd4c
-      title: Combining Integers and Floating Points
-    - index: 69
-      guid: 241a60e6-e05c-42c7-b735-ed796ae343bc
-      title: Mathematical Functions
-    questions: []
-- title: String Types
-  guid: ffd5f24f-728e-49e9-9bde-470c62351c5f
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 71
-      guid: ea293eba-0557-46c1-91cd-80d361f4d730
-      title: Strings
-    - index: 72
-      guid: 5ec60cc1-2dee-446c-a44e-2f34c1d2e7ae
-      title: String Slicing
-    - index: 73
-      guid: abb2d3fc-ccf0-4a83-9344-bb62b6a91df5
-      title: String Repeating, Splitting, and Stripping White Spaces
-    - index: 74
-      guid: 09757224-9635-4a79-b352-918ec5994c22
-      title: Booleans
-    - index: 75
-      guid: 1e95dbbd-3a22-4f19-891d-04ed12ab5d09
-      title: Print & format strings
-    - index: 76
-      guid: 6dab08af-2647-4a31-942b-242996585a99
-      title: Print & format strings (old)
-    - index: 77
-      guid: 08004f4b-5719-4aa3-95db-b6fa889b5408
-      title: Scripting with input() - Example
-    - index: 78
-      guid: f6d280cf-e84f-4d8d-9bc3-1cefadf83d72
-      title: Scripting with input() - Example results
-    - index: 79
-      guid: cde116a0-8036-47f3-a417-96e431dc1d13
-      title: Scripting with input() improved - Example
-    - index: 80
-      guid: 86e526a4-2719-4c43-94e6-2c980349fb66
-      title: Gathering user input with raw_input() (Python 2)
-    questions: []
-- title: List & Tuples
-  guid: 6888840c-2c6d-4606-8215-47e58bb74f88
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 82
-      guid: 903c9289-0caa-414a-996f-cfaf05a7bdaf
-      title: Intro to Integer Lists
-    - index: 83
-      guid: f5ed1ef9-c468-46b2-b97e-2f2b7061f9ca
-      title: Mixed Variable Lists
-    - index: 84
-      guid: 8e0a5ff8-f22c-4031-b2f8-7bf19b632852
-      title: Tuples
-    - index: 85
-      guid: 9f286332-fe55-4fa7-8d13-0587ed193832
-      title: Python Time Touples
-    - index: 86
-      guid: bb79a00a-d4f4-4eee-9c39-379fdee70903
-      title: Tuples vs. Lists
-    questions: []
-- title: Dictionaries
-  guid: c427e38c-e675-486b-8431-4953ecb46562
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 88
-      guid: 6f545e85-fa62-424c-975d-680da09177b3
-      title: Dictionaries - Keys and Values
-    - index: 89
-      guid: 02048728-2c60-4cc1-8f22-0b9f310df9a4
-      title: Manual Dictionary { } Building
-    - index: 90
-      guid: 6ee2db25-d6ee-4cdf-901d-259bd942b9f8
-      title: Selecting a Data Structure
-    questions: []
-- title: if, elif, else
-  guid: 82160d3c-e781-4b17-b223-5ad4902b397e
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 92
-      guid: d5e99613-665d-4483-b4be-9a1fd74f8b7b
-      title: Relational Operators (1 of 2)
-    - index: 93
-      guid: d9811eb2-d112-4e06-b2d9-158f24e39a3d
-      title: Relational Operators (2 of 2)
-    - index: 94
-      guid: c10f76ac-468a-40ef-b52c-1d584aaf7b98
-      title: Logical Operator Truth Tables
-    - index: 95
-      guid: 9d6701c4-a67a-4561-94f1-c4eec3836ac2
-      title: Logical Operators
-    - index: 96
-      guid: 93f0d322-2f74-45b6-a139-e6cdc8172355
-      title: '"Simple" if'
-    - index: 97
-      guid: 9af43752-3178-4229-be97-0893bd8c7275
-      title: '"Simple" if - Example'
-    - index: 98
-      guid: 66cd22b3-9e85-4505-a083-6b53293e18a3
-      title: '"Simple" if - Example results'
-    - index: 99
-      guid: 156c8b10-5e58-4c6b-8c27-7ac807f20b3a
-      title: if-else Usage
-    - index: 100
-      guid: 5c0f2789-2526-49c0-a359-03e3fa3b29fe
-      title: if-else - Example
-    - index: 101
-      guid: 3059f749-24c5-41b8-b5c6-788dfa59ca62
-      title: if-else - Example results
-    - index: 102
-      guid: bf922961-8278-49c9-b393-2cd4121b90e1
-      title: if-elif Usage
-    - index: 103
-      guid: 627d31ce-0dd9-4549-a1cb-258dfff4836a
-      title: if-elif - Example
-    - index: 104
-      guid: 0ecd1065-28c2-430d-b420-4d98965b8e97
-      title: if-elif - Example results
-    - index: 105
-      guid: f76d8dac-e980-4d24-8aa2-96bed96bfd00
-      title: Nested if statement - Example (1 of 2)
-    - index: 106
-      guid: 6c02e197-1bd0-4ff9-8b51-6ec3888072d6
-      title: Nested if statement - Example (2 of 2)
-    - index: 107
-      guid: 5e9c3839-5332-4305-adf5-848c95a52392
-      title: Nested if statement - Example results
-    questions: []
-- title: while
-  guid: 3fe8076a-d91e-4c32-85fd-d2b31a6f5c3a
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 109
-      guid: 58cff75a-fb8a-4a6a-bf5e-94e5f2df7e00
-      title: while Usage
-    - index: 110
-      guid: cb3c5345-7183-44d7-a260-278b0bd075e4
-      title: while Loop - Example
-    - index: 111
-      guid: 8e951548-ba13-4535-826d-541caea2e41c
-      title: while Loop - Example results
-    - index: 112
-      guid: 974cd487-c22d-4ca2-b541-f00705d762c3
-      title: Count-controlled while Loop - Example
-    - index: 113
-      guid: 7c680b26-0428-47c7-8025-b0c367c64ca6
-      title: Count-controlled while Loop - Example results
-    - index: 114
-      guid: 65afc30a-839e-417c-b23e-174b930859c0
-      title: Event-controlled while Loop - Example (1 of 2)
-    - index: 115
-      guid: 735ecd1c-faae-4aa0-bb92-c829b60b6dac
-      title: Event-controlled while Loop - Example (2 of 2)
-    - index: 116
-      guid: 276bee27-6576-4757-bdfc-a5ff4a5bb150
-      title: Event-controlled while Loop - Example results
-    - index: 117
-      guid: bd6d43f4-884a-43ee-b53d-7770a5088ccc
-      title: continue Usage
-    - index: 118
-      guid: 4c995b02-b05f-4412-96dc-9c4a59d79c08
-      title: Continue - Example (1 of 2)
-    - index: 119
-      guid: 6a6fcd69-5a4e-4921-8a45-1b96d4d6a9d6
-      title: Continue - Example (2 of 2)
-    - index: 120
-      guid: 541fe82c-ae8d-45b5-9a33-273c038c94cb
-      title: Continue - Example results
-    - index: 121
-      guid: 0f36926e-091e-4d4a-a8c2-1f4deef54316
-      title: Break usage
-    - index: 122
-      guid: 91557603-ef2d-4948-96f4-5a2c1ee04918
-      title: Break - Example (1 of 2)
-    - index: 123
-      guid: 0e60a09c-4496-4260-a35c-987e81ddc187
-      title: Break - Example (2 of 2)
-    - index: 124
-      guid: 38d63cc5-0339-479b-85fe-d054c59f5e2f
-      title: Break - Example results
-    questions: []
-- title: for loop
-  guid: cb8027e5-8273-4550-9e6d-6a2c1215799c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 126
-      guid: afb51d2c-c477-4184-956f-53d0545a0f19
-      title: for Usage
-    - index: 127
-      guid: 6b7b2308-5e65-4ec5-8eef-c359aa29afc5
-      title: for Loop - Example
-    - index: 128
-      guid: a1ab8348-bec3-421c-871b-216614c89a2e
-      title: for Loop - Example results
-    - index: 129
-      guid: e360cc56-a8cb-4da4-b46c-c49907857c9d
-      title: for Loop - Example 2
-    - index: 130
-      guid: 03342db4-3a25-44fb-a100-216cb5dc20b2
-      title: for Loop - Example 2 results
-    - index: 131
-      guid: a5f7ccb4-f1eb-4bff-8561-93f73aec573e
-      title: for Loop - Example 3
-    - index: 132
-      guid: aed63ba9-330a-4637-97a1-d82ecd90b9a8
-      title: for Loop - Example 3 results
-    - index: 133
-      guid: 0f9af964-dc21-47ea-85d6-cb2f514d81bf
-      title: Programming Challenge - Rewrite as a "for" loop (1 of 2)
-    - index: 134
-      guid: 5c4127a6-7d33-48a7-ba2c-990cffac4a27
-      title: Programming Challenge - Rewrite as a "for" loop (2 of 2)
-    questions: []
-- title: Iterators
-  guid: dd822f5b-0ad9-41f8-8c9d-61283137161c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 136
-      guid: be8811eb-6cc3-4e33-a7e6-941486b6f746
-      title: Iterator vs iteration - Example
-    - index: 137
-      guid: f7286041-9c8b-4126-bce2-b8887bc87a10
-      title: Iterator vs iteration - Example results
-    - index: 138
-      guid: 821503cb-8761-45c2-92eb-becc00e988ae
-      title: Iteration with iter() and next() - Example
-    - index: 139
-      guid: 05995b4f-617f-4427-bd39-90c19ee276e3
-      title: Iteration with iter() and next() - Example results
-    - index: 140
-      guid: 57dbd265-3484-4715-ab4d-931153068c3e
-      title: Iterators and Dictionaries - Example
-    - index: 141
-      guid: 6ac98619-dd23-4842-9417-8ee1cf14d42f
-      title: Iterators and Dictionaries - Example results
-    - index: 142
-      guid: ca4f4eff-2338-4d6c-ad3e-dbbdd460f6dc
-      title: Iterating Tuples - Example
-    - index: 143
-      guid: 052461ca-61ff-4258-811d-50fbeced6adc
-      title: Iterating Tuples - Example results
-    - index: 144
-      guid: 33aabcd0-de5e-4e32-9f09-700020b23db4
-      title: range() Function
-    - index: 145
-      guid: 04581599-a360-409d-b97c-3f081e5b15b4
-      title: for Loop with range() - Example
-    - index: 146
-      guid: e09c73fa-785b-47d3-a53d-c42d1b9c1e92
-      title: for Loop with range() - Example results
-    - index: 147
-      guid: cd915030-8018-4423-a06c-09c279f40df1
-      title: for Loop with tuples [ ] and lists ( ) - Example
-    - index: 148
-      guid: c0264df7-2381-4cd9-a324-e8af505f4255
-      title: for Loop with tuples [ ] and lists ( ) - Example results
-    - index: 149
-      guid: 86dc9ae3-b38a-4441-abe6-711ed0ce7925
-      title: for Loop with string tuples[ ] - Example
-    - index: 150
-      guid: d75e8ecc-5974-436e-aab1-9b2fc50d08c4
-      title: for Loop with string tuples[ ] - Example results
-    - index: 151
-      guid: 44d2b76d-56b3-46da-a49c-3bedbbdc27e1
-      title: for Loop with dictionaries {'key':'value',…} - Example
-    - index: 152
-      guid: 142fa754-c7b3-467f-8432-fac4e7118415
-      title: for Loop with dictionaries {'key':'value',…} - Example results
-    questions: []
-- title: Input & Output with Files
-  guid: 8bba2c01-9855-4b59-b88e-04474e3b3537
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 154
-      guid: 9fbdb981-d675-45e7-9e9a-77b1b12369af
-      title: Print() Output to a Data File (Python 3.x)
-    - index: 155
-      guid: 3b2bea1e-a94c-4511-b3dc-7a204bce4c19
-      title: Writing data to files - Example
-    - index: 156
-      guid: 41e9eaee-e06b-4ced-b9bc-2ce222952c24
-      title: Writing data to files - Example results
-    - index: 157
-      guid: a4c14bfd-bcd4-442a-b297-9519a783e476
-      title: Writing data to files - Example 2
-    - index: 158
-      guid: a2b2201c-236a-44c3-bfcc-5b3f78734679
-      title: Writing data to files - Example 2 results
-    - index: 159
-      guid: 484070e1-b3ab-4b64-8859-24f8bd416f96
-      title: Opening a File – Python File Objects
-    - index: 160
-      guid: 0d648f9f-7d9c-4948-b5c3-1178f06b7fc5
-      title: Read data from files - Example
-    - index: 161
-      guid: 0ef8470b-bfd6-4067-a037-9721991e0e32
-      title: Read data from files - Example results
-    - index: 162
-      guid: 32760285-6369-45a2-92df-657688551e4d
-      title: Read data from files - Example 2
-    - index: 163
-      guid: 47d0e361-3ea0-49d6-a5b2-cf91c34b7e20
-      title: Read data from files - Example 2 results
-    - index: 164
-      guid: a403b8a0-a6bb-4bc3-a54d-2ea3a8957894
-      title: For Loop reading from a file - Example
-    - index: 165
-      guid: b5724ce1-f992-4174-ba29-83752f79eab6
-      title: For Loop reading from a file - Example results
-    questions: []
-- title: Python List Comprehensions
-  guid: a0517051-c2ce-4796-b683-c4ec1463a550
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 167
-      guid: a16e6b1a-591e-4394-acd3-8c05ee8bd609
-      title: List Comprehensions
-    - index: 168
-      guid: 6965286c-81fc-4b0c-9b5c-b27677dbfdd4
-      title: List Comprehensions - Example
-    - index: 169
-      guid: 8e49b2a5-ee2e-49bd-8967-a96807c372b6
-      title: List Comprehensions - Example results
-    - index: 170
-      guid: 8a79ed01-5848-4628-9ec9-b021631c7f81
-      title: List Comprehension with Strings - Example
-    - index: 171
-      guid: ce3a7481-e700-4146-9d5d-6fb1c1762bd4
-      title: List Comprehensions with Strings - Example results
-    - index: 172
-      guid: 5ea5adeb-35ef-4799-8ff2-633f7ec0c7ca
-      title: List Comprehension with Files - Example
-    - index: 173
-      guid: 103b3193-bb40-45d9-bd3d-d6b505b4d454
-      title: List Comprehensions with Files - Example results
-    questions: []
-- title: Creating Functions
-  guid: 3fa33927-291a-408f-a29a-d65af4e9cfee
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 175
-      guid: a0683880-5f59-4087-b85e-08de1121fb0e
-      title: Defining Functions
-    - index: 176
-      guid: f9acbbdc-ba09-451b-894a-3f0b07680e58
-      title: Calling Functions
-    - index: 177
-      guid: 4d3141ba-c690-4124-98f2-b3c49568b168
-      title: Function Basics
-    - index: 178
-      guid: 1a0969fb-61cc-475b-b40a-aeb04f99cb44
-      title: More Function Basics
-    - index: 179
-      guid: 706c62d3-619a-4ec7-a52e-43f488a851f1
-      title: Creating Functions that Process Integers - Example
-    - index: 180
-      guid: 1c1c3a88-b081-45e8-a1e8-e622e9eb70d5
-      title: Creating Functions - Example results
-    - index: 181
-      guid: 7ed997ac-770a-4d33-bbb5-47131d3b2da4
-      title: Creating Functions that Process Strings - Example
-    - index: 182
-      guid: 11320c29-c05e-4cfc-87c3-fbe8219e2554
-      title: Creating Functions That Process Strings - Example results
-    - index: 183
-      guid: 8a84b8a2-2eea-4826-a51e-5a20440479de
-      title: Defining Functions with Multiple Parameters
-    - index: 184
-      guid: 49737569-bcfe-4433-9547-877ae6262ca3
-      title: Calling Functions with Multiple Parameters
-    - index: 185
-      guid: ee9aa36e-09e6-4ed0-a732-bfa7297f3919
-      title: Creating Functions with Multiple Parameters - Example (1 of 2)
-    - index: 186
-      guid: 859d7a6a-adbb-4d8d-8845-ac5e197f0d26
-      title: Creating Functions with Multiple Parameters - Example (2 of 2)
-    - index: 187
-      guid: 9f3d0ea7-11c3-4c8e-9a56-5a49f22f9d7b
-      title: Creating Functions with Multiple Parameters - Example results
-    - index: 188
-      guid: 45ad19b4-00a0-47d6-9bb7-16ad3fbdd3c5
-      title: Predicate Functions - Example (1 of 2)
-    - index: 189
-      guid: 94ef4d48-06fb-455a-b57b-d28710480bcb
-      title: Predicate Functions - Example (2 of 2)
-    - index: 190
-      guid: 616d076a-cb54-4e51-a6da-4db9fe627cf5
-      title: Predicate Functions - Example results
-    - index: 191
-      guid: 337ab66c-51cf-45ae-b120-c2674e7de299
-      title: Recursive Functions - Example
-    - index: 192
-      guid: ae3e3620-299d-4c4d-9f12-3c149a48036e
-      title: Recursive Functions - Example results
-    - index: 193
-      guid: c5ae57f1-68d7-468e-af86-1b194dd7f28e
-      title: Recursive Functions with Strings - Example
-    - index: 194
-      guid: 211ab7a2-260d-4084-991c-9bbbe08fa8c2
-      title: Recursive Functions with Strings - Example results
-    - index: 195
-      guid: f1e0f556-5932-404f-82e9-06119df89a8e
-      title: Higher order functions - Example
-    - index: 196
-      guid: 6bcf0a28-a3f3-4e6d-b2df-79baccea6443
-      title: Higher order functions - Example results
-    - index: 197
-      guid: b58b1484-8e9a-460c-a7ca-062f71bca06a
-      title: Anonymous Functions - Basic Lambda Form - Example
-    - index: 198
-      guid: eb7f7574-b2de-409e-a1b4-82e9403df966
-      title: Anonymous Functions - Basic Lambda Form - Example Results
-    - index: 199
-      guid: cfd11759-8246-4890-8289-1fed471b9f49
-      title: Filter function - Example
-    - index: 200
-      guid: ce62555b-ab43-49b7-82db-114781c94e1a
-      title: Filter function - Example Results
-    questions: []
-- title: Modules and Packages
-  guid: a6d942ee-b8b3-4ab7-9ebd-8ab737de9b0c
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 202
-      guid: a36a3361-f09a-4e05-92bf-0e2c3bf77a50
-      title: Packages & Modules
-    - index: 203
-      guid: 9a428071-7b1e-4ebc-a318-cd69fe20512c
-      title: PyPI - the Python Package index
-    - index: 204
-      guid: a4d18855-40e3-4a3c-981f-b873cd5d052b
-      title: Getting at PyPI with pip (1 of 3)
-    - index: 205
-      guid: d8e40ca2-e612-4b1e-b2ee-5523bd8191a7
-      title: Getting at PyPI with pip (2 of 3)
-    - index: 206
-      guid: f23e6a2c-2571-4fb5-aa72-f5edf428e620
-      title: Getting at PyPI with pip (3 of 3)
-    - index: 207
-      guid: d984e8ec-9a6d-467f-b3de-f95d28e8f06a
-      title: Lightweight Virtual Environments - Using venv
-    - index: 208
-      guid: 01c2cd70-d7f2-45c0-86db-55622c3de0af
-      title: import Statement - Example
-    - index: 209
-      guid: d482b7a7-5125-41a7-a882-b4e65a025f05
-      title: import Statement - Example Results
-    - index: 210
-      guid: 93b33ac1-c110-4a91-a390-0f7b4fb444cc
-      title: User Defined Modules - Example (1 of 2)
-    - index: 211
-      guid: bca3ace7-f44a-483d-a812-26474de18249
-      title: User Defined Modules - Example (2 of 2)
-    - index: 212
-      guid: 04ec0fbb-6ed0-43cc-aa66-f9eb1816eec7
-      title: User Defined Modules - Example Results
-    - index: 213
-      guid: a9f9be8c-c4b1-407d-a2b3-d5534ce4939a
-      title: Importing Functions from User Defined Modules - Example (1 of 2)
-    - index: 214
-      guid: 421b67b8-8b87-4003-8645-bb33a64c4aaf
-      title: Importing Functions from User Defined Modules - Example (2 of 2)
-    - index: 215
-      guid: 75168e5c-86bd-4b6e-ba00-dbeecae02cbc
-      title: Importing Functions from User Defined Modules - Example Results
-    - index: 216
-      guid: 2f588e9c-e556-4ade-9290-51810701027e
-      title: Importing Functions from User Defined Modules - Example 2
-    - index: 217
-      guid: a88a2909-81fa-41f8-af7a-0f4b5fe0ec8b
-      title: Importing Functions from User Defined Modules - Example 2 Results
-    - index: 218
-      guid: 09ed526b-40f2-4864-9042-6feaeaae53eb
-      title: Python Names and Namespaces
-    - index: 219
-      guid: 14c6856a-0c46-4ef0-9ddb-42577cdfe9f5
-      title: Import effects on Namespace
-    questions: []
-- title: Python Scope
-  guid: 46de4fa3-b904-41d8-9ca1-544958796131
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 221
-      guid: 7d457624-de1a-4fad-9167-449e1c6f3431
-      title: Python Names
-    - index: 222
-      guid: b7708f60-5dac-4698-95c0-ef8ca085418a
-      title: Global Scope - Example
-    - index: 223
-      guid: 332d5c0c-53ba-4889-ac97-1d9b815788a3
-      title: Global Scope - Example Results
-    - index: 224
-      guid: 5800d398-afcf-402f-aaea-f2bbe6749f8c
-      title: Local Scope - Example
-    - index: 225
-      guid: 0d24cb38-ef4e-4355-814b-f71e588baaea
-      title: Local Scope - Example Results
-    - index: 226
-      guid: c7925e27-1433-4b0a-9fac-e846229bc01b
-      title: Nested Scope - Example
-    - index: 227
-      guid: d906a089-e498-4d51-9e16-e2424cdf06cd
-      title: Nested Scope - Example Results
-    questions: []
-- title: Object-Oriented Programming
-  guid: 565f6d30-84e5-432d-b81c-eb9406c04ad9
-  subchapters:
-  - title: Contents
-    slides:
-    - index: 229
-      guid: 7ded1be0-a1f6-4b52-911d-ebc5d1741ae3
-      title: Mutable vs Immutable Objects
-    - index: 230
-      guid: 92d907a7-cbe7-4fa0-bab1-5324ce476182
-      title: Python and Objects
-    - index: 231
-      guid: 72cbfa11-c3e2-4e79-9b5c-df1a921d32ea
-      title: Checking Python Data Types with type()
-    - index: 232
-      guid: 9847c91a-ec35-4f6f-b291-b94e9e9ff64f
-      title: Abstract Data Types
-    - index: 233
-      guid: cdd16aed-d138-4b2d-ae1d-9cf370e990ee
-      title: Defining a Class
-    - index: 234
-      guid: 092e5c74-058f-4691-8808-66a05a9c7b86
-      title: Object vs Class
-    - index: 235
-      guid: a1a06164-a0f8-46e3-8b02-19abc7abdd3b
-      title: Class Fields & Constructors - Example
-    - index: 236
-      guid: 4818bb1c-120e-476d-87cf-d4f3c450b1a0
-      title: Class Fields & Constructors - Example Results
-    - index: 237
-      guid: b3e1c6e2-bd35-465e-ad04-238214b51a4e
-      title: Data Structures within a Class (1 of 2) - Example
-    - index: 238
-      guid: a423895e-5dc5-4715-a719-50565615f531
-      title: Data Structures within a Class (2 of 2) - Example
-    - index: 239
-      guid: 8c93314b-9c4d-4f09-9436-ddea6a6bc8b2
-      title: Data Structures within a Class - Example Results
-    - index: 240
-      guid: 93121524-57c7-49fc-a879-b8397cd4bc39
-      title: Class Inheritance (Is-a relationships)
-    - index: 241
-      guid: fbb4fd17-4445-47c6-b2c7-8b591185b0ef
-      title: 'Class Inheritance (Is-a relationships) within a '
-    - index: 242
-      guid: 2f08d661-91cb-47eb-b2f9-199f775d7d64
-      title: Sub Classes (Inheritance) - Example (1 of 3)
-    - index: 243
-      guid: c2d8498f-9907-496c-9bcd-9dafa5b9a090
-      title: Sub Classes (Inheritance) - Example (2 of 3)
-    - index: 244
-      guid: 98c85b2a-6e14-43cb-9106-8cc14ff53157
-      title: Sub Classes (Inheritance) - Example (3 of 3)
-    - index: 245
-      guid: a901c1e8-2f25-4a02-9453-b3e4bd61a67e
-      title: Sub Classes (Inheritance) - Example Results
-    - index: 246
-      guid: 650cc14d-16ee-4dae-97a4-e606ad3e7d9d
-      title: Polymorphism with a Function
-    - index: 247
-      guid: 47fa6ee2-f69d-46cc-a219-48bbb19e30ed
-      title: Polymorphism with a Function – Example Results
-    questions: []
+-   guid: 7d0a0055-3222-425d-b2d6-8f7993ca7ad3
+    subchapters:
+    -   slides:
+        - {guid: c25ab553-7444-4072-8b90-e02da764c7af, title: Tunneling}
+        - {guid: 4d0f7470-ae06-4084-abdc-91e845b1285b, title: IPsec Site to Site Application}
+        - {guid: 82d5c6eb-6c2d-4a22-bbf1-f4fed00b745f, title: Road Warrior Application
+                Based on IPsec}
+        title: Encapsulation
+    -   slides:
+        - {guid: 633ad6b6-2612-4150-b2df-16f409b72780, title: 4G GPRS Tunnel}
+        - {guid: 226d240a-e228-4941-8c25-658b5776d239, title: IP Flow Mobility and
+                Seamless Offload}
+        - {guid: 5679dfc5-2b85-494b-8c56-b3c699106dfe, title: SIPTO and LIPA}
+        title: GPRS-tunneling protocol and the APN
+    -   slides:
+        - {guid: 40ca385a-7c7a-4823-aaf7-3c30d1c38e08, title: Virtual Private Networks}
+        title: Remote Client
+    -   slides:
+        - {guid: 5e6526f1-2ebc-4803-9877-68f1b523dcdb, title: "The \u201CRoad Warrior\u201D\
+                \ Remote Access Case"}
+        title: Remote Client
+    -   slides:
+        - {guid: 489b9016-6e70-415b-a1e1-62778da8ebcd, title: IPSEC Knobs and settings}
+        - {guid: 2a97b0c4-bcf2-4913-90a1-ba324914cad9, title: IPSEC Settings}
+        - {guid: c51200c5-43a7-45ca-ad8f-385a17e36e83, title: Tunnel Types}
+        title: Algorithms
+    -   slides:
+        - {guid: 51741e00-828e-49b7-8e0a-06739fbd67a7, title: Road Warrior Application
+                Based on SSL/TLS}
+        - {guid: 2e366be5-a19c-473a-92d5-1494f2f7f19b, title: OpenVPN SSL Based VPN}
+        - {guid: 9ad9023f-fcea-476f-8919-88a50e455d3e, title: "Layer 2/3/4 VPNs \u2013\
+                \ Pros and Cons"}
+        - {guid: 5448b95f-12e4-425c-94ba-0b71d8f431b8, title: 'MPLS Tunnels (1 of
+                2) '}
+        - {guid: de552e9f-0906-43c0-83ce-17de7442e7c7, title: 'MPLS Tunnels (2 of
+                2) '}
+        - {guid: a1f93b04-c9d4-48a2-807b-91db86538946, title: VXLAN Flow}
+        title: Other tunneling methods
+    title: Introduction to Tunneling
+-   guid: 6471cbbc-b43e-45b5-992e-51c036f53b60
+    subchapters:
+    -   slides:
+        - {guid: 311fe459-cefe-4ee2-9d78-4896ad866e5b, title: IPsec and the Security
+                Association}
+        - {guid: cbc6efc1-ff86-4a50-9eba-cba786b68976, title: 'What is a Security
+                Association (SA)?'}
+        - {guid: 92c404fc-762d-4c8a-9ed3-4911b6f644ee, title: Outbound processing}
+        - {guid: 34888a22-2fe6-4b7d-8b3b-7bf4229dd07a, title: Inbound processing}
+        title: Architecture
+    -   slides:
+        - {guid: 64b3da35-8d1d-4a50-913b-a50784f1b664, title: Security Policy Database}
+        - {guid: b2aa7bb3-156b-4da1-b691-6fe3c7688601, title: Security Association
+                Identifiers}
+        - {guid: 07d7bcdb-fc2f-4174-8351-7424ad1c35df, title: Security Association
+                Identifiers}
+        - {guid: a3b088b5-faa2-43c0-94af-fff9b152d38f, title: Security Association
+                Identifiers}
+        title: Policy
+    -   slides:
+        - {guid: 42281c72-d455-4594-b470-770fdad47e90, title: Strongswan Config Files
+                and Directories}
+        - {guid: 346f84ac-e0b3-4820-81b8-161f1e38795d, title: Strongswan ipsec.conf
+                example - 1 of 14}
+        - {guid: 7c05ae06-ca18-48b3-9754-59a3218b6601, title: "Strong Swan \u201C\
+                left\u201D and \u201Cright\u201D Reference"}
+        - {guid: 5161aaca-f13d-4c9e-948f-d46e986f8cf1, title: Strongswan ipsec.conf
+                example - 2 of 14}
+        - {guid: 3e636f25-c3f9-4b43-96db-3526fc86140b, title: Strongswan ipsec.conf
+                example - 3 of 14}
+        - {guid: f27334e2-6f9b-4e98-a899-4e844e8adf8b, title: Strongswan ipsec.conf
+                example - 4 of 14}
+        - {guid: 0bd2ca7b-79c5-40f9-a069-fb13a68aff3e, title: Strongswan ipsec.conf
+                example - 5 of 10}
+        - {guid: 4d21bfb9-8b8f-46d6-ae62-006de83f47ad, title: Strongswan ipsec.conf
+                example - 6 of 14}
+        - {guid: 4e93c148-964c-4aa4-bc47-0c3357cde0ae, title: Strongswan ipsec.conf
+                example - 7 of 14}
+        - {guid: 43caa291-60d4-4c2a-9422-8d733a6f3dbb, title: Strongswan ipsec.conf
+                example - 8 of 14}
+        - {guid: a42fb9a8-84c3-45c1-b10a-09d55d905387, title: Strongswan ipsec.conf
+                example - 9 of 14}
+        - {guid: 986477fc-61cf-4fa8-b151-91483cb8a921, title: Strongswan ipsec.conf
+                example - 10 of 14}
+        - {guid: 22e0cf77-0d65-4e6a-9178-84ce4cff7ccd, title: Strongswan ipsec.conf
+                example - 11 of 14}
+        - {guid: b3781358-8852-4794-80ec-55d0fada909d, title: Strongswan ipsec.conf
+                example - 12 of 14}
+        - {guid: d8ca1052-d250-4da1-aa3c-3d195d6c014d, title: Strongswan ipsec.conf
+                example - 13 of 14}
+        - {guid: 0e416b74-2af3-474b-8e60-d5cde601a9d5, title: Strongswan ipsec.conf
+                example - 14 of 14}
+        title: Configuration
+    title: Security Associations
+-   guid: cfbe5dea-809e-4def-8a00-e67dcea6be97
+    subchapters:
+    -   slides:
+        - {guid: b68cfac5-fdb3-4d08-b2e4-0303bd08075e, title: Overview}
+        - {guid: c6de7ddd-1eed-4e9a-a733-276b6937aef8, title: IKEv1 vs IKEv2 (1 of
+                4)}
+        - {guid: 8bf8173d-4729-4d6f-8783-9240b8787e9a, title: IKEv1 vs IKEv2 (2 of
+                4)}
+        - {guid: 6199753d-b902-4344-8903-a1fb492bbd61, title: IKEv1 vs IKEv2 (3 of
+                4)}
+        - {guid: 38787be2-f860-4f5f-acc9-9c4b80cadb83, title: IKEv1 vs IKEv2 (4 of
+                4)}
+        title: RFCs
+    -   slides:
+        - {guid: 52137902-0e19-4621-b971-1192bf169be1, title: Security Threat Icons}
+        - {guid: 160cf2e4-25b8-493e-a336-f2cbd2fdd43c, title: Authentication}
+        - {guid: 0a942353-df43-45c7-8e97-711326ae226e, title: Data Origin Authentication}
+        - {guid: b12ef914-b241-4a07-b499-1b4b6cd71624, title: Data Integrity}
+        - {guid: dc02ea08-5d64-4cea-819b-6073233deff8, title: Replay Attack}
+        - {guid: 14eb3177-9709-43ea-ae4c-ad2db82b973d, title: Confidentiality}
+        - {guid: bec5fb9f-e65b-46a5-bbb4-86bfed326c42, title: Traffic Flow Confidentuality}
+        - {guid: b7617370-14a5-412d-864d-d5a646e6d72d, title: MITM Attack}
+        - {guid: 71fe1e77-504a-485b-9bf6-cbf9037245f2, title: IPSec services}
+        title: Security Threats
+    title: Just Enough IPsec Legacy
+-   guid: f5123550-fcef-485a-b03d-95ddc4724bce
+    subchapters:
+    -   slides:
+        - {guid: beae37d4-a77c-48f8-9c12-439a103368b8, title: BPF Berkley Packet Filter
+                Primer}
+        title: Why is it so fast
+    -   slides:
+        - {guid: d6df2d03-5268-4d70-8475-31d9c1c25667, title: tcpdump Essentials}
+        - {guid: 586f97b4-6703-4246-9517-2cb9703e7696, title: tcpdump Essentials}
+        - {guid: 50c993fc-87c0-4213-9820-00fa63e8bf49, title: 'iptables'' nflog interface '}
+        title: commands
+    title: tcpdump Overview
+-   guid: 10091142-d86f-42c3-bc79-b8bd05be191b
+    subchapters:
+    -   slides:
+        - {guid: 6e4ad5a1-3799-4a39-89d1-2df190ab2c64, title: Symmetric Key}
+        title: Types
+    -   slides:
+        - {guid: 51b243f2-8f20-45f1-b0f6-6e68e78fe3fb, title: AES Conceptual Scheme}
+        - {guid: 91fb6023-36d4-4e44-ab0a-c54e4d84879e, title: AES Transformation Tools}
+        - {guid: 34ea8d60-90d1-4331-b951-c565f5eca7d9, title: AES Block Example}
+        - {guid: 2ed01a44-13a9-427b-9639-ad40de688f4b, title: AES Block Example}
+        - {guid: f0737de0-8752-4cc6-90a1-dd345e70d060, title: AES Key}
+        - {guid: e45233d6-a6f1-4157-9264-728ecc07371c, title: Key Expansion}
+        - {guid: 523efad6-8d13-48ba-84e8-9c3306fa1336, title: XOR (AddRoundKey)}
+        - {guid: 784951ba-09a6-46a6-9e55-3806d57cf6af, title: S-box or Substitution
+                Box}
+        - {guid: 7a3fca6d-61f8-4949-a259-31b2d6721184, title: ShiftRows}
+        - {guid: a5f59615-1097-4dc7-a43f-26b978f3cb01, title: Mix Columns}
+        - {guid: 806d0cb0-0a4b-49dc-801f-0d8b6cc8d671, title: AES Round}
+        - {guid: 4d77dfec-4e91-453d-b114-7ff238fe21a8, title: Multiple Rounds}
+        - {guid: afe03ad0-104e-4278-984a-ea58ee84bb88, title: IKEv2 Cipher Suites}
+        title: AES
+    title: Symmetric Encryption
+-   guid: 4be01429-1b11-46b6-bca3-d473468d6c5e
+    subchapters:
+    -   slides:
+        - {guid: de5a8b8a-adcd-4951-aafa-903497384b5b, title: Vocabulary}
+        - {guid: 57172cf9-7700-42de-a3a8-30e52598acde, title: Vocabulary}
+        title: Vocabulary
+    -   slides:
+        - {guid: f811ef35-7806-4880-a111-572c997bf55a, title: Public Key Encryption
+                as Privacy}
+        - {guid: d50eec29-faec-43a9-b66c-487cee5ea230, title: Public Key Encryption
+                as Authentication}
+        - {guid: 6d53858b-3f7b-4f53-960c-1055a14e08ac, title: 'Public Key Encryption:
+                Four Keys = Secure Communications in Both Directions'}
+        - {guid: 75ec7203-f95f-44c2-b384-17789683ffbd, title: Man in the Middle Certificate
+                Swapping}
+        - {guid: 81e93a8d-013a-4d47-94b2-4b80763bee30, title: "Integrity Check\v"}
+        - {guid: cfc7cf65-1e40-4ac4-a108-436e00582f6e, title: PKI Process Introducing
+                the CA (Certificate Authority)}
+        - {guid: 9fb3ecd1-4fe9-41a5-bba3-3ffcc0263788, title: Hashing Algorithms Produce
+                a Mathematical Distillation Called a Digest or Hash}
+        - {guid: 3e3e4158-8e34-4138-8386-7678b27a943b, title: Using Hashing Algorithms
+                for Authentication}
+        - {guid: 3fcbc004-7407-497a-aa97-6287a32c5063, title: Using Hashing + RSA
+                to Create a Digital Signature}
+        - {guid: f924e059-d4fb-4f86-9361-a3d13ff4a435, title: A Digital Certificate
+                Example}
+        - {guid: 95961a19-3439-4022-9735-2f35a28291df, title: SUBJECT and ISSUER Data
+                Elements}
+        - {guid: 09c38887-15c8-4a51-9854-0bea24139e56, title: Verify the Digital Certificate
+                Verification}
+        - {guid: 933e6d38-db7b-49c8-9791-b42744648de7, title: ' PEM Format and Base
+                64'}
+        - {guid: e8d1d08f-af01-4605-9011-fdd92b56b421, title: TLS Connection Establishment}
+        - {guid: c5c78e34-2a02-4760-b9a9-5066abc71ec6, title: "RSA Example 1 of 5\
+                \ \u2013 Clear Text"}
+        - {guid: 5ec25e5c-e44a-4585-9b4c-7856f32ad45b, title: RSA Example 2 of 5 -
+                Deriving the keys}
+        - {guid: 16c85ccb-2bb8-4c31-bce7-2c3ec4aaf55c, title: "RSA Example 3 of 5\
+                \ \u2013 Encrypt using the Public Key"}
+        - {guid: 6c27d9ea-3cc8-4e6e-b59e-d0d5cffe0e23, title: "RSA Example 4 of 5\
+                \ \u2013 Using the Private Key"}
+        - {guid: f8728b70-7502-4a4e-899f-decfb81a5ca3, title: "RSA Example 5 of 5\
+                \ \u2013 Back to clear text"}
+        - {guid: efe8bf96-6097-4c98-b835-289db1c9628a, title: Creating Production
+                RSA keys (1 of 2)}
+        - {guid: 410d98be-a17e-4394-a593-ac72c4130b78, title: Creating Production
+                RSA keys (2 of 2)}
+        title: RSA
+    -   slides:
+        - {guid: 11b65ae9-b7ed-4bd4-805c-d16030106eec, title: Groups}
+        - {guid: 1b055371-e916-4684-b5bd-017b46bdf8ce, title: The Elliptic Curve Group}
+        - {guid: da8d33a4-ae26-4b9f-893b-ba3517d0b265, title: Why ECC is Secure}
+        - {guid: 956fbacf-7aef-4e72-b7dc-7d087b87346f, title: Comparing RSA to ECC}
+        title: Elliptic Curve
+    title: PKI Encryption
+-   guid: c0d839cd-b933-4d00-8b68-a11b9b52c5c2
+    subchapters:
+    -   slides:
+        - {guid: 306d21f1-9cb1-4904-a121-243197aad450, title: "Diffie-Hellman\u2019\
+                s 7 Numbers - Public and Private"}
+        - {guid: 2c4e35c9-6363-4c86-92f3-2a2f47d132ac, title: Diffie-Hellman Introduction}
+        - {guid: d5ac2471-6a5c-4c71-b157-13064a19fe5e, title: "Diffie-Hellman\u2019\
+                s 7 Numbers Defined"}
+        - {guid: f4c6373f-82d6-4281-8e25-825749dcc919, title: Primitive Root}
+        title: Values
+    -   slides:
+        - {guid: 11e277f3-2a94-4d2d-9cee-1229ccf3898e, title: 'Discrete Algorithm
+                Problem, Modulo Substitution and Exponents'}
+        - {guid: 759e1a6d-1687-4eef-b608-891d35d21868, title: \}
+        - {guid: 78db17fa-3248-4589-9560-2bda2c2e6211, title: Why Diffie-Hellman works}
+        - {guid: bfffa18e-7fc3-44cf-85db-8a15a5f9e832, title: Diffie-Hellman Example}
+        title: Algorithm
+    title: Diffie-Hellman
+-   guid: 3fbb41c2-830d-482d-9123-9cde49dc8d20
+    subchapters:
+    -   slides:
+        - {guid: 9cab3062-b2cd-47ed-b10c-fb94e5408954, title: 'How Oakley Improves
+                Diffie-Hellman '}
+        title: Improving Diffie-Hellman
+    -   slides:
+        - {guid: c7c4256f-9452-4b77-bc14-cac93b01c222, title: Oakley Cookie Exchange}
+        - {guid: 0d6398bf-4b3f-4952-90d6-9f8d22a61806, title: Oakley ID and Hash}
+        - {guid: d19be95a-00cd-4bae-ac60-5268a5882509, title: Oakley Nonce}
+        title: Cookies
+    title: Oakley
+-   guid: 966d45ec-dbff-4713-ac34-66d2dee2e0a2
+    subchapters:
+    -   slides:
+        - {guid: bd229ece-8a8c-4b68-96f1-97063ae95157, title: Extended Authentication}
+        - {guid: 04981fb9-aae8-4828-8bb5-094a9a6b6ddf, title: Man-in-the-Middle Attack
+                Possible with IKE Aggressive Mode and XAUTH}
+        title: XAUTH vs EAP
+    -   slides:
+        - {guid: cf1696fe-83c3-4836-a43c-d44e8d86a639, title: 'EAP is a Wrapper, not
+                an Authentication Protocol'}
+        - {guid: 1beaa627-eb11-4732-beb9-109e2cfde39f, title: Extensible Authentication
+                Protocol (EAP)}
+        - {guid: de367cf3-13e5-4086-9632-65e8e334a1ef, title: Expanded EAP Type}
+        - {guid: db775ab9-7818-49a8-9440-fc6be2e8e5dc, title: Standard EAP Packet
+                Format}
+        - {guid: 0397f5c7-7539-41ea-b1e3-bbf7db95a8b1, title: EAP Identity}
+        - {guid: eefe0578-224b-4fc3-a825-05bafcb0c501, title: EAP Authentication method
+                negotiated with NAK}
+        title: Architecture
+    -   slides:
+        - {guid: e9575e02-d7cc-442f-9321-ddf9d5faaa47, title: Sample EAP Negotiation
+                with NAK}
+        - {guid: eeed35e9-6055-4994-8580-b3e8b1fee7af, title: 3G EAP AKA Example}
+        - {guid: cc39aee8-09c1-4bf1-9360-21cc68419bfa, title: IKE  EAP-AKA/ESP}
+        title: How it works
+    title: Extensible Authentication Protocol
+-   guid: 8929029e-a0e1-418a-b8d8-b3161a07f679
+    subchapters:
+    -   slides:
+        - {guid: b5c33e36-c059-4bd4-9e3e-55dd5888a11e, title: Transport  and Tunnel
+                Modes}
+        - {guid: d6b9ebf1-6163-437d-b2a9-06f8d5126da1, title: "IPsec \u2013 Tunnel\
+                \ Mode: Virtual Private Network (VPN)"}
+        - {guid: 5d1aea69-57bb-4cfd-b7d4-efd084959d54, title: TCP/IP Bypass}
+        - {guid: 4baee1f7-551a-4a37-9239-1598fad8f6b9, title: Transport Mode}
+        - {guid: 2551ec65-9141-4c43-8c88-f646406ab1bc, title: Authentication Header
+                Tunnel Mode}
+        - {guid: 536dfe5a-3451-4668-aba4-62500e06acd2, title: ESP - Transport Mode}
+        - {guid: f540d01a-fec2-48f6-9121-8e6d55b88ab1, title: "ESP \u2013 Tunnel Mode"}
+        - {guid: 423dc7fe-e5ab-4c14-8ec7-ffe46aea0d60, title: ESP - Transport Mode}
+        - {guid: 946761d9-2fc8-4f67-b001-a5a63068c831, title: "ESP \u2013 Tunnel Mode"}
+        title: Types
+    -   slides:
+        - {guid: 72d09fc7-3b30-4408-a830-9ca74868635e, title: IPsec Tunnel Mode CBC
+                Packet Overhead}
+        title: Overhead
+    title: Mode of Operation
+-   guid: c1cd6ba1-1e39-4ab9-b108-48678ef0c9e6
+    subchapters:
+    -   slides:
+        - {guid: 5f63da50-0d69-453e-a7f6-39993f54243c, title: Security Association}
+        - {guid: 36cf59d4-17f9-4297-8637-9460ec77dc14, title: Internet Security Association
+                and Key Management Protocol (ISAKMP)}
+        - {guid: 84c8a112-703f-411c-a697-56dcdc7c6173, title: ISAKMP Phases}
+        - {guid: 09c0620b-da25-440d-b7b6-170d6aca5fd3, title: 'IKE vs ISAKMP '}
+        - {guid: 0ee80399-bbc0-4e8c-8ced-492fe6c480ff, title: "The New Standard \u2013\
+                \ IKEv2 RFC 4306 (Dec. 2005) / RFC 5996 (Sept. 2010)"}
+        title: Overview
+    -   slides:
+        - {guid: 790903d4-50be-421c-ac31-f48b5f1be3f0, title: "Internet Key Exchange\
+                \ \u2013 IKEv1 Main Mode PSK 1 of 2"}
+        - {guid: 6a9117bc-14ba-4ee1-aaea-9d83c72b1415, title: "Internet Key Exchange\
+                \ \u2013 IKEv1 Main Mode PSK 2 of 2"}
+        - {guid: fd70753c-f373-431f-a3cd-81db77d95007, title: IKE Aggressive Mode
+                Using Pre-Shared Keys}
+        title: IKEv1
+    -   slides:
+        - {guid: 542c7d5b-4225-4ef6-a69c-331b3156caaf, title: "IKEv2 \u2013 SA Initialization\
+                \ and Authentication"}
+        - {guid: b91c4034-c12d-4191-a92e-aafc0552f6d4, title: "IKEv2 \u2013 Authentication\
+                \ and First Child SA"}
+        - {guid: 6cf2dd05-1286-4306-b4cd-b2224ac57e70, title: "IKEv2 \u2013 Authentication\
+                \ and First Child SA"}
+        - {guid: 38350cea-0d56-4339-add7-d532893207b6, title: "IKEv2 \u2013 Authentication\
+                \ and First Child SA"}
+        - {guid: 397aabd0-249f-4f7f-b0c4-a3be3b394d8c, title: "IKEv2 \u2013 Authentication\
+                \ and First Child SA"}
+        - {guid: 080f539c-229c-4b96-8d20-1ed5e3cea632, title: "IKEv2 \u2013 Authentication\
+                \ and First Child SA"}
+        - {guid: d118aa49-9087-4040-97a4-00c322ab31b2, title: "IKEv2 \u2013 Authentication\
+                \ and First Child SA"}
+        - {guid: a8938e59-1b3b-4748-b215-2778bd433997, title: IKE_AUTH Request Details}
+        - {guid: b257a912-0c61-4f25-bb33-0b89f8572de2, title: "IKEv2 \u2013 Authentication\
+                \ and First Child SA"}
+        - {guid: f8c03ae1-909f-4ef4-a2d7-e8b7e27ada35, title: "IKEv2 \u2013 IKE_AUTH\
+                \ Response"}
+        - {guid: ded8c073-5c6b-438b-9469-faf423101b57, title: "IKEv2 \u2013 Cookie\
+                \ Mechanism Against DoS Attacks"}
+        - {guid: 7378c5de-4881-41bd-a0d3-6aec77db0efd, title: "IKEv2 \u2013 Additional\
+                \ Child SAs"}
+        - {guid: ba3b5cec-914b-412a-a888-bbbbccf7f0ec, title: Configuration Payload
+                (CP)}
+        - {guid: 82a3d7af-ea12-46c6-a12e-d8d2cbd68210, title: ISAKMP and IPsec Security
+                Associations}
+        - {guid: 916dce6a-6951-4d81-ac44-bf578e0514f2, title: Security Association
+                Structure}
+        - {guid: 2c34dc78-c3ab-41de-8822-2506d814e75b, title: IKEv2 Dead Peer Detection}
+        - {guid: 9f9da8cb-e1b7-480a-85da-919d118f45a5, title: Reading IKEV2 Exchanges
+                in Documentation}
+        title: IKEv2
+    title: IPsec Negotiation
+-   guid: cfb9604e-e84e-4ac1-95b2-be2f5a4929a8
+    subchapters:
+    -   slides:
+        - {guid: d2386efe-871a-4a07-8ada-4fdd59c74402, title: NATs}
+        - {guid: 238f7725-f6ee-4a79-8f30-d7d4715cbe92, title: The NAT Traversal Problem}
+        - {guid: 6586a90a-ce26-4188-90bb-c70a6c7e0c17, title: IPSec Passthrough (Transparent
+                IPSec Connection)}
+        - {guid: 71dcfdca-5d1b-4017-939f-b6b5abcf9f9b, title: The NAT Traversal with
+                UDP Tunneling}
+        - {guid: e4c68389-72fb-468e-a306-245107976608, title: UDP for Tunneling ESP}
+        - {guid: eb6b4390-1ebb-4d57-8b7d-16b0a6bb6bea, title: The NAT Traversal UDP
+                Port Assignment}
+        title: Defining the problem
+    -   slides:
+        - {guid: 294392e6-586f-4f62-8647-6cc4dc182b80, title: UDP-Encapsulated ESP
+                Header Format}
+        - {guid: 271a4ce7-c79c-4224-b974-1e3cb158435f, title: NAT-Keepalive Packet
+                Format}
+        - {guid: ed00fffd-e700-482b-9cf7-798776747668, title: IKE Header Format for
+                Port 4500}
+        - {guid: 83a4e1ad-49f7-439d-94f4-21c0d274be5a, title: 'NAT-T vs. IPSec-over-UDP '}
+        - {guid: dd72963b-81a9-43c1-8ea2-d95d3458ce2e, title: The NAT Traversal UDP
+                Port Assignment}
+        - {guid: 58e576e0-5b33-42a1-8594-061ff12f7641, title: NAT_DETECTION Notification
+                Data}
+        - {guid: 5f85e946-fae8-4335-b338-1b730ed0d18b, title: NAT-T Detection Process}
+        - {guid: 698bd6a6-aaf4-4b79-8014-15e5c3877700, title: Tunnel Mode Conflict}
+        title: Solving the problem
+    title: How NAT Impacts IPsec
+-   guid: 2e01d687-631f-4206-819b-db5bdc86aeeb
+    subchapters:
+    -   slides:
+        - {guid: 89d896ca-3519-4d12-8565-09741fd21d16, title: IPsec Encapsulation
+                Options}
+        - {guid: 24b060a1-f5c1-4a1d-bafb-bd8e9869db8c, title: IPsec and the IP Header}
+        - {guid: cdd981cc-3c74-4ace-b77a-a25815eb6138, title: IPSec and the UDP Header}
+        - {guid: 3f2f1e19-67e0-4844-aefc-38b1d81c525c, title: IPsec and the TCP Header}
+        - {guid: 54aa47f1-8e12-4ecd-beb3-19b4a205c9a7, title: IPsec and the ESP Header}
+        - {guid: 8ee87fc0-3752-4edc-b3ca-8de305bfd8ea, title: IPsec and the AH Header}
+        - {guid: 72ef8738-b077-4fc0-a0eb-2b412e36834e, title: ISAKMP Typical Message
+                Format}
+        title: Overview of the options
+    title: Encapsulation in Depth
+-   guid: 52633fc0-fac3-47e0-a568-5d23a58ba7a3
+    subchapters:
+    -   slides:
+        - {guid: 75315582-757b-4f38-b014-da91431a434d, title: Encapsulating Security
+                Payload (ESP)}
+        title: Introduction
+    -   slides:
+        - {guid: a42b6161-7967-4d1f-911f-ce8070c32eb0, title: Encapsulated Security
+                Payload (ESP)}
+        title: Methods
+    -   slides:
+        - {guid: a5c9de57-c826-49f1-b3de-d4713eb0329e, title: Replay detection}
+        title: Anti-replay
+    -   slides:
+        - {guid: 6f6c125d-f706-44bb-8375-b9a6584a9678, title: Encapsulating Security
+                Payload Header Fields}
+        title: Encapsulating the data
+    title: IPsec ESP Protocol
+-   guid: 44e3f1ea-bdee-4e53-8043-9d0de8077f24
+    subchapters:
+    -   slides:
+        - {guid: 9aeb46f4-cef6-4f85-a378-183c1c8d8389, title: AH Data Protected Fields}
+        title: Issues and Limitations
+    -   slides:
+        - {guid: da70a8de-0916-419e-8c20-1e03c8145527, title: AH Data Fields}
+        - {guid: 4ea6e0f0-f5c8-4dc5-93c4-9ebd300c5707, title: Authentication Header
+                Transport Mode}
+        - {guid: f07de4eb-4099-404d-901e-a7602237e0a0, title: Authentication Header
+                Tunnel Mode}
+        - {guid: 6bc5f2e2-57c5-465a-bfdd-9ae3e10aa591, title: AH transport vs tunnel
+                mode}
+        title: Modes
+    title: IPsec AH Protocol
+-   guid: 3964b427-bbc3-4821-a3b4-91574952edf9
+    subchapters:
+    -   slides:
+        - {guid: a57d38fa-d370-4cdc-888e-1ac9cda73496, title: Portscanning 101}
+        - {guid: e5d8944a-9fe7-4421-8f51-54264f2fdd42, title: Host Discovery}
+        - {guid: 9c1b555f-4e46-4157-8780-ce01d4109803, title: nmap ike-version}
+        - {guid: 33a117e9-275b-4596-8dea-06722d6b1372, title: "Professor Messer\u2019\
+                s Quick Reference Guide to NMAP (Scan Option)"}
+        - {guid: 2b89caaa-b105-475d-abc6-ef745c88e6d9, title: "Professor Messer\u2019\
+                s Quick Reference Guide to NMAP"}
+        - {guid: aed96829-54d1-45a9-82ea-1c3c37b77974, title: ike-scan}
+        - {guid: 46a57558-5a80-4daf-80f7-edf0351a5201, title: Trying Different Transforms}
+        - {guid: f4c5c303-53d1-4a52-8b95-dc271a006a96, title: Trying Different Transforms
+                (2 of 2)}
+        title: Methods
+    title: Penetration Testing
+-   guid: f9dad934-38f4-4290-a5d3-1edb52cf5785
+    subchapters:
+    -   slides:
+        - {guid: 81b4c383-9da0-4947-b6ea-90a70231301a, title: TMUX Cheat Sheet}
+        - {guid: d16a879d-ba73-46e5-bc24-3119fb714e19, title: Site to Site Lab Diagram}
+        - {guid: 15d50dd8-fc35-42dd-81cd-7f2bf224226e, title: Road Warrior Lab Diagram}
+        title: Diagrams
+    title: Lab
+filename: courses/ipsec.json
+has-labs: true
+has-slides: true
+has-videos: true
+id: ipsec
+name: IPSec
+private: false
+weburl: https://alta3.com/courses/ipsec

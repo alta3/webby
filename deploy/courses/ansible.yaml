@@ -18,7 +18,7 @@ testimonials:
     stars: 50
   - quote: "Instructor is wonderful and very knowledgeable and made the class very enjoyable. Labs worked well and were very interesting."
     stars: 50
-video-link: "https://www.youtube.com/embed/ZDwkus-0A3I"
+video-link: "https://www.youtube.com/embed/ZDwkus-0A3I?rel=0;autoplay=1"
 web-url: "https://alta3.com/courses/ansible"
 has-labs: false
 has-videos: true
@@ -29,7 +29,7 @@ price:
     price-tags:
       - id: priceinfo-public-single-student 
         description: Face to face training for 1 student
-        price: 219500
+        price: 800000
         available: yes
         includes: 
         - item : has-video-true
