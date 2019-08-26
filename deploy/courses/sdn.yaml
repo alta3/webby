@@ -28,7 +28,7 @@ price:
     price-tags:
       - id: priceinfo-public-single-student 
         description: Face to face training for 1 student
-        price: 800000
+        price: 179500
         available: yes
         includes: 
         - item : has-video-true
@@ -41,7 +41,7 @@ price:
     price-tags:
       - id: priceinfo-private-base8
         description: face to face training for up to 8 students
-        price: 850000
+        price: 179500
         available: yes
         includes: 
         - item : has-video-true
@@ -61,7 +61,7 @@ price:
     price-tags:
       - id: priceinfo-selfpaced-singlestudent 
         description: Self Paced Training
-        price: 250000
+        price: 44500
         available: yes
         includes: 
         - item : has-video-true
